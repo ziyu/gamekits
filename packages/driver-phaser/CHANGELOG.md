@@ -1,5 +1,20 @@
 # @gamekits/driver-phaser
 
+## 0.1.0-alpha.9
+
+### Patch Changes
+
+- Updated dependencies [e181325]
+  - @gamekits/core@0.1.0-alpha.9
+  - @gamekits/animator-core@0.1.0-alpha.9
+  - @gamekits/asset@0.1.0-alpha.9
+  - @gamekits/audio-core@0.1.0-alpha.9
+  - @gamekits/camera-core@0.1.0-alpha.9
+  - @gamekits/driver-core@0.1.0-alpha.9
+  - @gamekits/input-core@0.1.0-alpha.9
+  - @gamekits/renderer-phaser@0.1.0-alpha.9
+  - @gamekits/renderer-core@0.1.0-alpha.9
+
 ## 0.1.0-alpha.8
 
 ### Patch Changes
