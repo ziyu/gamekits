@@ -3,7 +3,7 @@ import {
   shapeCast,
   sweepPhysicsKinematicStep,
   type PhysicsKinematicSweepQueries
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 import { describe, expect, it } from "vitest";
 import { initRapier3dPhysicsBackend } from "../src";
 

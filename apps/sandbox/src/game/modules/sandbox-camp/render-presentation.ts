@@ -1,4 +1,4 @@
-import type { RenderObjectDefinition } from "@gamekit/renderer-core";
+import type { RenderObjectDefinition } from "@gamekits/renderer-core";
 import type { SandboxRenderRigDefinition } from "../../sandbox-data";
 
 export function createRenderableDefinition(

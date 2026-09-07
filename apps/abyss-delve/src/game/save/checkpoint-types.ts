@@ -1,4 +1,4 @@
-import type { GasActorRuntimeState } from "@gamekit/gas";
+import type { GasActorRuntimeState } from "@gamekits/gas";
 import type { ActorRole, CombatState, EnemyAiState, LootKind, PositionState } from "../components";
 
 export const ABYSS_CHECKPOINT_SECTION_ID = "abyss.run_checkpoint";

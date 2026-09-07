@@ -1,12 +1,12 @@
-import type { DataRegistry } from "@gamekit/data";
+import type { DataRegistry } from "@gamekits/data";
 import {
   createCombatKinematicProjectileRecordBuffer,
   type CombatHandle,
   type CombatKinematicProjectileRecordBuffer,
   type CombatTraceStore
-} from "@gamekit/combat";
-import type { EventBus } from "@gamekit/event-bus";
-import type { GasHandle, GasOperationContext } from "@gamekit/gas";
+} from "@gamekits/combat";
+import type { EventBus } from "@gamekits/event-bus";
+import type { GasHandle, GasOperationContext } from "@gamekits/gas";
 import {
   PhysicsBodyComponent,
   PhysicsColliderComponent,
@@ -18,8 +18,8 @@ import {
   type PhysicsQueryResult,
   type PhysicsTraceStore,
   type PhysicsVector
-} from "@gamekit/physics-core";
-import type { EntityId, GameWorld } from "@gamekit/world";
+} from "@gamekits/physics-core";
+import type { EntityId, GameWorld } from "@gamekits/world";
 
 import { OUTPOST_ARENA } from "../content";
 import type { OutpostIdentityRegistry, OutpostReplicatedWeaponState } from "../domain";

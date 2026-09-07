@@ -1,5 +1,5 @@
-import type { AppHost } from "@gamekit/app-host";
-import type { DataRegistry } from "@gamekit/data";
+import type { AppHost } from "@gamekits/app-host";
+import type { DataRegistry } from "@gamekits/data";
 import type { SandboxRuntime, SandboxSnapshot } from "../game";
 import { formatNumber, upper } from "./format";
 import type { SandboxUiHandles, SandboxWorkbenchState } from "./types";

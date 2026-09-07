@@ -1,9 +1,9 @@
-import { createNavigationError } from "@gamekit/navigation-core";
-import type { NavigationBackendFactory } from "@gamekit/navigation-core/backend";
+import { createNavigationError } from "@gamekits/navigation-core";
+import type { NavigationBackendFactory } from "@gamekits/navigation-core/backend";
 import {
   NAVIGATION_NAVMESH_SOURCE_TYPE,
   type NavigationNavMeshSource
-} from "@gamekit/navigation-navmesh";
+} from "@gamekits/navigation-navmesh";
 import type { CreateRecastNavigationBackendFactoryOptions } from "../contracts";
 import { createRecastNavigationBackend } from "./create-recast-navigation-backend";
 

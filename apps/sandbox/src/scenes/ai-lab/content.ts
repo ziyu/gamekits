@@ -1,10 +1,10 @@
-import { createAiDataTypes } from "@gamekit/ai-core";
+import { createAiDataTypes } from "@gamekits/ai-core";
 import {
   createDataRegistry,
   type DataPack,
   type DataRegistry,
   type DataTypeDefinition
-} from "@gamekit/data";
+} from "@gamekits/data";
 import type { AiLabSpecies } from "./types";
 
 export const AI_LAB_AGENT_PREFIX = "ai-lab.animal.";

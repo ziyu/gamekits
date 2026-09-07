@@ -1,4 +1,4 @@
-import { createPhysicsModule, type PhysicsModuleOptions } from "@gamekit/physics-core";
+import { createPhysicsModule, type PhysicsModuleOptions } from "@gamekits/physics-core";
 import { resolveStandardValue } from "../resolve";
 import type { StandardPhysicsGameModuleOptions, StandardServiceBuildContext } from "../types";
 
@@ -7,7 +7,7 @@ export function createStandardPhysicsModule<TContext>(
   options: StandardPhysicsGameModuleOptions<TContext>
 ) {
   const moduleOptions: PhysicsModuleOptions = {
-    id: options.id ?? "gamekit.physics",
+    id: options.id ?? "gamekits.physics",
     backend: resolveStandardValue(ctx, options.backend)
   };
 

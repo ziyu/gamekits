@@ -2,15 +2,15 @@ import {
   createStandardAppProfile,
   type AppProfile,
   type StandardAppServiceState
-} from "@gamekit/app-host";
-import type { AiHandle } from "@gamekit/ai-core";
-import type { DevToolsRuntime } from "@gamekit/devtools";
-import { createEventBus } from "@gamekit/event-bus";
-import { createGame } from "@gamekit/game-runtime";
-import { createNavigationHandle } from "@gamekit/navigation-core";
-import { createMemoryPhysicsBackend, createPhysicsHandle } from "@gamekit/physics-core";
-import type { UiRuntime } from "@gamekit/ui-core";
-import { createKootaWorld } from "@gamekit/world-koota";
+} from "@gamekits/app-host";
+import type { AiHandle } from "@gamekits/ai-core";
+import type { DevToolsRuntime } from "@gamekits/devtools";
+import { createEventBus } from "@gamekits/event-bus";
+import { createGame } from "@gamekits/game-runtime";
+import { createNavigationHandle } from "@gamekits/navigation-core";
+import { createMemoryPhysicsBackend, createPhysicsHandle } from "@gamekits/physics-core";
+import type { UiRuntime } from "@gamekits/ui-core";
+import { createKootaWorld } from "@gamekits/world-koota";
 import {
   AI_LAB_SCHEDULER_CLASSES,
   createAiLabInputs,

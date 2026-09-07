@@ -1,5 +1,5 @@
-import type { NavigationLayoutDefinition, NavigationPoint } from "@gamekit/navigation-core";
-import type { NavigationNavMeshSource } from "@gamekit/navigation-navmesh";
+import type { NavigationLayoutDefinition, NavigationPoint } from "@gamekits/navigation-core";
+import type { NavigationNavMeshSource } from "@gamekits/navigation-navmesh";
 
 export type NavigationRecastDebugMesh = {
   vertices: NavigationPoint[];

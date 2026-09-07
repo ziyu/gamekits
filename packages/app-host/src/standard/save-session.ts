@@ -1,5 +1,5 @@
-import { GameError } from "@gamekit/core";
-import type { LoadOptions, LoadResult, SaveEnvelope, SaveManager } from "@gamekit/save";
+import { GameError } from "@gamekits/core";
+import type { LoadOptions, LoadResult, SaveEnvelope, SaveManager } from "@gamekits/save";
 
 export type SaveSession = {
   save: SaveManager;

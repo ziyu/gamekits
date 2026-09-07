@@ -1,4 +1,4 @@
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import {
   BuildingState,
   LinkState,

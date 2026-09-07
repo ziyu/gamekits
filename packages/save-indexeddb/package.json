@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/save-indexeddb",
+  "name": "@gamekits/save-indexeddb",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -17,8 +17,8 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/core": "workspace:*",
-    "@gamekit/save": "workspace:*"
+    "@gamekits/core": "workspace:*",
+    "@gamekits/save": "workspace:*"
   },
   "files": [
     "dist"

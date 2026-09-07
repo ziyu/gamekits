@@ -1,4 +1,4 @@
-import type { NavigationBackendAdapter } from "@gamekit/navigation-core/backend";
+import type { NavigationBackendAdapter } from "@gamekits/navigation-core/backend";
 import type { CreateRecastNavigationBackendOptions } from "../contracts";
 import { createRecastNavigationBackendRuntime } from "../runtime";
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { createAssetManager } from "@gamekit/asset";
+import { createAssetManager } from "@gamekits/asset";
 import {
   createAppHost,
   createConfiguredAppHost,
@@ -8,37 +8,37 @@ import {
   defineGameApp,
   type AppProfile,
   type AppServiceBinding
-} from "@gamekit/app-host";
-import { createMemoryAnimationPlaybackAdapter } from "@gamekit/animator-core/testing";
-import { createMemoryAudioBackend } from "@gamekit/audio-core/testing";
-import { createCameraController, screenToWorld } from "@gamekit/camera-core";
-import { createDataRegistry } from "@gamekit/data";
-import type { GameDriver } from "@gamekit/driver-core";
-import { createEventBus } from "@gamekit/event-bus";
+} from "@gamekits/app-host";
+import { createMemoryAnimationPlaybackAdapter } from "@gamekits/animator-core/testing";
+import { createMemoryAudioBackend } from "@gamekits/audio-core/testing";
+import { createCameraController, screenToWorld } from "@gamekits/camera-core";
+import { createDataRegistry } from "@gamekits/data";
+import type { GameDriver } from "@gamekits/driver-core";
+import { createEventBus } from "@gamekits/event-bus";
 import {
   createGasDataTypes,
   createGasHandle,
   createGasTraceStore,
   type GasRuntime
-} from "@gamekit/gas";
-import { createGame } from "@gamekit/game-runtime";
-import { createInputRouter } from "@gamekit/input-core";
+} from "@gamekits/gas";
+import { createGame } from "@gamekits/game-runtime";
+import { createInputRouter } from "@gamekits/input-core";
 import {
   createMultiplayerRuntime,
   defineSnapshotVector2Track,
   type NetworkVector2
-} from "@gamekit/multiplayer-core";
-import { createMemoryMultiplayerBackend } from "@gamekit/multiplayer-memory";
-import { createMemoryNavigationBackend } from "@gamekit/navigation-core/testing";
+} from "@gamekits/multiplayer-core";
+import { createMemoryMultiplayerBackend } from "@gamekits/multiplayer-memory";
+import { createMemoryNavigationBackend } from "@gamekits/navigation-core/testing";
 import {
   createMemoryPhysicsBackend,
   createPhysicsHandle,
   createPhysicsInterpolationStore
-} from "@gamekit/physics-core";
-import { createMemorySaveStore } from "@gamekit/save";
-import { type GameWorld } from "@gamekit/world";
-import { createTcaHandle, createTcaRuleDataType } from "@gamekit/tca";
-import { createUiRuntime } from "@gamekit/ui-core";
+} from "@gamekits/physics-core";
+import { createMemorySaveStore } from "@gamekits/save";
+import { type GameWorld } from "@gamekits/world";
+import { createTcaHandle, createTcaRuleDataType } from "@gamekits/tca";
+import { createUiRuntime } from "@gamekits/ui-core";
 
 describe("app host service registry", () => {
   it("registers and exposes services through the registry", () => {
@@ -648,12 +648,12 @@ describe("configured app host", () => {
     await configured.host.boot();
 
     expect(ui.panels().map((panel) => panel.id)).toEqual([
-      "gamekit.devtools.launcher",
-      "gamekit.devtools.shell"
+      "gamekits.devtools.launcher",
+      "gamekits.devtools.shell"
     ]);
-    expect(ui.panel("gamekit.devtools.shell")).toMatchObject({
+    expect(ui.panel("gamekits.devtools.shell")).toMatchObject({
       kind: "devtools",
-      title: "GameKit DevTools"
+      title: "GameKits DevTools"
     });
     expect(configured.host.services.devtools?.snapshot().panels).toContainEqual(
       expect.objectContaining({
@@ -802,9 +802,9 @@ describe("configured app host", () => {
           },
           createRuntime(_ctx, modules) {
             expect(modules.map((module) => module.id)).toEqual([
-              "gamekit.tca",
-              "gamekit.gas",
-              "gamekit.camera"
+              "gamekits.tca",
+              "gamekits.gas",
+              "gamekits.camera"
             ]);
             return createGame({
               modules,
@@ -828,9 +828,9 @@ describe("configured app host", () => {
     expect(tcaHandle.isBound()).toBe(true);
     expect(gasHandle.isBound()).toBe(true);
     expect(configured.host.services.game?.modules.map((module) => module.id)).toEqual([
-      "gamekit.tca",
-      "gamekit.gas",
-      "gamekit.camera"
+      "gamekits.tca",
+      "gamekits.gas",
+      "gamekits.camera"
     ]);
 
     await configured.host.dispose();
@@ -859,7 +859,7 @@ describe("configured app host", () => {
             }
           },
           createRuntime(_ctx, modules) {
-            expect(modules.map((module) => module.id)).toEqual(["gamekit.physics"]);
+            expect(modules.map((module) => module.id)).toEqual(["gamekits.physics"]);
             return createGame({
               modules,
               world: createMemoryWorld(),
@@ -931,7 +931,7 @@ describe("configured app host", () => {
             }
           },
           createRuntime(_ctx, modules) {
-            expect(modules.map((module) => module.id)).toEqual(["gamekit.multiplayer.bridge"]);
+            expect(modules.map((module) => module.id)).toEqual(["gamekits.multiplayer.bridge"]);
             return createGame({
               modules,
               world: createMemoryWorld(),
@@ -1040,7 +1040,7 @@ describe("configured app host", () => {
             }
           },
           createRuntime(_ctx, modules) {
-            expect(modules.map((module) => module.id)).toEqual(["gamekit.multiplayer.bridge"]);
+            expect(modules.map((module) => module.id)).toEqual(["gamekits.multiplayer.bridge"]);
             return createGame({
               modules,
               world: createMemoryWorld(),
@@ -1054,7 +1054,7 @@ describe("configured app host", () => {
 
     const configured = createConfiguredAppHost({ app, profile, context: {} });
     expect(configured.host.services.game?.systems.values().map((system) => system.id)).toEqual([
-      "gamekit.multiplayer.bridge.presentation"
+      "gamekits.multiplayer.bridge.presentation"
     ]);
 
     await configured.host.start();
@@ -1146,7 +1146,7 @@ describe("configured app host", () => {
     configured.host.tick(16, 16);
 
     expect(configured.host.services.game?.systems.values().map((system) => system.id)).toEqual([
-      "gamekit.multiplayer.bridge.client-replication"
+      "gamekits.multiplayer.bridge.client-replication"
     ]);
     expect(applied).toEqual([1]);
 

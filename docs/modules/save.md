@@ -8,20 +8,20 @@ Save 负责游戏长期状态的捕获、序列化、持久化、恢复、版本
 
 相关包：
 
-- `@gamekit/save`
-- `@gamekit/platform-core`
-- `@gamekit/app-host`
+- `@gamekits/save`
+- `@gamekits/platform-core`
+- `@gamekits/app-host`
 
 协作包：
 
-- `@gamekit/game-runtime`
-- `@gamekit/world`
-- `@gamekit/data`
-- `@gamekit/asset`
-- `@gamekit/tca`
-- `@gamekit/gas`
-- `@gamekit/physics-core`
-- `@gamekit/ui-core`
+- `@gamekits/game-runtime`
+- `@gamekits/world`
+- `@gamekits/data`
+- `@gamekits/asset`
+- `@gamekits/tca`
+- `@gamekits/gas`
+- `@gamekits/physics-core`
+- `@gamekits/ui-core`
 
 Save 不是 DataPack、Content Package、Asset bundle 或编辑器工程文件。Save 保存一次游戏会话的长期运行状态；DataPack / Content Package 保存内容定义和资源分发；编辑器工程保存创作状态。
 
@@ -29,7 +29,7 @@ Save 不是 DataPack、Content Package、Asset bundle 或编辑器工程文件�
 
 - 统一 save / load / list / delete / migrate / inspect 能力。
 - 支持 Web、Tauri 和未来平台，不直接依赖 localStorage、Tauri FS 或浏览器私有 API。
-- 通过 module contributor 机制保存 World、GameRuntime、TCA、GAS、Physics 和游戏自定义状态，避免 `@gamekit/save` 依赖具体 gameplay 包。
+- 通过 module contributor 机制保存 World、GameRuntime、TCA、GAS、Physics 和游戏自定义状态，避免 `@gamekits/save` 依赖具体 gameplay 包。
 - 支持版本迁移，旧存档缺失迁移路径时给出明确错误。
 - 支持固定 seed 下 save/load 后继续 tick 的确定性验证。
 - 支持 slot metadata、diagnostics、checksum / corruption detection 和 DevTools 可见性。
@@ -69,7 +69,7 @@ export type SaveVersion = string;
 export type SaveSlotId = string;
 
 export type SaveEnvelope<TPayload = unknown> = {
-  format: "gamekit.save";
+  format: "gamekits.save";
   formatVersion: SaveVersion;
   appId: string;
   gameId: string;
@@ -145,7 +145,7 @@ export type SaveSection<TData = unknown> = {
 
 继续游戏型存档必须恢复 runtime clock。也就是说，如果玩家在 tick 1587 保存并刷新页面后加载同一 slot，加载后的 GameRuntime clock 应回到 tick 1587，再从 1588 继续推进。Checkpoint、debug snapshot 或 settings-only save 可以通过 contributor selection 保存不同范围，但普通 progress save 不应丢失 tick / elapsed，否则 TCA interval、cooldown、periodic effect 和 autosave 诊断都会产生时间线偏移。
 
-`@gamekit/save` 只定义 section 协议，不直接理解 `gas`、`tca` 或具体游戏 section 的内部结构。
+`@gamekits/save` 只定义 section 协议，不直接理解 `gas`、`tca` 或具体游戏 section 的内部结构。
 
 ## Save Contributor
 
@@ -181,16 +181,16 @@ export type SaveContributor<TData = unknown> = {
 
 各模块的关系：
 
-- `@gamekit/save` 提供 contributor 协议和 manager。
-- `@gamekit/gas` 可以提供 `createGasSaveContributor()`。
-- `@gamekit/tca` 可以提供 `createTcaSaveContributor()`。
-- `@gamekit/physics-core` 可以提供 `createPhysicsSaveContributor()`。
-- `@gamekit/camera-core` 可以提供可选 camera state contributor。
+- `@gamekits/save` 提供 contributor 协议和 manager。
+- `@gamekits/gas` 可以提供 `createGasSaveContributor()`。
+- `@gamekits/tca` 可以提供 `createTcaSaveContributor()`。
+- `@gamekits/physics-core` 可以提供 `createPhysicsSaveContributor()`。
+- `@gamekits/camera-core` 可以提供可选 camera state contributor。
 - 游戏项目提供 `game.*` contributor。
 
-这样可以避免 `@gamekit/save` 直接依赖 GAS/TCA/Camera，也避免每个游戏在 app 入口手写保存流水线。
+这样可以避免 `@gamekits/save` 直接依赖 GAS/TCA/Camera，也避免每个游戏在 app 入口手写保存流水线。
 
-领域包只依赖 `@gamekit/save` 的稳定 contributor/section/context 类型，不依赖 SaveManager、store 或平台实现。标准 gameplay contributor 使用 module-bound handle 捕获和恢复状态，默认顺序是 World identity → Physics (`200`) → GAS (`300`) → TCA (`400`) → app gameplay；restore 本身不启动 tick，组合层恢复 runtime clock 后再 resume。
+领域包只依赖 `@gamekits/save` 的稳定 contributor/section/context 类型，不依赖 SaveManager、store 或平台实现。标准 gameplay contributor 使用 module-bound handle 捕获和恢复状态，默认顺序是 World identity → Physics (`200`) → GAS (`300`) → TCA (`400`) → app gameplay；restore 本身不启动 tick，组合层恢复 runtime clock 后再 resume。
 
 ## 保存范围策略
 
@@ -541,7 +541,7 @@ Event payload 不应包含完整存档数据、敏感内容或大对象。详细
 
 ## IndexedDB adapter 与可恢复进度
 
-`@gamekit/save-indexeddb` 提供 `createIndexedDbSaveStore({ databaseName, indexedDB?, maxSaveBytes?, onDiagnostic? })`。它只在首次操作时打开数据库，使用原生事务保存 slot 的 current、metadata、backup 和 revision；`dispose()` 关闭连接，versionchange 自动释放旧连接。
+`@gamekits/save-indexeddb` 提供 `createIndexedDbSaveStore({ databaseName, indexedDB?, maxSaveBytes?, onDiagnostic? })`。它只在首次操作时打开数据库，使用原生事务保存 slot 的 current、metadata、backup 和 revision；`dispose()` 关闭连接，versionchange 自动释放旧连接。
 
 所有写入/删除在 readwrite transaction 内比较实际 revision。新槽可直接写；已有槽覆盖前必须 read/load/inspect，list/exists 不更新已接受的 revision。其他窗口提交后，旧连接写入返回 `save.write_conflict`，调用方必须重新读取并由应用决定采用哪个进度。同一 store 内修改串行化；失败写入不会推进已接受的 revision。
 

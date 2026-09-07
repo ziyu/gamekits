@@ -1,4 +1,4 @@
-import type { NavigationPoint } from "@gamekit/navigation-core";
+import type { NavigationPoint } from "@gamekits/navigation-core";
 import type { AiAgentId } from "./agent-binding";
 
 export type AiIntent =

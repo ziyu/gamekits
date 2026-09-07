@@ -10,138 +10,139 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@gamekit/core": new URL("./packages/core/src/index.ts", import.meta.url).pathname,
-      "@gamekit/world": new URL("./packages/world/src/index.ts", import.meta.url).pathname,
-      "@gamekit/world-koota": new URL("./packages/world-koota/src/index.ts", import.meta.url)
+      "@gamekits/core": new URL("./packages/core/src/index.ts", import.meta.url).pathname,
+      "@gamekits/world": new URL("./packages/world/src/index.ts", import.meta.url).pathname,
+      "@gamekits/world-koota": new URL("./packages/world-koota/src/index.ts", import.meta.url)
         .pathname,
-      "@gamekit/event-bus": new URL("./packages/event-bus/src/index.ts", import.meta.url).pathname,
-      "@gamekit/game-runtime": new URL("./packages/game-runtime/src/index.ts", import.meta.url)
+      "@gamekits/event-bus": new URL("./packages/event-bus/src/index.ts", import.meta.url).pathname,
+      "@gamekits/game-runtime": new URL("./packages/game-runtime/src/index.ts", import.meta.url)
         .pathname,
-      "@gamekit/data": new URL("./packages/data/src/index.ts", import.meta.url).pathname,
-      "@gamekit/driver-core": new URL("./packages/driver-core/src/index.ts", import.meta.url)
+      "@gamekits/data": new URL("./packages/data/src/index.ts", import.meta.url).pathname,
+      "@gamekits/driver-core": new URL("./packages/driver-core/src/index.ts", import.meta.url)
         .pathname,
-      "@gamekit/driver-phaser": new URL("./packages/driver-phaser/src/index.ts", import.meta.url)
+      "@gamekits/driver-phaser": new URL("./packages/driver-phaser/src/index.ts", import.meta.url)
         .pathname,
-      "@gamekit/driver-three": new URL("./packages/driver-three/src/index.ts", import.meta.url)
+      "@gamekits/driver-three": new URL("./packages/driver-three/src/index.ts", import.meta.url)
         .pathname,
-      "@gamekit/asset": new URL("./packages/asset/src/index.ts", import.meta.url).pathname,
-      "@gamekit/app-host": new URL("./packages/app-host/src/index.ts", import.meta.url).pathname,
-      "@gamekit/tca": new URL("./packages/tca/src/index.ts", import.meta.url).pathname,
-      "@gamekit/gas": new URL("./packages/gas/src/index.ts", import.meta.url).pathname,
-      "@gamekit/combat": new URL("./packages/combat/src/index.ts", import.meta.url).pathname,
-      "@gamekit/ai-core/testing": new URL(
+      "@gamekits/asset": new URL("./packages/asset/src/index.ts", import.meta.url).pathname,
+      "@gamekits/app-host": new URL("./packages/app-host/src/index.ts", import.meta.url).pathname,
+      "@gamekits/tca": new URL("./packages/tca/src/index.ts", import.meta.url).pathname,
+      "@gamekits/gas": new URL("./packages/gas/src/index.ts", import.meta.url).pathname,
+      "@gamekits/combat": new URL("./packages/combat/src/index.ts", import.meta.url).pathname,
+      "@gamekits/ai-core/testing": new URL(
         "./packages/ai-core/src/testing/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/ai-core": new URL("./packages/ai-core/src/index.ts", import.meta.url).pathname,
-      "@gamekit/animator-core/playback": new URL(
+      "@gamekits/ai-core": new URL("./packages/ai-core/src/index.ts", import.meta.url).pathname,
+      "@gamekits/animator-core/playback": new URL(
         "./packages/animator-core/src/playback/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/animator-core/testing": new URL(
+      "@gamekits/animator-core/testing": new URL(
         "./packages/animator-core/src/testing/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/animator-core": new URL("./packages/animator-core/src/index.ts", import.meta.url)
+      "@gamekits/animator-core": new URL("./packages/animator-core/src/index.ts", import.meta.url)
         .pathname,
-      "@gamekit/audio-core/backend": new URL(
+      "@gamekits/audio-core/backend": new URL(
         "./packages/audio-core/src/backend/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/audio-core/testing": new URL(
+      "@gamekits/audio-core/testing": new URL(
         "./packages/audio-core/src/testing/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/audio-core": new URL("./packages/audio-core/src/index.ts", import.meta.url)
+      "@gamekits/audio-core": new URL("./packages/audio-core/src/index.ts", import.meta.url)
         .pathname,
-      "@gamekit/navigation-core/backend": new URL(
+      "@gamekits/navigation-core/backend": new URL(
         "./packages/navigation-core/src/backend/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/navigation-core/testing": new URL(
+      "@gamekits/navigation-core/testing": new URL(
         "./packages/navigation-core/src/testing/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/navigation-core": new URL(
+      "@gamekits/navigation-core": new URL(
         "./packages/navigation-core/src/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/navigation-graph": new URL(
+      "@gamekits/navigation-graph": new URL(
         "./packages/navigation-graph/src/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/navigation-grid": new URL(
+      "@gamekits/navigation-grid": new URL(
         "./packages/navigation-grid/src/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/navigation-navmesh": new URL(
+      "@gamekits/navigation-navmesh": new URL(
         "./packages/navigation-navmesh/src/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/navigation-recast": new URL(
+      "@gamekits/navigation-recast": new URL(
         "./packages/navigation-recast/src/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/multiplayer-core": new URL(
+      "@gamekits/multiplayer-core": new URL(
         "./packages/multiplayer-core/src/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/multiplayer-memory": new URL(
+      "@gamekits/multiplayer-memory": new URL(
         "./packages/multiplayer-memory/src/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/multiplayer-colyseus/server": new URL(
+      "@gamekits/multiplayer-colyseus/server": new URL(
         "./packages/multiplayer-colyseus/src/server/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/multiplayer-colyseus": new URL(
+      "@gamekits/multiplayer-colyseus": new URL(
         "./packages/multiplayer-colyseus/src/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/ui-core": new URL("./packages/ui-core/src/index.ts", import.meta.url).pathname,
-      "@gamekit/react-ui": new URL("./packages/react-ui/src/index.ts", import.meta.url).pathname,
-      "@gamekit/save": new URL("./packages/save/src/index.ts", import.meta.url).pathname,
-      "@gamekit/save-indexeddb": new URL("./packages/save-indexeddb/src/index.ts", import.meta.url)
+      "@gamekits/ui-core": new URL("./packages/ui-core/src/index.ts", import.meta.url).pathname,
+      "@gamekits/react-ui": new URL("./packages/react-ui/src/index.ts", import.meta.url).pathname,
+      "@gamekits/save": new URL("./packages/save/src/index.ts", import.meta.url).pathname,
+      "@gamekits/save-indexeddb": new URL("./packages/save-indexeddb/src/index.ts", import.meta.url)
         .pathname,
-      "@gamekit/devtools": new URL("./packages/devtools/src/index.ts", import.meta.url).pathname,
-      "@gamekit/devtools-ui": new URL("./packages/devtools-ui/src/index.ts", import.meta.url)
+      "@gamekits/devtools": new URL("./packages/devtools/src/index.ts", import.meta.url).pathname,
+      "@gamekits/devtools-ui": new URL("./packages/devtools-ui/src/index.ts", import.meta.url)
         .pathname,
-      "@gamekit/camera-core": new URL("./packages/camera-core/src/index.ts", import.meta.url)
+      "@gamekits/camera-core": new URL("./packages/camera-core/src/index.ts", import.meta.url)
         .pathname,
-      "@gamekit/character-controller": new URL(
+      "@gamekits/character-controller": new URL(
         "./packages/character-controller/src/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/physics-core/testing": new URL(
+      "@gamekits/physics-core/testing": new URL(
         "./packages/physics-core/src/testing/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/physics-core": new URL("./packages/physics-core/src/index.ts", import.meta.url)
+      "@gamekits/physics-core": new URL("./packages/physics-core/src/index.ts", import.meta.url)
         .pathname,
-      "@gamekit/physics-rapier2d": new URL(
+      "@gamekits/physics-rapier2d": new URL(
         "./packages/physics-rapier2d/src/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/physics-rapier3d": new URL(
+      "@gamekits/physics-rapier3d": new URL(
         "./packages/physics-rapier3d/src/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/input-core": new URL("./packages/input-core/src/index.ts", import.meta.url)
+      "@gamekits/input-core": new URL("./packages/input-core/src/index.ts", import.meta.url)
         .pathname,
-      "@gamekit/input-dom": new URL("./packages/input-dom/src/index.ts", import.meta.url).pathname,
-      "@gamekit/platform-core": new URL("./packages/platform-core/src/index.ts", import.meta.url)
+      "@gamekits/input-dom": new URL("./packages/input-dom/src/index.ts", import.meta.url).pathname,
+      "@gamekits/platform-core": new URL("./packages/platform-core/src/index.ts", import.meta.url)
         .pathname,
-      "@gamekit/platform-web": new URL("./packages/platform-web/src/index.ts", import.meta.url)
+      "@gamekits/platform-web": new URL("./packages/platform-web/src/index.ts", import.meta.url)
         .pathname,
-      "@gamekit/platform-tauri": new URL("./packages/platform-tauri/src/index.ts", import.meta.url)
+      "@gamekits/platform-tauri": new URL("./packages/platform-tauri/src/index.ts", import.meta.url)
         .pathname,
-      "@gamekit/renderer-core": new URL("./packages/renderer-core/src/index.ts", import.meta.url)
+      "@gamekits/renderer-core": new URL("./packages/renderer-core/src/index.ts", import.meta.url)
         .pathname,
-      "@gamekit/renderer-phaser": new URL(
+      "@gamekits/renderer-phaser": new URL(
         "./packages/renderer-phaser/src/index.ts",
         import.meta.url
       ).pathname,
-      "@gamekit/test-utils": new URL("./packages/test-utils/src/index.ts", import.meta.url).pathname
+      "@gamekits/test-utils": new URL("./packages/test-utils/src/index.ts", import.meta.url)
+        .pathname
     }
   }
 });

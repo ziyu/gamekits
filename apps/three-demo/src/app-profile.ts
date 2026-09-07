@@ -1,11 +1,11 @@
-import { createStandardAppProfile, type AppProfile } from "@gamekit/app-host";
-import type { AssetManager } from "@gamekit/asset";
-import type { DataRegistry } from "@gamekit/data";
-import type { DriverRegistry, GameDriver } from "@gamekit/driver-core";
-import { createThreeDriver } from "@gamekit/driver-three";
-import type { PlatformRuntime } from "@gamekit/platform-core";
-import { createWebPlatform } from "@gamekit/platform-web";
-import type { RendererAdapter, RendererBootContext } from "@gamekit/renderer-core";
+import { createStandardAppProfile, type AppProfile } from "@gamekits/app-host";
+import type { AssetManager } from "@gamekits/asset";
+import type { DataRegistry } from "@gamekits/data";
+import type { DriverRegistry, GameDriver } from "@gamekits/driver-core";
+import { createThreeDriver } from "@gamekits/driver-three";
+import type { PlatformRuntime } from "@gamekits/platform-core";
+import { createWebPlatform } from "@gamekits/platform-web";
+import type { RendererAdapter, RendererBootContext } from "@gamekits/renderer-core";
 import {
   THREE_DEMO_DRIVER_ID,
   THREE_DEMO_RENDER_SIZE,
@@ -24,7 +24,7 @@ export type ThreeDemoAppContext = {
 };
 
 export function createThreeDemoProfile(): AppProfile<ThreeDemoAppContext> {
-  const platform = createWebPlatform({ appName: "GameKit Three Demo" });
+  const platform = createWebPlatform({ appName: "GameKits Three Demo" });
   const threeDriver = createThreeDriver({
     id: THREE_DEMO_DRIVER_ID,
     backgroundColor: "#171a16",

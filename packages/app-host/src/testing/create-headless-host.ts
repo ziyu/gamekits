@@ -1,14 +1,14 @@
-import { createAssetManager, type AssetDefinition, type AssetLoaderAdapter } from "@gamekit/asset";
-import { createDataRegistry, type DataPack, type DataTypeDefinition } from "@gamekit/data";
-import type { MultiplayerRuntime } from "@gamekit/multiplayer-core";
+import { createAssetManager, type AssetDefinition, type AssetLoaderAdapter } from "@gamekits/asset";
+import { createDataRegistry, type DataPack, type DataTypeDefinition } from "@gamekits/data";
+import type { MultiplayerRuntime } from "@gamekits/multiplayer-core";
 import type {
   RenderNodePath,
   RenderObjectDefinition,
   RenderObjectId,
   RendererAdapter,
   RendererBootContext
-} from "@gamekit/renderer-core";
-import type { SaveStore } from "@gamekit/save";
+} from "@gamekits/renderer-core";
+import type { SaveStore } from "@gamekits/save";
 import { createConfiguredAppHost } from "../definition/create-configured-app-host";
 import { defineGameApp } from "../definition/define-game-app";
 import type { AppHost, AppServiceBinding, CreateAppHostOptions } from "../runtime/types";

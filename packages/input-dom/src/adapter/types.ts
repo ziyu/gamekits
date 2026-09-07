@@ -1,4 +1,4 @@
-import type { InputScopeId, NormalizedInputEvent } from "@gamekit/input-core";
+import type { InputScopeId, NormalizedInputEvent } from "@gamekits/input-core";
 
 export type DomInputTarget = Pick<EventTarget, "addEventListener" | "removeEventListener">;
 

@@ -1,8 +1,8 @@
-import type { GameEvent } from "@gamekit/event-bus";
-import type { GasActorRuntimeState, GasTraceEntry, GasTraceStore } from "@gamekit/gas";
-import type { GameRuntime } from "@gamekit/game-runtime";
-import type { TcaTraceEntry, TcaTraceStore } from "@gamekit/tca";
-import type { EntityId } from "@gamekit/world";
+import type { GameEvent } from "@gamekits/event-bus";
+import type { GasActorRuntimeState, GasTraceEntry, GasTraceStore } from "@gamekits/gas";
+import type { GameRuntime } from "@gamekits/game-runtime";
+import type { TcaTraceEntry, TcaTraceStore } from "@gamekits/tca";
+import type { EntityId } from "@gamekits/world";
 import type {
   SandboxBuildingState,
   SandboxLinkState,

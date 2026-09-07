@@ -1,4 +1,4 @@
-import type { DataPackEntry } from "@gamekit/data";
+import type { DataPackEntry } from "@gamekits/data";
 import {
   type GasAbilityDefinition,
   type GasEffectDefinition,
@@ -8,8 +8,8 @@ import {
   GAS_CUE_TYPE,
   GAS_EFFECT_TYPE,
   GAS_TAG_TYPE
-} from "@gamekit/gas";
-import { TCA_RULE_TYPE } from "@gamekit/tca";
+} from "@gamekits/gas";
+import { TCA_RULE_TYPE } from "@gamekits/tca";
 import type {
   AbyssEnemyProfile,
   AbyssHeroClass,

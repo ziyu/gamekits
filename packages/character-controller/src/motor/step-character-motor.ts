@@ -1,5 +1,5 @@
-import { GameError } from "@gamekit/core";
-import type { PhysicsBodyPatch, PhysicsVector } from "@gamekit/physics-core";
+import { GameError } from "@gamekits/core";
+import type { PhysicsBodyPatch, PhysicsVector } from "@gamekits/physics-core";
 import type {
   CharacterControlIntent,
   CharacterGroundObservation,

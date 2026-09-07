@@ -9,7 +9,7 @@ import {
   type MultiplayerPeerPlayerBinding,
   type MultiplayerPeerPlayerBindingStore,
   type MultiplayerRuntime
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import { createRealtimePracticeArenaState, REALTIME_ARENA_TICK_MS } from "./config";
 import {
   applyRealtimeArenaPlayerInteract,

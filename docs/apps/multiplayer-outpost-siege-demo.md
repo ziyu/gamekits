@@ -2,7 +2,7 @@
 
 ## 定位
 
-Outpost Siege 是 GameKit 的全框架综合验证应用。它通过一局可持续游玩的 2D 俯视角合作防守与撤离游戏，在同一条真实产品链路中验证 Core Runtime、App Host、Data、Asset、World、Input、Camera、Physics、Combat、TCA、GAS、AI、Navigation、Multiplayer、Animator、Renderer、Audio、UI、Save、Platform 和 DevTools。
+Outpost Siege 是 GameKits 的全框架综合验证应用。它通过一局可持续游玩的 2D 俯视角合作防守与撤离游戏，在同一条真实产品链路中验证 Core Runtime、App Host、Data、Asset、World、Input、Camera、Physics、Combat、TCA、GAS、AI、Navigation、Multiplayer、Animator、Renderer、Audio、UI、Save、Platform 和 DevTools。
 
 多人仍然是应用的运行前提之一，但不再是唯一验证目标。Outpost Siege 必须证明这些模块能够在一个 server-authoritative、数据驱动、实体化、物理化并可保存、可解释的游戏中协同工作，而不是分别存在于孤立实验台。
 
@@ -11,9 +11,9 @@ Outpost Siege 是 GameKit 的全框架综合验证应用。它通过一局可持
 - Relay Arena 保持为小规模、可快速回归的 Multiplayer baseline。
 - Physics Lab、Three Demo 等继续验证单一 backend 或 driver 的专属能力。
 - Abyss Delve 继续保留自己的游戏设计和验证职责。
-- Outpost Siege 验证一套完整 GameKit 应用组合是否能支撑真实多人战斗、内容资源、UI、存档、诊断和长期负载。
+- Outpost Siege 验证一套完整 GameKits 应用组合是否能支撑真实多人战斗、内容资源、UI、存档、诊断和长期负载。
 
-Outpost Siege 是应用验证面，不是核心协议来源。玩家、敌人、武器、炮塔、波次、撤离和资源等概念保持 app-local；只有经过第二个稳定场景验证的通用能力才允许下沉到 GameKit package。
+Outpost Siege 是应用验证面，不是核心协议来源。玩家、敌人、武器、炮塔、波次、撤离和资源等概念保持 app-local；只有经过第二个稳定场景验证的通用能力才允许下沉到 GameKits package。
 
 ## 文档职责
 
@@ -291,7 +291,7 @@ Explicit leave、disconnect、reconnect、page refresh、new join、checkpoint r
 
 ## 约束与非目标
 
-- 不把 Outpost gameplay、Schema、AI、combat、wave 或 objective 上推为 GameKit core API。
+- 不把 Outpost gameplay、Schema、AI、combat、wave 或 objective 上推为 GameKits core API。
 - 不在 Demo 内复制 TCA、GAS、Save、Asset、Input、Camera、Physics 或 Multiplayer runtime。
 - 不让 client、UI、Renderer、Cue 或 DevTools 决定 authority gameplay 结果。
 - 不把 backend native object 写入 World、Data、Save、replication 或可复用 GameModule API。

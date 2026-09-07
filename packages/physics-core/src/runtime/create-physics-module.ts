@@ -1,6 +1,6 @@
-import { defineGameModule, type GameModule } from "@gamekit/core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
-import type { ComponentDef, EntityId, GameWorld, WorldSystemContext } from "@gamekit/world";
+import { defineGameModule, type GameModule } from "@gamekits/core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
+import type { ComponentDef, EntityId, GameWorld, WorldSystemContext } from "@gamekits/world";
 import {
   PhysicsBodyComponent,
   PhysicsColliderComponent,

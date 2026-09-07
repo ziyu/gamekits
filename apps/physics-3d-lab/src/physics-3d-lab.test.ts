@@ -1,7 +1,7 @@
 import { beforeAll, describe, expect, it } from "vitest";
-import type { RenderNodePath, RenderObjectId } from "@gamekit/renderer-core";
-import type { ThreeRendererNative, ThreeRenderTargetState } from "@gamekit/driver-three";
-import { initRapier3dPhysicsBackend } from "@gamekit/physics-rapier3d";
+import type { RenderNodePath, RenderObjectId } from "@gamekits/renderer-core";
+import type { ThreeRendererNative, ThreeRenderTargetState } from "@gamekits/driver-three";
+import { initRapier3dPhysicsBackend } from "@gamekits/physics-rapier3d";
 import * as THREE from "three";
 import {
   applyPhysics3dFreeCamera,

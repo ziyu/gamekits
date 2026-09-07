@@ -1,9 +1,9 @@
-import { createStandardAppProfile, defineGameApp, type AppProfile } from "@gamekit/app-host";
-import type { DriverRegistry, GameDriver } from "@gamekit/driver-core";
-import { createThreeDriver } from "@gamekit/driver-three";
-import type { PlatformRuntime } from "@gamekit/platform-core";
-import { createWebPlatform } from "@gamekit/platform-web";
-import type { RendererAdapter, RendererBootContext } from "@gamekit/renderer-core";
+import { createStandardAppProfile, defineGameApp, type AppProfile } from "@gamekits/app-host";
+import type { DriverRegistry, GameDriver } from "@gamekits/driver-core";
+import { createThreeDriver } from "@gamekits/driver-three";
+import type { PlatformRuntime } from "@gamekits/platform-core";
+import { createWebPlatform } from "@gamekits/platform-web";
+import type { RendererAdapter, RendererBootContext } from "@gamekits/renderer-core";
 
 import type { ArenaUi } from "./ui";
 
@@ -36,7 +36,7 @@ export const arenaAppDefinition = defineGameApp({
 });
 
 export function createArenaAppProfile(): AppProfile<ArenaAppContext> {
-  const platform = createWebPlatform({ appName: "GameKit Knockout Circuit" });
+  const platform = createWebPlatform({ appName: "GameKits Knockout Circuit" });
   const driver = createThreeDriver({
     id: ARENA_THREE_DRIVER_ID,
     backgroundColor: "#08131b",

@@ -1,4 +1,4 @@
-import type { SaveSlotSummary } from "@gamekit/save";
+import type { SaveSlotSummary } from "@gamekits/save";
 import type { StoredVersion } from "./types";
 
 export async function createStoredVersion(

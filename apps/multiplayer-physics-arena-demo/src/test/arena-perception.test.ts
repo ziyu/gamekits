@@ -3,9 +3,9 @@ import {
   createAiRuntime,
   type AiAgentReadContext,
   type AiPerceptionFact
-} from "@gamekit/ai-core";
-import { createDataRegistry, type DataTypeDefinition } from "@gamekit/data";
-import type { PhysicsQueries } from "@gamekit/physics-core";
+} from "@gamekits/ai-core";
+import { createDataRegistry, type DataTypeDefinition } from "@gamekits/data";
+import type { PhysicsQueries } from "@gamekits/physics-core";
 import { describe, expect, it } from "vitest";
 
 import {

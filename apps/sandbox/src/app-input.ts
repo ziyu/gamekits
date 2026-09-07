@@ -1,5 +1,5 @@
-import { clientToViewportPoint } from "@gamekit/camera-core";
-import type { InputBinding, InputRouter, NormalizedInputEvent } from "@gamekit/input-core";
+import { clientToViewportPoint } from "@gamekits/camera-core";
+import type { InputBinding, InputRouter, NormalizedInputEvent } from "@gamekits/input-core";
 import { SANDBOX_RENDER_SIZE, type SandboxRuntime } from "./game";
 import type { SandboxUiHandles } from "./ui/render-sandbox";
 import { updateInputStatus } from "./ui/render-sandbox";

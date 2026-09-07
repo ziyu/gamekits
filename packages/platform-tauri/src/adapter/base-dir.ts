@@ -1,4 +1,4 @@
-import type { FsBaseDir } from "@gamekit/platform-core";
+import type { FsBaseDir } from "@gamekits/platform-core";
 import type { TauriBaseDirectoryMap, TauriFsDriver } from "./types";
 
 export function createBaseDirectoryMap(driver: TauriFsDriver): TauriBaseDirectoryMap {

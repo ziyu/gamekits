@@ -1,4 +1,4 @@
-import type { CreateGameAudioOptions } from "@gamekit/audio-core";
+import type { CreateGameAudioOptions } from "@gamekits/audio-core";
 import { AUDIO_LAB_ASSET_IDS, type AudioLabAssetId } from "./audio-assets";
 import { AUDIO_LAB_DISTANCE_SPATIAL, AUDIO_LAB_FIELD_SPATIAL } from "./spatial-calibration";
 

@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { createEventBus } from "@gamekit/event-bus";
-import { GasAttributes } from "@gamekit/gas";
-import { createMemorySaveStore, createSaveManager } from "@gamekit/save";
-import { createMemoryRenderer } from "@gamekit/test-utils";
-import { createKootaWorld } from "@gamekit/world-koota";
+import { createEventBus } from "@gamekits/event-bus";
+import { GasAttributes } from "@gamekits/gas";
+import { createMemorySaveStore, createSaveManager } from "@gamekits/save";
+import { createMemoryRenderer } from "@gamekits/test-utils";
+import { createKootaWorld } from "@gamekits/world-koota";
 import {
   createSandboxDataRegistry,
   createSandboxRuntime,

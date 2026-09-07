@@ -4,7 +4,7 @@ import type {
   InputScopeId,
   InputSourceAdapter,
   NormalizedInputEvent
-} from "@gamekit/input-core";
+} from "@gamekits/input-core";
 import { STANDARD_GAMEPAD_CONTROL } from "./controls";
 import type {
   WebGamepadButtonSnapshot,

@@ -93,7 +93,7 @@ matching、authority handoff、history 或副作用调度。
 ## 关闭记录
 
 P1–P6 均已 Verified。本工作流形成的长期结论已迁移到 `project-design.md`、`architecture.md`、
-`modules/world.md`、`modules/multiplayer.md`、`modules/physics.md`、`best-practices.md` 和 ADR 0048。GameKit 达成的
+`modules/world.md`、`modules/multiplayer.md`、`modules/physics.md`、`best-practices.md` 和 ADR 0048。GameKits 达成的
 成熟度边界是“选择性预测 + 统一托管协议”：普通输入预测、事件起点对象、Physics predicted entity、多域 checkpoint
 和 speculative effect 都有标准 owner；app 只声明内容、domain state scope、typed payload mapping、确定性策略和最终
 writer。完整确定性引擎、provider wire serializer、seat-reservation reconnect 和 interest management 保持明确 adapter /

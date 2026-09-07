@@ -10,15 +10,15 @@ export function RuntimeSourceView({ value }: { value: unknown }) {
       : {};
   const systems = readArray(record.systems);
   return (
-    <div className="gamekit-devtools-view">
-      <div className="gamekit-devtools-snapshot__summary">
+    <div className="gamekits-devtools-view">
+      <div className="gamekits-devtools-snapshot__summary">
         <Metric label="Running" value={readBoolean(record.running) ? "yes" : "no"} />
         <Metric label="Ticks" value={readNumber(clock.ticks) ?? 0} />
         <Metric label="Modules" value={readArray(record.modules).length} />
         <Metric label="Systems" value={systems.length} />
       </div>
       <ChipList items={readArray(record.modules).map(String)} />
-      <table className="gamekit-devtools-table">
+      <table className="gamekits-devtools-table">
         <tbody>
           {systems.slice(0, 14).map((system, index) => (
             <tr key={index}>
@@ -40,14 +40,14 @@ export function UiSourceView({ value }: { value: unknown }) {
   const panels = records(record.panels);
   const openPanels = records(record.openPanels);
   return (
-    <div className="gamekit-devtools-view">
-      <div className="gamekit-devtools-snapshot__summary">
+    <div className="gamekits-devtools-view">
+      <div className="gamekits-devtools-snapshot__summary">
         <Metric label="Panels" value={panels.length} />
         <Metric label="Open" value={openPanels.length} />
         <Metric label="Focus" value={readString(focus.scope, "none")} />
         <Metric label="Diagnostics" value={readArray(record.diagnostics).length} />
       </div>
-      <table className="gamekit-devtools-table">
+      <table className="gamekits-devtools-table">
         <thead>
           <tr>
             <th>Panel</th>
@@ -84,14 +84,14 @@ export function SaveSourceView({ value }: { value: unknown }) {
       : {};
   const contributors = records(record.contributors);
   return (
-    <div className="gamekit-devtools-view">
-      <div className="gamekit-devtools-snapshot__summary">
+    <div className="gamekits-devtools-view">
+      <div className="gamekits-devtools-snapshot__summary">
         <Metric label="Format" value={readString(record.formatVersion)} />
         <Metric label="Contributors" value={contributors.length} />
         <Metric label="Last Op" value={readString(lastOperation.type, "none")} />
         <Metric label="Diagnostics" value={readArray(record.diagnostics).length} />
       </div>
-      <table className="gamekit-devtools-table">
+      <table className="gamekits-devtools-table">
         <thead>
           <tr>
             <th>Contributor</th>

@@ -6,14 +6,14 @@ Accepted
 
 ## 背景
 
-GameKit 已经分别具备 managed client replication、输入预测 buffer、predicted-spawn registry、authority
+GameKits 已经分别具备 managed client replication、输入预测 buffer、predicted-spawn registry、authority
 timeline、time-aligned presentation、Physics 单主体 transition 和 prediction island。这些能力解决了预测与回滚
 的底层正确性，但非输入驱动对象仍需要 app 手动组合 generation reset、spawn identity、authority binding、过期、
 容量、时间线和 cleanup。多个 app 按相同顺序拼接这些 helper 会形成平行 lifecycle，也使“选择不同预测算法”和
 “每种算法都重写通用调度”混为一谈。
 
 成熟框架的关键不是让所有对象使用同一种预测算法，而是让不同算法遵守同一组对象身份、时钟、回滚、权威接管、
-生命周期、预算和诊断约束。GameKit 仍需保持薄内核，不能通过绑定某个 ECS、Physics backend、network object
+生命周期、预算和诊断约束。GameKits 仍需保持薄内核，不能通过绑定某个 ECS、Physics backend、network object
 基类或反射系统获得这种一致性。
 
 ## 决策
@@ -66,9 +66,9 @@ Core。外部 runtime restore 无法通用事务化，因此 restore exception �
 
 ### Schema 与代码生成边界
 
-GameKit 可以在稳定的第二个真实应用证明字段模式后增加可选 schema/codegen，用于生成 snapshot decoder、entity
+GameKits 可以在稳定的第二个真实应用证明字段模式后增加可选 schema/codegen，用于生成 snapshot decoder、entity
 identity mapping、ack reader 和 typed presentation binding。Core 不递归反射任意对象图，也不要求业务对象继承
-GameKit network object 基类；手写 typed mapping 始终是合法底层入口。
+GameKits network object 基类；手写 typed mapping 始终是合法底层入口。
 
 Multiplayer Demo 与 Outpost 已证明共同模式，因此采用 typed schema compiler：app-owned decoder 仍验证 provider
 payload；schema 把 version/tick/time、local identity、ack、authority state 和 entity presentation 声明编译为 managed
@@ -78,16 +78,16 @@ client binding。这里的“生成”是类型安全 closure/track 编译，不
 ### 与成熟框架的边界对照
 
 - Unity Netcode for Entities 通过 Ghost authoring、`PredictedSimulationSystemGroup`、`Simulate` tag、history backup 和
-  predicted spawn classification 把大部分 prediction plumbing 变成生成/框架代码；GameKit 已用 typed replication
+  predicted spawn classification 把大部分 prediction plumbing 变成生成/框架代码；GameKits 已用 typed replication
   schema compiler 与 managed domain 收敛重复 binding，但仍不提供 Ghost 等价的 build-time wire serializer 和按 entity
   自动挂载系统。Unity 对 partial snapshot 与 predicted spawn interaction 也明确要求同一交互集合参与 rollback，和
   prediction island 的成员完整性约束一致。
 - Unreal Network Prediction 把 fixed/independent tick、rollback、input、interpolation、smoothing 和 finalize 拆成已注册
-  service；GameKit 采用相同的“策略与 lifecycle 分离”，但保持 TypeScript 薄协议，不绑定 Actor/UObject model。
+  service；GameKits 采用相同的“策略与 lifecycle 分离”，但保持 TypeScript 薄协议，不绑定 Actor/UObject model。
 - Photon Quantum 将整个 deterministic simulation、verified/predicted frame、rollback window、checksum、Physics/RNG 等
-  作为一体化产品。GameKit 不把完整确定性引擎作为默认目标；selective prediction 只为声明的 domain 付费，因此必须
+  作为一体化产品。GameKits 不把完整确定性引擎作为默认目标；selective prediction 只为声明的 domain 付费，因此必须
   显式提供 contributor、hash、budget 与 hard-correction 边界。
-- Valve Source 将 local input prediction、remote interpolation 与 server-side lag compensation 明确分开。GameKit 的
+- Valve Source 将 local input prediction、remote interpolation 与 server-side lag compensation 明确分开。GameKits 的
   `clientReplication`、remote presentation 和 hitscan strategy 保持同样的职责分离，不用 projectile handoff 冒充
   lag compensation。
 

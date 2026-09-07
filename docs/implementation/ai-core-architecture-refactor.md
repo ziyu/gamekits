@@ -4,7 +4,7 @@ Status: Active.
 
 ## Goal
 
-把 `@gamekit/ai-core` 从 `data + runtime + types.ts` 和千行 composition factory 重构为按
+把 `@gamekits/ai-core` 从 `data + runtime + types.ts` 和千行 composition factory 重构为按
 definition、memory、perception、decision、task、scheduler、observability、persistence、
 controller 与 composition 划分的领域结构，同时保持 Utility + interruptible task 模型、
 确定性和现有性能数量级。
@@ -29,7 +29,7 @@ controller 与 composition 划分的领域结构，同时保持 Utility + interr
 
 开始前基线：
 
-- `corepack pnpm --filter @gamekit/ai-core test`：14/14 tests passed。
+- `corepack pnpm --filter @gamekits/ai-core test`：14/14 tests passed。
 - `corepack pnpm bench:ai:check`：8/8 budgets passed；250 uniform agent p95 约 0.61 ms，
   1,000 mixed-LOD agent p95 约 1.74 ms，dispose retained state 为 0。
 - GitNexus `createAiRuntime` upstream impact：HIGH，4 个直接调用方、8 个上游节点，涉及
@@ -39,7 +39,7 @@ controller 与 composition 划分的领域结构，同时保持 Utility + interr
 
 - `createAiRuntime.ts` 从 1,092 行 composition/god runtime 收敛到 447 行；definition compiler、
   perception、goal selection、task lifecycle、scheduler、snapshot 和 checkpoint 已各自归属领域。
-- `corepack pnpm --filter @gamekit/ai-core test`：28/28 tests passed，覆盖 read capability、
+- `corepack pnpm --filter @gamekits/ai-core test`：28/28 tests passed，覆盖 read capability、
   blackboard capacity/value budget、interrupt policy、scheduler fairness、restore atomicity 和公共入口。
 - `corepack pnpm test`：49 package/app tasks passed，301 tests passed；
   `corepack pnpm build`：49/49 tasks passed；`corepack pnpm lint`：91/91 tasks passed。

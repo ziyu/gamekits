@@ -1,4 +1,4 @@
-import type { InputModifiers, NormalizedInputEvent } from "@gamekit/input-core";
+import type { InputModifiers, NormalizedInputEvent } from "@gamekits/input-core";
 
 export type PhaserKeyboardEventLike = {
   code?: string;

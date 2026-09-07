@@ -1,4 +1,4 @@
-import { createEventBus } from "@gamekit/event-bus";
+import { createEventBus } from "@gamekits/event-bus";
 import { describe, expect, it } from "vitest";
 import {
   createMultiplayerBridgeModule,
@@ -1143,7 +1143,7 @@ describe("multiplayer authority helpers", () => {
       sessionId: "session-1",
       mode: "host-authoritative",
       status: "resyncing",
-      authoritativePath: "gamekit-envelope",
+      authoritativePath: "gamekits-envelope",
       resyncing: true,
       authorityPeerId: "host",
       localPlayerId: "player-client",
@@ -2436,7 +2436,9 @@ describe("createMultiplayerModule", () => {
       }
     });
 
-    expect(systems.map((system) => system.id)).toEqual(["gamekit.multiplayer.bridge.presentation"]);
+    expect(systems.map((system) => system.id)).toEqual([
+      "gamekits.multiplayer.bridge.presentation"
+    ]);
 
     systems[0]?.update({ delta: 0, elapsed: 0, tick: 1 });
     latestSnapshot = { tick: 1, position: { x: 50, y: 0 } };
@@ -2567,7 +2569,7 @@ describe("createMultiplayerModule", () => {
     });
     expect(exposed).toBe(true);
     expect(systems.map((system) => system.id)).toEqual([
-      "gamekit.multiplayer.bridge.client-replication"
+      "gamekits.multiplayer.bridge.client-replication"
     ]);
 
     fake.emit(

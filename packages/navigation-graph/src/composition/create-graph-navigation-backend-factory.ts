@@ -1,5 +1,5 @@
-import { createNavigationError } from "@gamekit/navigation-core";
-import type { NavigationBackendFactory } from "@gamekit/navigation-core/backend";
+import { createNavigationError } from "@gamekits/navigation-core";
+import type { NavigationBackendFactory } from "@gamekits/navigation-core/backend";
 import type {
   CreateGraphNavigationBackendFactoryOptions,
   NavigationGraphDefinition

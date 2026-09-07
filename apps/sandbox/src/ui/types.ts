@@ -1,8 +1,8 @@
-import type { AssetManager } from "@gamekit/asset";
-import type { AppHost } from "@gamekit/app-host";
-import type { CameraState2D } from "@gamekit/camera-core";
-import type { DataRegistry } from "@gamekit/data";
-import type { UiRuntime } from "@gamekit/ui-core";
+import type { AssetManager } from "@gamekits/asset";
+import type { AppHost } from "@gamekits/app-host";
+import type { CameraState2D } from "@gamekits/camera-core";
+import type { DataRegistry } from "@gamekits/data";
+import type { UiRuntime } from "@gamekits/ui-core";
 import type { Root as ReactRoot } from "react-dom/client";
 import type { SandboxRuntime, SandboxSnapshot } from "../game";
 

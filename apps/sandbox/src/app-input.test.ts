@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { createInputRouter } from "@gamekit/input-core";
+import { createInputRouter } from "@gamekits/input-core";
 import {
   configureSandboxInputRouter,
   SANDBOX_SCENE_CLICK_ACTION_ID,

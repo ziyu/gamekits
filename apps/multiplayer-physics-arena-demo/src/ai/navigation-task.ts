@@ -1,5 +1,5 @@
-import type { AiPerceptionFact, AiTaskContext, AiTaskStep } from "@gamekit/ai-core";
-import type { NavigationPoint } from "@gamekit/navigation-core";
+import type { AiPerceptionFact, AiTaskContext, AiTaskStep } from "@gamekits/ai-core";
+import type { NavigationPoint } from "@gamekits/navigation-core";
 
 import { ARENA_BOT_NAVIGATION_PROFILE_ID } from "./navigation";
 import type { ArenaBotPerceptionSource, ArenaBotVisibleHazard } from "./perception";

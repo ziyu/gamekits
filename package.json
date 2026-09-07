@@ -1,5 +1,5 @@
 {
-  "name": "gamekit",
+  "name": "gamekits",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -87,8 +87,8 @@
     "publish:release:gamekits": "node scripts/publish-gamekits-release.mjs"
   },
   "dependencies": {
-    "@gamekit/world": "workspace:*",
-    "@gamekit/world-koota": "workspace:*"
+    "@gamekits/world": "workspace:*",
+    "@gamekits/world-koota": "workspace:*"
   },
   "devDependencies": {
     "@changesets/cli": "^2.31.0",

@@ -1,4 +1,4 @@
-import { defineComponent } from "@gamekit/world";
+import { defineComponent } from "@gamekits/world";
 import type { CombatProjectileState } from "../runtime/types";
 
 export type CombatProjectileComponentState = CombatProjectileState;

@@ -1,18 +1,18 @@
-# @gamekit/navigation-navmesh
+# @gamekits/navigation-navmesh
 
 ## 0.1.0-alpha.8
 
 ### Patch Changes
 
-- @gamekit/data@0.1.0-alpha.8
-- @gamekit/navigation-core@0.1.0-alpha.8
+- @gamekits/data@0.1.0-alpha.8
+- @gamekits/navigation-core@0.1.0-alpha.8
 
 ## 0.1.0-alpha.7
 
 ### Patch Changes
 
-- @gamekit/navigation-core@0.1.0-alpha.7
-- @gamekit/data@0.1.0-alpha.7
+- @gamekits/navigation-core@0.1.0-alpha.7
+- @gamekits/data@0.1.0-alpha.7
 
 ## 0.1.0-alpha.6
 
@@ -28,5 +28,5 @@
 ### Patch Changes
 
 - Updated dependencies [c6fdda9]
-  - @gamekit/navigation-core@0.1.0-alpha.6
-  - @gamekit/data@0.1.0-alpha.6
+  - @gamekits/navigation-core@0.1.0-alpha.6
+  - @gamekits/data@0.1.0-alpha.6

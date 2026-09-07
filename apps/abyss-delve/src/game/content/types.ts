@@ -1,4 +1,4 @@
-import type { RenderObjectDefinition } from "@gamekit/renderer-core";
+import type { RenderObjectDefinition } from "@gamekits/renderer-core";
 
 export const ABYSS_HERO_TYPE = "abyss.heroClass";
 export const ABYSS_ENEMY_TYPE = "abyss.enemyProfile";

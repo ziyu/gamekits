@@ -1,5 +1,5 @@
-import { defineGameModule, type GameModule } from "@gamekit/core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import { defineGameModule, type GameModule } from "@gamekits/core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import { createAiWorldReadModel } from "../contracts/world-read-model";
 import type { AiRuntime } from "../controller/runtime";
 import { bindAiHandle, unbindAiHandle } from "../controller/create-ai-handle";

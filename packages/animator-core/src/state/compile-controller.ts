@@ -1,4 +1,4 @@
-import type { DataRegistry } from "@gamekit/data";
+import type { DataRegistry } from "@gamekits/data";
 import { createAnimatorError } from "../contracts/errors";
 import type { AnimatorControllerBinding } from "../contracts/controller-binding";
 import type { AnimatorControllerState, AnimatorLayerState } from "./controller-state";

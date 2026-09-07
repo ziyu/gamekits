@@ -1,21 +1,21 @@
-# @gamekit/navigation-core
+# @gamekits/navigation-core
 
 ## 0.1.0-alpha.8
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.8
-- @gamekit/game-runtime@0.1.0-alpha.8
-- @gamekit/data@0.1.0-alpha.8
+- @gamekits/core@0.1.0-alpha.8
+- @gamekits/game-runtime@0.1.0-alpha.8
+- @gamekits/data@0.1.0-alpha.8
 
 ## 0.1.0-alpha.7
 
 ### Patch Changes
 
 - Updated dependencies [398165e]
-  - @gamekit/game-runtime@0.1.0-alpha.7
-  - @gamekit/core@0.1.0-alpha.7
-  - @gamekit/data@0.1.0-alpha.7
+  - @gamekits/game-runtime@0.1.0-alpha.7
+  - @gamekits/core@0.1.0-alpha.7
+  - @gamekits/data@0.1.0-alpha.7
 
 ## 0.1.0-alpha.6
 
@@ -30,6 +30,6 @@
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.6
-- @gamekit/game-runtime@0.1.0-alpha.6
-- @gamekit/data@0.1.0-alpha.6
+- @gamekits/core@0.1.0-alpha.6
+- @gamekits/game-runtime@0.1.0-alpha.6
+- @gamekits/data@0.1.0-alpha.6

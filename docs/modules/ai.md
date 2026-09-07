@@ -6,7 +6,7 @@ AI Core 是可选的 Game Module toolkit，负责高层感知记忆、utility �
 
 相关包：
 
-- `@gamekit/ai-core`
+- `@gamekits/ai-core`
 
 AI Core 不拥有 World entity、Physics body、navigation backend、GAS actor 或 encounter director。游戏通过 binding 和 definition 注册具体感知、consideration、goal 与 task executor。
 
@@ -181,7 +181,7 @@ Budget 超限时延后低优先级决策，并产生 summary diagnostic；不能
 - AI module 通过 DI 获得 World read model、PhysicsQueries、NavigationHandle、clock 和 intent sink，不创建对应 runtime。
 - Sensor、consideration 和 task executor registry 在启动时检查重复 type；每个 agent definition 首次 bind 时从 DataRegistry 编译并缓存 sensor/goal/task/scheduler 索引，update 热路径不重复查询 definition。
 - 使用 memory fixture 验证 deterministic selection、interrupt、timeout、cleanup 和 trace；第三方 planner/steering adapter 再运行专属 conformance。
-- Conformance 与 memory fixture 从 `@gamekit/ai-core/testing` 导入，不从 gameplay root 导入。
+- Conformance 与 memory fixture 从 `@gamekits/ai-core/testing` 导入，不从 gameplay root 导入。
 - `onTrace/onTraceError` 只用于 DevTools/diagnostics 旁路，observer 失败不能改变 goal、task 或 intent 结果。
 - App/profile 应优先保留 `goal`、`task`、`budget` 等低频解释性 trace，并按调试需求限制或关闭逐 tick 的 `intent`、`perception` 留存；业务已经维护专用 intent/history buffer 时，不在 AI trace 中重复长期保存同一高频事实。
 

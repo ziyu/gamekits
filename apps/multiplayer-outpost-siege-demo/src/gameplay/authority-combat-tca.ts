@@ -1,6 +1,6 @@
-import type { GameEvent } from "@gamekit/event-bus";
-import type { GasHandle, GasOperationContext } from "@gamekit/gas";
-import type { TcaDefinitionSet, TcaHandlerContext } from "@gamekit/tca";
+import type { GameEvent } from "@gamekits/event-bus";
+import type { GasHandle, GasOperationContext } from "@gamekits/gas";
+import type { TcaDefinitionSet, TcaHandlerContext } from "@gamekits/tca";
 
 const RECOVERY_EFFECT_ID = "effect.outpost.combat_recovery";
 

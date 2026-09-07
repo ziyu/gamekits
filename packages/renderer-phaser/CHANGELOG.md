@@ -1,18 +1,18 @@
-# @gamekit/renderer-phaser
+# @gamekits/renderer-phaser
 
 ## 0.1.0-alpha.8
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.8
-- @gamekit/renderer-core@0.1.0-alpha.8
+- @gamekits/core@0.1.0-alpha.8
+- @gamekits/renderer-core@0.1.0-alpha.8
 
 ## 0.1.0-alpha.7
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.7
-- @gamekit/renderer-core@0.1.0-alpha.7
+- @gamekits/core@0.1.0-alpha.7
+- @gamekits/renderer-core@0.1.0-alpha.7
 
 ## 0.1.0-alpha.6
 
@@ -29,29 +29,29 @@
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.6
-- @gamekit/renderer-core@0.1.0-alpha.6
+- @gamekits/core@0.1.0-alpha.6
+- @gamekits/renderer-core@0.1.0-alpha.6
 
 ## 0.1.0-alpha.5
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.5
-- @gamekit/renderer-core@0.1.0-alpha.5
+- @gamekits/core@0.1.0-alpha.5
+- @gamekits/renderer-core@0.1.0-alpha.5
 
 ## 0.1.0-alpha.4
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.4
-- @gamekit/renderer-core@0.1.0-alpha.4
+- @gamekits/core@0.1.0-alpha.4
+- @gamekits/renderer-core@0.1.0-alpha.4
 
 ## 0.1.0-alpha.3
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.3
-- @gamekit/renderer-core@0.1.0-alpha.3
+- @gamekits/core@0.1.0-alpha.3
+- @gamekits/renderer-core@0.1.0-alpha.3
 
 ## 0.1.0-alpha.2
 
@@ -59,8 +59,8 @@
 
 - 3469457: [codex] Make renderer native control explicit
 - Updated dependencies [3469457]
-  - @gamekit/renderer-core@0.1.0-alpha.2
-  - @gamekit/core@0.1.0-alpha.2
+  - @gamekits/renderer-core@0.1.0-alpha.2
+  - @gamekits/core@0.1.0-alpha.2
 
 ## 0.1.0-alpha.1
 
@@ -68,5 +68,5 @@
 
 - 5a5f227: Merge pull request #1 from ziyu/codex/alpha-package-release
 - Updated dependencies [5a5f227]
-  - @gamekit/core@0.1.0-alpha.1
-  - @gamekit/renderer-core@0.1.0-alpha.1
+  - @gamekits/core@0.1.0-alpha.1
+  - @gamekits/renderer-core@0.1.0-alpha.1

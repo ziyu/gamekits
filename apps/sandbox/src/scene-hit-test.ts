@@ -1,4 +1,4 @@
-import { worldToScreen, type CameraState2D } from "@gamekit/camera-core";
+import { worldToScreen, type CameraState2D } from "@gamekits/camera-core";
 import { SANDBOX_RENDER_SIZE, type SandboxSnapshot } from "./game";
 
 export type SandboxSceneClickTarget = { entityId: string | number; actorId?: string } | undefined;

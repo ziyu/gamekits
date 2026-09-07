@@ -1,4 +1,4 @@
-import { GameError } from "@gamekit/core";
+import { GameError } from "@gamekits/core";
 import {
   checkCollision as checkSceneCollision,
   checkOverlap as checkSceneOverlap,

@@ -1,5 +1,5 @@
-import { GameError } from "@gamekit/core";
-import type { CheckpointGameWorld, ComponentDef, EntityId } from "@gamekit/world";
+import { GameError } from "@gamekits/core";
+import type { CheckpointGameWorld, ComponentDef, EntityId } from "@gamekits/world";
 import { createWorld as createKootaNativeWorld, trait } from "koota";
 import type { KootaEntity, KootaNativeWorld, KootaTrait } from "./koota-types";
 

@@ -1,12 +1,12 @@
-import type { AssetLoaderAdapter } from "@gamekit/asset";
-import type { CameraState2D, PointLike } from "@gamekit/camera-core";
-import type { DriverAdapterMap, GameDriver } from "@gamekit/driver-core";
+import type { AssetLoaderAdapter } from "@gamekits/asset";
+import type { CameraState2D, PointLike } from "@gamekits/camera-core";
+import type { DriverAdapterMap, GameDriver } from "@gamekits/driver-core";
 import type {
   RenderNodePath,
   RenderObjectId,
   RendererAdapter,
   RendererBootContext
-} from "@gamekit/renderer-core";
+} from "@gamekits/renderer-core";
 import type { Camera, Object3D, Scene, WebGLRenderer } from "three";
 import type { ThreeRendererOptions } from "./create-three-renderer";
 import type { ThreeDriverRuntime, ThreeDriverRuntimeOptions } from "./runtime";

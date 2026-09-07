@@ -1,4 +1,4 @@
-import { definePlatformConformanceTests } from "@gamekit/test-utils";
+import { definePlatformConformanceTests } from "@gamekits/test-utils";
 import { describe, expect, it } from "vitest";
 import {
   TAURI_EDITOR_EXTRA_CAPABILITIES,
@@ -20,7 +20,7 @@ describe("createTauriPlatformFromDrivers", () => {
     await expect(platform.services.dialog.open()).resolves.toBe("picked.txt");
     await expect(platform.services.dialog.save()).resolves.toBe("saved.txt");
     await platform.services.shell.open("https://example.com");
-    await platform.services.window.setTitle("GameKit");
+    await platform.services.window.setTitle("GameKits");
     await platform.services.window.setSize({ width: 800, height: 600 });
 
     expect(driversLog(drivers)).toContain("shell:https://example.com");

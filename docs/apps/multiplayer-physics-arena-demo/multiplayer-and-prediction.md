@@ -60,7 +60,7 @@ Ready/start/rematch、pickup/use/throw/drop edge 等需要明确结果的 action
 instance/generation 和可验证 target hint。Authority 仍重新 target/validate；duplicate command 返回同一 result，不重复执行。
 
 Reliable action lane 和 continuous bundle 可以共用 provider ordered transport，但语义、容量与 ack 分开。Provider 支持 datagram
-时只改变 lane 映射，不改变 GameKit sequence/inbox contract。
+时只改变 lane 映射，不改变 GameKits sequence/inbox contract。
 
 ## Authority Frame
 

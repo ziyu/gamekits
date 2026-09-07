@@ -6,9 +6,9 @@ Platform 隔离 Web、Tauri、Electron、移动端等平台差异。业务代码
 
 相关包：
 
-- `@gamekit/platform-core`
-- `@gamekit/platform-web`
-- `@gamekit/platform-tauri`
+- `@gamekits/platform-core`
+- `@gamekits/platform-web`
+- `@gamekits/platform-tauri`
 
 ## PlatformRuntime
 
@@ -129,7 +129,7 @@ export type FsBaseDir =
 
 ## Tauri Adapter
 
-`@gamekit/platform-tauri` 负责映射：
+`@gamekits/platform-tauri` 负责映射：
 
 - `@tauri-apps/plugin-fs`
 - `@tauri-apps/plugin-dialog`

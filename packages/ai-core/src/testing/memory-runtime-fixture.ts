@@ -1,4 +1,4 @@
-import type { ComponentDef, EntityId, GameWorld } from "@gamekit/world";
+import type { ComponentDef, EntityId, GameWorld } from "@gamekits/world";
 import { createAiRuntime } from "../composition/create-ai-runtime";
 import type { CreateAiRuntimeOptions } from "../composition/options";
 import type { AiIntent } from "../contracts/intent";

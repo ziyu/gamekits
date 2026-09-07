@@ -2,13 +2,13 @@ import type {
   CombatKinematicProjectileDefinition,
   CombatQueryOptions,
   CombatProjectileDefinition
-} from "@gamekit/combat";
-import type { DataRegistry } from "@gamekit/data";
+} from "@gamekits/combat";
+import type { DataRegistry } from "@gamekits/data";
 import type {
   PhysicsBodyData,
   PhysicsColliderData,
   PhysicsQueryOptions
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 
 export const OUTPOST_RIFLE_PROJECTILE_DEFINITION_ID = "combat.outpost.projectile.rifle";
 export const OUTPOST_RIFLE_PROJECTILE_DEFINITION_VERSION = "outpost.rifle-projectile.v1";

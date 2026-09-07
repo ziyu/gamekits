@@ -1,11 +1,11 @@
-# @gamekit/multiplayer-core
+# @gamekits/multiplayer-core
 
 ## 0.1.0-alpha.8
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.8
-- @gamekit/event-bus@0.1.0-alpha.8
+- @gamekits/core@0.1.0-alpha.8
+- @gamekits/event-bus@0.1.0-alpha.8
 
 ## 0.1.0-alpha.7
 
@@ -15,8 +15,8 @@
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.7
-- @gamekit/event-bus@0.1.0-alpha.7
+- @gamekits/core@0.1.0-alpha.7
+- @gamekits/event-bus@0.1.0-alpha.7
 
 ## 0.1.0-alpha.6
 
@@ -27,8 +27,8 @@
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.6
-- @gamekit/event-bus@0.1.0-alpha.6
+- @gamekits/core@0.1.0-alpha.6
+- @gamekits/event-bus@0.1.0-alpha.6
 
 ## 0.1.0-alpha.5
 
@@ -44,8 +44,8 @@
 - cf78f3f: Add a provider-neutral client prediction buffer with bounded pending input replay, authoritative reconciliation, fixed-step presentation sampling, moving-target correction decay and diagnostics; add bounded FIFO and latest-per-source authority input queue modes with queue/coalescing diagnostics; and extend snapshot playback with bounded adaptive jitter delay diagnostics.
 - 42c830b: Add provider-neutral temporal snapshot playback, standard multiplayer presentation module binding, reusable presentation projectors, declared Network presentation tracks, typed interpolation primitives and small Network value shapes outside backend adapters.
 - c2b4371: Add the first reusable multiplayer authority baseline with provider-neutral diagnostics, peer/player binding utilities, result receiver source gates, expanded backend conformance, reconnect unsupported semantics, and package documentation.
-  - @gamekit/core@0.1.0-alpha.5
-  - @gamekit/event-bus@0.1.0-alpha.5
+  - @gamekits/core@0.1.0-alpha.5
+  - @gamekits/event-bus@0.1.0-alpha.5
 
 ## 0.1.0-alpha.3
 

@@ -2,21 +2,21 @@
 
 ## 定位
 
-Driver 是外部引擎或外部运行时的一体化集成入口。它统一持有第三方库的 runtime、scene、resource manager、camera、input、physics plugin 和其他 plugin 句柄，并从同一个外部运行时中派生 GameKit 所需的多个 adapter。
+Driver 是外部引擎或外部运行时的一体化集成入口。它统一持有第三方库的 runtime、scene、resource manager、camera、input、physics plugin 和其他 plugin 句柄，并从同一个外部运行时中派生 GameKits 所需的多个 adapter。
 
-Driver 解决的是“一个外部运行时横跨多个 GameKit 协议时如何统一集成”的问题。它不是 gameplay module，也不是单一协议 adapter。
+Driver 解决的是“一个外部运行时横跨多个 GameKits 协议时如何统一集成”的问题。它不是 gameplay module，也不是单一协议 adapter。
 
 相关包：
 
-- `@gamekit/driver-core`
-- `@gamekit/driver-phaser`
-- `@gamekit/driver-three`
+- `@gamekits/driver-core`
+- `@gamekits/driver-phaser`
+- `@gamekits/driver-three`
 
 ## 核心原则
 
 - Core protocol 只定义稳定协议，不依赖具体第三方运行时。
 - Adapter 只实现一个稳定协议，例如 renderer、input source、asset loader、camera sync、physics backend。
-- Driver 统一拥有一个第三方运行时，并暴露一组 GameKit adapter。
+- Driver 统一拥有一个第三方运行时，并暴露一组 GameKits adapter。
 - 同一个第三方运行时只能由一个 Driver 实例负责生命周期。
 - 可复用 gameplay module 和 core package 不直接 import Phaser、Three.js 等底层库。
 - App-specific presentation、Editor 后端专属面板和 DevTools renderer plugin 可以显式依赖具体 Driver / Adapter 包，并通过 typed native handle 使用底层库 API。
@@ -28,7 +28,7 @@ Driver 解决的是“一个外部运行时横跨多个 GameKit 协议时如何�
 
 ```txt
 Core Protocol
-  定义 GameKit 稳定接口，例如 RendererAdapter、InputSource、AssetLoaderAdapter、RendererCameraAdapter、PhysicsBackendAdapter。
+  定义 GameKits 稳定接口，例如 RendererAdapter、InputSource、AssetLoaderAdapter、RendererCameraAdapter、PhysicsBackendAdapter。
 
 Adapter
   把一个 Core Protocol 映射到某个具体后端能力。
@@ -40,7 +40,7 @@ Driver
 判断一个集成是否应该成为 Driver：
 
 - 第三方库拥有自己的 game / scene / renderer / loader / input / camera / physics plugin 生命周期。
-- 多个 GameKit 协议都需要访问同一个底层 runtime。
+- 多个 GameKits 协议都需要访问同一个底层 runtime。
 - 多个 adapter 独立初始化会导致重复 scene、重复 loader、重复 input listener 或 camera 坐标不一致。
 - 需要统一管理外部 runtime 的 boot、resize、pause、resume、dispose 和 diagnostic snapshot。
 
@@ -77,7 +77,7 @@ Driver 可以是 App Host service，因为它主要管理应用级外部句柄�
 
 ## Driver Adapters
 
-Driver 通过 `adapters()` 暴露已创建或可懒创建的 GameKit protocol adapter：
+Driver 通过 `adapters()` 暴露已创建或可懒创建的 GameKits protocol adapter：
 
 ```ts
 export type DriverAdapterMap = {
@@ -95,18 +95,18 @@ export type DriverAdapterMap = {
 
 约束：
 
-- `adapters()` 返回的是 GameKit protocol adapter，不是 Phaser Scene、Three Camera 等原生对象。
+- `adapters()` 返回的是 GameKits protocol adapter，不是 Phaser Scene、Three Camera 等原生对象。
 - 原生 runtime 或 object 通过 `native()`、renderer handle 或 driver-specific typed bridge 暴露，调用方必须显式依赖具体 Driver / Adapter 包。
 - adapter 共享同一个 Driver 内部 runtime，不各自创建第三方 runtime。
 - adapter 的错误、diagnostic 和 snapshot 应能关联到同一个 driver id。
 
 ## Driver Adapter Discovery
 
-Driver 不维护完整后端 API 的 capability catalog。Phaser、Three.js 等底层库的能力面太大且持续演进，GameKit 不应通过 `DriverCapabilities` 或 `RendererCapabilities` 枚举这些能力。
+Driver 不维护完整后端 API 的 capability catalog。Phaser、Three.js 等底层库的能力面太大且持续演进，GameKits 不应通过 `DriverCapabilities` 或 `RendererCapabilities` 枚举这些能力。
 
 App Host、DevTools、Editor 和测试夹具只依赖明确的 adapter presence、driver kind、snapshot 和 app profile 选择结果来判断当前组合：
 
-- 是否存在 renderer、inputSource、assetLoader、camera、physics 等 GameKit adapter。
+- 是否存在 renderer、inputSource、assetLoader、camera、physics 等 GameKits adapter。
 - 当前 driver id / kind / lifecycle phase。
 - 当前 app profile 是否选择该 driver 作为标准 renderer、asset、input、camera 或 physics 来源。
 - 后端专属工具是否显式依赖对应 Driver / Adapter 包。
@@ -142,13 +142,13 @@ Phaser Driver 可以暴露：
 
 边界：
 
-- `@gamekit/driver-phaser` 是默认直接依赖 `phaser` 的包。
-- Phaser asset、input、camera、animation、audio backend、physics adapter 是 `@gamekit/driver-phaser` 的内部 adapter / module，不作为长期独立 package 暴露。
-- `@gamekit/renderer-phaser` 只把 RenderObject 协议映射到 Driver 提供的 Phaser Scene runtime，不创建 `Phaser.Game`，也不从 renderer 内部派生 input、camera、physics 或 asset 能力。
-- `@gamekit/renderer-core`、`@gamekit/input-core`、`@gamekit/camera-core`、`@gamekit/physics-core`、`@gamekit/animator-core`、`@gamekit/audio-core`、`@gamekit/asset` 不依赖 Phaser。
+- `@gamekits/driver-phaser` 是默认直接依赖 `phaser` 的包。
+- Phaser asset、input、camera、animation、audio backend、physics adapter 是 `@gamekits/driver-phaser` 的内部 adapter / module，不作为长期独立 package 暴露。
+- `@gamekits/renderer-phaser` 只把 RenderObject 协议映射到 Driver 提供的 Phaser Scene runtime，不创建 `Phaser.Game`，也不从 renderer 内部派生 input、camera、physics 或 asset 能力。
+- `@gamekits/renderer-core`、`@gamekits/input-core`、`@gamekits/camera-core`、`@gamekits/physics-core`、`@gamekits/animator-core`、`@gamekits/audio-core`、`@gamekits/asset` 不依赖 Phaser。
 - CameraController 和 CameraRig 仍属于 GameModule toolkit；Phaser Driver 只提供 camera sync adapter。
 - Physics scene 仍通过 GameModule helper 跟随 GameRuntime lifecycle；Phaser Driver 只提供绑定 Phaser Scene 的 physics backend adapter。
-- Phaser 原生类型只出现在 `@gamekit/driver-phaser`、`@gamekit/renderer-phaser` 或显式选择 Phaser 的 app/tooling 代码中，不进入 renderer-core、Data、Save 或可复用 gameplay module。
+- Phaser 原生类型只出现在 `@gamekits/driver-phaser`、`@gamekits/renderer-phaser` 或显式选择 Phaser 的 app/tooling 代码中，不进入 renderer-core、Data、Save 或可复用 gameplay module。
 
 Phaser Driver 的 render options 可以选择 pixel ratio、antialias、round pixels 和 mipmap filter。Factory 创建时统一补全并校验配置，boot、resize 和 diagnostic snapshot 复用同一份 resolved render options，不能根据某个 app 当前使用的字段维护平行默认值。Canvas CSS size、CameraState、Input event 和 RenderObject/world transform 始终使用 logical viewport/world units；Driver 内部才把 backing store 与 native zoom 放大到 profile pixel ratio，并把 pointer coordinate 归一化回来。Camera sync 优先使用 Phaser native center operation，不能把 Camera Core 的 world-view top-left 直接写成 raw `scrollX/scrollY`，因为 native camera viewport 和 zoom 会改变 Phaser scroll property 的实际语义。
 
@@ -192,7 +192,7 @@ const host = createConfiguredAppHost({
 });
 ```
 
-App Host 只知道 Driver 的 GameKit 协议和 lifecycle，不理解 Phaser / Three 原生类型。Profile 可以选择某个 driver adapter 作为标准 renderer、asset loader、input source 或 camera sync 来源。
+App Host 只知道 Driver 的 GameKits 协议和 lifecycle，不理解 Phaser / Three 原生类型。Profile 可以选择某个 driver adapter 作为标准 renderer、asset loader、input source 或 camera sync 来源。
 
 多个 Driver 可以同时存在，例如：
 

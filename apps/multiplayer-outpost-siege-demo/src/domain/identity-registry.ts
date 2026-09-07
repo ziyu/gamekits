@@ -1,4 +1,4 @@
-import type { EntityId } from "@gamekit/world";
+import type { EntityId } from "@gamekits/world";
 import type { OutpostGameplayIdentity, OutpostNetworkIdentity } from "./types";
 
 export type OutpostIdentityRegistry = {

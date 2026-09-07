@@ -78,7 +78,7 @@ function main(): void {
     JSON.stringify(
       {
         benchmark: "outpost-content-and-identity",
-        packages: ["@gamekit/data", "@gamekit/asset", "multiplayer-outpost-siege-demo"],
+        packages: ["@gamekits/data", "@gamekits/asset", "multiplayer-outpost-siege-demo"],
         profile: {
           contentBootIterations: CONTENT_BOOT_ITERATIONS,
           identityCount: IDENTITY_COUNT,

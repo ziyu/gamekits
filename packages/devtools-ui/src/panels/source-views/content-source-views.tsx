@@ -8,14 +8,14 @@ export function DataSourceView({ value }: { value: unknown }) {
   const typeCounts = countBy(documents, (document) => readString(document.type));
 
   return (
-    <div className="gamekit-devtools-view">
-      <div className="gamekit-devtools-snapshot__summary">
+    <div className="gamekits-devtools-view">
+      <div className="gamekits-devtools-snapshot__summary">
         <Metric label="Types" value={readArray(record.types).length} />
         <Metric label="Packs" value={readArray(record.packs).length} />
         <Metric label="Documents" value={documents.length} />
         <Metric label="References" value={readArray(record.references).length} />
       </div>
-      <table className="gamekit-devtools-table">
+      <table className="gamekits-devtools-table">
         <thead>
           <tr>
             <th>Type</th>
@@ -49,14 +49,14 @@ export function AssetSourceView({ value }: { value: unknown }) {
   const statusCounts = countBy(states, (state) => readString(state.status));
 
   return (
-    <div className="gamekit-devtools-view">
-      <div className="gamekit-devtools-snapshot__summary">
+    <div className="gamekits-devtools-view">
+      <div className="gamekits-devtools-snapshot__summary">
         <Metric label="Assets" value={assets.length} />
         <Metric label="Loaded" value={statusCounts.loaded ?? 0} />
         <Metric label="Loading" value={statusCounts.loading ?? 0} />
         <Metric label="Failed" value={statusCounts.failed ?? 0} />
       </div>
-      <table className="gamekit-devtools-table">
+      <table className="gamekits-devtools-table">
         <thead>
           <tr>
             <th>Asset</th>

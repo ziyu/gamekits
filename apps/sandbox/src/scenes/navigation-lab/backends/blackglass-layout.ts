@@ -1,5 +1,5 @@
-import type { DataRef } from "@gamekit/data";
-import type { NavigationLayoutDefinition } from "@gamekit/navigation-core";
+import type { DataRef } from "@gamekits/data";
+import type { NavigationLayoutDefinition } from "@gamekits/navigation-core";
 import { BLACKGLASS_BASIN_TERRAIN } from "../scenarios/blackglass-basin-terrain";
 
 export const BLACKGLASS_BLAST_DOOR_AREA_ID = "blast-door";

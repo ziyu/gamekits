@@ -1,4 +1,4 @@
-import { PlatformStorageServiceKey, type PlatformRuntime } from "@gamekit/platform-core";
+import { PlatformStorageServiceKey, type PlatformRuntime } from "@gamekits/platform-core";
 import { describe, expect, it } from "vitest";
 
 export function definePlatformConformanceTests(

@@ -1,8 +1,8 @@
-import { GameError } from "@gamekit/core";
-import type { DriverCapabilities, DriverLifecyclePhase } from "@gamekit/driver-core";
-import type { InputSourceAdapter } from "@gamekit/input-core";
-import type { RendererBootContext } from "@gamekit/renderer-core";
-import { createPhaserRenderer } from "@gamekit/renderer-phaser";
+import { GameError } from "@gamekits/core";
+import type { DriverCapabilities, DriverLifecyclePhase } from "@gamekits/driver-core";
+import type { InputSourceAdapter } from "@gamekits/input-core";
+import type { RendererBootContext } from "@gamekits/renderer-core";
+import { createPhaserRenderer } from "@gamekits/renderer-phaser";
 import { createPhaserDriverAssetLoader, type PhaserDriverAssetRuntime } from "./assets";
 import { createPhaserAnimationPlaybackAdapter } from "./animation";
 import { createPhaserAudioBackend, type PhaserDriverAudioRuntime } from "./audio";

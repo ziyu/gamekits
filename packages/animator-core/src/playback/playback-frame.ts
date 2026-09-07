@@ -1,5 +1,5 @@
-import type { AssetRef } from "@gamekit/asset";
-import type { RenderNodePath, RenderObjectId } from "@gamekit/renderer-core";
+import type { AssetRef } from "@gamekits/asset";
+import type { RenderNodePath, RenderObjectId } from "@gamekits/renderer-core";
 import type { AnimatorMarkerEvent } from "../marker/marker-event";
 
 export type AnimationPlaybackLayerFrame = {

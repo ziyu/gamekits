@@ -1,4 +1,4 @@
-import { GameError } from "@gamekit/core";
+import { GameError } from "@gamekits/core";
 
 export function createGasError(
   code: string,

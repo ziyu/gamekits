@@ -1,6 +1,6 @@
-import { DevToolsOverlay } from "@gamekit/devtools-ui";
-import type { DevToolsRuntime } from "@gamekit/devtools";
-import type { UiRuntime } from "@gamekit/ui-core";
+import { DevToolsOverlay } from "@gamekits/devtools-ui";
+import type { DevToolsRuntime } from "@gamekits/devtools";
+import type { UiRuntime } from "@gamekits/ui-core";
 import { useCallback } from "react";
 import type { AbyssSnapshot } from "../game";
 import { renderAbyssDevToolsPanel } from "./devtools/AbyssDevToolsPanel";

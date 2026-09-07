@@ -1,17 +1,17 @@
-import type { CameraController, CameraState2D, PointLike } from "@gamekit/camera-core";
+import type { CameraController, CameraState2D, PointLike } from "@gamekits/camera-core";
 import {
   createAnimatorHandle,
   createAnimatorModule,
   type AnimatorHandle
-} from "@gamekit/animator-core";
-import type { AnimationPlaybackAdapter } from "@gamekit/animator-core/playback";
-import type { GameAudio } from "@gamekit/audio-core";
-import type { CombatKinematicProjectileRecord } from "@gamekit/combat";
-import { defineGameModule } from "@gamekit/core";
-import type { DataRegistry } from "@gamekit/data";
-import { createEventBus, type EventBus } from "@gamekit/event-bus";
-import { createGame, type GameInstallContext, type GameRuntime } from "@gamekit/game-runtime";
-import { GAS_ABILITY_TYPE, type GasAbilityDefinition } from "@gamekit/gas";
+} from "@gamekits/animator-core";
+import type { AnimationPlaybackAdapter } from "@gamekits/animator-core/playback";
+import type { GameAudio } from "@gamekits/audio-core";
+import type { CombatKinematicProjectileRecord } from "@gamekits/combat";
+import { defineGameModule } from "@gamekits/core";
+import type { DataRegistry } from "@gamekits/data";
+import { createEventBus, type EventBus } from "@gamekits/event-bus";
+import { createGame, type GameInstallContext, type GameRuntime } from "@gamekits/game-runtime";
+import { GAS_ABILITY_TYPE, type GasAbilityDefinition } from "@gamekits/gas";
 import {
   createMultiplayerModule,
   defineMultiplayerReplicationEntityPresentation,
@@ -25,7 +25,7 @@ import {
   type MultiplayerRuntime,
   type NetworkVector2,
   type PresentedSnapshotTracks
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import {
   createPhysicsBodyPredictionTransition,
   createPhysicsLayoutDefinitions,
@@ -34,9 +34,9 @@ import {
   type PhysicsBackendAdapter,
   type PhysicsBodyData,
   type PhysicsColliderData
-} from "@gamekit/physics-core";
-import type { RendererAdapter } from "@gamekit/renderer-core";
-import type { EntityId, GameWorld } from "@gamekit/world";
+} from "@gamekits/physics-core";
+import type { RendererAdapter } from "@gamekits/renderer-core";
+import type { EntityId, GameWorld } from "@gamekits/world";
 
 import {
   OUTPOST_PLAYER_TYPE,

@@ -4,8 +4,8 @@ import type {
   PhysicsMaterialDefinition,
   PhysicsSceneConfig,
   PhysicsSceneData
-} from "@gamekit/physics-core";
-import type { DataRef, DataRegistry } from "@gamekit/data";
+} from "@gamekits/physics-core";
+import type { DataRef, DataRegistry } from "@gamekits/data";
 import { OUTPOST_ARENA, outpostArenaDefinition } from "./arena-scene";
 
 export const OUTPOST_ARENA_PHYSICS_SCENE_ID = "scene.outpost.arena";

@@ -1,14 +1,14 @@
 import {
   characterMotorStateSignature,
   type CharacterMotorPredictionContributor
-} from "@gamekit/character-controller";
+} from "@gamekits/character-controller";
 import {
   createPhysicsPredictionIsland,
   type PhysicsPredictionIsland,
   type PhysicsPredictionIslandCommand,
   type PhysicsPredictionIslandMemberDefinition
-} from "@gamekit/physics-core";
-import { initRapier3dPhysicsBackend } from "@gamekit/physics-rapier3d";
+} from "@gamekits/physics-core";
+import { initRapier3dPhysicsBackend } from "@gamekits/physics-rapier3d";
 import { beforeAll, describe, expect, it } from "vitest";
 
 import { ARENA_COMPILED_CONTENT } from "../content/default-content";

@@ -1,7 +1,7 @@
 import "./styles.css";
-import { createConfiguredAppHost } from "@gamekit/app-host";
-import type { AssetLoadState, AssetManager } from "@gamekit/asset";
-import type { ThreeGameDriver } from "@gamekit/driver-three";
+import { createConfiguredAppHost } from "@gamekits/app-host";
+import type { AssetLoadState, AssetManager } from "@gamekits/asset";
+import type { ThreeGameDriver } from "@gamekits/driver-three";
 import { THREE_DEMO_DRIVER_ID, threeDemoAppDefinition } from "./app-definition";
 import { createThreeDemoProfile, measureViewport, type ThreeDemoAppContext } from "./app-profile";
 import { createThreeDemoScene, type ThreeDemoModel, type ThreeDemoScene } from "./demo-scene";

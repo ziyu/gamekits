@@ -1,6 +1,6 @@
-import { createConfiguredAppHost } from "@gamekit/app-host";
-import type { DevToolsRuntime } from "@gamekit/devtools";
-import type { UiRuntime } from "@gamekit/ui-core";
+import { createConfiguredAppHost } from "@gamekits/app-host";
+import type { DevToolsRuntime } from "@gamekits/devtools";
+import type { UiRuntime } from "@gamekits/ui-core";
 import { aiLabAppDefinition } from "./app-definition";
 import { createAiLabWebProfile, type AiLabAppContext } from "./app-profile";
 import type { AiLabController } from "./runtime";

@@ -8,8 +8,8 @@ import {
   type CharacterMotorState,
   type CharacterMotorStepResult,
   type CompiledCharacterMotorDefinition
-} from "@gamekit/character-controller";
-import type { PhysicsScene } from "@gamekit/physics-core";
+} from "@gamekits/character-controller";
+import type { PhysicsScene } from "@gamekits/physics-core";
 
 export const CHARACTER_CONTROLLER_LAB_BODY_ID = "character-controller-lab.runner";
 export const CHARACTER_CONTROLLER_LAB_COLLIDER_ID = "character-controller-lab.runner.collider";

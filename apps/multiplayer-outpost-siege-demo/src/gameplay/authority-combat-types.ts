@@ -1,5 +1,5 @@
-import type { EntityId } from "@gamekit/world";
-import type { CombatKinematicProjectileRecord } from "@gamekit/combat";
+import type { EntityId } from "@gamekits/world";
+import type { CombatKinematicProjectileRecord } from "@gamekits/combat";
 
 import type {
   OutpostCombatAbility,

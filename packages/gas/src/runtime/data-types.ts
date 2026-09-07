@@ -1,4 +1,4 @@
-import type { DataDiagnostic, DataTypeDefinition } from "@gamekit/data";
+import type { DataDiagnostic, DataTypeDefinition } from "@gamekits/data";
 import type {
   GasAbilityDefinition,
   GasAbilityExecutionPhase,

@@ -14,7 +14,7 @@ import {
   type PlatformCapabilityId,
   type PlatformRuntime,
   type PlatformStorage
-} from "@gamekit/platform-core";
+} from "@gamekits/platform-core";
 import { createMemoryFileSystem } from "./memory-file-system";
 import { adaptStorageLike, createMemoryStorage } from "./memory-storage";
 import { createWebPath } from "./path";
@@ -103,7 +103,7 @@ export function createWebPlatform(options: WebPlatformOptions = {}): PlatformRun
   };
   const app = {
     async name() {
-      return options.appName ?? "GameKit Web App";
+      return options.appName ?? "GameKits Web App";
     },
     async version() {
       return options.appVersion;

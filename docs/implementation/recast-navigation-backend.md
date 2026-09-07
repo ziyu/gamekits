@@ -15,8 +15,8 @@ Status: Closed.
 
 ## Scope
 
-- 新增 `@gamekit/navigation-navmesh` 的可序列化 build source、DataType 和 validation。
-- 新增 `@gamekit/navigation-recast` 的初始化、generator、query runtime、factory、debug tooling 和测试。
+- 新增 `@gamekits/navigation-navmesh` 的可序列化 build source、DataType 和 validation。
+- 新增 `@gamekits/navigation-recast` 的初始化、generator、query runtime、factory、debug tooling 和测试。
 - 第三方 Recast/WASM 类型只停留在 adapter package。
 - Blackglass Graph 改为地图语义 waypoint/route，不再生成 visibility mesh。
 - Blackglass 增加 Recast NavMesh provider，复用同一 terrain、场景操作和 App Host session lifecycle。
@@ -36,12 +36,12 @@ Status: Closed.
 ## Work log
 
 - 2026-07-22：接受 ADR 0039，开始建立 NavMesh source/Recast adapter 与 Sandbox 三 Backend 验证。
-- 2026-07-22：新增 `@gamekit/navigation-navmesh`，提供与第三方实现无关、可序列化且可校验的 triangle build source。
-- 2026-07-22：新增 `@gamekit/navigation-recast`，完成显式幂等初始化、area-aware solo bake、path/project query、area cost/block、portal flag、revision invalidation、依赖记录、debug mesh 和 native resource disposal。
+- 2026-07-22：新增 `@gamekits/navigation-navmesh`，提供与第三方实现无关、可序列化且可校验的 triangle build source。
+- 2026-07-22：新增 `@gamekits/navigation-recast`，完成显式幂等初始化、area-aware solo bake、path/project query、area cost/block、portal flag、revision invalidation、依赖记录、debug mesh 和 native resource disposal。
 - 2026-07-22：将 Blackglass Graph 收敛为 14 个语义锚点和 19 条显式路线；Grid 继续表达离散格点；Recast 从同一权威 terrain 生成 177 个 polygon，并在同一 UI 和场景命令下支持三 Backend 切换。
 - 2026-07-22：浏览器验证 Graph/Recast debug 数据、路径查询、Blast Doors 阻断、Coolant 高代价和 Transit Relay 切换；控制台无 error/warning。
 - 2026-07-22：统一 Recast 与 Graph/Grid 的 area cost 语义：profile override 替换 layout 基础值，运行时 multiplier 再乘在有效值上；增加双通道改道测试，并让 Recast debug artifact 保留逐三角形 area。Sandbox Area cost 图层改为按当前 profile 和动态状态绘制有效代价热力图及数值图例。
-- 2026-07-22：修正 Detour 对小于 `1` 的 traversal multiplier 会破坏 A\* heuristic admissibility 的适配缺陷。Recast query filter 现在按可通行区域最小有效 cost 等比例归一化，公共路线成本仍保持 GameKit 原始语义；新增强折扣远路包级反例，并在 Blackglass Backend 矩阵中锁定 Pathfinder 的 Grid/Recast 北侧 Gantry 路线一致性。
+- 2026-07-22：修正 Detour 对小于 `1` 的 traversal multiplier 会破坏 A\* heuristic admissibility 的适配缺陷。Recast query filter 现在按可通行区域最小有效 cost 等比例归一化，公共路线成本仍保持 GameKits 原始语义；新增强折扣远路包级反例，并在 Blackglass Backend 矩阵中锁定 Pathfinder 的 Grid/Recast 北侧 Gantry 路线一致性。
 
 ## Verification
 

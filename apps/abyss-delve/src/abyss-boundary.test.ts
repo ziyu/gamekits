@@ -4,12 +4,12 @@ import { describe, expect, it } from "vitest";
 
 const FORBIDDEN_GAME_IMPORTS = [
   "phaser",
-  "@gamekit/driver-phaser",
-  "@gamekit/renderer-phaser",
-  "@gamekit/app-host",
-  "@gamekit/input-dom",
-  "@gamekit/platform-web",
-  "@gamekit/world-koota",
+  "@gamekits/driver-phaser",
+  "@gamekits/renderer-phaser",
+  "@gamekits/app-host",
+  "@gamekits/input-dom",
+  "@gamekits/platform-web",
+  "@gamekits/world-koota",
   "react",
   "react-dom"
 ];

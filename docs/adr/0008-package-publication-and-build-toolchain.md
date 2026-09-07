@@ -6,7 +6,7 @@ Accepted
 
 ## Context
 
-GameKit 的长期定位是可复用游戏框架，不是单一游戏仓库。当前仓库已经按 `@gamekit/*` 拆分出薄内核、facade、adapter、driver、App Host、UI、DevTools 和测试工具包。其他项目未来需要按自身运行环境和技术选型组合这些包，而不是复制本仓库源码或安装一个包含所有能力的巨型包。
+GameKits 的长期定位是可复用游戏框架，不是单一游戏仓库。当前仓库已经按 `@gamekits/*` 拆分出薄内核、facade、adapter、driver、App Host、UI、DevTools 和测试工具包。其他项目未来需要按自身运行环境和技术选型组合这些包，而不是复制本仓库源码或安装一个包含所有能力的巨型包。
 
 当前发布前仍存在几个工程问题：
 
@@ -18,7 +18,7 @@ GameKit 的长期定位是可复用游戏框架，不是单一游戏仓库。当
 
 发布能力本身会影响包边界、依赖策略和下游使用方式，因此需要作为架构决策记录。
 
-Rolldown 是 Rust 实现、Rollup 兼容取向的 bundler。官方仓库描述其目标是作为 Rollup 的快速替代，并面向未来支撑 Vite 底层打包能力。Rolldown 官方生态中的 `tsdown` 面向 TypeScript library 打包，基于 Rolldown，提供 library-oriented 默认配置和 declaration file 生成能力。GameKit 的包都是 TypeScript ESM library，且需要稳定控制 external、exports、d.ts、CSS asset 和 tarball 内容，因此 Rolldown 系工具链与本项目发布需求匹配。
+Rolldown 是 Rust 实现、Rollup 兼容取向的 bundler。官方仓库描述其目标是作为 Rollup 的快速替代，并面向未来支撑 Vite 底层打包能力。Rolldown 官方生态中的 `tsdown` 面向 TypeScript library 打包，基于 Rolldown，提供 library-oriented 默认配置和 declaration file 生成能力。GameKits 的包都是 TypeScript ESM library，且需要稳定控制 external、exports、d.ts、CSS asset 和 tarball 内容，因此 Rolldown 系工具链与本项目发布需求匹配。
 
 参考：
 
@@ -28,17 +28,17 @@ Rolldown 是 Rust 实现、Rollup 兼容取向的 bundler。官方仓库描述�
 
 ## Decision
 
-GameKit 采用多包发布，而不是单包发布。
+GameKits 采用多包发布，而不是单包发布。
 
 包发布形态按架构职责分层：
 
-- 基础薄内核：`@gamekit/core`、`@gamekit/event-bus`、`@gamekit/game-runtime`。
-- Facade / toolkit：`@gamekit/world`、`@gamekit/renderer-core`、`@gamekit/input-core`、`@gamekit/camera-core`、`@gamekit/platform-core`、`@gamekit/driver-core`、`@gamekit/data`、`@gamekit/asset`、`@gamekit/save`、`@gamekit/ui-core`。
-- Gameplay module：`@gamekit/tca`、`@gamekit/gas`。
-- Adapter / driver：`@gamekit/world-koota`、`@gamekit/input-dom`、`@gamekit/platform-web`、`@gamekit/platform-tauri`、`@gamekit/renderer-phaser`、`@gamekit/driver-phaser`。
-- 应用组合入口：`@gamekit/app-host`。
-- 工具和 UI：`@gamekit/devtools`、`@gamekit/react-ui`、`@gamekit/devtools-ui`。
-- 测试辅助：`@gamekit/test-utils`。
+- 基础薄内核：`@gamekits/core`、`@gamekits/event-bus`、`@gamekits/game-runtime`。
+- Facade / toolkit：`@gamekits/world`、`@gamekits/renderer-core`、`@gamekits/input-core`、`@gamekits/camera-core`、`@gamekits/platform-core`、`@gamekits/driver-core`、`@gamekits/data`、`@gamekits/asset`、`@gamekits/save`、`@gamekits/ui-core`。
+- Gameplay module：`@gamekits/tca`、`@gamekits/gas`。
+- Adapter / driver：`@gamekits/world-koota`、`@gamekits/input-dom`、`@gamekits/platform-web`、`@gamekits/platform-tauri`、`@gamekits/renderer-phaser`、`@gamekits/driver-phaser`。
+- 应用组合入口：`@gamekits/app-host`。
+- 工具和 UI：`@gamekits/devtools`、`@gamekits/react-ui`、`@gamekits/devtools-ui`。
+- 测试辅助：`@gamekits/test-utils`。
 
 `apps/sandbox` 和 `apps/abyss-delve` 不作为 npm package 发布。它们是验证应用和示例源码，继续保持 private。
 
@@ -50,7 +50,7 @@ GameKit 采用多包发布，而不是单包发布。
 
 首选候选工具为 Rolldown 系上层工具 `tsdown`，而不是直接手写 Rolldown 配置。原因：
 
-- GameKit 需要的是 library package 发布，不是 app bundle。
+- GameKits 需要的是 library package 发布，不是 app bundle。
 - `tsdown` 已把 Rolldown、TypeScript declaration、external 和 library defaults 收敛为更贴近包发布的接口。
 - 直接使用 Rolldown 会让每个包承担更多 d.ts、CSS copy、external 和 package exports 维护成本。
 
@@ -98,11 +98,11 @@ GameKit 采用多包发布，而不是单包发布。
 
 ## Dependency Rules
 
-`@gamekit/*` 包之间采用 workspace 依赖进行本地开发，发布产物必须落成明确版本号。初期采用 lockstep 版本策略，降低跨包兼容心智成本。
+`@gamekits/*` 包之间采用 workspace 依赖进行本地开发，发布产物必须落成明确版本号。初期采用 lockstep 版本策略，降低跨包兼容心智成本。
 
 第三方依赖按所有权处理：
 
-- Driver 或 adapter 明确拥有的底层 runtime 可以作为该包 dependency，例如 `@gamekit/driver-phaser` 依赖 `phaser`，`@gamekit/world-koota` 依赖 `koota`。
+- Driver 或 adapter 明确拥有的底层 runtime 可以作为该包 dependency，例如 `@gamekits/driver-phaser` 依赖 `phaser`，`@gamekits/world-koota` 依赖 `koota`。
 - 宿主应用必须共享的 UI runtime 使用 peer dependency，例如 `react`、`react-dom`。
 - 平台插件按可选 peer dependency 管理，例如 Tauri plugin。
 - 核心 facade、DataType、GameModule 公共 API 和 gameplay 包不得暴露 Phaser、Koota、React、Tauri 等第三方类型。

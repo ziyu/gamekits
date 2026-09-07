@@ -35,7 +35,7 @@ function main(): void {
     JSON.stringify(
       {
         benchmark: "navigation",
-        packages: ["@gamekit/navigation-core", "@gamekit/navigation-graph"],
+        packages: ["@gamekits/navigation-core", "@gamekits/navigation-graph"],
         methodology: {
           graph: "32x32 authored grid",
           sharedGoal: true,

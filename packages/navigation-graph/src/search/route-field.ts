@@ -7,8 +7,8 @@ import {
   type NavigationObstacleTarget,
   type NavigationPathTraversal,
   type NavigationPoint
-} from "@gamekit/navigation-core";
-import type { NavigationBackendRouteSample } from "@gamekit/navigation-core/backend";
+} from "@gamekits/navigation-core";
+import type { NavigationBackendRouteSample } from "@gamekits/navigation-core/backend";
 import type { CompiledNavigationArc, CompiledNavigationGraph, GraphRouteField } from "../compiler";
 import { createMinHeap } from "./min-heap";
 import { nodeSupportsProfile, pointDistance, projectGraphPoint } from "./project-graph-point";

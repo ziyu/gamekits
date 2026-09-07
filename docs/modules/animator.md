@@ -6,10 +6,10 @@ Animator Core 是 session-scoped presentation Game Module toolkit，负责把 ga
 
 相关包：
 
-- `@gamekit/animator-core`：graph、controller、GameModule、marker 与 observability 的游戏侧入口。
-- `@gamekit/animator-core/playback`：Driver/Adapter 实现者使用的播放帧和执行端口。
-- `@gamekit/animator-core/testing`：Memory Playback Adapter 与 runtime conformance。
-- 具体 backend 实现由 `@gamekit/renderer-*` 或 `@gamekit/driver-*` 提供 runtime slice。
+- `@gamekits/animator-core`：graph、controller、GameModule、marker 与 observability 的游戏侧入口。
+- `@gamekits/animator-core/playback`：Driver/Adapter 实现者使用的播放帧和执行端口。
+- `@gamekits/animator-core/testing`：Memory Playback Adapter 与 runtime conformance。
+- 具体 backend 实现由 `@gamekits/renderer-*` 或 `@gamekits/driver-*` 提供 runtime slice。
 
 Animator Core 不解码纹理、骨骼或模型，不创建 Phaser AnimationManager、Three AnimationMixer 或 renderer object。外部 runtime 仍由 Driver 单一持有。
 
@@ -219,7 +219,7 @@ contracts / graph definitions / playback contracts
 - `projection` 把 controller state 投影为 backend-neutral playback frame；`playback` 只定义 Driver/Adapter port 与 DTO，不依赖高层 controller 或 App Host。
 - `observability` 从只读状态和领域事件构建 snapshot/trace；状态机不依赖具体 observer。
 - `controller` 协调一次 controller update，`composition` 只管理 controller registry、adapter flush、Handle 和 GameModule lifecycle，不能重新吸收 graph、one-shot、phase、marker 或 projection 算法。
-- Root 入口只导出游戏/app 使用的 graph、controller、module、marker 和 observability API。Playback port 通过 `@gamekit/animator-core/playback` 导出，测试替身和 conformance 通过 `@gamekit/animator-core/testing` 导出。
+- Root 入口只导出游戏/app 使用的 graph、controller、module、marker 和 observability API。Playback port 通过 `@gamekits/animator-core/playback` 导出，测试替身和 conformance 通过 `@gamekits/animator-core/testing` 导出。
 - 类型与语义所有者放在同一目录；不重新创建包级 `types.ts`、`definitions.ts`、`helpers.ts`、`utils.ts` 或通用 `runtime/` 聚合层。
 - 测试按 graph、controller、composition、testing 与 architecture 镜像组织；Driver 先通过 Core conformance，再补 native clip 与资源生命周期测试。
 

@@ -3,7 +3,7 @@ import type {
   SaveRestoreContext,
   SaveSection,
   SaveValidationIssue
-} from "@gamekit/save";
+} from "@gamekits/save";
 import type { AiAgentBinding } from "../contracts/agent-binding";
 import type { AiHandle } from "../controller/runtime";
 import type { AiRuntimeCheckpoint } from "./checkpoint";

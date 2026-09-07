@@ -1,4 +1,4 @@
-import type { AssetDefinition } from "@gamekit/asset";
+import type { AssetDefinition } from "@gamekits/asset";
 
 export const OUTPOST_FEEDBACK_ASSET_IDS = {
   crosshair: "asset.outpost.feedback.crosshair",

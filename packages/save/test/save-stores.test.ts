@@ -3,8 +3,8 @@ import {
   createMemoryFileSystem,
   createMemoryStorage,
   createWebPlatform
-} from "@gamekit/platform-web";
-import { createPlatformFileSaveStore, createPlatformStorageSaveStore } from "@gamekit/save";
+} from "@gamekits/platform-web";
+import { createPlatformFileSaveStore, createPlatformStorageSaveStore } from "@gamekits/save";
 
 const bytes = new Uint8Array([1, 2, 3]);
 

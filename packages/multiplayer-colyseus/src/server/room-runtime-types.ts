@@ -3,7 +3,7 @@ import type {
   MultiplayerPeerInput,
   MultiplayerRuntime,
   MultiplayerSessionKind
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 
 import type { ColyseusMessageType } from "../adapter";
 

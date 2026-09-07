@@ -1,7 +1,7 @@
 import type {
   PhysicsPredictionIslandAuxiliaryContributor,
   PhysicsPredictionIslandCommand
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 
 import { ARENA_MOVE_SPEED } from "../shared/config";
 

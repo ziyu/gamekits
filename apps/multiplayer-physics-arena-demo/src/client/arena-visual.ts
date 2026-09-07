@@ -1,11 +1,11 @@
-import type { ThreeRendererNative } from "@gamekit/driver-three";
+import type { ThreeRendererNative } from "@gamekits/driver-three";
 import type {
   PhysicsBodyState,
   PhysicsPredictionIslandMemberDefinition,
   PhysicsPredictionIslandMemberState,
   PhysicsPredictionIslandStateSnapshot,
   PhysicsRotation
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 import * as THREE from "three";
 
 import { ARENA_COMPILED_CONTENT } from "../content/default-content";

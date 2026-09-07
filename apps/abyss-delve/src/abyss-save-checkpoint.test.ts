@@ -1,4 +1,4 @@
-import { createMemorySaveStore, createSaveManager, type SaveManager } from "@gamekit/save";
+import { createMemorySaveStore, createSaveManager, type SaveManager } from "@gamekits/save";
 import { describe, expect, it } from "vitest";
 import { Loot, createAbyssSaveContributor } from "./game";
 import { createAbyssTestHarness, type AbyssTestHarness } from "./test/abyss-test-utils";

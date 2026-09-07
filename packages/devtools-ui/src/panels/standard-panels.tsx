@@ -10,7 +10,7 @@ import type { DevToolsPanelRendererProps } from "./panel-types";
 export type { DevToolsPanelRenderer, DevToolsPanelRendererProps } from "./panel-types";
 
 export function renderStandardDevToolsPanel({ snapshot, panel }: DevToolsPanelRendererProps) {
-  if (panel.id === "gamekit.devtools.commands") {
+  if (panel.id === "gamekits.devtools.commands") {
     return <CommandList snapshot={snapshot} />;
   }
   if (panel.id === "devtools.performance") {
@@ -19,18 +19,18 @@ export function renderStandardDevToolsPanel({ snapshot, panel }: DevToolsPanelRe
 
   const model = createPanelModel(snapshot, panel);
   return (
-    <section className="gamekit-devtools-panel">
+    <section className="gamekits-devtools-panel">
       <PanelSummary
         diagnostics={model.diagnostics.length}
         panel={panel}
         sources={model.sources.length}
         traces={model.traces.length}
       />
-      <div className="gamekit-devtools-panel__grid">
-        <section className="gamekit-devtools-panel__main">
+      <div className="gamekits-devtools-panel__grid">
+        <section className="gamekits-devtools-panel__main">
           <SourceSnapshotList sources={model.sources} />
         </section>
-        <aside className="gamekit-devtools-panel__side">
+        <aside className="gamekits-devtools-panel__side">
           <TraceList traces={model.traces} />
           <DiagnosticList diagnostics={model.diagnostics} />
           <ProfilerList snapshot={snapshot} sourceKinds={model.sourceKinds} />
@@ -57,7 +57,7 @@ export function renderStandardPinnedDevToolsPanel({
   }
 
   return (
-    <div className="gamekit-devtools-generic-pin">
+    <div className="gamekits-devtools-generic-pin">
       <strong>{panel.pin?.label ?? panel.label}</strong>
       <span>{panel.sourceKinds?.join(", ") || "custom"}</span>
     </div>

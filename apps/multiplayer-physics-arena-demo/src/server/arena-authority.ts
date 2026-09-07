@@ -1,12 +1,12 @@
-import { createStandardMultiplayerPhysicsArenaAuthorityProjection } from "@gamekit/app-host";
-import type { CharacterMotorPredictionCommand } from "@gamekit/character-controller";
+import { createStandardMultiplayerPhysicsArenaAuthorityProjection } from "@gamekits/app-host";
+import type { CharacterMotorPredictionCommand } from "@gamekits/character-controller";
 import {
   createMultiplayerAuthorityBindingStore,
   createMultiplayerAuthorityHostLoop,
   type MultiplayerAuthorityHostLoop,
   type MultiplayerAuthorityLoopDiagnostics,
   type MultiplayerRuntime
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import {
   createPhysicsPredictionIsland,
   type PhysicsBackendAdapter,
@@ -15,7 +15,7 @@ import {
   type PhysicsPredictionIslandContact,
   type PhysicsPredictionIslandMemberDefinition,
   type PhysicsVector
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 
 import {
   arenaBotArchetypeForMember,

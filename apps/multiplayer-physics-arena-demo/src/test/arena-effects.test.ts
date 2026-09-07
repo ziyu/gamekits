@@ -1,4 +1,4 @@
-import type { PhysicsPredictionIslandContact } from "@gamekit/physics-core";
+import type { PhysicsPredictionIslandContact } from "@gamekits/physics-core";
 import { describe, expect, it } from "vitest";
 
 import { createArenaClientEffectController } from "../client/arena-effects";

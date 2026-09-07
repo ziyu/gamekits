@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/driver-three",
+  "name": "@gamekits/driver-three",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -17,15 +17,15 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/asset": "workspace:*",
-    "@gamekit/camera-core": "workspace:*",
-    "@gamekit/core": "workspace:*",
-    "@gamekit/driver-core": "workspace:*",
-    "@gamekit/renderer-core": "workspace:*",
+    "@gamekits/asset": "workspace:*",
+    "@gamekits/camera-core": "workspace:*",
+    "@gamekits/core": "workspace:*",
+    "@gamekits/driver-core": "workspace:*",
+    "@gamekits/renderer-core": "workspace:*",
     "three": "^0.181.2"
   },
   "devDependencies": {
-    "@gamekit/test-utils": "workspace:*",
+    "@gamekits/test-utils": "workspace:*",
     "@types/three": "^0.184.1"
   },
   "files": [

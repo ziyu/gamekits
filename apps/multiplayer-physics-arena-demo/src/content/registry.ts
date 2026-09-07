@@ -1,5 +1,5 @@
-import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekit/data";
-import type { PhysicsPredictionIslandEnvironment } from "@gamekit/physics-core";
+import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekits/data";
+import type { PhysicsPredictionIslandEnvironment } from "@gamekits/physics-core";
 import {
   compileArenaCourse,
   mergeArenaCourseEnvironments,

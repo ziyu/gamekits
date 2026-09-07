@@ -1,10 +1,10 @@
-import type { AssetLoaderAdapter } from "@gamekit/asset";
-import type { AnimationPlaybackAdapter } from "@gamekit/animator-core/playback";
-import type { AudioBackend } from "@gamekit/audio-core/backend";
-import type { DriverAdapterMap, GameDriver } from "@gamekit/driver-core";
-import type { InputSourceAdapter, NormalizedInputEvent } from "@gamekit/input-core";
-import type { RendererAdapter, RendererBootContext } from "@gamekit/renderer-core";
-import type { PhaserRendererOptions } from "@gamekit/renderer-phaser";
+import type { AssetLoaderAdapter } from "@gamekits/asset";
+import type { AnimationPlaybackAdapter } from "@gamekits/animator-core/playback";
+import type { AudioBackend } from "@gamekits/audio-core/backend";
+import type { DriverAdapterMap, GameDriver } from "@gamekits/driver-core";
+import type { InputSourceAdapter, NormalizedInputEvent } from "@gamekits/input-core";
+import type { RendererAdapter, RendererBootContext } from "@gamekits/renderer-core";
+import type { PhaserRendererOptions } from "@gamekits/renderer-phaser";
 import type { PhaserDriverCameraAdapter } from "./camera";
 
 export type PhaserMipmapFilter =

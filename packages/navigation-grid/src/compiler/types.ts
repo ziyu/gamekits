@@ -2,7 +2,7 @@ import type {
   NavigationAgentProfileDefinition,
   NavigationObstacleTarget,
   NavigationPoint
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import type { NavigationGridCellDefinition } from "../contracts/grid-definition";
 
 export type CompiledNavigationGridCell = Omit<

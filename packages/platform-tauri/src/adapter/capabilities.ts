@@ -1,6 +1,6 @@
 export const TAURI_GAME_CAPABILITIES = {
-  identifier: "gamekit-game-runtime",
-  description: "Minimum filesystem and platform access for a GameKit runtime build.",
+  identifier: "gamekits-game-runtime",
+  description: "Minimum filesystem and platform access for a GameKits runtime build.",
   permissions: [
     "fs:allow-read-resource",
     "fs:allow-app-read",
@@ -13,7 +13,7 @@ export const TAURI_GAME_CAPABILITIES = {
 } as const;
 
 export const TAURI_EDITOR_EXTRA_CAPABILITIES = {
-  identifier: "gamekit-editor-extra",
+  identifier: "gamekits-editor-extra",
   description: "Additional file dialog access for DataPack import/export workflows.",
   permissions: ["dialog:allow-open", "dialog:allow-save"],
   windows: ["main"]

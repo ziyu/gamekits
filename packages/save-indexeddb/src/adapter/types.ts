@@ -1,4 +1,4 @@
-import type { SaveSlotSummary, SaveStore } from "@gamekit/save";
+import type { SaveSlotSummary, SaveStore } from "@gamekits/save";
 
 export type IndexedDbSaveDiagnostic = {
   code: string;

@@ -1,11 +1,11 @@
-import type { AssetDefinition } from "@gamekit/asset";
-import { createAnimatorRuntime, type AnimatorGraphDefinition } from "@gamekit/animator-core";
-import { createMemoryAnimationPlaybackAdapter } from "@gamekit/animator-core/testing";
+import type { AssetDefinition } from "@gamekits/asset";
+import { createAnimatorRuntime, type AnimatorGraphDefinition } from "@gamekits/animator-core";
+import { createMemoryAnimationPlaybackAdapter } from "@gamekits/animator-core/testing";
 import type {
   RenderObjectDefinition,
   RenderObjectId,
   RendererAdapter
-} from "@gamekit/renderer-core";
+} from "@gamekits/renderer-core";
 import { describe, expect, it } from "vitest";
 import {
   ANIMATOR_LAB_GRAPH_ID,

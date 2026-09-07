@@ -101,7 +101,7 @@ export function renderArenaUi(root: HTMLElement): ArenaUi {
   const brandMark = element("span", "arena-brand__mark", "KC");
   const brandCopy = element("div", "arena-brand__copy");
   brandCopy.append(
-    element("span", "arena-brand__eyebrow", "GAMEKIT SPORTS NETWORK"),
+    element("span", "arena-brand__eyebrow", "GAMEKITS SPORTS NETWORK"),
     element("h1", "arena-brand__title", "KNOCKOUT CIRCUIT")
   );
   brand.append(brandMark, brandCopy);

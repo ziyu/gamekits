@@ -35,7 +35,7 @@ function main(): void {
     JSON.stringify(
       {
         benchmark: "ai",
-        package: "@gamekit/ai-core",
+        package: "@gamekits/ai-core",
         methodology: {
           warmupTicks: 10,
           measuredTicks: 120,

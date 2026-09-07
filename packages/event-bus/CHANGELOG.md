@@ -1,4 +1,4 @@
-# @gamekit/event-bus
+# @gamekits/event-bus
 
 ## 0.1.0-alpha.8
 

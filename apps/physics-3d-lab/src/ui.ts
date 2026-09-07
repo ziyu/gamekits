@@ -47,7 +47,7 @@ export function renderPhysics3dLabShell(root: HTMLElement): Physics3dLabUi {
   const panel = element("aside", "physics-3d-lab__panel");
   const header = element("header", "physics-3d-lab__header");
   header.append(
-    element("p", "physics-3d-lab__eyebrow", "GameKit Physics"),
+    element("p", "physics-3d-lab__eyebrow", "GameKits Physics"),
     element("h1", "physics-3d-lab__title", "Physics 3D Lab"),
     element(
       "p",

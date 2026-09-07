@@ -3,9 +3,9 @@ import type {
   AiAgentReadContext,
   AiPerceptionFact,
   AiSensorSampler
-} from "@gamekit/ai-core";
-import type { NavigationPoint } from "@gamekit/navigation-core";
-import type { PhysicsVector } from "@gamekit/physics-core";
+} from "@gamekits/ai-core";
+import type { NavigationPoint } from "@gamekits/navigation-core";
+import type { PhysicsVector } from "@gamekits/physics-core";
 
 import type {
   ArenaBotSkillProfileDefinition,

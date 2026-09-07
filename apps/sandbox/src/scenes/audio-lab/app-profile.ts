@@ -1,8 +1,8 @@
-import { createAssetManager, type AssetManager } from "@gamekit/asset";
-import type { GameAudio } from "@gamekit/audio-core";
-import { createStandardAppProfile, type AppProfile } from "@gamekit/app-host";
-import type { DriverRegistry } from "@gamekit/driver-core";
-import { createPhaserDriver } from "@gamekit/driver-phaser";
+import { createAssetManager, type AssetManager } from "@gamekits/asset";
+import type { GameAudio } from "@gamekits/audio-core";
+import { createStandardAppProfile, type AppProfile } from "@gamekits/app-host";
+import type { DriverRegistry } from "@gamekits/driver-core";
+import { createPhaserDriver } from "@gamekits/driver-phaser";
 import { AUDIO_LAB_AUDIO_CONFIG } from "./audio-catalog";
 import { AUDIO_LAB_ASSET_GROUP, type AudioLabAssetBundle } from "./audio-assets";
 

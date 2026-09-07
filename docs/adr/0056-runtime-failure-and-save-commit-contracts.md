@@ -13,7 +13,7 @@
 ## 决策
 
 - PlatformFileSystem 增加可选 `replaceFile(source, target, options)` 和 `remove(path, options)`。replaceFile 只承诺同目录原子替换：失败保留 target，成功时移走 source。没有能力的 adapter 不暴露该方法，Save 在写入前拒绝不支持的组合。
-- File SaveStore 将 opaque bytes 的 base64 与 slot summary 放入单个 `gamekit.slot.v1` 记录，先写唯一临时文件，再替换 `.slot`。读取兼容旧 `.save` / `.json`，新记录优先；删除先清理旧副本再清理新记录，避免旧进度复活。临时文件不参与列表。
+- File SaveStore 将 opaque bytes 的 base64 与 slot summary 放入单个 `gamekits.slot.v1` 记录，先写唯一临时文件，再替换 `.slot`。读取兼容旧 `.save` / `.json`，新记录优先；删除先清理旧副本再清理新记录，避免旧进度复活。临时文件不参与列表。
 - PlatformStorage 和文件 store 在共享同一个底层平台对象的包装实例之间串行执行修改。同进程串行化不代表跨窗口事务。PlatformStorage 保留既有格式和 API，不承诺多 key 的崩溃原子性。
 - Save load 在任何 restore 前检查 envelope 结构、app/game 身份、迁移结果、全部选中必需 section、精确 section 版本及 contributor validate。版本差异必须由迁移明确处理。
 - App Host 串行执行 lifecycle，boot 幂等，dispose 为终态；boot/start 失败立即停止依赖链，stop/dispose 尝试所有逆序清理并汇总错误。标准 Driver hook 的 Promise 必须被等待。

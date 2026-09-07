@@ -2,11 +2,11 @@
 
 ## 定位
 
-Abyss Delve 是 GameKit 的真实游戏验证应用。它不是 Sandbox，也不是框架功能展示页，而是一个按真实项目方式组织的小型游戏 app。
+Abyss Delve 是 GameKits 的真实游戏验证应用。它不是 Sandbox，也不是框架功能展示页，而是一个按真实项目方式组织的小型游戏 app。
 
 游戏品类选择为常见的俯视角肉鸽暗黑-like：玩家控制一个角色进入地下城房间，清理怪物，获得掉落和临时构筑奖励，推进到精英房和 boss。它不追求玩法创新，优先采用市场上成熟、容易理解、框架验证价值高的设计模式。
 
-核心目标是验证 GameKit 能否支撑一个真实游戏项目的长期组织方式：
+核心目标是验证 GameKits 能否支撑一个真实游戏项目的长期组织方式：
 
 - App Host 负责应用启动和服务组合。
 - GameRuntime 只承载游戏会话模块。
@@ -19,7 +19,7 @@ Abyss Delve 是 GameKit 的真实游戏验证应用。它不是 Sandbox，也不
 
 - 不做玩法创新，不设计全新的 genre 机制。
 - 不追求大体量内容、复杂剧情、联网、排行榜或商业化系统。
-- 不把 Abyss Delve 的职业、怪物、掉落、地图、UI 术语上推为 GameKit 核心协议。
+- 不把 Abyss Delve 的职业、怪物、掉落、地图、UI 术语上推为 GameKits 核心协议。
 - 不为了 demo 方便绕过 DataRegistry、AssetManager、GameModule、RendererAdapter 或 App Host。
 - 不让 gameplay module 直接依赖 Phaser、DOM、React、GSAP、Koota 或 App Host 内部实现。
 
@@ -107,8 +107,8 @@ Actor 长期定义来自 DataPack：
 Abyss Delve 的实时战斗需要命中、投射物、碰撞范围、障碍、攻击预警和 projectile ownership。长期边界是：
 
 - gameplay 不直接依赖 Phaser physics、Phaser Scene、DOM hit-test、Rapier、Matter.js 或 Koota 私有 API。
-- 可复用碰撞体、触发器、空间查询和接触事件通过 `@gamekit/physics-core` 及其 backend adapter 接入；不用统一物理模块的轻量场景仍可以保留 app-local World component 和数学查询。
-- hitbox、hurtbox、projectile owner、pierce、lifetime、team/faction、damage channel 都是 Abyss Delve app-local gameplay 数据，最多引用 physics body/collider，不进入 `@gamekit/world`、`@gamekit/renderer-core` 或 `@gamekit/physics-core` 公共玩法语义。
+- 可复用碰撞体、触发器、空间查询和接触事件通过 `@gamekits/physics-core` 及其 backend adapter 接入；不用统一物理模块的轻量场景仍可以保留 app-local World component 和数学查询。
+- hitbox、hurtbox、projectile owner、pierce、lifetime、team/faction、damage channel 都是 Abyss Delve app-local gameplay 数据，最多引用 physics body/collider，不进入 `@gamekits/world`、`@gamekits/renderer-core` 或 `@gamekits/physics-core` 公共玩法语义。
 - Renderer 只表现 telegraph、projectile、impact 和 hit cue，不负责战斗命中判定。
 - 如果引入 pathfinding、navmesh 或 AI avoidance，必须另行判断模块边界；这些能力不随 Physics package 自动进入核心。
 
@@ -299,7 +299,7 @@ Abyss Delve 必须把 DevTools 作为真实开发工具使用：
 - Save panel 能查看 run checkpoint contributor。
 - Profiler 能看到 combat system、render sync、room system、loot system。
 
-Actor inspector、Loot inspector、Room inspector 等都是 `apps/abyss-delve` 注册的 app-specific DevTools data source / panel。它们不进入 `@gamekit/devtools` 核心协议；DevTools Core 只提供通用 source、panel、trace、diagnostic、profiler 和 command 机制。
+Actor inspector、Loot inspector、Room inspector 等都是 `apps/abyss-delve` 注册的 app-specific DevTools data source / panel。它们不进入 `@gamekits/devtools` 核心协议；DevTools Core 只提供通用 source、panel、trace、diagnostic、profiler 和 command 机制。
 
 ## 内容组织
 

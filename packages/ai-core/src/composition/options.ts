@@ -1,8 +1,8 @@
-import type { DataRegistry } from "@gamekit/data";
-import type { EventBus } from "@gamekit/event-bus";
-import type { GameInstallContext } from "@gamekit/game-runtime";
-import type { NavigationQueries } from "@gamekit/navigation-core";
-import type { PhysicsQueries } from "@gamekit/physics-core";
+import type { DataRegistry } from "@gamekits/data";
+import type { EventBus } from "@gamekits/event-bus";
+import type { GameInstallContext } from "@gamekits/game-runtime";
+import type { NavigationQueries } from "@gamekits/navigation-core";
+import type { PhysicsQueries } from "@gamekits/physics-core";
 import type { AiIntentSink } from "../contracts/intent";
 import type { AiSharedFactQueries } from "../contracts/shared-fact-queries";
 import type { AiWorldReadModel } from "../contracts/world-read-model";

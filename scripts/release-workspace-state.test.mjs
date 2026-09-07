@@ -40,7 +40,7 @@ test("reports fixed-group omissions and version drift together", () => {
   ];
   const issues = validateLockstepReleaseState({
     changesetConfig: {
-      fixed: [["@gamekit/core"]],
+      fixed: [["@gamekits/core"]],
       ignore: []
     },
     packages,
@@ -48,8 +48,8 @@ test("reports fixed-group omissions and version drift together", () => {
   });
 
   assert.deepEqual(issues, [
-    "@gamekit/multiplayer-core has version 0.1.0-alpha.5; expected 0.1.0-alpha.6.",
-    "Publishable packages missing from the lockstep fixed group: @gamekit/multiplayer-core."
+    "@gamekits/multiplayer-core has version 0.1.0-alpha.5; expected 0.1.0-alpha.6.",
+    "Publishable packages missing from the lockstep fixed group: @gamekits/multiplayer-core."
   ]);
 });
 
@@ -63,28 +63,28 @@ test("rejects publishable packages that are ignored or outside the package scope
   ];
   const issues = validateLockstepReleaseState({
     changesetConfig: {
-      fixed: [["@gamekit/core", "audio-core"]],
-      ignore: ["@gamekit/core"]
+      fixed: [["@gamekits/core", "audio-core"]],
+      ignore: ["@gamekits/core"]
     },
     packages,
     releaseVersion: "0.1.0-alpha.6"
   });
 
   assert.deepEqual(issues, [
-    "packages/audio-core/package.json must be named @gamekit/audio-core; found audio-core.",
-    "Publishable packages cannot be ignored by Changesets: @gamekit/core."
+    "packages/audio-core/package.json must be named @gamekits/audio-core; found audio-core.",
+    "Publishable packages cannot be ignored by Changesets: @gamekits/core."
   ]);
 });
 
 test("reads only public workspace packages", () => {
   const root = temporaryRoot();
   writeWorkspacePackage(root, "core", {
-    name: "@gamekit/core",
+    name: "@gamekits/core",
     private: false,
     version: "0.1.0-alpha.6"
   });
   writeWorkspacePackage(root, "platform-tauri", {
-    name: "@gamekit/platform-tauri",
+    name: "@gamekits/platform-tauri",
     private: true,
     version: "0.1.0"
   });
@@ -95,7 +95,7 @@ test("reads only public workspace packages", () => {
       slug,
       version
     })),
-    [{ name: "@gamekit/core", slug: "core", version: "0.1.0-alpha.6" }]
+    [{ name: "@gamekits/core", slug: "core", version: "0.1.0-alpha.6" }]
   );
 });
 
@@ -136,7 +136,7 @@ function packageEntry(slug, version) {
   return {
     manifest: {},
     manifestPath: `packages/${slug}/package.json`,
-    name: `@gamekit/${slug}`,
+    name: `@gamekits/${slug}`,
     publicName: `@gamekits/${slug}`,
     slug,
     version
@@ -144,7 +144,7 @@ function packageEntry(slug, version) {
 }
 
 function temporaryRoot() {
-  const root = mkdtempSync(join(tmpdir(), "gamekit-release-state-"));
+  const root = mkdtempSync(join(tmpdir(), "gamekits-release-state-"));
   temporaryRoots.push(root);
   return root;
 }

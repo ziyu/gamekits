@@ -1,4 +1,4 @@
-import { GameError } from "@gamekit/core";
+import { GameError } from "@gamekits/core";
 import { commitSlot, conflict, openSaveDatabase, readSlot, readSlots } from "./database";
 import { createStoredVersion, validVersion } from "./integrity";
 import type {

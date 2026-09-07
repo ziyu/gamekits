@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/renderer-phaser",
+  "name": "@gamekits/renderer-phaser",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -17,11 +17,11 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/core": "workspace:*",
-    "@gamekit/renderer-core": "workspace:*"
+    "@gamekits/core": "workspace:*",
+    "@gamekits/renderer-core": "workspace:*"
   },
   "devDependencies": {
-    "@gamekit/test-utils": "workspace:*"
+    "@gamekits/test-utils": "workspace:*"
   },
   "files": [
     "dist"

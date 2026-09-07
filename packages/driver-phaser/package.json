@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/driver-phaser",
+  "name": "@gamekits/driver-phaser",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -17,15 +17,15 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/animator-core": "workspace:*",
-    "@gamekit/asset": "workspace:*",
-    "@gamekit/audio-core": "workspace:*",
-    "@gamekit/camera-core": "workspace:*",
-    "@gamekit/core": "workspace:*",
-    "@gamekit/driver-core": "workspace:*",
-    "@gamekit/input-core": "workspace:*",
-    "@gamekit/renderer-core": "workspace:*",
-    "@gamekit/renderer-phaser": "workspace:*",
+    "@gamekits/animator-core": "workspace:*",
+    "@gamekits/asset": "workspace:*",
+    "@gamekits/audio-core": "workspace:*",
+    "@gamekits/camera-core": "workspace:*",
+    "@gamekits/core": "workspace:*",
+    "@gamekits/driver-core": "workspace:*",
+    "@gamekits/input-core": "workspace:*",
+    "@gamekits/renderer-core": "workspace:*",
+    "@gamekits/renderer-phaser": "workspace:*",
     "phaser": "4.1.0"
   },
   "files": [

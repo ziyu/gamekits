@@ -1,23 +1,23 @@
-import { createDataRegistry, type DataRegistry } from "@gamekit/data";
-import { createEventBus, type EventBus } from "@gamekit/event-bus";
-import { createGame } from "@gamekit/game-runtime";
+import { createDataRegistry, type DataRegistry } from "@gamekits/data";
+import { createEventBus, type EventBus } from "@gamekits/event-bus";
+import { createGame } from "@gamekits/game-runtime";
 import {
   createGasDataTypes,
   createGasModule,
   createGasTcaDefinitions,
   createGasTraceStore,
   type GasRuntime
-} from "@gamekit/gas";
-import type { RendererAdapter } from "@gamekit/renderer-core";
-import type { CameraController } from "@gamekit/camera-core";
+} from "@gamekits/gas";
+import type { RendererAdapter } from "@gamekits/renderer-core";
+import type { CameraController } from "@gamekits/camera-core";
 import {
   createTcaModule,
   createTcaRuleDataType,
   createTcaTraceStore,
   mergeTcaDefinitionSets,
   type TcaTraceStore
-} from "@gamekit/tca";
-import type { GameWorld } from "@gamekit/world";
+} from "@gamekits/tca";
+import type { GameWorld } from "@gamekits/world";
 import {
   abyssDataPack,
   createAbyssDataTypes,

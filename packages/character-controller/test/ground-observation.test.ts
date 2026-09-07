@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { PhysicsBodyState, PhysicsQuery } from "@gamekit/physics-core";
+import type { PhysicsBodyState, PhysicsQuery } from "@gamekits/physics-core";
 import { compileCharacterMotorDefinition, observeCharacterGround } from "../src";
 
 const definition = compileCharacterMotorDefinition({

@@ -1,4 +1,4 @@
-# @gamekit/core
+# @gamekits/core
 
 ## 0.1.0-alpha.8
 

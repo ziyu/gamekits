@@ -18,22 +18,22 @@ review checkpoint，不继续追加 app 玩家体验状态。
 
 ## Current Capability Audit
 
-| 领域              | 已存在基础                                                                                 | 主要缺口                                                                          | 归属决策                                        |
-| ----------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | ----------------------------------------------- |
-| World / identity  | Entity-backed actor/projectile/buildable、identity registry                                | 角色/武器/AI/animation component 尚不完整                                         | Outpost component + reusable module binding     |
-| Physics           | Rapier 2D、layout、ray/shape/overlap query、fixed step、interpolation                      | Projectile 当前 app 手写 ray sweep；character/steering/attack shape 缺统一交付    | Physics 保持；交付进入 Combat                   |
-| GAS               | Actor/attribute/tag/ability/effect/cooldown/cost/cue/trace；execution lifecycle 已实现     | 等待独立库评审通过后才能进入 Combat                                               | 扩展 `@gamekit/gas`                             |
-| TCA               | Event index、condition/action、trace、once/save                                            | 无需新高频职责                                                                    | 继续只做低频反应/目标/phase                     |
-| Combat            | `@gamekit/combat` 已具备通用 delivery、target policy、GAS hit 与 entity projectile runtime | Outpost 仍使用 app-local rifle/shock/turret/enemy attack，尚未迁移到通用 executor | 评审 Combat 后迁移 app                          |
-| AI                | `nearestPlayer` + 直线 velocity + range overlap + GAS attack                               | 无感知、目标评分、task、telegraph、slot、预算、stuck recovery                     | 新增 `@gamekit/ai-core`                         |
-| Navigation        | Physics obstacle，arena collider                                                           | 无 path/route、动态 blocker、cache、request budget；当前敌人会直线撞墙            | 新增 `@gamekit/navigation-core` + graph backend |
-| Renderer          | RenderObject lifecycle、sprite/container、native state writer                              | Phaser 无 animated-sprite/clip registration/particle command；角色只是静态纹理    | 扩展 `renderer-phaser`                          |
-| Animator          | Render definition 有 animation envelope、Phaser 有最小 `animation.play`                    | 无 graph/controller/layer/marker/phase/late-join restore/benchmark                | 新增 `@gamekit/animator-core`                   |
-| Asset             | image/spritesheet type 与 AssetManager                                                     | Phaser loader 不支持 Core 已声明的 atlas/audio；缺 animation manifest workflow    | 扩展 Asset metadata + `driver-phaser`           |
-| Audio             | Asset Core 有 `audio` type                                                                 | 无 Audio facade、loader/runtime、bus/voice/concurrency/cue mapping                | 新增 `@gamekit/audio-core` + Phaser slice       |
-| Multiplayer       | Room authority、Schema、managed replication、prediction/playback                           | 未复制完整 ability phase、cue、match/AI/facility 状态                             | 扩展 app Schema；Core 只补通用 track/cue 缺口   |
-| Match / encounter | 初始 3 enemy spawn 与 combat counters                                                      | 无完整 phase、director、boss、core、node、extraction、results                     | Outpost app-local                               |
-| UI                | Lobby/HUD 基础与 DevTools shell                                                            | 无完整页面状态、world telegraph、build/protocol/revive/results                    | Outpost React/presentation，复用 UI Core        |
+| 领域              | 已存在基础                                                                                  | 主要缺口                                                                          | 归属决策                                         |
+| ----------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------ |
+| World / identity  | Entity-backed actor/projectile/buildable、identity registry                                 | 角色/武器/AI/animation component 尚不完整                                         | Outpost component + reusable module binding      |
+| Physics           | Rapier 2D、layout、ray/shape/overlap query、fixed step、interpolation                       | Projectile 当前 app 手写 ray sweep；character/steering/attack shape 缺统一交付    | Physics 保持；交付进入 Combat                    |
+| GAS               | Actor/attribute/tag/ability/effect/cooldown/cost/cue/trace；execution lifecycle 已实现      | 等待独立库评审通过后才能进入 Combat                                               | 扩展 `@gamekits/gas`                             |
+| TCA               | Event index、condition/action、trace、once/save                                             | 无需新高频职责                                                                    | 继续只做低频反应/目标/phase                      |
+| Combat            | `@gamekits/combat` 已具备通用 delivery、target policy、GAS hit 与 entity projectile runtime | Outpost 仍使用 app-local rifle/shock/turret/enemy attack，尚未迁移到通用 executor | 评审 Combat 后迁移 app                           |
+| AI                | `nearestPlayer` + 直线 velocity + range overlap + GAS attack                                | 无感知、目标评分、task、telegraph、slot、预算、stuck recovery                     | 新增 `@gamekits/ai-core`                         |
+| Navigation        | Physics obstacle，arena collider                                                            | 无 path/route、动态 blocker、cache、request budget；当前敌人会直线撞墙            | 新增 `@gamekits/navigation-core` + graph backend |
+| Renderer          | RenderObject lifecycle、sprite/container、native state writer                               | Phaser 无 animated-sprite/clip registration/particle command；角色只是静态纹理    | 扩展 `renderer-phaser`                           |
+| Animator          | Render definition 有 animation envelope、Phaser 有最小 `animation.play`                     | 无 graph/controller/layer/marker/phase/late-join restore/benchmark                | 新增 `@gamekits/animator-core`                   |
+| Asset             | image/spritesheet type 与 AssetManager                                                      | Phaser loader 不支持 Core 已声明的 atlas/audio；缺 animation manifest workflow    | 扩展 Asset metadata + `driver-phaser`            |
+| Audio             | Asset Core 有 `audio` type                                                                  | 无 Audio facade、loader/runtime、bus/voice/concurrency/cue mapping                | 新增 `@gamekits/audio-core` + Phaser slice       |
+| Multiplayer       | Room authority、Schema、managed replication、prediction/playback                            | 未复制完整 ability phase、cue、match/AI/facility 状态                             | 扩展 app Schema；Core 只补通用 track/cue 缺口    |
+| Match / encounter | 初始 3 enemy spawn 与 combat counters                                                       | 无完整 phase、director、boss、core、node、extraction、results                     | Outpost app-local                                |
+| UI                | Lobby/HUD 基础与 DevTools shell                                                             | 无完整页面状态、world telegraph、build/protocol/revive/results                    | Outpost React/presentation，复用 UI Core         |
 
 审计证据：
 
@@ -44,7 +44,7 @@ review checkpoint，不继续追加 app 玩家体验状态。
 
 ## Required Package Work
 
-### `@gamekit/gas` Ability Execution Extension
+### `@gamekits/gas` Ability Execution Extension
 
 Deliverables:
 
@@ -74,7 +74,7 @@ Review checkpoint (2026-07-17):
 - 全仓首轮回归发现旧即时 Ability 的零时长 phase facts 会挤占 Abyss 有界 timeline；已收紧兼容语义为“内部使用统一 execution state/result，显式声明 execution 才对外发布完整 phase event/cue/trace”，Abyss 8 files / 17 tests 与最终全仓回归均通过。
 - 评审门保持关闭：只有 GAS 包完整验证证据通过后，才开始下一个库。
 
-### `@gamekit/combat`
+### `@gamekits/combat`
 
 Deliverables:
 
@@ -95,7 +95,7 @@ Gate:
 
 Review checkpoint (2026-07-17):
 
-- 已实现 `@gamekit/combat`，公共协议不包含 Outpost、武器、角色、阵营或生命字段；effect 只通过 GAS 提交，空间候选只来自 Physics，projectile 是同一 World 中带标准 Physics component 的 entity。
+- 已实现 `@gamekits/combat`，公共协议不包含 Outpost、武器、角色、阵营或生命字段；effect 只通过 GAS 提交，空间候选只来自 Physics，projectile 是同一 World 中带标准 Physics component 的 entity。
 - Direct、melee、hitscan、area、contact/ray-sweep/shape-sweep projectile 共用 relationship/candidate/hit pipeline；包含 stable sorting、body/collider → World entity fallback、hit ticket、bounded hit memory、stop/pierce/bounce、execution ownership、lifetime/bounds/despawn race cleanup。
 - 已提供 DataTypes、trace/低频 fact、GameModule/Handle、Save contributor 和可复用 facade conformance；第二 fixture 使用 area heal + support relationship policy，未引入游戏专属枚举。
 - Combat 定向测试 11/11 通过，覆盖 friendly ignore、wall block、stable ordering、direct/melee/area/hitscan、effect rejection、request/hit dedupe、pierce/bounce/contact/shape sweep、lifetime、despawn race、entity-mapped restore，以及真实 Koota + Rapier2D + GAS 模块组合。全仓 `test` 74/74 tasks、`build` 41/41 tasks、`lint` 74/74 tasks 通过；lint 仅回放两个范围外旧 warning。
@@ -103,7 +103,7 @@ Review checkpoint (2026-07-17):
 - `bench:world`、`bench:gameplay:check`、`bench:physics:check`、`bench:checkpoint:check` 同时通过。全仓格式检查仍只被本 checkpoint 开始前已有的 `.claude/*`、`AGENTS.md`、`CLAUDE.md` 8 个范围外文件阻塞；Combat、benchmark、模块设计和本文档的 scoped format 通过。
 - 本 checkpoint 按单库评审门停止，不迁移 Outpost，也不开始 Navigation/AI/Animator/Audio。Outpost migration gate 仍保持关闭，待本库评审通过后进入下一步。
 
-### `@gamekit/navigation-core` + Graph Backend
+### `@gamekits/navigation-core` + Graph Backend
 
 Deliverables:
 
@@ -124,12 +124,12 @@ Tests/bench:
 
 Review checkpoint (2026-07-18):
 
-- 已实现 `@gamekit/navigation-core` 与 `@gamekit/navigation-graph`。Core 提供 backend-neutral request、projection/path/route、revision、scheduler budget、cache、trace/snapshot、Handle/GameModule 与 conformance；Graph backend 提供 authored graph、goal-keyed reverse route field、stable tie-break、动态 blocker/cost 和按 revision 失效。
+- 已实现 `@gamekits/navigation-core` 与 `@gamekits/navigation-graph`。Core 提供 backend-neutral request、projection/path/route、revision、scheduler budget、cache、trace/snapshot、Handle/GameModule 与 conformance；Graph backend 提供 authored graph、goal-keyed reverse route field、stable tie-break、动态 blocker/cost 和按 revision 失效。
 - Navigation 定向测试 14/14 通过，覆盖 required path、projection、unreachable、cancel、scheduler fairness、negative/cache limit、revision、局部 invalidation、动态 blocker/cost、稳定结果和 dispose retained state。
 - `bench:navigation:check` 7/7 budgets 通过：250/1,000 agent route sample 分别为 2.94/1.97 µs/sample，1,000 request burst 为 61.51 ms，blocker churn 为 2.19 ms/cycle，dispose retained state 为 0。
 - Yuka gate 使用 npm stable `0.7.8` 做窄 slice 对照。tree-shaken/minified 的 Graph + Dijkstra slice 为 57,215 bytes，本仓 graph backend 为 6,283 bytes；32×32 graph、1,000 shared-goal route 的 Yuka 重算约 212 ms，本仓 reverse route field 首次/重复约 41/35 ms。两者结果均 deterministic，但 Yuka 无 revision/partial invalidation protocol，移除 edge 后既有 path 会保持陈旧；其临时分配并未形成足以抵消体积、失效语义和性能差距的优势。因此不新增 `navigation-yuka`，也不让第三方 runtime 拥有 agent。
 
-### `@gamekit/ai-core`
+### `@gamekits/ai-core`
 
 Deliverables:
 
@@ -151,12 +151,12 @@ Gate:
 
 Review checkpoint (2026-07-18):
 
-- 已实现 `@gamekit/ai-core`：agent binding、bounded perception/blackboard、Utility consideration/curve、goal hysteresis/commit/cooldown、Task lifecycle、deterministic budget + LOD scheduler、intent sink、trace/snapshot/save、DataTypes、Handle/GameModule 与 memory conformance 均保持 World/Physics/Navigation backend-neutral。
+- 已实现 `@gamekits/ai-core`：agent binding、bounded perception/blackboard、Utility consideration/curve、goal hysteresis/commit/cooldown、Task lifecycle、deterministic budget + LOD scheduler、intent sink、trace/snapshot/save、DataTypes、Handle/GameModule 与 memory conformance 均保持 World/Physics/Navigation backend-neutral。
 - AI 定向测试 12/12 通过，覆盖 score breakdown、stable tie-break、switch threshold、invalid target、task cancel/failure/timeout/backoff、ability/path rejection、agent removal、save/restore 和 bounded trace/state。
 - `bench:ai:check` 8/8 budgets 通过：250 normal agents 的 p95 为 0.72 ms/tick，1,000 mixed-LOD agents 的 p95 为 2.22 ms/tick；dispose retained state 为 0。
 - Core 未引入 GOAP、XState actor、Yuka GameEntity 或游戏专属 archetype；Raider/Gunner/Saboteur/Brute 仍属于后续 Outpost data/policy integration。
 
-### `@gamekit/animator-core`
+### `@gamekits/animator-core`
 
 Deliverables:
 
@@ -178,11 +178,11 @@ Tests/bench:
 
 Review checkpoint (2026-07-18):
 
-- 已实现 `@gamekit/animator-core`：clip/graph/binding DataTypes、parameter/state/layer/transition、one-shot、marker dedupe、phase mapping、late join/seek、generation reset、dirty batch、trace/snapshot、Handle/GameModule，以及 backend-neutral playback adapter/conformance。
+- 已实现 `@gamekits/animator-core`：clip/graph/binding DataTypes、parameter/state/layer/transition、one-shot、marker dedupe、phase mapping、late join/seek、generation reset、dirty batch、trace/snapshot、Handle/GameModule，以及 backend-neutral playback adapter/conformance。
 - Animator 定向测试 10/10 通过；`bench:animator:check` 8/8 budgets 通过：500 active phase controllers 的 p95 为 1.85 ms/tick，1,000 idle controllers 的 p95 为 0.80 ms/tick 且写出 0 frame，generation churn 的 p95 为 2.00 ms，1,000 late joins 为 2.49 ms，dispose retained state 为 0。
 - Asset/Phaser 扩展已支持 atlas/audio/variant/animation metadata、animated-sprite、particle 与 animation command、native batch、clip registration/binding；animation adapter 只绑定 Driver 持有的共享 Phaser runtime/cache，没有创建第二个 Game/Scene。
 
-### `@gamekit/audio-core`
+### `@gamekits/audio-core`
 
 Deliverables:
 
@@ -202,26 +202,26 @@ Gate:
 
 Review checkpoint (2026-07-18):
 
-- 已实现 `@gamekit/audio-core`：bus、cue、listener、voice/source、priority/concurrency/stealing、dedupe、spatial source、ownership cleanup、unlock、diagnostics、memory/null adapter、Handle/App Service runtime 与 conformance。Core 只发布 semantic command/status，不把 playback success 变成 gameplay authority。
+- 已实现 `@gamekits/audio-core`：bus、cue、listener、voice/source、priority/concurrency/stealing、dedupe、spatial source、ownership cleanup、unlock、diagnostics、memory/null adapter、Handle/App Service runtime 与 conformance。Core 只发布 semantic command/status，不把 playback success 变成 gameplay authority。
 - Audio 定向测试 12/12 通过；`bench:audio:check` 8/8 budgets 通过：1,000 cue burst p95 为 16.34 ms，500 spatial voices p95 为 0.32 ms/tick，停止 1,000 voices 为 0.70 ms，dispose retained state 为 0。
 - Phaser Driver 使用同一 Phaser runtime/cache 提供 audio asset、sound manager 与 unlock slice；App Host 标准 Audio service 负责 adapter resolve、tick、diagnostics 和 dispose，headless profile 可直接使用 memory/null adapter。
 
 ## Existing Package Extensions
 
-| Package               | Required extension                                                                    | 禁止做法                                 |
-| --------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------- |
-| `@gamekit/asset`      | Atlas/audio/animation manifest metadata、variant/source validation                    | 加入 Phaser frame/native sound           |
-| `driver-phaser`       | Atlas/audio loader、shared animation/audio runtime slice、diagnostics                 | 新建第二个 Phaser.Game/Scene/cache       |
-| `renderer-phaser`     | Animated sprite、clip binding、particle command、batch state writer                   | 把 gameplay animation state写进 adapter  |
-| `@gamekit/app-host`   | Combat/AI/Navigation/Animator 的薄 standard GameModule resolve；Audio service binding | 在 Host 内实现 domain runtime            |
-| `multiplayer-core`    | 仅在现有 managed replication 无法表达 phase/cue generation reset 时补通用协议         | 添加 Outpost Schema/ability/enemy 字段   |
-| `@gamekit/devtools`   | 新 domain source/correlation summary 与 profiler span registration                    | 让 trace observer 参与 gameplay decision |
-| `@gamekit/test-utils` | 新 facade conformance helper所需 memory fixtures                                      | 测试工具依赖 Outpost app                 |
+| Package                | Required extension                                                                    | 禁止做法                                 |
+| ---------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------- |
+| `@gamekits/asset`      | Atlas/audio/animation manifest metadata、variant/source validation                    | 加入 Phaser frame/native sound           |
+| `driver-phaser`        | Atlas/audio loader、shared animation/audio runtime slice、diagnostics                 | 新建第二个 Phaser.Game/Scene/cache       |
+| `renderer-phaser`      | Animated sprite、clip binding、particle command、batch state writer                   | 把 gameplay animation state写进 adapter  |
+| `@gamekits/app-host`   | Combat/AI/Navigation/Animator 的薄 standard GameModule resolve；Audio service binding | 在 Host 内实现 domain runtime            |
+| `multiplayer-core`     | 仅在现有 managed replication 无法表达 phase/cue generation reset 时补通用协议         | 添加 Outpost Schema/ability/enemy 字段   |
+| `@gamekits/devtools`   | 新 domain source/correlation summary 与 profiler span registration                    | 让 trace observer 参与 gameplay decision |
+| `@gamekits/test-utils` | 新 facade conformance helper所需 memory fixtures                                      | 测试工具依赖 Outpost app                 |
 
 Library-first closure checkpoint (2026-07-18):
 
 - App Host 已提供 Combat/Navigation/AI/Animator 的薄 standard GameModule resolver，以及 Audio standard service；Host 只组合 handle/service、lifecycle 与 driver slice，不拥有 domain runtime。标准模块顺序保持 TCA/GAS/Multiplayer/Physics → Combat/Navigation/AI/Animator/Camera。
-- DevTools 已增加 Combat/Navigation/AI/Animator/Audio source kind、panel registration、standard source snapshot 和 bounded correlation summary；observer/redactor failure 不参与 gameplay decision。`@gamekit/test-utils` 已导出 AI/Animator/Audio/Navigation 的 framework-neutral conformance 与 memory helper，未引入 app dependency，也避免了 Combat → Physics fixture 的 workspace dependency cycle。
+- DevTools 已增加 Combat/Navigation/AI/Animator/Audio source kind、panel registration、standard source snapshot 和 bounded correlation summary；observer/redactor failure 不参与 gameplay decision。`@gamekits/test-utils` 已导出 AI/Animator/Audio/Navigation 的 framework-neutral conformance 与 memory helper，未引入 app dependency，也避免了 Combat → Physics fixture 的 workspace dependency cycle。
 - Multiplayer Core 的 managed replication、prediction/playback、generation reset 与 cue/track 协议足以承载后续 Outpost Schema；本轮没有为了尚未出现的 app 字段扩张 Core。
 - 相关库定向测试共 121/121 通过（Navigation 14、AI 12、Animator 10、Audio 12、Asset 10、DevTools 8、App Host 33、Renderer Phaser 10、Driver Phaser 12）；全仓 `test` 84/84 tasks、`build` 46/46 tasks、`lint` 84/84 tasks 通过，`bench:world` 通过。全仓 format 仍被本工作流开始前已存在的 `.claude/*`、`AGENTS.md`、`CLAUDE.md` 8 个范围外文件阻塞；本次改动 scoped format 通过。
 - 用户要求“底层库全部完成后再统一集成”，因此本 checkpoint 没有修改 `apps/`，Outpost integration gate 继续保持关闭。下一阶段只能在底层库整体评审通过后进入统一集成。

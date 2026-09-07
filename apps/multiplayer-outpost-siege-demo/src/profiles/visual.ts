@@ -1,30 +1,30 @@
-import { createStandardAppProfile, type AppProfile } from "@gamekit/app-host";
-import type { AssetDiagnosticEvent, AssetManager } from "@gamekit/asset";
-import type { GameAudio } from "@gamekit/audio-core";
-import { createCameraController, type CameraController } from "@gamekit/camera-core";
-import type { DataRegistry } from "@gamekit/data";
-import type { DevToolsDataSource, DevToolsRuntime } from "@gamekit/devtools";
-import { createPhaserDriver } from "@gamekit/driver-phaser";
-import { createInputRouter, type InputRouter } from "@gamekit/input-core";
+import { createStandardAppProfile, type AppProfile } from "@gamekits/app-host";
+import type { AssetDiagnosticEvent, AssetManager } from "@gamekits/asset";
+import type { GameAudio } from "@gamekits/audio-core";
+import { createCameraController, type CameraController } from "@gamekits/camera-core";
+import type { DataRegistry } from "@gamekits/data";
+import type { DevToolsDataSource, DevToolsRuntime } from "@gamekits/devtools";
+import { createPhaserDriver } from "@gamekits/driver-phaser";
+import { createInputRouter, type InputRouter } from "@gamekits/input-core";
 import {
   createDomInputAdapter,
   createWebGamepadInputAdapter,
   type WebGamepadInputDiagnostic
-} from "@gamekit/input-dom";
+} from "@gamekits/input-dom";
 import {
   createMultiplayerRuntime,
   type MultiplayerClientReplicationSnapshotSource,
   type MultiplayerRuntime
-} from "@gamekit/multiplayer-core";
-import { createMemoryMultiplayerBackend } from "@gamekit/multiplayer-memory";
-import type { PhysicsBackendAdapter } from "@gamekit/physics-core";
-import type { PlatformRuntime } from "@gamekit/platform-core";
-import { measureElementViewport } from "@gamekit/platform-web";
-import type { RendererAdapter, RendererBootContext } from "@gamekit/renderer-core";
-import { applyPhaserRenderTargetState } from "@gamekit/renderer-phaser";
-import { createPlatformStorageSaveStore, type SaveManager } from "@gamekit/save";
-import type { UiFocusScope, UiRuntime } from "@gamekit/ui-core";
-import { createKootaWorld } from "@gamekit/world-koota";
+} from "@gamekits/multiplayer-core";
+import { createMemoryMultiplayerBackend } from "@gamekits/multiplayer-memory";
+import type { PhysicsBackendAdapter } from "@gamekits/physics-core";
+import type { PlatformRuntime } from "@gamekits/platform-core";
+import { measureElementViewport } from "@gamekits/platform-web";
+import type { RendererAdapter, RendererBootContext } from "@gamekits/renderer-core";
+import { applyPhaserRenderTargetState } from "@gamekits/renderer-phaser";
+import { createPlatformStorageSaveStore, type SaveManager } from "@gamekits/save";
+import type { UiFocusScope, UiRuntime } from "@gamekits/ui-core";
+import { createKootaWorld } from "@gamekits/world-koota";
 import { createOutpostDataRegistry } from "../content";
 import {
   configureOutpostInputRouter,
@@ -438,7 +438,7 @@ function resolveKeyboardScope(context: OutpostVisualContext): UiFocusScope {
   const scope = context.uiRuntime.focus().scope;
   const devtoolsOpen = context.uiRuntime
     .openPanels()
-    .some((panel) => panel.id === "gamekit.devtools.shell");
+    .some((panel) => panel.id === "gamekits.devtools.shell");
   return resolveOutpostKeyboardScope(scope, context.inputBlocked, devtoolsOpen);
 }
 

@@ -1,10 +1,10 @@
-import type { AssetLoaderAdapter } from "@gamekit/asset";
-import type { AudioBackend } from "@gamekit/audio-core/backend";
-import { GameError } from "@gamekit/core";
-import type { CameraState2D } from "@gamekit/camera-core";
-import type { DriverRegistry, GameDriver } from "@gamekit/driver-core";
-import type { InputSourceAdapter, NormalizedInputEvent } from "@gamekit/input-core";
-import type { RendererAdapter } from "@gamekit/renderer-core";
+import type { AssetLoaderAdapter } from "@gamekits/asset";
+import type { AudioBackend } from "@gamekits/audio-core/backend";
+import { GameError } from "@gamekits/core";
+import type { CameraState2D } from "@gamekits/camera-core";
+import type { DriverRegistry, GameDriver } from "@gamekits/driver-core";
+import type { InputSourceAdapter, NormalizedInputEvent } from "@gamekits/input-core";
+import type { RendererAdapter } from "@gamekits/renderer-core";
 
 export type StandardDriverAdapterContext = {
   app: { id: string };

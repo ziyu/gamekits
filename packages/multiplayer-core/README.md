@@ -1,14 +1,14 @@
-# @gamekit/multiplayer-core
+# @gamekits/multiplayer-core
 
-Provider-neutral multiplayer facade, authority helpers and conformance tools for GameKit.
+Provider-neutral multiplayer facade, authority helpers and conformance tools for GameKits.
 
-`multiplayer-core` defines the stable GameKit boundary for session summaries, peers, semantic envelopes, authority decisions, replication helpers, peer/player binding and diagnostics. It does not implement a production room server, matchmaking, reconnect engine, presence store or provider-native state sync. Real backends live in packages such as `@gamekit/multiplayer-colyseus`.
+`multiplayer-core` defines the stable GameKits boundary for session summaries, peers, semantic envelopes, authority decisions, replication helpers, peer/player binding and diagnostics. It does not implement a production room server, matchmaking, reconnect engine, presence store or provider-native state sync. Real backends live in packages such as `@gamekits/multiplayer-colyseus`.
 
 ## Runtime
 
 ```ts
-import { createMultiplayerRuntime } from "@gamekit/multiplayer-core";
-import { createMemoryMultiplayerBackend } from "@gamekit/multiplayer-memory";
+import { createMultiplayerRuntime } from "@gamekits/multiplayer-core";
+import { createMemoryMultiplayerBackend } from "@gamekits/multiplayer-memory";
 
 const multiplayer = createMultiplayerRuntime({
   id: "arena.client",
@@ -34,7 +34,7 @@ Connected, joined or peer count only proves presence. Gameplay state is valid on
 import {
   createMultiplayerAuthorityBindingStore,
   createMultiplayerAuthorityReceiver
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 
 const binding = createMultiplayerAuthorityBindingStore({
   sessionId: "arena-session",
@@ -60,7 +60,7 @@ The standard kinds are `game.action`, `game.input`, `game.snapshot`, `game.patch
 Host/server authority processes untrusted action/input payloads at a tick boundary:
 
 ```ts
-import { createMultiplayerAuthorityHostLoop } from "@gamekit/multiplayer-core";
+import { createMultiplayerAuthorityHostLoop } from "@gamekits/multiplayer-core";
 
 const loop = createMultiplayerAuthorityHostLoop({
   runtime: hostRuntime,
@@ -159,7 +159,7 @@ presented.vector2Into(`player:${player.id}:position`, renderPlayer.position, pla
 
 `presentSnapshotTracks()` remains available as a one-shot convenience for tests and small tools. Runtime presentation loops should prefer `createSnapshotPresentationProjector()`, `selectInto()` and `vector2Into()` / `vector3Into()` / `quaternionInto()` so the core can reuse track buffers and caller-owned render targets. Do not rebuild a complete cloned gameplay snapshot on every frame when the renderer can accept direct transform writes.
 
-When the app uses `@gamekit/app-host` standard game modules, the multiplayer module can own the playback loop and declared-track interpolation for the app:
+When the app uses `@gamekits/app-host` standard game modules, the multiplayer module can own the playback loop and declared-track interpolation for the app:
 
 ```ts
 standardModules: {
@@ -187,7 +187,7 @@ standardModules: {
 
 After the first snapshot, `readSnapshot` may return `undefined` on frames where no new authoritative update arrived; the standard module advances the existing playback buffer with the GameRuntime frame delta.
 
-Games should reset snapshot playback when the authority binding, session, snapshot version, hard phase, teleport or resync state changes. `createSnapshotBuffer()` remains available as a low-level escape hatch for custom netcode, but the default path should use `createSnapshotPlayback()` so render pacing, jitter delay, under-run clamping and diagnostics stay in core. Backend packages such as `@gamekit/multiplayer-colyseus` should expose provider state, tick/version source and diagnostics, not hard-code gameplay interpolation policy.
+Games should reset snapshot playback when the authority binding, session, snapshot version, hard phase, teleport or resync state changes. `createSnapshotBuffer()` remains available as a low-level escape hatch for custom netcode, but the default path should use `createSnapshotPlayback()` so render pacing, jitter delay, under-run clamping and diagnostics stay in core. Backend packages such as `@gamekits/multiplayer-colyseus` should expose provider state, tick/version source and diagnostics, not hard-code gameplay interpolation policy.
 
 ## Client Prediction
 
@@ -387,7 +387,7 @@ const restored = rollback.restore(authorityTick);
 
 Contributors declare stable `id`/`order`, isolated capture data, pre-restore validation, deterministic restore, byte measurement, and a state hash. The coordinator captures all contributors at one generation/tick, enforces per-checkpoint and total-history budgets, restores in stable order only after every validation passes, drops invalid future checkpoints, and exposes the combined hash and diagnostics. A contributor restore exception can still leave a partially restored external runtime; callers must treat `restore-failed` as a hard-correction/rebuild boundary. `createMultiplayerRngRollbackContributor()` uses the seeded RNG's exact captured stream position. World, Physics, GAS, TCA, and app adapters remain owned by their domain/app composition rather than becoming dependencies of Multiplayer Core.
 
-Applications using `@gamekit/app-host` normally call `createStandardMultiplayerRollbackDomain()` instead of assembling the standard contributors themselves. It accepts an explicit World component/entity scope, seeded RNG, Physics handle, optional gameplay contributors, and history/byte budgets, then installs the default World `100` → RNG `150` → Physics `200` order. The lower-level coordinator remains available when a domain has different ownership dependencies.
+Applications using `@gamekits/app-host` normally call `createStandardMultiplayerRollbackDomain()` instead of assembling the standard contributors themselves. It accepts an explicit World component/entity scope, seeded RNG, Physics handle, optional gameplay contributors, and history/byte budgets, then installs the default World `100` → RNG `150` → Physics `200` order. The lower-level coordinator remains available when a domain has different ownership dependencies.
 
 ## Peer / Player Binding
 
@@ -436,7 +436,7 @@ Core resolves policy decisions and maintains binding vocabulary; the app/server 
 ```ts
 const summary = createMultiplayerAuthorityDiagnostics({
   binding: binding.current(),
-  authoritativePath: "gamekit-envelope",
+  authoritativePath: "gamekits-envelope",
   loop: hostLoop.diagnostics(),
   receiver: clientReceiver.diagnostics(),
   connection: { reconnectSupported: false, reconnectReason: "unsupported" }
@@ -459,7 +459,7 @@ The suite covers envelope normalization, authority receiver source gates, host/l
 
 ## App Host Integration
 
-`@gamekit/app-host` can own a multiplayer runtime as an optional standard service and install the standard GameModule bridge:
+`@gamekits/app-host` can own a multiplayer runtime as an optional standard service and install the standard GameModule bridge:
 
 ```ts
 const profile = createStandardAppProfile({
@@ -487,7 +487,7 @@ const profile = createStandardAppProfile({
 
 App Host owns connection lifecycle and service disposal. The GameModule bridge only handles normalized messages at the GameRuntime tick boundary; it does not create rooms or sockets. Its command queue is bounded and emits `multiplayer.command.overflow` / `multiplayer.command.expired` facts; `onDiagnostics` can expose a redacted queue summary to DevTools.
 
-The GameModule implementation is owned by `@gamekit/multiplayer-core` and exposed as `createMultiplayerModule()`. App Host only resolves the standard service/profile dependencies before calling that factory. `createMultiplayerBridgeModule()` remains as a compatibility alias.
+The GameModule implementation is owned by `@gamekits/multiplayer-core` and exposed as `createMultiplayerModule()`. App Host only resolves the standard service/profile dependencies before calling that factory. `createMultiplayerBridgeModule()` remains as a compatibility alias.
 
 ## Conformance
 

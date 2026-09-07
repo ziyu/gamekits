@@ -1,4 +1,4 @@
-import { defineGameApp } from "@gamekit/app-host";
+import { defineGameApp } from "@gamekits/app-host";
 import { ABYSS_VIEWPORT } from "./game";
 
 export const abyssAppDefinition = defineGameApp({

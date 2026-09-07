@@ -5,12 +5,12 @@ import {
   type CombatKinematicProjectileReconciliationOptions,
   type CombatKinematicProjectileRecord,
   type CombatKinematicProjectileSample
-} from "@gamekit/combat";
+} from "@gamekits/combat";
 import {
   createMultiplayerTimeAlignedPresentationTransition,
   definePredictionVector3StateField,
   type MultiplayerTimeAlignedPresentationResult
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 
 export type StandardCombatKinematicProjectilePresentationOptions = {
   reconciliation?: CombatKinematicProjectileReconciliationOptions | undefined;

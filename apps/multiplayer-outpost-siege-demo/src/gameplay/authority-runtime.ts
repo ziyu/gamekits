@@ -1,28 +1,28 @@
-import { defineGameModule } from "@gamekit/core";
-import { createAiHandle, type AiHandle } from "@gamekit/ai-core";
+import { defineGameModule } from "@gamekits/core";
+import { createAiHandle, type AiHandle } from "@gamekits/ai-core";
 import {
   createCombatHandle,
   createCombatTraceStore,
   type CombatHandle,
   type CombatTraceStore
-} from "@gamekit/combat";
-import type { DataRegistry } from "@gamekit/data";
-import { createGame, type GameInstallContext, type GameRuntime } from "@gamekit/game-runtime";
-import type { EventBus } from "@gamekit/event-bus";
+} from "@gamekits/combat";
+import type { DataRegistry } from "@gamekits/data";
+import { createGame, type GameInstallContext, type GameRuntime } from "@gamekits/game-runtime";
+import type { EventBus } from "@gamekits/event-bus";
 import {
   createNavigationHandle,
   createNavigationModule,
   type NavigationAgentProfileDefinition,
   type NavigationHandle
-} from "@gamekit/navigation-core";
-import { createGraphNavigationBackendFactory } from "@gamekit/navigation-graph";
+} from "@gamekits/navigation-core";
+import { createGraphNavigationBackendFactory } from "@gamekits/navigation-graph";
 import {
   createGasHandle,
   createGasModule,
   createGasTraceStore,
   type GasHandle,
   type GasTraceStore
-} from "@gamekit/gas";
+} from "@gamekits/gas";
 import {
   createPhysicsHandle,
   createPhysicsLayoutModule,
@@ -37,15 +37,15 @@ import {
   type PhysicsColliderData,
   type PhysicsHandle,
   type PhysicsTraceStore
-} from "@gamekit/physics-core";
-import type { EntityId, GameWorld } from "@gamekit/world";
+} from "@gamekits/physics-core";
+import type { EntityId, GameWorld } from "@gamekits/world";
 import {
   createTcaHandle,
   createTcaModule,
   createTcaTraceStore,
   type TcaHandle,
   type TcaTraceStore
-} from "@gamekit/tca";
+} from "@gamekits/tca";
 
 import {
   createOutpostArenaPhysicsSceneConfig,

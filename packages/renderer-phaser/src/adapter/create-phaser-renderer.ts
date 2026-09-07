@@ -1,4 +1,4 @@
-import { GameError } from "@gamekit/core";
+import { GameError } from "@gamekits/core";
 import type {
   RenderCommand,
   RenderNodePath,
@@ -7,7 +7,7 @@ import type {
   RenderObjectId,
   RendererAdapter,
   RendererBootContext
-} from "@gamekit/renderer-core";
+} from "@gamekits/renderer-core";
 import { applyRenderCommand } from "./command-handlers";
 import {
   createPhaserRenderRecord,
@@ -18,7 +18,7 @@ import { requireRenderRecord, resolveNodePath, type PhaserRenderRecord } from ".
 import { applyPhaserRenderTargetState } from "./target-state";
 import type { PhaserRendererNative, PhaserRendererOptions, PhaserRendererRuntime } from "./types";
 
-const DEFAULT_DEBUG_TEXTURE_ID = "gamekit.debug.square";
+const DEFAULT_DEBUG_TEXTURE_ID = "gamekits.debug.square";
 
 export function createPhaserRenderer(
   options: PhaserRendererOptions

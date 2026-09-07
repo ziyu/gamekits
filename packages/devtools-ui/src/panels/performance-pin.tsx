@@ -1,4 +1,4 @@
-import type { DevToolsSnapshot } from "@gamekit/devtools";
+import type { DevToolsSnapshot } from "@gamekits/devtools";
 import { calculateFrameBarHeight, createPerformancePanelModel } from "./performance-model";
 
 export type PerformancePinProps = {
@@ -16,8 +16,8 @@ export function PerformancePin({ collapsed = false, snapshot }: PerformancePinPr
 
   if (collapsed) {
     return (
-      <div className="gamekit-devtools-pin-icon" data-devtools-pin-status={status}>
-        <span className={`gamekit-devtools-pin-status gamekit-devtools-pin-status--${status}`} />
+      <div className="gamekits-devtools-pin-icon" data-devtools-pin-status={status}>
+        <span className={`gamekits-devtools-pin-status gamekits-devtools-pin-status--${status}`} />
         <strong>{fps ?? "--"}</strong>
         <span>fps</span>
         {warningCount > 0 ? <em>{warningCount}</em> : null}
@@ -26,21 +26,21 @@ export function PerformancePin({ collapsed = false, snapshot }: PerformancePinPr
   }
 
   return (
-    <section className="gamekit-devtools-performance-pin" data-devtools-pin-status={status}>
+    <section className="gamekits-devtools-performance-pin" data-devtools-pin-status={status}>
       <FrameGraph frames={frameHistory} maxFrameTime={model.maxFrameTime} />
-      <div className="gamekit-devtools-performance-pin__header">
+      <div className="gamekits-devtools-performance-pin__header">
         <strong>PERF</strong>
         <span>
           Spans {latestFrame?.spanCount ?? 0} Warn {warningCount}
         </span>
       </div>
-      <div className="gamekit-devtools-performance-pin__channels" aria-label="visible metrics">
+      <div className="gamekits-devtools-performance-pin__channels" aria-label="visible metrics">
         <Channel checked label="FPS" />
         <Channel checked label="Render" />
         <Channel checked label="Tick" />
         <Channel checked={Boolean(latestFrame?.uiMs)} label="UI" />
       </div>
-      <div className="gamekit-devtools-performance-pin__readout">
+      <div className="gamekits-devtools-performance-pin__readout">
         <Metric label="fps" value={fps?.toString() ?? "--"} />
         <Metric label="frame" value={formatMs(latestFrame?.durationMs)} />
         <Metric label="tick" value={formatMs(latestFrame?.runtimeMs)} />
@@ -61,7 +61,7 @@ function Metric({ label, value }: { label: string; value: string }) {
 
 function Channel({ checked, label }: { checked: boolean; label: string }) {
   return (
-    <span className="gamekit-devtools-performance-pin__channel">
+    <span className="gamekits-devtools-performance-pin__channel">
       <span aria-hidden="true">{checked ? "✓" : ""}</span>
       {label}
     </span>
@@ -77,7 +77,7 @@ function FrameGraph({
 }) {
   const graphFrames = frames.length > 0 ? frames : [undefined];
   return (
-    <div className="gamekit-devtools-performance-pin__graph" aria-label="frame history">
+    <div className="gamekits-devtools-performance-pin__graph" aria-label="frame history">
       {graphFrames.map((frame, index) => {
         const height = calculateFrameBarHeight(frame?.deltaMs, graphFrames, maxFrameTime);
         const className = [

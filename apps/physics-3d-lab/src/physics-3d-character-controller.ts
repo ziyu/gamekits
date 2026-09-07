@@ -6,8 +6,8 @@ import {
   type CharacterMotorDefinition,
   type CharacterMotorState,
   type CharacterMotorStepResult
-} from "@gamekit/character-controller";
-import type { PhysicsScene } from "@gamekit/physics-core";
+} from "@gamekits/character-controller";
+import type { PhysicsScene } from "@gamekits/physics-core";
 
 export const PHYSICS_3D_CHARACTER_BODY_ID = "body.character";
 export const PHYSICS_3D_CHARACTER_COLLIDER_ID = "collider.character";

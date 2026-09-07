@@ -24,7 +24,7 @@ authority/client共享的稳定事实，不把玩法数值散落在session、ren
 | `arena.bot-archetype`   | AI agent/goal/task/skill profile权重                     | AI/Nav/character/item refs         |
 | `arena.presentation`    | actor/item/hazard/course语义资源映射                     | Asset/Animator/Audio refs          |
 
-这些类型属于Arena，不进入GameKit通用package。只有多个真实游戏证明同一语义时才通过ADR上移。
+这些类型属于Arena，不进入GameKits通用package。只有多个真实游戏证明同一语义时才通过ADR上移。
 
 ## Identity 与 Version
 

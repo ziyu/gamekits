@@ -1,5 +1,5 @@
-import type { GameAudio, PlaybackHandle, SfxPlayResult } from "@gamekit/audio-core";
-import { createConfiguredAppHost } from "@gamekit/app-host";
+import type { GameAudio, PlaybackHandle, SfxPlayResult } from "@gamekits/audio-core";
+import { createConfiguredAppHost } from "@gamekits/app-host";
 import { audioLabAppDefinition } from "./app-definition";
 import { AUDIO_LAB_IDS, AUDIO_LAB_MUSIC_PROGRAMS } from "./audio-catalog";
 import { createAudioLabAssetBundle } from "./audio-assets";

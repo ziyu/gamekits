@@ -4,13 +4,13 @@ import {
   type MultiplayerMessageEnvelope,
   type MultiplayerPeer,
   type MultiplayerSession
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 
-export type GameKitColyseusPresenceStatus = "connected" | "left";
+export type GameKitsColyseusPresenceStatus = "connected" | "left";
 
-export type GameKitColyseusPresencePayload = {
+export type GameKitsColyseusPresencePayload = {
   peer: MultiplayerPeer;
-  status: GameKitColyseusPresenceStatus;
+  status: GameKitsColyseusPresenceStatus;
   session: MultiplayerSession;
   reason?: string;
 };
@@ -38,7 +38,7 @@ export function isMultiplayerMessageEnvelope(value: unknown): value is Multiplay
   );
 }
 
-export function isPresencePayload(value: unknown): value is GameKitColyseusPresencePayload {
+export function isPresencePayload(value: unknown): value is GameKitsColyseusPresencePayload {
   if (!isRecord(value) || !isRecord(value.peer) || !isRecord(value.session)) {
     return false;
   }
@@ -59,8 +59,8 @@ export function cloneEnvelope(message: MultiplayerMessageEnvelope): MultiplayerM
 }
 
 export function clonePresencePayload(
-  payload: GameKitColyseusPresencePayload
-): GameKitColyseusPresencePayload {
+  payload: GameKitsColyseusPresencePayload
+): GameKitsColyseusPresencePayload {
   return {
     peer: clonePeer(payload.peer),
     status: payload.status,

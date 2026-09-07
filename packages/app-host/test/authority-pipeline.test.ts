@@ -8,19 +8,19 @@ import {
   createStandardPhysicsModule,
   createStandardTcaModule,
   defineGameApp
-} from "@gamekit/app-host";
-import { createCameraController } from "@gamekit/camera-core";
-import { defineGameModule } from "@gamekit/core";
-import { createDataRegistry } from "@gamekit/data";
-import { createDevToolsRuntime } from "@gamekit/devtools";
-import { createEventBus } from "@gamekit/event-bus";
-import { createGasDataTypes, createGasHandle } from "@gamekit/gas";
-import { createGame, type GameInstallContext } from "@gamekit/game-runtime";
-import { createMultiplayerRuntime } from "@gamekit/multiplayer-core";
-import { createMemoryMultiplayerBackend } from "@gamekit/multiplayer-memory";
-import { createMemoryPhysicsBackend, createPhysicsHandle } from "@gamekit/physics-core";
-import { createTcaHandle, createTcaRuleDataType } from "@gamekit/tca";
-import type { GameWorld } from "@gamekit/world";
+} from "@gamekits/app-host";
+import { createCameraController } from "@gamekits/camera-core";
+import { defineGameModule } from "@gamekits/core";
+import { createDataRegistry } from "@gamekits/data";
+import { createDevToolsRuntime } from "@gamekits/devtools";
+import { createEventBus } from "@gamekits/event-bus";
+import { createGasDataTypes, createGasHandle } from "@gamekits/gas";
+import { createGame, type GameInstallContext } from "@gamekits/game-runtime";
+import { createMultiplayerRuntime } from "@gamekits/multiplayer-core";
+import { createMemoryMultiplayerBackend } from "@gamekits/multiplayer-memory";
+import { createMemoryPhysicsBackend, createPhysicsHandle } from "@gamekits/physics-core";
+import { createTcaHandle, createTcaRuleDataType } from "@gamekits/tca";
+import type { GameWorld } from "@gamekits/world";
 import { describe, expect, it } from "vitest";
 
 describe("headless authority module pipeline", () => {

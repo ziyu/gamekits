@@ -2,7 +2,7 @@ import {
   createNavigationHandle,
   createNavigationModule,
   type CreateNavigationModuleOptions
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import { resolveStandardValue } from "../resolve";
 import type { StandardServiceBuildContext, StandardValue } from "../types";
 

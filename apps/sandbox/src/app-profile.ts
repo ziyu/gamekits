@@ -1,27 +1,27 @@
-import type { AssetManager } from "@gamekit/asset";
+import type { AssetManager } from "@gamekits/asset";
 import {
   createStandardAppProfile,
   resolveDriverCamera,
   type AppProfile,
   type StandardCameraActionBinding
-} from "@gamekit/app-host";
-import type { CameraController } from "@gamekit/camera-core";
-import type { DataRegistry } from "@gamekit/data";
-import type { DevToolsRuntime } from "@gamekit/devtools";
-import type { DriverRegistry, GameDriver } from "@gamekit/driver-core";
-import { createPhaserDriver } from "@gamekit/driver-phaser";
-import { createThreeDriver } from "@gamekit/driver-three";
-import { createEventBus } from "@gamekit/event-bus";
-import { createGasTcaDefinitions, createGasTraceStore, type GasRuntime } from "@gamekit/gas";
-import { createInputRouter, type InputRouter } from "@gamekit/input-core";
-import { createDomInputAdapter } from "@gamekit/input-dom";
-import type { PlatformRuntime } from "@gamekit/platform-core";
-import { createWebPlatform } from "@gamekit/platform-web";
-import type { RendererAdapter, RendererBootContext } from "@gamekit/renderer-core";
-import { createPlatformStorageSaveStore, type SaveManager } from "@gamekit/save";
-import { createTcaTraceStore, mergeTcaDefinitionSets } from "@gamekit/tca";
-import type { UiRuntime } from "@gamekit/ui-core";
-import { createKootaWorld } from "@gamekit/world-koota";
+} from "@gamekits/app-host";
+import type { CameraController } from "@gamekits/camera-core";
+import type { DataRegistry } from "@gamekits/data";
+import type { DevToolsRuntime } from "@gamekits/devtools";
+import type { DriverRegistry, GameDriver } from "@gamekits/driver-core";
+import { createPhaserDriver } from "@gamekits/driver-phaser";
+import { createThreeDriver } from "@gamekits/driver-three";
+import { createEventBus } from "@gamekits/event-bus";
+import { createGasTcaDefinitions, createGasTraceStore, type GasRuntime } from "@gamekits/gas";
+import { createInputRouter, type InputRouter } from "@gamekits/input-core";
+import { createDomInputAdapter } from "@gamekits/input-dom";
+import type { PlatformRuntime } from "@gamekits/platform-core";
+import { createWebPlatform } from "@gamekits/platform-web";
+import type { RendererAdapter, RendererBootContext } from "@gamekits/renderer-core";
+import { createPlatformStorageSaveStore, type SaveManager } from "@gamekits/save";
+import { createTcaTraceStore, mergeTcaDefinitionSets } from "@gamekits/tca";
+import type { UiRuntime } from "@gamekits/ui-core";
+import { createKootaWorld } from "@gamekits/world-koota";
 import { createSandboxCameraController } from "./camera";
 import {
   createSandboxDataRegistry,
@@ -63,7 +63,7 @@ export function createSandboxWebProfile(): AppProfile<SandboxAppContext> {
     sandbox?: SandboxRuntime;
     gasRuntime?: GasRuntime;
   } = {};
-  const platform = createWebPlatform({ appName: "GameKit Sandbox" });
+  const platform = createWebPlatform({ appName: "GameKits Sandbox" });
   const dataRegistry = createSandboxDataRegistry();
   const phaserDriver = createPhaserDriver({ id: "sandbox.phaser" });
   const threeDriver = createThreeDriver({

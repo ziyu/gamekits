@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/devtools-ui",
+  "name": "@gamekits/devtools-ui",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -18,9 +18,9 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/devtools": "workspace:*",
-    "@gamekit/react-ui": "workspace:*",
-    "@gamekit/ui-core": "workspace:*"
+    "@gamekits/devtools": "workspace:*",
+    "@gamekits/react-ui": "workspace:*",
+    "@gamekits/ui-core": "workspace:*"
   },
   "peerDependencies": {
     "react": "^18.3.1",
@@ -41,7 +41,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "gamekitBuild": {
+  "gamekitsBuild": {
     "copy": [
       {
         "from": "src/styles.css",

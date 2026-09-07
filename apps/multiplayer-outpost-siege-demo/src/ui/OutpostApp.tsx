@@ -1,6 +1,6 @@
-import type { DevToolsRuntime } from "@gamekit/devtools";
-import { DevToolsOverlay } from "@gamekit/devtools-ui";
-import type { UiRuntime } from "@gamekit/ui-core";
+import type { DevToolsRuntime } from "@gamekits/devtools";
+import { DevToolsOverlay } from "@gamekits/devtools-ui";
+import type { UiRuntime } from "@gamekits/ui-core";
 import { useCallback } from "react";
 import { OUTPOST_DASH_STAMINA_COST, OUTPOST_PLAYER_STAMINA_MAX } from "../content";
 import { OutpostLobby, type OutpostConnectionView } from "./OutpostLobby";

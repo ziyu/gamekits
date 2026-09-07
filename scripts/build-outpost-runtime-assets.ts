@@ -102,7 +102,7 @@ function buildSpriteSheetAsset(
     throw new Error(`Unable to build ${asset.id}: missing sprite sheet metadata`);
   }
   const sourceFrameCount = spriteSheet.sourceColumns * spriteSheet.sourceRows;
-  const temporaryRoot = mkdtempSync(join(tmpdir(), "gamekit-outpost-sprites-"));
+  const temporaryRoot = mkdtempSync(join(tmpdir(), "gamekits-outpost-sprites-"));
   try {
     runMagick(
       asset.id,

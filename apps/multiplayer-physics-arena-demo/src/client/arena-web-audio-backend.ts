@@ -1,10 +1,10 @@
-import type { AudioBackend } from "@gamekit/audio-core/backend";
+import type { AudioBackend } from "@gamekits/audio-core/backend";
 import type {
   AudioBackendEvent,
   AudioBackendSnapshot,
   BackendPlaybackRequest,
   BackendPlaybackUpdate
-} from "@gamekit/audio-core/backend";
+} from "@gamekits/audio-core/backend";
 
 type ArenaWebVoice = {
   request: BackendPlaybackRequest;

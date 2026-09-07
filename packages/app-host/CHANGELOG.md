@@ -1,4 +1,4 @@
-# @gamekit/app-host
+# @gamekits/app-host
 
 ## 0.1.0-alpha.8
 
@@ -6,28 +6,28 @@
 
 - 0326356: Add scoped assets and transactional save recovery
 - Updated dependencies [0326356]
-  - @gamekit/asset@0.1.0-alpha.8
-  - @gamekit/save@0.1.0-alpha.8
-  - @gamekit/animator-core@0.1.0-alpha.8
-  - @gamekit/audio-core@0.1.0-alpha.8
-  - @gamekit/ai-core@0.1.0-alpha.8
-  - @gamekit/combat@0.1.0-alpha.8
-  - @gamekit/gas@0.1.0-alpha.8
-  - @gamekit/physics-core@0.1.0-alpha.8
-  - @gamekit/tca@0.1.0-alpha.8
-  - @gamekit/core@0.1.0-alpha.8
-  - @gamekit/world@0.1.0-alpha.8
-  - @gamekit/platform-core@0.1.0-alpha.8
-  - @gamekit/renderer-core@0.1.0-alpha.8
-  - @gamekit/game-runtime@0.1.0-alpha.8
-  - @gamekit/data@0.1.0-alpha.8
-  - @gamekit/input-core@0.1.0-alpha.8
-  - @gamekit/camera-core@0.1.0-alpha.8
-  - @gamekit/driver-core@0.1.0-alpha.8
-  - @gamekit/devtools@0.1.0-alpha.8
-  - @gamekit/ui-core@0.1.0-alpha.8
-  - @gamekit/multiplayer-core@0.1.0-alpha.8
-  - @gamekit/navigation-core@0.1.0-alpha.8
+  - @gamekits/asset@0.1.0-alpha.8
+  - @gamekits/save@0.1.0-alpha.8
+  - @gamekits/animator-core@0.1.0-alpha.8
+  - @gamekits/audio-core@0.1.0-alpha.8
+  - @gamekits/ai-core@0.1.0-alpha.8
+  - @gamekits/combat@0.1.0-alpha.8
+  - @gamekits/gas@0.1.0-alpha.8
+  - @gamekits/physics-core@0.1.0-alpha.8
+  - @gamekits/tca@0.1.0-alpha.8
+  - @gamekits/core@0.1.0-alpha.8
+  - @gamekits/world@0.1.0-alpha.8
+  - @gamekits/platform-core@0.1.0-alpha.8
+  - @gamekits/renderer-core@0.1.0-alpha.8
+  - @gamekits/game-runtime@0.1.0-alpha.8
+  - @gamekits/data@0.1.0-alpha.8
+  - @gamekits/input-core@0.1.0-alpha.8
+  - @gamekits/camera-core@0.1.0-alpha.8
+  - @gamekits/driver-core@0.1.0-alpha.8
+  - @gamekits/devtools@0.1.0-alpha.8
+  - @gamekits/ui-core@0.1.0-alpha.8
+  - @gamekits/multiplayer-core@0.1.0-alpha.8
+  - @gamekits/navigation-core@0.1.0-alpha.8
 
 ## 0.1.0-alpha.7
 
@@ -40,28 +40,28 @@
 - 398165e: Fix runtime failure and persistence contracts
 - Updated dependencies [398165e]
 - Updated dependencies [ce209d8]
-  - @gamekit/asset@0.1.0-alpha.7
-  - @gamekit/game-runtime@0.1.0-alpha.7
-  - @gamekit/gas@0.1.0-alpha.7
-  - @gamekit/input-core@0.1.0-alpha.7
-  - @gamekit/platform-core@0.1.0-alpha.7
-  - @gamekit/save@0.1.0-alpha.7
-  - @gamekit/tca@0.1.0-alpha.7
-  - @gamekit/multiplayer-core@0.1.0-alpha.7
-  - @gamekit/physics-core@0.1.0-alpha.7
-  - @gamekit/animator-core@0.1.0-alpha.7
-  - @gamekit/audio-core@0.1.0-alpha.7
-  - @gamekit/ai-core@0.1.0-alpha.7
-  - @gamekit/combat@0.1.0-alpha.7
-  - @gamekit/navigation-core@0.1.0-alpha.7
-  - @gamekit/core@0.1.0-alpha.7
-  - @gamekit/world@0.1.0-alpha.7
-  - @gamekit/renderer-core@0.1.0-alpha.7
-  - @gamekit/data@0.1.0-alpha.7
-  - @gamekit/camera-core@0.1.0-alpha.7
-  - @gamekit/driver-core@0.1.0-alpha.7
-  - @gamekit/devtools@0.1.0-alpha.7
-  - @gamekit/ui-core@0.1.0-alpha.7
+  - @gamekits/asset@0.1.0-alpha.7
+  - @gamekits/game-runtime@0.1.0-alpha.7
+  - @gamekits/gas@0.1.0-alpha.7
+  - @gamekits/input-core@0.1.0-alpha.7
+  - @gamekits/platform-core@0.1.0-alpha.7
+  - @gamekits/save@0.1.0-alpha.7
+  - @gamekits/tca@0.1.0-alpha.7
+  - @gamekits/multiplayer-core@0.1.0-alpha.7
+  - @gamekits/physics-core@0.1.0-alpha.7
+  - @gamekits/animator-core@0.1.0-alpha.7
+  - @gamekits/audio-core@0.1.0-alpha.7
+  - @gamekits/ai-core@0.1.0-alpha.7
+  - @gamekits/combat@0.1.0-alpha.7
+  - @gamekits/navigation-core@0.1.0-alpha.7
+  - @gamekits/core@0.1.0-alpha.7
+  - @gamekits/world@0.1.0-alpha.7
+  - @gamekits/renderer-core@0.1.0-alpha.7
+  - @gamekits/data@0.1.0-alpha.7
+  - @gamekits/camera-core@0.1.0-alpha.7
+  - @gamekits/driver-core@0.1.0-alpha.7
+  - @gamekits/devtools@0.1.0-alpha.7
+  - @gamekits/ui-core@0.1.0-alpha.7
 
 ## 0.1.0-alpha.6
 
@@ -83,27 +83,27 @@
 - Updated dependencies [c6fdda9]
 - Updated dependencies [c6fdda9]
 - Updated dependencies [94c5113]
-  - @gamekit/ai-core@0.1.0-alpha.6
-  - @gamekit/animator-core@0.1.0-alpha.6
-  - @gamekit/audio-core@0.1.0-alpha.6
-  - @gamekit/combat@0.1.0-alpha.6
-  - @gamekit/devtools@0.1.0-alpha.6
-  - @gamekit/gas@0.1.0-alpha.6
-  - @gamekit/multiplayer-core@0.1.0-alpha.6
-  - @gamekit/navigation-core@0.1.0-alpha.6
-  - @gamekit/asset@0.1.0-alpha.6
-  - @gamekit/driver-core@0.1.0-alpha.6
-  - @gamekit/physics-core@0.1.0-alpha.6
-  - @gamekit/core@0.1.0-alpha.6
-  - @gamekit/platform-core@0.1.0-alpha.6
-  - @gamekit/renderer-core@0.1.0-alpha.6
-  - @gamekit/game-runtime@0.1.0-alpha.6
-  - @gamekit/data@0.1.0-alpha.6
-  - @gamekit/tca@0.1.0-alpha.6
-  - @gamekit/input-core@0.1.0-alpha.6
-  - @gamekit/camera-core@0.1.0-alpha.6
-  - @gamekit/ui-core@0.1.0-alpha.6
-  - @gamekit/save@0.1.0-alpha.6
+  - @gamekits/ai-core@0.1.0-alpha.6
+  - @gamekits/animator-core@0.1.0-alpha.6
+  - @gamekits/audio-core@0.1.0-alpha.6
+  - @gamekits/combat@0.1.0-alpha.6
+  - @gamekits/devtools@0.1.0-alpha.6
+  - @gamekits/gas@0.1.0-alpha.6
+  - @gamekits/multiplayer-core@0.1.0-alpha.6
+  - @gamekits/navigation-core@0.1.0-alpha.6
+  - @gamekits/asset@0.1.0-alpha.6
+  - @gamekits/driver-core@0.1.0-alpha.6
+  - @gamekits/physics-core@0.1.0-alpha.6
+  - @gamekits/core@0.1.0-alpha.6
+  - @gamekits/platform-core@0.1.0-alpha.6
+  - @gamekits/renderer-core@0.1.0-alpha.6
+  - @gamekits/game-runtime@0.1.0-alpha.6
+  - @gamekits/data@0.1.0-alpha.6
+  - @gamekits/tca@0.1.0-alpha.6
+  - @gamekits/input-core@0.1.0-alpha.6
+  - @gamekits/camera-core@0.1.0-alpha.6
+  - @gamekits/ui-core@0.1.0-alpha.6
+  - @gamekits/save@0.1.0-alpha.6
 
 ## 0.1.0-alpha.5
 
@@ -121,61 +121,61 @@
 - Updated dependencies [42c830b]
 - Updated dependencies [c2b4371]
 - Updated dependencies [116b3bd]
-  - @gamekit/multiplayer-core@0.1.0-alpha.4
-  - @gamekit/core@0.1.0-alpha.5
-  - @gamekit/platform-core@0.1.0-alpha.5
-  - @gamekit/renderer-core@0.1.0-alpha.5
-  - @gamekit/game-runtime@0.1.0-alpha.5
-  - @gamekit/data@0.1.0-alpha.5
-  - @gamekit/tca@0.1.0-alpha.5
-  - @gamekit/gas@0.1.0-alpha.5
-  - @gamekit/input-core@0.1.0-alpha.5
-  - @gamekit/camera-core@0.1.0-alpha.5
-  - @gamekit/physics-core@0.1.0-alpha.5
-  - @gamekit/driver-core@0.1.0-alpha.5
-  - @gamekit/devtools@0.1.0-alpha.5
-  - @gamekit/ui-core@0.1.0-alpha.5
-  - @gamekit/asset@0.1.0-alpha.5
-  - @gamekit/save@0.1.0-alpha.5
+  - @gamekits/multiplayer-core@0.1.0-alpha.4
+  - @gamekits/core@0.1.0-alpha.5
+  - @gamekits/platform-core@0.1.0-alpha.5
+  - @gamekits/renderer-core@0.1.0-alpha.5
+  - @gamekits/game-runtime@0.1.0-alpha.5
+  - @gamekits/data@0.1.0-alpha.5
+  - @gamekits/tca@0.1.0-alpha.5
+  - @gamekits/gas@0.1.0-alpha.5
+  - @gamekits/input-core@0.1.0-alpha.5
+  - @gamekits/camera-core@0.1.0-alpha.5
+  - @gamekits/physics-core@0.1.0-alpha.5
+  - @gamekits/driver-core@0.1.0-alpha.5
+  - @gamekits/devtools@0.1.0-alpha.5
+  - @gamekits/ui-core@0.1.0-alpha.5
+  - @gamekits/asset@0.1.0-alpha.5
+  - @gamekits/save@0.1.0-alpha.5
 
 ## 0.1.0-alpha.4
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.4
-- @gamekit/platform-core@0.1.0-alpha.4
-- @gamekit/renderer-core@0.1.0-alpha.4
-- @gamekit/game-runtime@0.1.0-alpha.4
-- @gamekit/data@0.1.0-alpha.4
-- @gamekit/tca@0.1.0-alpha.4
-- @gamekit/gas@0.1.0-alpha.4
-- @gamekit/input-core@0.1.0-alpha.4
-- @gamekit/camera-core@0.1.0-alpha.4
-- @gamekit/driver-core@0.1.0-alpha.4
-- @gamekit/devtools@0.1.0-alpha.4
-- @gamekit/ui-core@0.1.0-alpha.4
-- @gamekit/asset@0.1.0-alpha.4
-- @gamekit/save@0.1.0-alpha.4
+- @gamekits/core@0.1.0-alpha.4
+- @gamekits/platform-core@0.1.0-alpha.4
+- @gamekits/renderer-core@0.1.0-alpha.4
+- @gamekits/game-runtime@0.1.0-alpha.4
+- @gamekits/data@0.1.0-alpha.4
+- @gamekits/tca@0.1.0-alpha.4
+- @gamekits/gas@0.1.0-alpha.4
+- @gamekits/input-core@0.1.0-alpha.4
+- @gamekits/camera-core@0.1.0-alpha.4
+- @gamekits/driver-core@0.1.0-alpha.4
+- @gamekits/devtools@0.1.0-alpha.4
+- @gamekits/ui-core@0.1.0-alpha.4
+- @gamekits/asset@0.1.0-alpha.4
+- @gamekits/save@0.1.0-alpha.4
 
 ## 0.1.0-alpha.3
 
 ### Patch Changes
 
 - Updated dependencies [544f137]
-  - @gamekit/driver-core@0.1.0-alpha.3
-  - @gamekit/core@0.1.0-alpha.3
-  - @gamekit/platform-core@0.1.0-alpha.3
-  - @gamekit/renderer-core@0.1.0-alpha.3
-  - @gamekit/game-runtime@0.1.0-alpha.3
-  - @gamekit/data@0.1.0-alpha.3
-  - @gamekit/tca@0.1.0-alpha.3
-  - @gamekit/gas@0.1.0-alpha.3
-  - @gamekit/input-core@0.1.0-alpha.3
-  - @gamekit/camera-core@0.1.0-alpha.3
-  - @gamekit/devtools@0.1.0-alpha.3
-  - @gamekit/ui-core@0.1.0-alpha.3
-  - @gamekit/asset@0.1.0-alpha.3
-  - @gamekit/save@0.1.0-alpha.3
+  - @gamekits/driver-core@0.1.0-alpha.3
+  - @gamekits/core@0.1.0-alpha.3
+  - @gamekits/platform-core@0.1.0-alpha.3
+  - @gamekits/renderer-core@0.1.0-alpha.3
+  - @gamekits/game-runtime@0.1.0-alpha.3
+  - @gamekits/data@0.1.0-alpha.3
+  - @gamekits/tca@0.1.0-alpha.3
+  - @gamekits/gas@0.1.0-alpha.3
+  - @gamekits/input-core@0.1.0-alpha.3
+  - @gamekits/camera-core@0.1.0-alpha.3
+  - @gamekits/devtools@0.1.0-alpha.3
+  - @gamekits/ui-core@0.1.0-alpha.3
+  - @gamekits/asset@0.1.0-alpha.3
+  - @gamekits/save@0.1.0-alpha.3
 
 ## 0.1.0-alpha.2
 
@@ -183,20 +183,20 @@
 
 - 3469457: [codex] Make renderer native control explicit
 - Updated dependencies [3469457]
-  - @gamekit/driver-core@0.1.0-alpha.2
-  - @gamekit/renderer-core@0.1.0-alpha.2
-  - @gamekit/core@0.1.0-alpha.2
-  - @gamekit/platform-core@0.1.0-alpha.2
-  - @gamekit/game-runtime@0.1.0-alpha.2
-  - @gamekit/data@0.1.0-alpha.2
-  - @gamekit/tca@0.1.0-alpha.2
-  - @gamekit/gas@0.1.0-alpha.2
-  - @gamekit/input-core@0.1.0-alpha.2
-  - @gamekit/camera-core@0.1.0-alpha.2
-  - @gamekit/devtools@0.1.0-alpha.2
-  - @gamekit/ui-core@0.1.0-alpha.2
-  - @gamekit/asset@0.1.0-alpha.2
-  - @gamekit/save@0.1.0-alpha.2
+  - @gamekits/driver-core@0.1.0-alpha.2
+  - @gamekits/renderer-core@0.1.0-alpha.2
+  - @gamekits/core@0.1.0-alpha.2
+  - @gamekits/platform-core@0.1.0-alpha.2
+  - @gamekits/game-runtime@0.1.0-alpha.2
+  - @gamekits/data@0.1.0-alpha.2
+  - @gamekits/tca@0.1.0-alpha.2
+  - @gamekits/gas@0.1.0-alpha.2
+  - @gamekits/input-core@0.1.0-alpha.2
+  - @gamekits/camera-core@0.1.0-alpha.2
+  - @gamekits/devtools@0.1.0-alpha.2
+  - @gamekits/ui-core@0.1.0-alpha.2
+  - @gamekits/asset@0.1.0-alpha.2
+  - @gamekits/save@0.1.0-alpha.2
 
 ## 0.1.0-alpha.1
 
@@ -204,17 +204,17 @@
 
 - 5a5f227: Merge pull request #1 from ziyu/codex/alpha-package-release
 - Updated dependencies [5a5f227]
-  - @gamekit/asset@0.1.0-alpha.1
-  - @gamekit/camera-core@0.1.0-alpha.1
-  - @gamekit/core@0.1.0-alpha.1
-  - @gamekit/data@0.1.0-alpha.1
-  - @gamekit/devtools@0.1.0-alpha.1
-  - @gamekit/driver-core@0.1.0-alpha.1
-  - @gamekit/game-runtime@0.1.0-alpha.1
-  - @gamekit/gas@0.1.0-alpha.1
-  - @gamekit/input-core@0.1.0-alpha.1
-  - @gamekit/platform-core@0.1.0-alpha.1
-  - @gamekit/renderer-core@0.1.0-alpha.1
-  - @gamekit/save@0.1.0-alpha.1
-  - @gamekit/tca@0.1.0-alpha.1
-  - @gamekit/ui-core@0.1.0-alpha.1
+  - @gamekits/asset@0.1.0-alpha.1
+  - @gamekits/camera-core@0.1.0-alpha.1
+  - @gamekits/core@0.1.0-alpha.1
+  - @gamekits/data@0.1.0-alpha.1
+  - @gamekits/devtools@0.1.0-alpha.1
+  - @gamekits/driver-core@0.1.0-alpha.1
+  - @gamekits/game-runtime@0.1.0-alpha.1
+  - @gamekits/gas@0.1.0-alpha.1
+  - @gamekits/input-core@0.1.0-alpha.1
+  - @gamekits/platform-core@0.1.0-alpha.1
+  - @gamekits/renderer-core@0.1.0-alpha.1
+  - @gamekits/save@0.1.0-alpha.1
+  - @gamekits/tca@0.1.0-alpha.1
+  - @gamekits/ui-core@0.1.0-alpha.1

@@ -35,7 +35,7 @@ function main(): void {
     JSON.stringify(
       {
         benchmark: "gameplay-framework",
-        packages: ["@gamekit/event-bus", "@gamekit/tca", "@gamekit/gas"],
+        packages: ["@gamekits/event-bus", "@gamekits/tca", "@gamekits/gas"],
         suites,
         ...(budgetCheckEnabled
           ? {

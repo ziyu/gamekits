@@ -1,4 +1,4 @@
-import type { DataTypeDefinition } from "@gamekit/data";
+import type { DataTypeDefinition } from "@gamekits/data";
 import type { AnimatorBindingDefinition } from "./binding-definition";
 import type { AnimationClipDefinition } from "./clip-definition";
 import type { AnimatorGraphDefinition } from "./graph-definition";

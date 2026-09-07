@@ -1,4 +1,4 @@
-import type { DriverBootContext } from "@gamekit/driver-core";
+import type { DriverBootContext } from "@gamekits/driver-core";
 import type { Camera, Object3D, Scene, Texture, WebGLRenderer } from "three";
 import { cloneObjectMaterialInstances } from "./model-materials";
 import type {

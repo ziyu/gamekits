@@ -6,12 +6,12 @@ GAS 是通用 Gameplay Ability System，负责 Actor、Attribute、Tag、Ability
 
 相关包：
 
-- `@gamekit/gas`
+- `@gamekits/gas`
 
 包归属：
 
 - GAS 是 Game Module，不是 App Host Service。
-- GAS 可以依赖 `@gamekit/world` facade，以便把高频运行时状态放进 ECS component。
+- GAS 可以依赖 `@gamekits/world` facade，以便把高频运行时状态放进 ECS component。
 - GAS 不依赖 Koota、Phaser、React、Tauri 或具体游戏 app。
 - App Host 可以提供标准游戏模块入口，负责把 GAS module 注入 GameRuntime，但不把 GAS runtime 暴露成应用服务。
 
@@ -45,7 +45,7 @@ World Entity
   └─ GasEffectsComponent
 ```
 
-这样移动、战斗、光环、Buff、查询等热路径能利用 ECS 查询和组件局部性。`@gamekit/gas` 只能依赖 `@gamekit/world` facade，不能依赖具体 ECS。
+这样移动、战斗、光环、Buff、查询等热路径能利用 ECS 查询和组件局部性。`@gamekits/gas` 只能依赖 `@gamekits/world` facade，不能依赖具体 ECS。
 
 Actor 仍不等同于 Entity。长期模型必须同时支持：
 
@@ -105,7 +105,7 @@ Ability execution lifecycle 使用 `requested → preparing → committed → ac
 
 Runtime 必须对每 Actor 的 active execution 数量和 recent terminal history 设硬上限。Ability 可用 `maxConcurrent` + `reject-newest/cancel-oldest` 定义自身并发 policy；Runtime 的 `maxActivePerActor` 是不可被内容绕过的保护上限。Active state 放在按需挂载的 `GasAbilityExecutions` component，空闲 Actor 不持有空 component；终态只保留有界诊断历史，dispose 后不得留下 execution、request dedupe 或 entity mapping。
 
-GAS 只拥有 ability phase、cost、cooldown、tag、effect 和 cue。瞄准、目标候选、melee/hitscan/projectile/area delivery、阵营关系和命中去重属于 `@gamekit/combat` 或游戏注入 policy。Gameplay timing 不能等待 renderer animation marker；Animator Core 根据 execution phase 恢复表现相位。
+GAS 只拥有 ability phase、cost、cooldown、tag、effect 和 cue。瞄准、目标候选、melee/hitscan/projectile/area delivery、阵营关系和命中去重属于 `@gamekits/combat` 或游戏注入 policy。Gameplay timing 不能等待 renderer animation marker；Animator Core 根据 execution phase 恢复表现相位。
 
 ## Effect
 
@@ -154,7 +154,7 @@ Cue 描述表现意图，不决定 gameplay 结果。
 
 GAS 不直接调用 Renderer、Camera、Audio 或 UI adapter。Cue 通过 EventBus、Renderer command bridge、UI action bridge 或后续 DevTools 被消费。
 
-`@gamekit/fx` 不作为默认独立业务包。Cue/Presentation 由 GAS、Renderer、UI、Camera 共同消费。
+`@gamekits/fx` 不作为默认独立业务包。Cue/Presentation 由 GAS、Renderer、UI、Camera 共同消费。
 
 Ability execution 与 Effect 是 Cue 的两个标准来源：
 

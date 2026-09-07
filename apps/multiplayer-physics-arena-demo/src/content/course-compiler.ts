@@ -1,5 +1,5 @@
-import type { NavigationLayoutDefinition } from "@gamekit/navigation-core";
-import type { NavigationNavMeshSource } from "@gamekit/navigation-navmesh";
+import type { NavigationLayoutDefinition } from "@gamekits/navigation-core";
+import type { NavigationNavMeshSource } from "@gamekits/navigation-navmesh";
 import type {
   PhysicsColliderDefinition,
   PhysicsMaterialDefinition,
@@ -7,7 +7,7 @@ import type {
   PhysicsPredictionIslandMemberDefinition,
   PhysicsShapeDefinition,
   PhysicsVector
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 
 import type {
   ArenaBoundsDefinition,

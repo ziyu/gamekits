@@ -15,7 +15,7 @@ client 运行与 authority 相同的 projectile sweep/collision/lifecycle，因�
 lag-compensated hitscan、kinematic data buffer、predicted entity + prediction island 或 authority-only，而不是
 默认全场 rollback，也不是继续修 render handoff。
 
-Outpost Rifle 当前选择 `kinematic-data-buffer`。进入下一轮实现前，GameKit 必须先具备并验证：
+Outpost Rifle 当前选择 `kinematic-data-buffer`。进入下一轮实现前，GameKits 必须先具备并验证：
 
 - Combat projectile strategy 与有界 fire/finish spatial record；
 - owner 使用同一 definition、fixed tick、layout 和 Physics sweep 的 provisional simulation；
@@ -167,7 +167,7 @@ Gamepad 底层依赖已按 [ADR 0045](../adr/0045-web-gamepad-input-source-and-p
 | HUD               | health/shield、四个 cooldown/resource 文本                    | 无 ammo/reload、phase progress、rejection reason、interaction/world UI                        | Outpost view model/UI                      |
 | Tests             | authority结果、复制、Animator/Audio memory contract、移动预测 | 缺真实资源、held fire、浏览器动作手感、两客户端 cue 和 Gamepad E2E                            | Outpost quality                            |
 
-本轮审计发现的框架缺口是 Input Core 虽声明 `gamepad` device，但 Web/Phaser 运行链没有 Gamepad source/polling adapter。该缺口已通过 Input Core polling/value/device identity、`@gamekit/input-dom` Web adapter 和 App Host source polling 补足。Camera shake、Animator ability-specific phase mapping、Phaser particle、Audio SFX/spatial、Combat/GAS Cue 与 Multiplayer managed prediction 已存在；没有新证据前不扩张对应 Core。
+本轮审计发现的框架缺口是 Input Core 虽声明 `gamepad` device，但 Web/Phaser 运行链没有 Gamepad source/polling adapter。该缺口已通过 Input Core polling/value/device identity、`@gamekits/input-dom` Web adapter 和 App Host source polling 补足。Camera shake、Animator ability-specific phase mapping、Phaser particle、Audio SFX/spatial、Combat/GAS Cue 与 Multiplayer managed prediction 已存在；没有新证据前不扩张对应 Core。
 
 该缺口没有由 Outpost 局部绕过。Player Slice 1 的 Gamepad 子项已经通过 Core/Web/App Host 自动门禁，真实物理设备验收继续由独立工作流保留。
 

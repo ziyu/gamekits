@@ -1,8 +1,8 @@
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
-import { createDevToolsRuntime, type DevToolsPanelDefinition } from "@gamekit/devtools";
-import { createUiRuntime } from "@gamekit/ui-core";
+import { createDevToolsRuntime, type DevToolsPanelDefinition } from "@gamekits/devtools";
+import { createUiRuntime } from "@gamekits/ui-core";
 import {
   createDevToolsUiBridge,
   DevToolsLauncher,
@@ -13,7 +13,7 @@ import {
   renderStandardDevToolsPanel
 } from "../src";
 
-describe("@gamekit/devtools-ui", () => {
+describe("@gamekits/devtools-ui", () => {
   it("toggles the registered DevTools shell through the bridge", () => {
     const devtools = createDevToolsRuntime();
     const ui = createUiRuntime();
@@ -23,7 +23,7 @@ describe("@gamekit/devtools-ui", () => {
 
     expect(bridge.snapshot().shell.open).toBe(true);
     expect(bridge.snapshot().pins.defaultPinned).toEqual(["devtools.performance"]);
-    expect(ui.panel("gamekit.devtools.shell")).toMatchObject({ kind: "devtools" });
+    expect(ui.panel("gamekits.devtools.shell")).toMatchObject({ kind: "devtools" });
     expect(ui.snapshot().focus.scope).toBe("devtools");
 
     bridge.closeShell();
@@ -40,13 +40,13 @@ describe("@gamekit/devtools-ui", () => {
     );
 
     expect(html).toContain("Inspect");
-    expect(html).toContain("gamekit-devtools-launcher");
+    expect(html).toContain("gamekits-devtools-launcher");
   });
 
   it("renders registered sources, traces, profiler samples, and commands in the shell", () => {
     const devtools = createDevToolsRuntime({ clock: () => 100 });
-    devtools.registerPanel({ id: "gamekit.devtools.sources", label: "Sources" });
-    devtools.registerPanel({ id: "gamekit.devtools.traces", label: "Trace" });
+    devtools.registerPanel({ id: "gamekits.devtools.sources", label: "Sources" });
+    devtools.registerPanel({ id: "gamekits.devtools.traces", label: "Trace" });
     devtools.registerDataSource({
       id: "data",
       label: "Data Registry",
@@ -253,7 +253,7 @@ describe("@gamekit/devtools-ui", () => {
       createElement(DevToolsPinDock, { runtime: devtools, uiRuntime: ui })
     );
 
-    expect(html).toContain("gamekit-devtools-pin-dock");
+    expect(html).toContain("gamekits-devtools-pin-dock");
     expect(html).toContain("fps");
     expect(html).toContain("Collapse Performance");
   });

@@ -1,4 +1,4 @@
-import { createMemoryPhysicsBackend, createPhysicsPredictionIsland } from "@gamekit/physics-core";
+import { createMemoryPhysicsBackend, createPhysicsPredictionIsland } from "@gamekits/physics-core";
 import { describe, expect, it } from "vitest";
 
 import { compileArenaContent, createArenaDataRegistry } from "../content/registry";

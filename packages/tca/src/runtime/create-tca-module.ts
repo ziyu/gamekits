@@ -1,5 +1,5 @@
-import { defineGameModule } from "@gamekit/core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import { defineGameModule } from "@gamekits/core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import { createTcaRuntime } from "./create-tca-runtime";
 import { bindTcaHandle, unbindTcaHandle } from "./create-tca-handle";
 import { TCA_RULE_TYPE } from "./data-type";
@@ -8,7 +8,7 @@ import type { CreateTcaModuleConfig, TcaRule } from "./types";
 
 export function createTcaModule(config: CreateTcaModuleConfig) {
   return defineGameModule<GameInstallContext>({
-    id: config.id ?? "gamekit.tca",
+    id: config.id ?? "gamekits.tca",
     install(ctx) {
       const eventBus = config.eventBus ?? ctx.eventBus;
       const runtime = createTcaRuntime({
@@ -23,7 +23,7 @@ export function createTcaModule(config: CreateTcaModuleConfig) {
         game: ctx
       });
       const unsubscribe = bridgeTcaToEventBus(runtime, eventBus);
-      const moduleId = config.id ?? "gamekit.tca";
+      const moduleId = config.id ?? "gamekits.tca";
       let handleBound = false;
       try {
         if (config.handle) {

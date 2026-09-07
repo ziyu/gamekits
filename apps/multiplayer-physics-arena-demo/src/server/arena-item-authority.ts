@@ -5,7 +5,7 @@ import type {
   PhysicsPredictionIslandMemberDefinition,
   PhysicsPredictionIslandMemberState,
   PhysicsVector
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 
 import type { CompiledArenaStage } from "../content/registry";
 import type { ArenaItemAction } from "../items/item-action";

@@ -5,7 +5,7 @@ import {
   type MultiplayerPredictionBuffer,
   type MultiplayerPredictionDiagnostics,
   type NetworkVector2
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import { REALTIME_ARENA_TICK_MS } from "./config";
 import type {
   RealtimeArenaRules,

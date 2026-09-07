@@ -4,7 +4,7 @@ Status: Closed on 2026-07-11
 
 ## Goal
 
-把 Multiplayer 从“demo 能跑通”推进到第一个可被下游 app 认真 dogfood 的可用版本。这里的可用不是生产级在线服务，也不是完整账号、好友、匹配或公网部署；它指的是 GameKit multiplayer package 能稳定提供一条跨 backend 的 authority / replication baseline，并能通过 Colyseus 证明真实成熟 backend 没有被压成伪 transport。
+把 Multiplayer 从“demo 能跑通”推进到第一个可被下游 app 认真 dogfood 的可用版本。这里的可用不是生产级在线服务，也不是完整账号、好友、匹配或公网部署；它指的是 GameKits multiplayer package 能稳定提供一条跨 backend 的 authority / replication baseline，并能通过 Colyseus 证明真实成熟 backend 没有被压成伪 transport。
 
 长期设计事实以以下文档为准：
 
@@ -22,9 +22,9 @@ Status: Closed on 2026-07-11
 
 第一个可用版本必须同时满足：
 
-- `@gamekit/multiplayer-core` 提供可复用的 authority binding、host/local authority loop、client receiver/source gate、peer/player binding 和 diagnostics contract。
-- `@gamekit/multiplayer-memory` 继续作为 deterministic conformance backend，验证 core baseline，而不是生产 backend。
-- `@gamekit/multiplayer-colyseus` 通过真实本地 Colyseus server 验证 session mapping、message routing、host-authoritative lifecycle、provider diagnostics 和至少一条 provider-native capability bridge。
+- `@gamekits/multiplayer-core` 提供可复用的 authority binding、host/local authority loop、client receiver/source gate、peer/player binding 和 diagnostics contract。
+- `@gamekits/multiplayer-memory` 继续作为 deterministic conformance backend，验证 core baseline，而不是生产 backend。
+- `@gamekits/multiplayer-colyseus` 通过真实本地 Colyseus server 验证 session mapping、message routing、host-authoritative lifecycle、provider diagnostics 和至少一条 provider-native capability bridge。
 - `apps/multiplayer-demo` 证明双 client 共享同一份 authoritative game state；UI 不能只靠 peer count 或 joined 状态判断多人已跑通。
 - Offline/local practice 复用同一套 action/input、tick、snapshot/apply 和 diagnostics contract，只把 delivery 换成本地 authority endpoint。
 - 文档、测试和 release smoke 能让下游 app 按公开入口接入，而不是复制 demo 私有代码。
@@ -39,9 +39,9 @@ Status: Closed on 2026-07-11
 
 当前已经具备的基础：
 
-- `@gamekit/multiplayer-core` 已有 runtime、session/peer/message envelope、GameModule bridge、authority binding store、host authority loop、local authority loop、client authority receiver 和基础 backend conformance。
-- `@gamekit/multiplayer-memory` 已有 in-process backend，用于 create/join/leave/message/dispose conformance 和确定性测试。
-- `@gamekit/multiplayer-colyseus` 已有 Colyseus root adapter、server-only helper、指定 GameKit session join、payload size gate、endpoint redaction、host-authoritative host leave close、native capability summary 和 native state bridge 雏形。
+- `@gamekits/multiplayer-core` 已有 runtime、session/peer/message envelope、GameModule bridge、authority binding store、host authority loop、local authority loop、client authority receiver 和基础 backend conformance。
+- `@gamekits/multiplayer-memory` 已有 in-process backend，用于 create/join/leave/message/dispose conformance 和确定性测试。
+- `@gamekits/multiplayer-colyseus` 已有 Colyseus root adapter、server-only helper、指定 GameKits session join、payload size gate、endpoint redaction、host-authoritative host leave close、native capability summary 和 native state bridge 雏形。
 - `apps/multiplayer-demo` 已有独立 realtime game demo、lobby/countdown/running/results/rematch 流程、双 client authoritative snapshot 测试、player name 去重、host/client/local 状态权限和离开/host close 生命周期测试。
 
 这些能力已经通过包级 conformance、统一 diagnostics、peer/player binding、最小 provider-native bridge、明确 reconnect support level、App Host 装配和发布消费验证，构成第一个可供下游 dogfood 的 multiplayer baseline。
@@ -67,22 +67,22 @@ Status: Implemented
 验收命令至少包含：
 
 ```bash
-corepack pnpm --filter @gamekit/multiplayer-core test
-corepack pnpm --filter @gamekit/multiplayer-memory test
-corepack pnpm --filter @gamekit/multiplayer-colyseus test
+corepack pnpm --filter @gamekits/multiplayer-core test
+corepack pnpm --filter @gamekits/multiplayer-memory test
+corepack pnpm --filter @gamekits/multiplayer-colyseus test
 corepack pnpm --filter multiplayer-demo test
 ```
 
 2026-07-08 实现进度：
 
-- `@gamekit/multiplayer-core` 新增可复用 authority conformance runner，覆盖 host-authoritative action/input/snapshot/patch/result、非 authority snapshot/patch/result source gate、duplicate input rejection、local authority 等价快照、session isolation 和 client leave cleanup。
-- `@gamekit/multiplayer-memory` 和 `@gamekit/multiplayer-colyseus` 都已接入同一条 authority conformance runner。
+- `@gamekits/multiplayer-core` 新增可复用 authority conformance runner，覆盖 host-authoritative action/input/snapshot/patch/result、非 authority snapshot/patch/result source gate、duplicate input rejection、local authority 等价快照、session isolation 和 client leave cleanup。
+- `@gamekits/multiplayer-memory` 和 `@gamekits/multiplayer-colyseus` 都已接入同一条 authority conformance runner。
 - 已验证局部命令：
 
 ```bash
-corepack pnpm --filter @gamekit/multiplayer-core test
-corepack pnpm --filter @gamekit/multiplayer-memory test
-corepack pnpm --filter @gamekit/multiplayer-colyseus test
+corepack pnpm --filter @gamekits/multiplayer-core test
+corepack pnpm --filter @gamekits/multiplayer-memory test
+corepack pnpm --filter @gamekits/multiplayer-colyseus test
 corepack pnpm --filter multiplayer-demo test
 ```
 
@@ -97,7 +97,7 @@ Status: Implemented
 必须进入统一 diagnostics 的信息：
 
 - authority binding status、mode、authority endpoint、authority peer、local player。
-- active authoritative path，例如 `local-loop`、`gamekit-envelope`、`colyseus-schema` 或 app-defined lane。
+- active authoritative path，例如 `local-loop`、`gamekits-envelope`、`colyseus-schema` 或 app-defined lane。
 - last applied tick、snapshot/schema version、snapshot age、resync state。
 - rejected source、rejected payload kind、rejected reason。
 - input sequence / accepted / rejected counters。
@@ -111,7 +111,7 @@ Status: Implemented
 
 2026-07-08 实现进度：
 
-- `@gamekit/multiplayer-core` 新增 `createMultiplayerAuthorityDiagnostics()`，把 authority binding、authoritative path、loop counters、receiver counters、last rejected、snapshot age 和 redacted connection summary 组合为 provider-neutral summary。
+- `@gamekits/multiplayer-core` 新增 `createMultiplayerAuthorityDiagnostics()`，把 authority binding、authoritative path、loop counters、receiver counters、last rejected、snapshot age 和 redacted connection summary 组合为 provider-neutral summary。
 - diagnostics 覆盖 snapshot、patch 和 result receiver counters，不暴露 Room、Client、socket、token、secret 或完整 payload。
 - core 单元测试覆盖 summary clone、resync、last rejected、connection summary 和 counters。
 
@@ -136,7 +136,7 @@ Status: Implemented
 
 2026-07-08 实现进度：
 
-- `@gamekit/multiplayer-core` 新增 `createMultiplayerPeerPlayerBindingStore()`、`normalizeMultiplayerDisplayName()` 和 `createUniqueMultiplayerDisplayName()`。
+- `@gamekits/multiplayer-core` 新增 `createMultiplayerPeerPlayerBindingStore()`、`normalizeMultiplayerDisplayName()` 和 `createUniqueMultiplayerDisplayName()`。
 - store 支持 peer 到 player binding、display name 清洗和去重、slot/role/metadata、spectator、next-round、left/disconnected、remove 和 close。
 - `createMultiplayerParticipantPolicy()` 统一 join/lateJoin/leave/disconnect/reconnect/boundary decision；支持静态规则或 app-context callback，core 不依赖具体游戏 phase。
 - core 单元测试覆盖默认/重复名字、leave cleanup、恢复 player binding、spectator 和 close 后拒绝新 binding。
@@ -145,24 +145,24 @@ Status: Implemented
 
 Status: Implemented As Minimal Native Lane
 
-目标：证明 Colyseus 没有被压成普通 message transport；至少一条 provider-native capability 通过受控 bridge 接入 GameKit authority diagnostics。
+目标：证明 Colyseus 没有被压成普通 message transport；至少一条 provider-native capability 通过受控 bridge 接入 GameKits authority diagnostics。
 
 最小可用范围：
 
-- `@gamekit/multiplayer-colyseus` 提供可测试的 Colyseus Schema 或 provider state sync authority bridge。
+- `@gamekits/multiplayer-colyseus` 提供可测试的 Colyseus Schema 或 provider state sync authority bridge。
 - bridge 输出 app-local view model 或 provider-neutral summary，UI 和 gameplay domain 不直接依赖 Colyseus Room、Client 或 Schema instance。
-- authority path selection 明确声明当前 room 使用 `gamekit-envelope` 还是 `colyseus-schema`。
+- authority path selection 明确声明当前 room 使用 `gamekits-envelope` 还是 `colyseus-schema`。
 - 非当前 authority path 只能作为 diagnostics、summary 或 debug comparison，不能双写 authority state。
 - provider-native state update 经过 session/source endpoint/tick/version/size gate 和 resync diagnostics。
 
 验收：
 
 - Colyseus package 测试覆盖 native state source gate、resync、room isolation、redaction 和 dispose cleanup。
-- demo 或 fixture 至少能切到 native lane 并输出与 GameKit baseline lane 同形的 app-local view model。
+- demo 或 fixture 至少能切到 native lane 并输出与 GameKits baseline lane 同形的 app-local view model。
 
 2026-07-08 实现进度：
 
-- `@gamekit/multiplayer-colyseus` 已提供 native capability summary 和 `createColyseusNativeStateBridge()`。
+- `@gamekits/multiplayer-colyseus` 已提供 native capability summary 和 `createColyseusNativeStateBridge()`。
 - Colyseus package 测试覆盖 native lane declaration、endpoint redaction、native state source/session gate、tick/version/size/age diagnostics 和 binding update。
 - 当前最小 native lane 通过 package fixture 证明 provider-native state 可以映射成 app-local view model；Demo 级真实 Schema lane 已迁移到 `multiplayer-colyseus-native-lane.md`，不属于本 baseline 的关闭门禁。
 
@@ -186,7 +186,7 @@ Status: Implemented As Unsupported
 
 - `createMultiplayerRuntime().reconnect()` 改为稳定抛出 `MULTIPLAYER_UNSUPPORTED_CAPABILITY`，details 包含 `backendId` 和 `capability: "reconnect"`。
 - Colyseus capabilities 当前声明 `reconnect: false`。
-- `@gamekit/multiplayer-core` 和 `@gamekit/multiplayer-colyseus` README 均说明第一个可用版本不实现 reconnect，host close / 同名 session recreate 必须按显式 lifecycle 处理。
+- `@gamekits/multiplayer-core` 和 `@gamekits/multiplayer-colyseus` README 均说明第一个可用版本不实现 reconnect，host close / 同名 session recreate 必须按显式 lifecycle 处理。
 
 ## P1 Gates
 
@@ -210,10 +210,10 @@ Status: Implemented
 
 2026-07-08 实现进度：
 
-- `@gamekit/app-host` 已有 optional standard multiplayer service，dispose 默认释放 `MultiplayerRuntime`。
+- `@gamekits/app-host` 已有 optional standard multiplayer service，dispose 默认释放 `MultiplayerRuntime`。
 - `profile.standard.game.standardModules.multiplayer` 已有标准 GameModule bridge 配置入口。
 - App Host 测试已覆盖 optional multiplayer service、DevTools source snapshot 和 memory backend command bridge。
-- `@gamekit/multiplayer-core` README 增加 App Host standard service / GameModule bridge 配方。
+- `@gamekits/multiplayer-core` README 增加 App Host standard service / GameModule bridge 配方。
 
 ### 7. Public Documentation
 
@@ -223,9 +223,9 @@ Status: Implemented
 
 必须补齐：
 
-- `@gamekit/multiplayer-core` README：action/input/snapshot/result contract、authority binding、local authority、host authority、receiver、conformance。
-- `@gamekit/multiplayer-memory` README：用途是 conformance/test fixture，不是生产 backend。
-- `@gamekit/multiplayer-colyseus` README：root/server subpath、session mapping、host-authoritative lifecycle、native lane、reconnect support level、redaction。
+- `@gamekits/multiplayer-core` README：action/input/snapshot/result contract、authority binding、local authority、host authority、receiver、conformance。
+- `@gamekits/multiplayer-memory` README：用途是 conformance/test fixture，不是生产 backend。
+- `@gamekits/multiplayer-colyseus` README：root/server subpath、session mapping、host-authoritative lifecycle、native lane、reconnect support level、redaction。
 - demo README 或 app doc：如何启动、如何开两个窗口验证、如何判断 authority state 正确同步。
 
 验收：
@@ -250,8 +250,8 @@ Status: Covered By Wave 1 Release Verify
 
 - 外部临时 consumer 安装 core、memory、colyseus tarball。
 - Node ESM import root entry。
-- Vite/browser import `@gamekit/multiplayer-colyseus` root entry。
-- Node/server import `@gamekit/multiplayer-colyseus/server` subpath。
+- Vite/browser import `@gamekits/multiplayer-colyseus` root entry。
+- Node/server import `@gamekits/multiplayer-colyseus/server` subpath。
 - 类型声明、exports、dependencies、sideEffects 和 files 白名单正确。
 
 验收命令：

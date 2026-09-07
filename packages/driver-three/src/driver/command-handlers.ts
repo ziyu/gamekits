@@ -1,5 +1,5 @@
-import { GameError } from "@gamekit/core";
-import type { RenderCommand } from "@gamekit/renderer-core";
+import { GameError } from "@gamekits/core";
+import type { RenderCommand } from "@gamekits/renderer-core";
 import type { Object3D } from "three";
 import type { ThreeRenderRecord } from "./object-registry";
 

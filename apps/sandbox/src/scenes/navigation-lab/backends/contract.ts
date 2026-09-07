@@ -1,6 +1,6 @@
-import type { DataRef, DataRegistry } from "@gamekit/data";
-import type { NavigationObstacleTarget } from "@gamekit/navigation-core";
-import type { NavigationBackendFactory } from "@gamekit/navigation-core/backend";
+import type { DataRef, DataRegistry } from "@gamekits/data";
+import type { NavigationObstacleTarget } from "@gamekits/navigation-core";
+import type { NavigationBackendFactory } from "@gamekits/navigation-core/backend";
 import type { NavigationLabBackendDebugView } from "./debug-view";
 
 export type NavigationLabObstacleBindings = {

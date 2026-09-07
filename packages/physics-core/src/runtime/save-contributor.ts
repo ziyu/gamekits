@@ -1,4 +1,4 @@
-import type { SaveContributor, SaveSection, SaveValidationIssue } from "@gamekit/save";
+import type { SaveContributor, SaveSection, SaveValidationIssue } from "@gamekits/save";
 import type { PhysicsHandle, PhysicsRuntimeCheckpoint } from "./types";
 
 export type CreatePhysicsSaveContributorOptions = {

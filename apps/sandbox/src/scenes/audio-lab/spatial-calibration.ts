@@ -1,4 +1,4 @@
-import type { AudioSpatialDefinition } from "@gamekit/audio-core";
+import type { AudioSpatialDefinition } from "@gamekits/audio-core";
 
 export const AUDIO_LAB_PAN_OWNER_ID = "audio-lab.spatial-pan";
 export const AUDIO_LAB_DISTANCE_OWNER_ID = "audio-lab.spatial-distance";

@@ -2,8 +2,8 @@ import {
   createCameraController,
   type CameraController,
   type CameraViewport
-} from "@gamekit/camera-core";
-import type { InputActionEvent } from "@gamekit/input-core";
+} from "@gamekits/camera-core";
+import type { InputActionEvent } from "@gamekits/input-core";
 
 export const SANDBOX_CAMERA_PAN_STEP = 48;
 

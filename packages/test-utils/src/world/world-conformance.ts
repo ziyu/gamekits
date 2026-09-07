@@ -3,7 +3,7 @@ import {
   defineComponent,
   type CheckpointGameWorld,
   type GameWorld
-} from "@gamekit/world";
+} from "@gamekits/world";
 import { describe, expect, it } from "vitest";
 
 export function defineWorldConformanceTests(name: string, createWorld: () => GameWorld): void {

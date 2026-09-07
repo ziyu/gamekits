@@ -12,7 +12,7 @@ Profile 选择标准服务时以明确 adapter map 为准，后端专属 API 通
 
 Phaser、Three.js 这类第三方库不是单一能力库。它们通常同时拥有 renderer、scene、loader、texture/cache、input、camera、animation、particle、plugin 等运行时对象。
 
-如果 GameKit 按 `renderer-phaser`、`camera-phaser`、`input-phaser`、`asset-phaser` 这类单协议包分别集成同一个外部运行时，会出现几个长期问题：
+如果 GameKits 按 `renderer-phaser`、`camera-phaser`、`input-phaser`、`asset-phaser` 这类单协议包分别集成同一个外部运行时，会出现几个长期问题：
 
 - 多个包各自理解和管理同一个外部 runtime lifecycle。
 - loader、texture manager、scene、camera、input plugin 之间缺少统一 ownership。
@@ -24,19 +24,19 @@ Phaser、Three.js 这类第三方库不是单一能力库。它们通常同时�
 
 ## Decision
 
-引入 Driver 作为 GameKit 的外部运行时统一集成层。
+引入 Driver 作为 GameKits 的外部运行时统一集成层。
 
 定义：
 
-- Core Protocol：GameKit 稳定协议，例如 RendererAdapter、InputSource、AssetLoaderAdapter、RendererCameraAdapter。
+- Core Protocol：GameKits 稳定协议，例如 RendererAdapter、InputSource、AssetLoaderAdapter、RendererCameraAdapter。
 - Adapter：实现一个 Core Protocol 的薄映射。
 - Driver：统一持有一个外部 runtime，并从中派生多个 Adapter。
 
 长期方向：
 
-- `@gamekit/driver-core` 定义 driver lifecycle、capability、adapter map、snapshot 和 diagnostics 协议。
-- `@gamekit/driver-phaser` 成为 Phaser 默认集成入口，并统一暴露 renderer、asset loader、input source、camera sync adapter。
-- `@gamekit/driver-three` 未来按同一模式集成 Three.js。
+- `@gamekits/driver-core` 定义 driver lifecycle、capability、adapter map、snapshot 和 diagnostics 协议。
+- `@gamekits/driver-phaser` 成为 Phaser 默认集成入口，并统一暴露 renderer、asset loader、input source、camera sync adapter。
+- `@gamekits/driver-three` 未来按同一模式集成 Three.js。
 - GameRuntime 不直接拥有 Driver。
 - App Host 管理 Driver lifecycle，并从 Driver capability 中选择标准 renderer/input/assets/camera adapter。
 - Camera、TCA、GAS 等仍按 ADR 0005 归属 GameModule；Driver 只提供外部 runtime adapter，不承载 gameplay state。

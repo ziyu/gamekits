@@ -1,14 +1,14 @@
 import type { Room, Server, ServerOptions } from "@colyseus/core";
 import type { TransportOptions, WebSocketTransport } from "@colyseus/ws-transport";
-import type { MultiplayerAuthorityMode, MultiplayerSessionKind } from "@gamekit/multiplayer-core";
+import type { MultiplayerAuthorityMode, MultiplayerSessionKind } from "@gamekits/multiplayer-core";
 
 import type {
   ColyseusMessageType,
   ColyseusNativeCapabilityInput,
-  GameKitColyseusRoomJoinOptions
+  GameKitsColyseusRoomJoinOptions
 } from "../adapter";
 
-export type GameKitColyseusRoomOptions = GameKitColyseusRoomJoinOptions & {
+export type GameKitsColyseusRoomOptions = GameKitsColyseusRoomJoinOptions & {
   messageType?: ColyseusMessageType;
   presenceType?: ColyseusMessageType;
   sessionKind?: MultiplayerSessionKind;
@@ -26,25 +26,25 @@ export type GameKitColyseusRoomOptions = GameKitColyseusRoomJoinOptions & {
 
 export type ColyseusRoomClass = new () => Room;
 
-export type GameKitColyseusRoomDefinition =
+export type GameKitsColyseusRoomDefinition =
   | ColyseusRoomClass
   | {
       room: ColyseusRoomClass;
-      options?: GameKitColyseusRoomOptions;
+      options?: GameKitsColyseusRoomOptions;
     };
 
-export type CreateGameKitColyseusServerOptions = {
+export type CreateGameKitsColyseusServerOptions = {
   host?: string;
   port?: number;
   roomName?: string;
   roomClass?: ColyseusRoomClass;
-  roomOptions?: GameKitColyseusRoomOptions;
-  rooms?: Record<string, GameKitColyseusRoomDefinition>;
+  roomOptions?: GameKitsColyseusRoomOptions;
+  rooms?: Record<string, GameKitsColyseusRoomDefinition>;
   transportOptions?: TransportOptions;
   serverOptions?: Omit<ServerOptions, "transport">;
 };
 
-export type GameKitColyseusServerHandle = {
+export type GameKitsColyseusServerHandle = {
   readonly server: Server;
   readonly transport: WebSocketTransport;
   readonly host: string;

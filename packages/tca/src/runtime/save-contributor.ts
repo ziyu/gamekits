@@ -1,4 +1,4 @@
-import type { SaveContributor, SaveSection, SaveValidationIssue } from "@gamekit/save";
+import type { SaveContributor, SaveSection, SaveValidationIssue } from "@gamekits/save";
 import type { TcaHandle, TcaRuntimeCheckpoint } from "./types";
 
 export type CreateTcaSaveContributorOptions = {

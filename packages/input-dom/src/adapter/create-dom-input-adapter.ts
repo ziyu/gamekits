@@ -1,4 +1,4 @@
-import type { InputScopeId, InputSourceAdapter, NormalizedInputEvent } from "@gamekit/input-core";
+import type { InputScopeId, InputSourceAdapter, NormalizedInputEvent } from "@gamekits/input-core";
 import {
   normalizeDomKeyboardEvent,
   normalizeDomPointerEvent,

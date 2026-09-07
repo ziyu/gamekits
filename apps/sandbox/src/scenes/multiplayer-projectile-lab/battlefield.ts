@@ -1,4 +1,4 @@
-import type { PhysicsBackendAdapter, PhysicsScene, PhysicsVector } from "@gamekit/physics-core";
+import type { PhysicsBackendAdapter, PhysicsScene, PhysicsVector } from "@gamekits/physics-core";
 
 export type MultiplayerProjectileTargetDefinition = {
   id: string;

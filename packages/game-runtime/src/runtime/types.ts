@@ -1,6 +1,6 @@
-import type { Clock, GameModule, Rng } from "@gamekit/core";
-import type { EventBus } from "@gamekit/event-bus";
-import type { GameWorld, WorldSystem } from "@gamekit/world";
+import type { Clock, GameModule, Rng } from "@gamekits/core";
+import type { EventBus } from "@gamekits/event-bus";
+import type { GameWorld, WorldSystem } from "@gamekits/world";
 
 export type SystemRegistry = {
   register(system: WorldSystem): void;

@@ -1,5 +1,5 @@
-import type { DataDiagnostic, DataReferenceTarget, DataTypeDefinition } from "@gamekit/data";
-import { GAS_ACTOR_TYPE } from "@gamekit/gas";
+import type { DataDiagnostic, DataReferenceTarget, DataTypeDefinition } from "@gamekits/data";
+import { GAS_ACTOR_TYPE } from "@gamekits/gas";
 import type {
   AbyssEnemyProfile,
   AbyssHeroClass,

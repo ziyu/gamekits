@@ -1,9 +1,9 @@
 ---
-"@gamekit/navigation-core": minor
-"@gamekit/navigation-graph": minor
-"@gamekit/navigation-grid": minor
-"@gamekit/navigation-navmesh": minor
-"@gamekit/navigation-recast": minor
+"@gamekits/navigation-core": minor
+"@gamekits/navigation-graph": minor
+"@gamekits/navigation-grid": minor
+"@gamekits/navigation-navmesh": minor
+"@gamekits/navigation-recast": minor
 ---
 
 Add the backend-neutral Navigation facade with bounded queued/submitted request scheduling, immediate or deferred Backend completion, cancellation, revision-safe results, path and shared route-field sampling, layout-driven Backend factories, tracing, progress tracking, and conformance fixtures.

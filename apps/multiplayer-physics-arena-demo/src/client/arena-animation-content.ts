@@ -1,5 +1,5 @@
-import type { AnimatorGraphDefinition } from "@gamekit/animator-core";
-import type { DataPack } from "@gamekit/data";
+import type { AnimatorGraphDefinition } from "@gamekits/animator-core";
+import type { DataPack } from "@gamekits/data";
 
 export type ArenaPresentedBaseState =
   | "idle"

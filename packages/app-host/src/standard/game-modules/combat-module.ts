@@ -2,7 +2,7 @@ import {
   createCombatHandle,
   createCombatModule,
   type CreateCombatModuleConfig
-} from "@gamekit/combat";
+} from "@gamekits/combat";
 import { resolveStandardValue } from "../resolve";
 import type { StandardServiceBuildContext, StandardValue } from "../types";
 

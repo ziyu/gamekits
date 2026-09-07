@@ -1,4 +1,4 @@
-import { createGameKitColyseusServer } from "@gamekit/multiplayer-colyseus/server";
+import { createGameKitsColyseusServer } from "@gamekits/multiplayer-colyseus/server";
 import { describe, expect, it } from "vitest";
 import { createMultiplayerDemoClient, type MultiplayerDemoClient } from "../client";
 import type { LocalMultiplayerDemoHost } from "./create-local-demo-server";
@@ -11,7 +11,7 @@ import { waitFor } from "../test/harness";
 
 describe("multiplayer-demo session registry e2e", () => {
   it("keeps ordinary client leave scoped to the client connection", async () => {
-    const colyseus = await createGameKitColyseusServer({
+    const colyseus = await createGameKitsColyseusServer({
       roomName: uniqueRoomName("client-leave")
     });
     const registry = createMultiplayerDemoSessionRegistry({
@@ -42,7 +42,7 @@ describe("multiplayer-demo session registry e2e", () => {
   });
 
   it("closes the hosted session and rejects late clients when the host closes", async () => {
-    const colyseus = await createGameKitColyseusServer({
+    const colyseus = await createGameKitsColyseusServer({
       roomName: uniqueRoomName("host-close")
     });
     const registry = createMultiplayerDemoSessionRegistry({
@@ -73,7 +73,7 @@ describe("multiplayer-demo session registry e2e", () => {
   });
 
   it("recreates the same selected session with a fresh host after close", async () => {
-    const colyseus = await createGameKitColyseusServer({
+    const colyseus = await createGameKitsColyseusServer({
       roomName: uniqueRoomName("recreate")
     });
     const registry = createMultiplayerDemoSessionRegistry({
@@ -151,7 +151,7 @@ describe("multiplayer-demo session registry e2e", () => {
   });
 
   it("rejects a second host owner for an already hosted selected session", async () => {
-    const colyseus = await createGameKitColyseusServer({
+    const colyseus = await createGameKitsColyseusServer({
       roomName: uniqueRoomName("owner-conflict")
     });
     const registry = createMultiplayerDemoSessionRegistry({

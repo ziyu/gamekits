@@ -1,4 +1,4 @@
-import type { PhysicsPredictionIslandStateSnapshot } from "@gamekit/physics-core";
+import type { PhysicsPredictionIslandStateSnapshot } from "@gamekits/physics-core";
 
 import type { ArenaHazardPhase } from "../shared/arena-stage-course";
 import type { ArenaSnapshot } from "../shared/protocol";

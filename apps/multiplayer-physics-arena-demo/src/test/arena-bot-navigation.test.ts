@@ -3,7 +3,7 @@ import type {
   NavigationQueries,
   NavigationRequestResult,
   NavigationRouteSample
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import { describe, expect, it } from "vitest";
 
 import { createArenaBotDecisionRuntime } from "../ai/decision";

@@ -4,7 +4,7 @@ import {
   createSeededRng,
   type GameModule,
   type GameModuleInstallResult
-} from "@gamekit/core";
+} from "@gamekits/core";
 import { createSystemRegistry } from "./system-registry";
 import type {
   CreateGameConfig,

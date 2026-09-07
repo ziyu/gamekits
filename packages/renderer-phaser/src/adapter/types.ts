@@ -1,4 +1,4 @@
-import type { RenderNodePath, RenderObjectId } from "@gamekit/renderer-core";
+import type { RenderNodePath, RenderObjectId } from "@gamekits/renderer-core";
 import type { PhaserRenderTargetState } from "./target-state";
 
 export type PhaserRenderStateWrite = {

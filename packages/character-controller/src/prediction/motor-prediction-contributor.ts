@@ -1,9 +1,9 @@
-import { GameError } from "@gamekit/core";
+import { GameError } from "@gamekits/core";
 import type {
   PhysicsBodyCommandPayload,
   PhysicsPredictionIslandAuxiliaryApplyContext,
   PhysicsPredictionIslandAuxiliaryContributor
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 import type {
   CharacterControlIntent,
   CharacterMotorDefinition,

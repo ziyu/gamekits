@@ -6,7 +6,7 @@ import {
   createMemoryPhysicsBackend,
   createPhysicsPredictionIsland,
   type PhysicsPredictionIslandMemberDefinition
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 import { describe, expect, it } from "vitest";
 
 const TARGET: PhysicsPredictionIslandMemberDefinition = {

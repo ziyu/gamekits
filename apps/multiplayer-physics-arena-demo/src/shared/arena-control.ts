@@ -6,7 +6,7 @@ import {
   type CharacterMotorDefinition,
   type CharacterMotorPredictionCommand,
   type CharacterMotorPredictionContributor
-} from "@gamekit/character-controller";
+} from "@gamekits/character-controller";
 
 import { ARENA_CONTENT_VERSION, ARENA_STANDARD_MOTOR_PROFILE } from "../content/pack";
 import { ARENA_FIXED_STEP_MS, type ArenaActorControl, type ArenaActorControlFrame } from "./config";

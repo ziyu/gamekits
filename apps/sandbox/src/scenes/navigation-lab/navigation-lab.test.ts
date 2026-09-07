@@ -1,6 +1,6 @@
-import { createConfiguredAppHost } from "@gamekit/app-host";
-import { createEventBus } from "@gamekit/event-bus";
-import { createGame } from "@gamekit/game-runtime";
+import { createConfiguredAppHost } from "@gamekits/app-host";
+import { createEventBus } from "@gamekits/event-bus";
+import { createGame } from "@gamekits/game-runtime";
 import {
   bindNavigationHandle,
   createNavigationHandle,
@@ -10,9 +10,9 @@ import {
   type NavigationAgentProfileDefinition,
   type NavigationPoint,
   type NavigationRequestResult
-} from "@gamekit/navigation-core";
-import { createUiRuntime } from "@gamekit/ui-core";
-import { createKootaWorld } from "@gamekit/world-koota";
+} from "@gamekits/navigation-core";
+import { createUiRuntime } from "@gamekits/ui-core";
+import { createKootaWorld } from "@gamekits/world-koota";
 import { afterEach, beforeAll, describe, expect, it } from "vitest";
 import { navigationLabAppDefinition } from "./app-definition";
 import { createNavigationLabWebProfile, type NavigationLabAppContext } from "./app-profile";
@@ -96,7 +96,7 @@ describe("Navigation Lab backend-neutral game scene", () => {
       expect(context.devtools?.snapshot().dataSources.map((source) => source.id)).toEqual(
         expect.arrayContaining(["navigation", "navigation-lab"])
       );
-      expect(uiRuntime.panel("gamekit.devtools.launcher")?.defaultProps).toMatchObject({
+      expect(uiRuntime.panel("gamekits.devtools.launcher")?.defaultProps).toMatchObject({
         pins: { defaultCollapsed: ["devtools.performance"] }
       });
     } finally {

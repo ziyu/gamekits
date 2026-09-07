@@ -1,4 +1,4 @@
-import type { PhysicsQueries } from "@gamekit/physics-core";
+import type { PhysicsQueries } from "@gamekits/physics-core";
 
 export function createAiPhysicsQueries(queries: PhysicsQueries): PhysicsQueries {
   return Object.freeze({

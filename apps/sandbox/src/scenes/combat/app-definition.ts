@@ -1,4 +1,4 @@
-import { defineGameApp } from "@gamekit/app-host";
+import { defineGameApp } from "@gamekits/app-host";
 
 export const combatRangeAppDefinition = defineGameApp({
   id: "sandbox.combat-range",

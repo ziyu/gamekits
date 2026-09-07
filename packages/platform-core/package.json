@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/platform-core",
+  "name": "@gamekits/platform-core",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -17,7 +17,7 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/core": "workspace:*"
+    "@gamekits/core": "workspace:*"
   },
   "files": [
     "dist"

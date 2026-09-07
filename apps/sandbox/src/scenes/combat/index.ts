@@ -1,6 +1,6 @@
-import { createConfiguredAppHost } from "@gamekit/app-host";
-import { initRapier2dPhysicsBackend } from "@gamekit/physics-rapier2d";
-import { createUiRuntime } from "@gamekit/ui-core";
+import { createConfiguredAppHost } from "@gamekits/app-host";
+import { initRapier2dPhysicsBackend } from "@gamekits/physics-rapier2d";
+import { createUiRuntime } from "@gamekits/ui-core";
 import { combatRangeAppDefinition } from "./app-definition";
 import { createCombatRangeWebProfile, type CombatRangeAppContext } from "./app-profile";
 import {

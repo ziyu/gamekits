@@ -3,17 +3,17 @@ import {
   type CombatHandle,
   type CombatHitResult,
   type CombatRelationshipResolver
-} from "@gamekit/combat";
-import { defineGameModule, type GameModule } from "@gamekit/core";
-import type { GameInstallContext, GameRuntime } from "@gamekit/game-runtime";
-import type { GasCueEvent, GasHandle } from "@gamekit/gas";
+} from "@gamekits/combat";
+import { defineGameModule, type GameModule } from "@gamekits/core";
+import type { GameInstallContext, GameRuntime } from "@gamekits/game-runtime";
+import type { GasCueEvent, GasHandle } from "@gamekits/gas";
 import {
   PhysicsBodyComponent,
   PhysicsColliderComponent,
   PhysicsTransformComponent,
   type PhysicsHandle
-} from "@gamekit/physics-core";
-import type { EntityId, GameWorld } from "@gamekit/world";
+} from "@gamekits/physics-core";
+import type { EntityId, GameWorld } from "@gamekits/world";
 import { CombatRangeObject, type CombatRangeObjectState } from "./components";
 import { COMBAT_RANGE_IDS } from "./data";
 

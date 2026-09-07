@@ -3,7 +3,7 @@ import type {
   AudioDiagnosticEntry,
   GameAudioEvent,
   GameAudioSnapshot
-} from "@gamekit/audio-core";
+} from "@gamekits/audio-core";
 import {
   createRef,
   useRef,
@@ -175,7 +175,7 @@ function AudioLabConsole(props: {
     <main className="audio-lab">
       <header className="audio-lab__masthead">
         <div className="audio-lab__identity">
-          <p className="audio-lab__kicker">GameKit / hardware verification deck</p>
+          <p className="audio-lab__kicker">GameKits / hardware verification deck</p>
           <h1>
             Audio Lab <span>A–03</span>
           </h1>

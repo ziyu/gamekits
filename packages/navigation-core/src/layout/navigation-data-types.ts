@@ -1,4 +1,4 @@
-import type { DataDiagnostic, DataDocument, DataTypeDefinition } from "@gamekit/data";
+import type { DataDiagnostic, DataDocument, DataTypeDefinition } from "@gamekits/data";
 import { isNavigationPoint } from "../contracts/geometry";
 import type { NavigationLayoutDefinition } from "../contracts/layout";
 import type { NavigationAgentProfileDefinition } from "../contracts/profile";

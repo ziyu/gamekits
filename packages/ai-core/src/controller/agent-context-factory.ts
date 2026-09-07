@@ -1,5 +1,5 @@
-import type { NavigationQueries } from "@gamekit/navigation-core";
-import type { PhysicsQueries } from "@gamekit/physics-core";
+import type { NavigationQueries } from "@gamekits/navigation-core";
+import type { PhysicsQueries } from "@gamekits/physics-core";
 import type { AiAgentReadContext } from "../contracts/agent-context";
 import type { AiBlackboardValue } from "../contracts/blackboard-value";
 import { cloneAiAgentBinding } from "../contracts/clone-binding";

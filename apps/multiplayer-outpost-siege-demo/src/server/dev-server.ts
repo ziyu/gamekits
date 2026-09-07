@@ -1,6 +1,6 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { fileURLToPath } from "node:url";
-import { createGameKitColyseusServer } from "@gamekit/multiplayer-colyseus/server";
+import { createGameKitsColyseusServer } from "@gamekits/multiplayer-colyseus/server";
 import { createServer as createViteServer } from "vite";
 
 import { OUTPOST_NETWORK_TIMING } from "../gameplay/constants";
@@ -18,7 +18,7 @@ const roomClass = createOutpostSiegeRoomClass({
   minPlayers: 2,
   maxPlayers: 4
 });
-const colyseus = await createGameKitColyseusServer({
+const colyseus = await createGameKitsColyseusServer({
   host,
   port: 0,
   roomName: OUTPOST_BROWSER_ROOM_NAME,

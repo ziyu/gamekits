@@ -1,6 +1,6 @@
-import type { GasRuntime } from "@gamekit/gas";
-import type { RenderObjectDefinition } from "@gamekit/renderer-core";
-import type { EntityId } from "@gamekit/world";
+import type { GasRuntime } from "@gamekits/gas";
+import type { RenderObjectDefinition } from "@gamekits/renderer-core";
+import type { EntityId } from "@gamekits/world";
 import type {
   SandboxBuildingDefinition,
   SandboxObjectivePhaseDefinition,

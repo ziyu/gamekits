@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/react-ui",
+  "name": "@gamekits/react-ui",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -18,7 +18,7 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/ui-core": "workspace:*",
+    "@gamekits/ui-core": "workspace:*",
     "gsap": "^3.15.0",
     "tailwindcss": "^4.3.0"
   },
@@ -41,7 +41,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "gamekitBuild": {
+  "gamekitsBuild": {
     "copy": [
       {
         "from": "src/styles.css",

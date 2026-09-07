@@ -1,7 +1,7 @@
-import { createMemoryRenderer } from "@gamekit/test-utils";
-import { createCameraController, type CameraState2D } from "@gamekit/camera-core";
-import type { EntityId } from "@gamekit/world";
-import { createKootaWorld } from "@gamekit/world-koota";
+import { createMemoryRenderer } from "@gamekits/test-utils";
+import { createCameraController, type CameraState2D } from "@gamekits/camera-core";
+import type { EntityId } from "@gamekits/world";
+import { createKootaWorld } from "@gamekits/world-koota";
 import {
   ABYSS_VIEWPORT,
   Actor,

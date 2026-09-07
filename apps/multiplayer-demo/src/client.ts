@@ -3,7 +3,7 @@ import {
   type ColyseusMultiplayerNative,
   type ColyseusNativeStateUpdate,
   type ColyseusNativeStateBridgeDiagnostics
-} from "@gamekit/multiplayer-colyseus";
+} from "@gamekits/multiplayer-colyseus";
 import {
   createMultiplayerAuthorityBindingStore,
   createMultiplayerAuthorityReceiver,
@@ -12,7 +12,7 @@ import {
   type MultiplayerClientReplicationSnapshotSource,
   type MultiplayerMessageEnvelope,
   type MultiplayerRuntime
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import {
   createMultiplayerDemoCommandPayload,
   MULTIPLAYER_DEMO_COMMAND_KIND,

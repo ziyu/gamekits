@@ -1,4 +1,4 @@
-import type { GameEvent } from "@gamekit/event-bus";
+import type { GameEvent } from "@gamekits/event-bus";
 
 export function recordEvents() {
   const events: GameEvent[] = [];

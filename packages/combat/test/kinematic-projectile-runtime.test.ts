@@ -1,4 +1,4 @@
-import type { PhysicsKinematicSweepQueries } from "@gamekit/physics-core";
+import type { PhysicsKinematicSweepQueries } from "@gamekits/physics-core";
 import { describe, expect, it } from "vitest";
 import {
   createCombatKinematicProjectileRecordBuffer,

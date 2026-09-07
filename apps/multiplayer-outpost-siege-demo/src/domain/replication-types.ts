@@ -1,4 +1,4 @@
-import type { CombatKinematicProjectileRecord } from "@gamekit/combat";
+import type { CombatKinematicProjectileRecord } from "@gamekits/combat";
 import type { OutpostReplicatedWeaponState } from "./player/weapon";
 import type { OutpostCombatAbility } from "./types";
 

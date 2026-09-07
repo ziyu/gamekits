@@ -1,4 +1,4 @@
-import { initRapier3dPhysicsBackend } from "@gamekit/physics-rapier3d";
+import { initRapier3dPhysicsBackend } from "@gamekits/physics-rapier3d";
 import { beforeAll, describe, expect, it } from "vitest";
 
 import { runPhysics3dControllerCourse } from "./physics-3d-controller-course";

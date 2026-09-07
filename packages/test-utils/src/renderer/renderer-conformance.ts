@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { RendererAdapter } from "@gamekit/renderer-core";
+import type { RendererAdapter } from "@gamekits/renderer-core";
 
 function createTestContainer(): HTMLElement {
   if (typeof document !== "undefined") {

@@ -2,8 +2,8 @@ import {
   screenToWorld as fallbackScreenToWorld,
   worldToScreen as fallbackWorldToScreen,
   type CameraState2D
-} from "@gamekit/camera-core";
-import { GameError } from "@gamekit/core";
+} from "@gamekits/camera-core";
+import { GameError } from "@gamekits/core";
 import type { ThreeDriverRuntime } from "./runtime";
 import type { ThreeCameraSyncTarget } from "./structural-types";
 import type { ThreeDriverCameraAdapter } from "./types";

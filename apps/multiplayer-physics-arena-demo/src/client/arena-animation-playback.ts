@@ -1,7 +1,7 @@
 import type {
   AnimationPlaybackAdapter,
   AnimationPlaybackFrame
-} from "@gamekit/animator-core/playback";
+} from "@gamekits/animator-core/playback";
 
 export type ArenaAnimationPlaybackAdapter = AnimationPlaybackAdapter & {
   frame(controllerId: string | undefined): AnimationPlaybackFrame | undefined;

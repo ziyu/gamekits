@@ -3,7 +3,7 @@ import type {
   TcaConditionDefinition,
   TcaDefinitionSet,
   TcaTriggerDefinition
-} from "@gamekit/tca";
+} from "@gamekits/tca";
 
 export function createSandboxTcaDefinitions(): TcaDefinitionSet {
   return {

@@ -4,19 +4,19 @@
 
 ## 定位
 
-Multiplayer 负责把成熟多人 backend 接入 GameKit 的稳定组合边界：App Host 管连接服务，GameModule bridge 管 gameplay command、authority decision、低频事实和可观察 diagnostics。它让同一个游戏可以在 Colyseus、Nakama、PartyKit、平台联机 SDK 或测试替身之间切换，而不让 gameplay 代码直接绑定某个网络 SDK。
+Multiplayer 负责把成熟多人 backend 接入 GameKits 的稳定组合边界：App Host 管连接服务，GameModule bridge 管 gameplay command、authority decision、低频事实和可观察 diagnostics。它让同一个游戏可以在 Colyseus、Nakama、PartyKit、平台联机 SDK 或测试替身之间切换，而不让 gameplay 代码直接绑定某个网络 SDK。
 
 相关包：
 
-- `@gamekit/multiplayer-core`
-- `@gamekit/multiplayer-memory`
-- `@gamekit/multiplayer-colyseus`
+- `@gamekits/multiplayer-core`
+- `@gamekits/multiplayer-memory`
+- `@gamekits/multiplayer-colyseus`
 
-后端包按 `@gamekit/multiplayer-<backend>` 命名。Memory backend 是测试替身和本地 loopback fixture，不代表生产后端。Colyseus 是首个真实成熟 backend adapter。Nakama、PlayFab、Steam、Epic Online Services、PartyKit、Cloudflare Durable Objects 等托管或平台能力应作为各自 backend adapter 接入，而不是进入 core。
+后端包按 `@gamekits/multiplayer-<backend>` 命名。Memory backend 是测试替身和本地 loopback fixture，不代表生产后端。Colyseus 是首个真实成熟 backend adapter。Nakama、PlayFab、Steam、Epic Online Services、PartyKit、Cloudflare Durable Objects 等托管或平台能力应作为各自 backend adapter 接入，而不是进入 core。
 
 ## 设计目标
 
-- 提供 GameKit 侧最小多人 facade：connect / create-or-join / leave / send command / observe snapshot。
+- 提供 GameKits 侧最小多人 facade：connect / create-or-join / leave / send command / observe snapshot。
 - 支持多 backend：Colyseus、Nakama、PartyKit、平台联机服务和测试替身。
 - 区分应用级连接服务和游戏会话模块：连接、房间、presence 属于 App Service；命令入站、状态复制、authority gate 属于 GameModule bridge。
 - 支持离线单机和本地测试复用同一条 authority / replication contract；local mode 不需要远程 backend，但不分叉玩法 action/input、tick、snapshot 和 diagnostics 路径。
@@ -40,8 +40,8 @@ Multiplayer 负责把成熟多人 backend 接入 GameKit 的稳定组合边界�
 ## 包拆分
 
 ```txt
-@gamekit/multiplayer-core
-  - GameKit MultiplayerFacade / service shape
+@gamekits/multiplayer-core
+  - GameKits MultiplayerFacade / service shape
   - Game command envelope and result protocol
   - Authority policy types
   - Authority binding and replication helper protocols
@@ -49,20 +49,20 @@ Multiplayer 负责把成熟多人 backend 接入 GameKit 的稳定组合边界�
   - Trace / diagnostics snapshot
   - Adapter conformance helpers
 
-@gamekit/multiplayer-memory
+@gamekits/multiplayer-memory
   - In-process test backend
   - Loopback fixture
   - Deterministic bridge/conformance harness
 
-@gamekit/multiplayer-colyseus
+@gamekits/multiplayer-colyseus
   - Colyseus client adapter
-  - Colyseus Room / state / message mapping, including deterministic GameKit session id to provider room id mapping
+  - Colyseus Room / state / message mapping, including deterministic GameKits session id to provider room id mapping
   - Local Colyseus server harness for tests and standalone demo apps
   - Typed native bridge for app-specific Colyseus server/runtime usage
   - Provider-native capability bridges, such as Schema state sync, reconnect, matchmaker and room metadata diagnostics
 ```
 
-Backend adapter 可以依赖其拥有的第三方 SDK 或 server framework。`@gamekit/multiplayer-core` 不依赖 WebSocket、Colyseus、Nakama、Steam、EOS、Tauri、React、Phaser 或 Node-only socket 库。
+Backend adapter 可以依赖其拥有的第三方 SDK 或 server framework。`@gamekits/multiplayer-core` 不依赖 WebSocket、Colyseus、Nakama、Steam、EOS、Tauri、React、Phaser 或 Node-only socket 库。
 
 ## 分层
 
@@ -112,14 +112,14 @@ export type MultiplayerFacade = {
 生命周期语义：
 
 - `createOrJoinSession()` 由 app、lobby UI、测试夹具或 server host 调用，不由 gameplay system 隐式调用。
-- `send()` 发送的是 GameKit multiplayer envelope，不发送 backend 私有对象。
+- `send()` 发送的是 GameKits multiplayer envelope，不发送 backend 私有对象。
 - `subscribe()` 只接收归一化消息；backend adapter 内部负责把 Colyseus Room message、Nakama socket event 或其他 provider event 转成稳定协议。
 - `snapshot()` 返回低频诊断摘要，不包含完整敏感 payload、认证 token 或 socket 私有句柄。
 - `dispose()` 释放订阅、连接 facade 和 backend runtime handle；真实 provider cleanup 由 adapter 委托给对应 SDK。
 
 ## Backend Adapter
 
-Backend Adapter 把具体成熟多人后端映射为 GameKit 稳定 facade。
+Backend Adapter 把具体成熟多人后端映射为 GameKits 稳定 facade。
 
 ```ts
 export type MultiplayerBackendAdapter = {
@@ -147,7 +147,7 @@ export type MultiplayerBackendConnection = {
 - Backend Adapter 拥有第三方 SDK、socket、room、server worker、matchmaker、state sync 或平台联机 runtime。
 - Core 只理解 adapter capabilities、session summary、peer summary、semantic message、diagnostics 和 native boundary，不理解 provider-specific API。
 - backend-specific package 可以导出 typed native bridge，供 app-specific lobby、平台工具或 server orchestration 使用；这些类型不能进入 core facade、DataType、Save payload 或可复用 gameplay module。
-- Backend adapter 不应把成熟 provider 压扁成纯 GameKit message transport。Colyseus Schema、Nakama match state、平台 session/reconnect 等 provider-native 能力应通过 backend package 的 capability bridge 暴露为受控 opt-in 路径，并同时提供 provider-neutral diagnostics / authority binding summary。
+- Backend adapter 不应把成熟 provider 压扁成纯 GameKits message transport。Colyseus Schema、Nakama match state、平台 session/reconnect 等 provider-native 能力应通过 backend package 的 capability bridge 暴露为受控 opt-in 路径，并同时提供 provider-neutral diagnostics / authority binding summary。
 - 同一个后端连接只由一个 MultiplayerFacade 拥有。GameModule 不直接保存 backend connection。
 
 ## Session / Peer
@@ -176,7 +176,7 @@ export type MultiplayerPeer = {
 
 ## Message Envelope
 
-GameKit 侧语义消息必须可序列化、可追踪、可版本化。Provider 可以有自己的 message、state patch 或 binary frame；adapter 只把 GameKit bridge 需要的语义消息和 summary 暴露出来。
+GameKits 侧语义消息必须可序列化、可追踪、可版本化。Provider 可以有自己的 message、state patch 或 binary frame；adapter 只把 GameKits bridge 需要的语义消息和 summary 暴露出来。
 
 ```ts
 export type MultiplayerMessageEnvelope<TPayload = unknown> = {
@@ -224,14 +224,14 @@ Adapter 应在 capabilities 中如实声明 provider 能力。调用方不能假
 
 Capabilities 应区分两类能力：
 
-- Core baseline capability：GameKit envelope、session/peer summary、authority binding、command/action/input/snapshot/patch/result helper 和 provider-neutral diagnostics。这些能力支撑跨 backend 的最小可用体验。
+- Core baseline capability：GameKits envelope、session/peer summary、authority binding、command/action/input/snapshot/patch/result helper 和 provider-neutral diagnostics。这些能力支撑跨 backend 的最小可用体验。
 - Provider-native capability：Colyseus Schema state sync、Nakama match state、provider reconnect token、matchmaker、room metadata、load test 或平台联机特性。这些能力由 backend package 拥有，通过 typed native bridge 或 provider-specific adapter mapping 提供给显式选择该 backend 的 app/server/tooling。
 
-完整可用的生产级多人能力通常需要同时使用这两层。Core baseline 负责防止伪多人和保持可替换边界；provider-native bridge 负责发挥成熟 backend 已经提供的高价值能力。GameKit 不把 provider-native 类型上推到 core，但也不能在 adapter 中把它们丢失。
+完整可用的生产级多人能力通常需要同时使用这两层。Core baseline 负责防止伪多人和保持可替换边界；provider-native bridge 负责发挥成熟 backend 已经提供的高价值能力。GameKits 不把 provider-native 类型上推到 core，但也不能在 adapter 中把它们丢失。
 
 ## Authority
 
-Multiplayer core 只定义 GameKit 侧 authority decision，不把具体玩法校验或 provider-specific access control 写进核心。
+Multiplayer core 只定义 GameKits 侧 authority decision，不把具体玩法校验或 provider-specific access control 写进核心。
 
 ```ts
 export type MultiplayerAuthorityMode =
@@ -307,17 +307,17 @@ Server GameRuntime 需要明确的 system 顺序：network ingress → gameplay 
 
 ### Colyseus Room runtime bridge
 
-Colyseus backend 的 server subpath 提供 `createColyseusRoomRuntimeBridge(...)`，用于把 provider Room 已经拥有的 session 接到 GameKit server composition：
+Colyseus backend 的 server subpath 提供 `createColyseusRoomRuntimeBridge(...)`，用于把 provider Room 已经拥有的 session 接到 GameKits server composition：
 
-- App-specific Room 显式转发 `onCreate`、`onJoin`、`onLeave`、经过验证的 GameKit envelope 和 `onDispose`；bridge 不生成通用玩法 Room，也不注册接收任意 payload 的 wildcard handler。
+- App-specific Room 显式转发 `onCreate`、`onJoin`、`onLeave`、经过验证的 GameKits envelope 和 `onDispose`；bridge 不生成通用玩法 Room，也不注册接收任意 payload 的 wildcard handler。
 - `createRuntime(context)` 由 app 注入，可以返回包装 headless App Host 的 runtime owner。Bridge 只调用 boot/start/tick/stop/dispose/snapshot，不理解 runtime 内部的 World、Physics、TCA/GAS、Save、Schema 或玩法状态。
 - Bridge 使用 `createMultiplayerRuntime()` 暴露 server-side facade 给 App Host standard Multiplayer service。私有 Room-side backend connection 把 provider 已拥有的 Room 绑定为 core session；这次绑定不建立 server-to-self client connection。绑定完成后 app 不再调用 create/join/leave/reconnect，backend 对重复 session lifecycle 操作明确返回 core error。
-- `MultiplayerSession.id` 是稳定 GameKit session id，Colyseus `roomId` 是 provider room id，Colyseus `Client.sessionId` 是单次 transport connection id。Adapter 可以维护三者映射，但不能互相替代；core session/peer snapshot 必须从 Room-side backend connection 进入同一个 MultiplayerRuntime。
+- `MultiplayerSession.id` 是稳定 GameKits session id，Colyseus `roomId` 是 provider room id，Colyseus `Client.sessionId` 是单次 transport connection id。Adapter 可以维护三者映射，但不能互相替代；core session/peer snapshot 必须从 Room-side backend connection 进入同一个 MultiplayerRuntime。
 - Room simulation interval 是 bridge 唯一的 tick source。Runtime boot/start 成功后才启动，stop/dispose 先清 timer；app 的 authority modules 仍负责 ingress、simulation、replication projection 和 provider commit 的内部顺序。
 - Inbound envelope 在进入 listener 前验证 session/source/server target/size；app schema 和 gameplay authority validation 留在 app module。Outbound target 使用 active peer/client index，leave/dispose 必须删除索引和 listener。
 - Snapshot 只保存 phase/counter/active peer/runtime summary 和脱敏错误，不暴露 Room、Client、完整 payload 或 secret。
 
-这条 bridge 是 provider-specific server native boundary，因此可以在 `@gamekit/multiplayer-colyseus/server` 暴露 Colyseus 相关类型；它不得进入 multiplayer-core 或可复用 gameplay public API。决策背景见 ADR 0025。
+这条 bridge 是 provider-specific server native boundary，因此可以在 `@gamekits/multiplayer-colyseus/server` 暴露 Colyseus 相关类型；它不得进入 multiplayer-core 或可复用 gameplay public API。决策背景见 ADR 0025。
 
 ## Standard Authoritative Replication
 
@@ -359,7 +359,7 @@ client action / input
   推进 simulation、ack 和 diagnostics；显式 `broadcastSnapshot()` 始终立即 capture/publish，供 initial sync、late join 和 resync。
   App 不在 loop 外再写 modulo gate，也不为 diagnostics 重复 capture 同一 tick。
 - Client prediction、reconciliation 和 interpolation 是表现层或可回滚缓存，不是 authority state。
-- Backend adapter 不应 hard-code 具体游戏 interpolation。Colyseus、Nakama 等 provider 可以提供 state sync、server tick 和 snapshot/version source；GameKit core 提供 provider-neutral presentation timing、declared `Network*` track projection 与低成本 interpolation primitives；游戏或 demo 负责声明字段映射和 snap policy。
+- Backend adapter 不应 hard-code 具体游戏 interpolation。Colyseus、Nakama 等 provider 可以提供 state sync、server tick 和 snapshot/version source；GameKits core 提供 provider-neutral presentation timing、declared `Network*` track projection 与低成本 interpolation primitives；游戏或 demo 负责声明字段映射和 snap policy。
 
 ## Snapshot Presentation / Interpolation
 
@@ -368,12 +368,12 @@ Authoritative snapshot 通常以固定 tick 或 provider state update 到达，�
 长期边界：
 
 - Core 提供 temporal snapshot playback 和 declared track projection，而不是完整对象图插值器。Playback 接收带 `tick`、`serverTime` 或 provider version 的 authoritative snapshot，维护 render sampling clock、interpolation delay/jitter window、under-run clamp、presentation FPS，并采样出 `previous`、`next`、`alpha`、`status`、snapshot age、delay、dropped/stale count 等信息。固定 interpolation delay 是显式基线；标准 adaptive delay 根据新 snapshot arrival interval 相对 authority timeline 的偏差估计 jitter，在调用方声明的 min/max 内快速增加、缓慢恢复，并公开 current/target delay 与 estimated jitter。遵循标准架构的游戏默认应使用 core playback、`createSnapshotPresentationProjector()` 或 App Host standard multiplayer presentation binding，而不是在 app 里重新实现播放时钟或每帧临时插值容器。
-- Core 提供少量类型化、可组合、低分配的 interpolation primitives 和 `Network*` presentation track，例如 scalar、angle、vector2、vector3、quaternion/slerp 和 step/snap value。相关公共数据形状使用 `Network*` 命名，表示网络 snapshot / presentation value 的结构约束，不作为 GameKit 全局数学类型。Core 根据游戏声明的 track key 和 selector 输出 typed presented value；core 不递归遍历任意 snapshot object，不猜测字段语义，也不自动插值 boolean、enum、inventory、score、phase 或事件。高频路径应优先使用 `selectInto(writer)` 声明 track，并用 `vector2Into`、`vector3Into`、`quaternionInto` 等 direct-write getter 写入 caller-owned render target。
+- Core 提供少量类型化、可组合、低分配的 interpolation primitives 和 `Network*` presentation track，例如 scalar、angle、vector2、vector3、quaternion/slerp 和 step/snap value。相关公共数据形状使用 `Network*` 命名，表示网络 snapshot / presentation value 的结构约束，不作为 GameKits 全局数学类型。Core 根据游戏声明的 track key 和 selector 输出 typed presented value；core 不递归遍历任意 snapshot object，不猜测字段语义，也不自动插值 boolean、enum、inventory、score、phase 或事件。高频路径应优先使用 `selectInto(writer)` 声明 track，并用 `vector2Into`、`vector3Into`、`quaternionInto` 等 direct-write getter 写入 caller-owned render target。
 - 本地 prediction state 通过 Core typed field builder 声明 scalar、angle、vector2、vector3、quaternion 或 step 语义；Core 自动执行相应逐帧插值，游戏不回调手写 primitive。朝向使用 shortest-path，位置/旋转等连续字段逐帧表现，未声明字段保留当前 predicted endpoint，离散字段需要过渡时显式声明 step/snap。Core 不递归反射 state，也不按 number 属性名猜语义。
 - 游戏或 app presentation 层拥有声明和最终写入，而不是调度 lifecycle：声明哪些 entity/field 可以插值、使用什么 primitive、什么时候 snap、什么时候允许短暂 extrapolate、什么时候因为 teleport、phase change、authority binding change、snapshot version change 或 resync 直接 reset，以及如何把 managed runtime 产出的同一帧 presented value 写入 render-only snapshot、renderer object 和 follow camera。
 - 本地玩家 prediction / server reconciliation 与远端 entity interpolation 在 Core 内使用独立 buffer，但由同一个 managed client replication frame 协调。Core 提供 bounded input log、ack 丢弃、prediction-lead backpressure、authoritative rewind、pending replay、fixed-step presentation clock、declared-field interpolation、correction smoothing lifecycle 和 diagnostics；游戏只声明输入如何计算下一个 predicted endpoint、哪些字段参与表现、一个 correction metric field 和需要平滑的字段。标准 transition 通过 factory 创建，使每个 authority binding 拥有独立 rollback runtime，并由 Core 在 binding reset/dispose 时释放；低层 `applyInput` 与 transition 不能同时配置。Transition 的可选只读 diagnostics 由 prediction diagnostics 透传，但业务不能依赖诊断值控制玩法。一个已经前进完整 fixed step 的 endpoint 不能再从终点向未来重复 extrapolate。Reconcile 必须立即校正 simulation state；Core 把 render-only correction offset 叠加在持续移动的新 target 上并按 duration 衰减，超过 max magnitude、teleport 和 hard reset 直接 snap。Managed runtime 没有显式 `predictionStepMs` 时从 `inputRateHz` 派生步长，并按真实采样边界记录 catch-up input timestamp；显式拆分 send rate 与 simulation step 时，调用方必须定义与 authority ack 一致的 interval 语义。Prediction 不进入 backend adapter，也不与通用 snapshot buffer 混成一份状态；物理 transition 由 Physics Core 提供，Multiplayer Core 只管理其生命周期。
 - Local/offline authority 也走同一 presentation contract。它可以使用更小或为零的 render delay，但不能绕过 snapshot/apply/presentation 路径去直接读写另一份单机显示状态。
-- Backend adapter 只提供 provider-neutral snapshot/version/tick summary、source gate 和 provider-native capability bridge。Colyseus Schema、Nakama match state 等 provider-native state sync 可以成为 authoritative source，但 presentation policy 仍由 GameKit presentation layer 和游戏 track projection 决定。
+- Backend adapter 只提供 provider-neutral snapshot/version/tick summary、source gate 和 provider-native capability bridge。Colyseus Schema、Nakama match state 等 provider-native state sync 可以成为 authoritative source，但 presentation policy 仍由 GameKits presentation layer 和游戏 track projection 决定。
 
 性能约束：
 
@@ -538,16 +538,16 @@ continuity，不能替代 simulation。
 成熟 backend 的强能力不进入 `multiplayer-core`，但 backend package 必须为完整可用场景保留受控接入口。典型能力包括：
 
 - Provider-native state sync：Colyseus Schema、Nakama match state 或其他服务端状态同步。它可以作为 authority snapshot/patch 的来源，但必须通过 authority binding 标记 source、tick/version、resync 状态和 diagnostics。
-- Reconnect / seat reservation：provider 可以持有 reconnect token、reservation、session resume hint。GameKit summary 只能暴露脱敏状态、过期时间和 slot/player binding 结果，不能保存 secret。
-- Matchmaking / room listing / room metadata：provider 可以负责筛选、排队、分配区域和 room metadata。GameKit core 只消费最终 session summary，不定义完整 matchmaking UI 或社交模型。
+- Reconnect / seat reservation：provider 可以持有 reconnect token、reservation、session resume hint。GameKits summary 只能暴露脱敏状态、过期时间和 slot/player binding 结果，不能保存 secret。
+- Matchmaking / room listing / room metadata：provider 可以负责筛选、排队、分配区域和 room metadata。GameKits core 只消费最终 session summary，不定义完整 matchmaking UI 或社交模型。
 - Provider diagnostics：load、transport、ping、drop、reconnect、room close reason 和 provider state size 可以通过 backend diagnostics 暴露。默认 diagnostics 必须脱敏，高频 payload 展开需要显式 opt-in。
 - Native server/runtime bridge：app-specific server、工具或 DevTools plugin 可以显式导入 backend package 的 native bridge 使用 provider SDK 类型；可复用 gameplay module、DataType、Save 和 core facade 不能依赖这些类型。
 - App-owned field-level state mapping：复杂游戏可以在 app provider boundary 定义字段级 Colyseus Schema 或其他 provider state model；backend package 只提供通用 subscription、update metadata、authority/source/version/size/resync gate 和 diagnostics，不拥有具体游戏 Schema。
 
 接入规则：
 
-- Provider-native state sync 与 GameKit envelope snapshot/patch 不能双写同一份 authority state。一个 app 必须声明当前 authoritative path，并把另一条路径降级为 diagnostics、summary 或迁移通道。
-- Backend package 可以提供 provider-specific helper，例如 Colyseus Schema authority bridge；helper 输出应能连接到 GameKit authority binding、receiver diagnostics 和 conformance tests。
+- Provider-native state sync 与 GameKits envelope snapshot/patch 不能双写同一份 authority state。一个 app 必须声明当前 authoritative path，并把另一条路径降级为 diagnostics、summary 或迁移通道。
+- Backend package 可以提供 provider-specific helper，例如 Colyseus Schema authority bridge；helper 输出应能连接到 GameKits authority binding、receiver diagnostics 和 conformance tests。
 - App-owned Schema entity 应使用稳定 id 与 generation，并把 server world、replication projection、provider state、client authoritative shadow 和 presented state 保持为不同对象。Provider callback 先更新 authoritative shadow，再由 presentation frame 批量写 renderer。
 - Provider-native receiver 应优先使用 provider 的单调 state/update version 排序，gameplay tick 只表示 simulation 时间。一个 gameplay tick 内允许发布多次合法状态；重复 provider callback 应在 adapter 边界去重，真正的 stale/duplicate update 仍由 authority bridge 拒绝并记录。
 - Provider-native source 映射成 Core snapshot 时，把单调 provider version 放入 `sequence`，把 simulation 时间放入 `tick`。Core 仅在显式 source lane 使用该 sequence 排序；普通 envelope 的 transport sequence 不能冒充 provider state version。Authority binding/session 变化会清空 source 排序水位、playback 和 prediction state，使新 session 的 initial full state 可以从 version 1 重新开始。
@@ -559,7 +559,7 @@ continuity，不能替代 simulation。
 
 Multiplayer GameModule bridge 把 App Service 的连接事实接入 GameRuntime：
 
-`@gamekit/multiplayer-core` 通过 `createMultiplayerModule(...)` 持有真正的 GameModule 实现。`@gamekit/app-host` 的 standard multiplayer helper 只从 `services.multiplayer` 或 profile 解析 runtime/presentation options，再调用这个 domain factory；它不在 App Host 内复制 command、authority 或 presentation runtime。旧的 `createMultiplayerBridgeModule(...)` 仅作为兼容别名保留。
+`@gamekits/multiplayer-core` 通过 `createMultiplayerModule(...)` 持有真正的 GameModule 实现。`@gamekits/app-host` 的 standard multiplayer helper 只从 `services.multiplayer` 或 profile 解析 runtime/presentation options，再调用这个 domain factory；它不在 App Host 内复制 command、authority 或 presentation runtime。旧的 `createMultiplayerBridgeModule(...)` 仅作为兼容别名保留。
 
 ```txt
 backend message
@@ -588,7 +588,7 @@ GameModule bridge 不负责创建连接、不弹出 lobby UI、不读取浏览�
 
 ## Replication
 
-Multiplayer 不强制单一同步模型。成熟 backend 可以拥有自己的 state sync，例如 Colyseus Schema；GameKit 只在需要把 World/TCA/GAS/Camera 等状态接入 GameKit diagnostics、Save 或 provider-neutral summary 时使用 contributor。无论使用哪种同步模型，都必须先明确 authority binding，否则客户端不能应用 gameplay state。
+Multiplayer 不强制单一同步模型。成熟 backend 可以拥有自己的 state sync，例如 Colyseus Schema；GameKits 只在需要把 World/TCA/GAS/Camera 等状态接入 GameKits diagnostics、Save 或 provider-neutral summary 时使用 contributor。无论使用哪种同步模型，都必须先明确 authority binding，否则客户端不能应用 gameplay state。
 
 ```ts
 export type MultiplayerReplicationContributor<TSnapshot = unknown, TPatch = unknown> = {
@@ -602,14 +602,14 @@ export type MultiplayerReplicationContributor<TSnapshot = unknown, TPatch = unkn
 };
 ```
 
-长期可支持的 GameKit 层策略：
+长期可支持的 GameKits 层策略：
 
 - local authoritative loop：单机/offline 在同一进程内运行 authority loop，复用 action/input、validation、tick 和 snapshot/apply contract。
 - command relay：只同步玩家命令，由权威端执行后广播结果。
 - authoritative snapshot stream：权威端按固定 tick 或节流频率广播完整/分区 snapshot，客户端只应用绑定 authority source 的 snapshot。
 - authoritative patch stream：权威端广播可版本化 patch，客户端按 tick/version 顺序应用并可请求 resync。
 - state summary：低频发送稳定 summary，用于 DevTools、观战摘要或重连后的应用层校验。
-- provider state mapping：把 Colyseus Schema、Nakama match state 或其他 provider state 映射成 GameKit summary。
+- provider state mapping：把 Colyseus Schema、Nakama match state 或其他 provider state 映射成 GameKits summary。
 - deterministic lockstep：只同步输入/命令和 tick，要求游戏自己保证确定性。
 - selective prediction domain：core 提供有界 history、predicted-spawn identity、rollback/replay lifecycle 与
   diagnostics；具体 Physics/Combat transition 和 app policy 声明对象集合、simulation 与权威结果。
@@ -699,7 +699,7 @@ Multiplayer diagnostics 应回答：
 
 - Gameplay system 直接 import Colyseus/Nakama/Steam SDK。
 - GameRuntime 保存 socket、room、connection 或 provider-specific client。
-- GameKit core 重新实现 Colyseus 已经负责的 room、matchmaker、reconnect、presence 或 state sync。
+- GameKits core 重新实现 Colyseus 已经负责的 room、matchmaker、reconnect、presence 或 state sync。
 - Renderer/Input/UI 直接发送网络包并修改 world。
 - UI 用 peer count 或 joined 状态判断“多人已跑通”，但 gameplay state 仍由每个客户端本地 simulation 独立推进。
 - 为离线单机写一套独立 gameplay runtime，和 host/server authoritative runtime 各自维护 action、input、tick、snapshot 或 UI state。
@@ -709,7 +709,7 @@ Multiplayer diagnostics 应回答：
 - Save payload 内保存 access token、room handle 或 provider SDK object。
 - Client 直接广播 `world.patch` 并让其他 client 无校验应用到权威状态。
 - Multiplayer core 维护一个无限扩展的 backend capability catalog，试图包装每个服务商的全部能力。
-- 为了“统一”而把 Colyseus Schema、Nakama match state 或 provider account model 抽象成一套过大的 GameKit 自研多人模型。
+- 为了“统一”而把 Colyseus Schema、Nakama match state 或 provider account model 抽象成一套过大的 GameKits 自研多人模型。
 - 把继承显示位置、保持速度或 correction lerp 当成 projectile prediction，却不在本地运行同一 collision/
   lifecycle simulation。
 - 默认回滚完整 world，或反过来只回滚一个 body 却让它与未来 tick 的动态对象交互；prediction island 必须
@@ -722,8 +722,8 @@ Multiplayer diagnostics 应回答：
 - App Host 负责 MultiplayerFacade lifecycle；GameRuntime 只通过 GameModule bridge 消费连接事实。
 - Backend adapter 必须通过 core conformance tests，至少覆盖 connect、create-or-join/leave、peer summary、message routing、disconnect、dispose 和 snapshot。
 - Room-side backend 也必须通过 core facade 验证 session、phase、peer presence、message normalization 和 dispose；不能向 App Host 注入手写的 `MultiplayerRuntime` 结构替身。
-- 优先接入成熟多人 backend，再按需补 provider adapter。不要从 raw WebSocket 开始扩展 GameKit 自己的多人核心。
-- 需要按 GameKit session id 加入指定 room 的 adapter，必须保证不同 backend 实例能解析到同一个 provider room；fallback 不能加入同 room type 下的任意可用房间。
+- 优先接入成熟多人 backend，再按需补 provider adapter。不要从 raw WebSocket 开始扩展 GameKits 自己的多人核心。
+- 需要按 GameKits session id 加入指定 room 的 adapter，必须保证不同 backend 实例能解析到同一个 provider room；fallback 不能加入同 room type 下的任意可用房间。
 - `host-authoritative` backend adapter 必须定义 authority host 离开后的 room lifecycle：默认关闭该 room 并断开剩余 client，除非明确实现 host migration 并更新 authority binding。
 - `server-authoritative` Room-owned backend 必须把 party leader 与 authority endpoint 分离；leader 离开只触发 app permission transfer，不能套用 host-authoritative 的自动关房规则。
 - Headless server app 应优先复用同一套 GameRuntime、Data、World、TCA/GAS、Save 和 DevTools 协议，只替换 renderer/input/UI 为空或测试实现。
@@ -766,7 +766,7 @@ Multiplayer diagnostics 应回答：
 - 普通游戏通过 standard Multiplayer module 的 `clientReplication` 配置连接 authoritative snapshot 和 renderer frame：声明 decoder、timeline、remote `Network*` tracks、deterministic prediction transition、local predicted-state fields 与统一 `applyFrame` writer 后，由底层自动接收、播放、预测、字段插值和校正。只有特殊 netcode、测试或工具才直接调用 low-level playback/projector/prediction factory 或 deprecated custom presentation callbacks。不要让 renderer 直接按低频网络 tick 跳变，不要在 app 层重复实现通用 playback clock/lerp/correction offset，也不要把 presented position 写回 authority state。
 - 结构稳定的普通 snapshot 使用 replication schema binding 取代重复的 `readSnapshot + toBufferEntry +
 readAuthoritativeState + readAcknowledgedSequence + tracks` 回调；app 仍提供 payload decoder、local identity 与最终 frame
-  writer。Provider Schema/Protobuf/JSON wire format 和 GameKit typed binding 是两层边界，不能互相冒充。
+  writer。Provider Schema/Protobuf/JSON wire format 和 GameKits typed binding 是两层边界，不能互相冒充。
 - 本地预测优先只配置 `inputRateHz`，managed runtime 用同一周期推进 prediction step，并用 `maxPredictionLeadInputs`（默认 8，可按 RTT/authority queue 预算调整）阻止未确认序列无限领先；如果 authority tick/ack 使用另一周期，必须显式建立一致的 simulation interval，不能让两个独立数字静默漂移。Prediction field 声明 correction metric、smooth fields、duration 和 max magnitude；managed runtime 自动调用 predict/present/reconcile 并应用 moving-target offset。不要把 prediction buffer `state()` 的 raw endpoint 直接写入 renderer，也不要对 endpoint 再做一整步向前 extrapolate。大 correction、teleport、binding/session change、hard phase transition 和 resync 直接 snap/reset prediction presentation。
 - Authority 使用 Physics backend 时，本地 prediction 不能长期使用 `position += velocity * step` 近似带 damping/碰撞的 solver。优先通过 `createPhysicsBodyPredictionTransition(...)` 复用同一 body/collider/layout definition、backend kind 与 fixed sub-step，并把 transition factory 交给 managed replication；transition 的有界 sequence checkpoint 会在权威基线匹配时复用 replay 结果，避免无意义 rewind 破坏 solver contact cache。游戏只声明 input-to-body patch 和 state binding，不手动推进 solver、调用 replay/interpolation 或释放 prediction scene。
 - 多人拥挤或动态机关持续交互时，使用标准 Physics Arena prediction descriptor，并让 authority 发布完整

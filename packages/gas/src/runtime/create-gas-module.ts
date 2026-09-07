@@ -1,14 +1,14 @@
-import { defineGameModule } from "@gamekit/core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import { defineGameModule } from "@gamekits/core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import { bindGasHandle, unbindGasHandle } from "./create-gas-handle";
 import { createGasRuntime } from "./create-gas-runtime";
 import type { CreateGasModuleConfig } from "./types";
 
 export function createGasModule(config: CreateGasModuleConfig) {
   return defineGameModule<GameInstallContext>({
-    id: config.id ?? "gamekit.gas",
+    id: config.id ?? "gamekits.gas",
     install(ctx) {
-      const moduleId = config.id ?? "gamekit.gas";
+      const moduleId = config.id ?? "gamekits.gas";
       const runtime = createGasRuntime({
         world: ctx.world,
         dataRegistry: config.dataRegistry,

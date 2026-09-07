@@ -2,13 +2,13 @@ import {
   createMemoryPhysicsBackend,
   createPhysicsPredictionIsland,
   type PhysicsPredictionIslandMemberDefinition
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 import { describe, expect, it } from "vitest";
 import {
   characterMotorStateSignature,
   compileCharacterMotorDefinition,
   createCharacterMotorPredictionContributor
-} from "@gamekit/character-controller";
+} from "@gamekits/character-controller";
 
 const ACTOR: PhysicsPredictionIslandMemberDefinition = {
   id: "actor",

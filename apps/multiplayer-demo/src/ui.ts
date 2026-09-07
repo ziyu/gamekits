@@ -1,6 +1,6 @@
 import type { MultiplayerDemoAppSnapshot } from "./domain";
 import type { MultiplayerDemoClient } from "./client";
-import type { ColyseusNativeStateBridgeDiagnostics } from "@gamekit/multiplayer-colyseus";
+import type { ColyseusNativeStateBridgeDiagnostics } from "@gamekits/multiplayer-colyseus";
 import type { RealtimeArenaAuthorityPath } from "./realtime/authority-path";
 import type { RealtimeArenaSnapshot, RealtimeArenaState } from "./realtime/domain";
 import type { RealtimeLocalGameDiagnostics } from "./realtime/local-game";
@@ -121,7 +121,7 @@ export function renderMultiplayerDemoShell(root: HTMLElement): MultiplayerDemoUi
   const main = createElement("section", "multiplayer-demo__main");
   const side = createElement("aside", "multiplayer-demo__side");
   const header = createElement("header", "multiplayer-demo__header");
-  const eyebrow = createElement("p", "multiplayer-demo__eyebrow", "GameKit Multiplayer");
+  const eyebrow = createElement("p", "multiplayer-demo__eyebrow", "GameKits Multiplayer");
   const title = createElement("h1", "multiplayer-demo__title", "Relay Arena");
   const status = createElement("p", "multiplayer-demo__status", "Booting demo server");
   header.replaceChildren(eyebrow, title, status);
@@ -480,7 +480,7 @@ export function formatRealtimeArenaDiagnosticsTitle(
   const nativeState = diagnostics.nativeState;
   const nativeStateText =
     nativeState === undefined
-      ? "authority state gamekit-envelope"
+      ? "authority state gamekits-envelope"
       : `authority state ${nativeState.authoritativePath}; version ${nativeState.lastStateVersion ?? "--"}; schema ${nativeState.lastVersion ?? "--"}; bytes ${nativeState.lastStateBytes ?? "--"}; applied ${nativeState.appliedUpdates}; rejected ${nativeState.rejectedUpdates}; resyncs ${nativeState.resyncs}`;
   return `presentation ${status}; ${presentation.bufferLength} buffered; ${age}; ${delay}; ${jitter}; ${authorityInputText}; ${participantText}; ${predictionText}; ${nativeStateText}`;
 }

@@ -1,6 +1,6 @@
 import { performance } from "node:perf_hooks";
-import { defineComponent } from "@gamekit/world";
-import { createKootaWorld } from "@gamekit/world-koota";
+import { defineComponent } from "@gamekits/world";
+import { createKootaWorld } from "@gamekits/world-koota";
 
 const Position = defineComponent({
   id: "bench.position",
@@ -50,7 +50,7 @@ const end = performance.now();
 console.log(
   JSON.stringify(
     {
-      adapter: "@gamekit/world-koota",
+      adapter: "@gamekits/world-koota",
       entityCount,
       movingCount: moving.length,
       spawnAndAddMs: Math.round((afterSpawn - start) * 100) / 100,

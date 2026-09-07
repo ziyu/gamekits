@@ -1,10 +1,10 @@
-import type { DataRegistry } from "@gamekit/data";
-import type { EventBus, GameEvent } from "@gamekit/event-bus";
-import type { GasRuntime, GasTraceStore } from "@gamekit/gas";
-import type { CameraController } from "@gamekit/camera-core";
-import type { RendererAdapter } from "@gamekit/renderer-core";
-import type { TcaTraceStore } from "@gamekit/tca";
-import type { EntityId, GameWorld } from "@gamekit/world";
+import type { DataRegistry } from "@gamekits/data";
+import type { EventBus, GameEvent } from "@gamekits/event-bus";
+import type { GasRuntime, GasTraceStore } from "@gamekits/gas";
+import type { CameraController } from "@gamekits/camera-core";
+import type { RendererAdapter } from "@gamekits/renderer-core";
+import type { TcaTraceStore } from "@gamekits/tca";
+import type { EntityId, GameWorld } from "@gamekits/world";
 import type {
   AbyssCameraAdapter,
   AbyssInputState,

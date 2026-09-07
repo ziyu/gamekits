@@ -1,5 +1,5 @@
-import type { DataRegistry } from "@gamekit/data";
-import type { RenderObjectDefinition } from "@gamekit/renderer-core";
+import type { DataRegistry } from "@gamekits/data";
+import type { RenderObjectDefinition } from "@gamekits/renderer-core";
 
 import { OUTPOST_RENDER_OBJECT_TYPE, type OutpostRenderObjectDefinition } from "../domain";
 import { OUTPOST_PRESENTATION_SIZE } from "../gameplay/constants";

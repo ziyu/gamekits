@@ -7,7 +7,7 @@ import {
   type NavigationPathTraversal,
   type NavigationPoint,
   type NavigationProjection
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import {
   cloneBackendPathStatus,
   cloneBackendRouteSample,
@@ -15,7 +15,7 @@ import {
   type NavigationBackendPathRequest,
   type NavigationBackendPathResult,
   type NavigationBackendPathStatus
-} from "@gamekit/navigation-core/backend";
+} from "@gamekits/navigation-core/backend";
 import {
   Detour,
   importNavMesh,
@@ -434,7 +434,7 @@ export function createRecastNavigationBackendRuntime(
       }
       // Detour's A* heuristic assumes traversal multipliers are at least one. Scaling all
       // allowed costs by the same positive minimum preserves route ordering while keeping
-      // discounted GameKit areas admissible for the native query.
+      // discounted GameKits areas admissible for the native query.
       filter.setAreaCost(
         areaIndex,
         Math.max(1, effectiveAreaCost(areaId, profile) / queryCostScale)

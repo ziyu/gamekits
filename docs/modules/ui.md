@@ -4,18 +4,18 @@
 
 UI 分为 UI Core 和 React UI。UI Core 描述窗口、面板、命令、焦点、布局状态和 UI snapshot；React UI 提供具体渲染实现、shell、组件 bridge、样式基础设施和状态订阅。
 
-UI 是应用层能力，不是 GameRuntime 的一部分。它负责低频 HUD、Inspector、Timeline、窗口、弹窗、编辑器面板和玩家界面，不进入 world tick、renderer patch 或 ECS 高频数据路径。DevTools 可复用 UI runtime 和 React UI 基础设施，但 DevTools 专用 launcher、pin surface、shell 和面板属于 `@gamekit/devtools-ui`，不内置在 `@gamekit/react-ui`。
+UI 是应用层能力，不是 GameRuntime 的一部分。它负责低频 HUD、Inspector、Timeline、窗口、弹窗、编辑器面板和玩家界面，不进入 world tick、renderer patch 或 ECS 高频数据路径。DevTools 可复用 UI runtime 和 React UI 基础设施，但 DevTools 专用 launcher、pin surface、shell 和面板属于 `@gamekits/devtools-ui`，不内置在 `@gamekits/react-ui`。
 
 相关包：
 
-- `@gamekit/ui-core`
-- `@gamekit/react-ui`
-- `@gamekit/devtools-ui`
+- `@gamekits/ui-core`
+- `@gamekits/react-ui`
+- `@gamekits/devtools-ui`
 
 核心原则：
 
-- `@gamekit/ui-core` 不依赖 React、DOM、Renderer、World、Physics、TCA、GAS 或具体 app。
-- `@gamekit/react-ui` 是 UI adapter / implementation，不能成为 gameplay 公共 API。
+- `@gamekits/ui-core` 不依赖 React、DOM、Renderer、World、Physics、TCA、GAS 或具体 app。
+- `@gamekits/react-ui` 是 UI adapter / implementation，不能成为 gameplay 公共 API。
 - React 不进入主循环，不订阅每帧 ECS position，不直接驱动 renderer object patch。
 - UI 通过低频 snapshot、selector、command 和 EventBus fact 理解游戏状态。
 - gameplay packages 不直接 import React、shadcn/ui、Base UI 或 app-specific UI component。
@@ -83,24 +83,24 @@ UI Core 可以提供常见 manager 概念，但不要先把 `WindowManager`、`M
 
 ## React Style / Component Library
 
-主题和样式不进入 `@gamekit/ui-core`。对大多数游戏来说，核心问题不是“框架抽象出一个统一 theme runtime”，而是如何清晰地定义自己的游戏视觉语言、交互密度和组件库，并且不让这些样式反向污染 gameplay、runtime 或 adapter 边界。
+主题和样式不进入 `@gamekits/ui-core`。对大多数游戏来说，核心问题不是“框架抽象出一个统一 theme runtime”，而是如何清晰地定义自己的游戏视觉语言、交互密度和组件库，并且不让这些样式反向污染 gameplay、runtime 或 adapter 边界。
 
 职责边界：
 
-- `@gamekit/react-ui` 提供样式基础设施、shell/panel/window 的默认样式、可替换组件库组织方式、React-only theme provider 和 UI 动效基础。
-- `@gamekit/devtools-ui` 提供 DevTools 专用 launcher、pin surface、shell、面板和调试视图；它可以复用 `@gamekit/react-ui` 的通用基础设施，但 DevTools 专用组件不回流进 `react-ui`。
+- `@gamekits/react-ui` 提供样式基础设施、shell/panel/window 的默认样式、可替换组件库组织方式、React-only theme provider 和 UI 动效基础。
+- `@gamekits/devtools-ui` 提供 DevTools 专用 launcher、pin surface、shell、面板和调试视图；它可以复用 `@gamekits/react-ui` 的通用基础设施，但 DevTools 专用组件不回流进 `react-ui`。
 - 游戏 app 定义自己的视觉主题、设计 token、组件 recipes、HUD/Inspector/Editor 组件和品牌皮肤。
-- `@gamekit/ui-core` 只提供 panel/window/command/focus/snapshot，不知道 theme、CSS variables、className 或 ReactNode。
+- `@gamekits/ui-core` 只提供 panel/window/command/focus/snapshot，不知道 theme、CSS variables、className 或 ReactNode。
 - App Host/Profile 可以把 React UI 所需的 style preset、CSS variables、className 或 provider props 作为 UI service 参数传入，但 Host 不解释它们。
 - gameplay module 不感知 UI 样式；玩法数据只产生状态、标签、cue 或 snapshot，由 UI 映射成视觉表现。
 
 ### React UI 技术基础
 
-`@gamekit/react-ui` 的默认实现以 Tailwind CSS 和 GSAP 为基础：
+`@gamekits/react-ui` 的默认实现以 Tailwind CSS 和 GSAP 为基础：
 
 - Tailwind CSS 是默认样式基础，用于组织 shell、panel、window、layout primitive 和通用组件样式。
 - GSAP 是默认 UI 动效基础，用于窗口、modal、toast、tooltip、timeline highlight、inspector transition 等低频 UI 动画。
-- shadcn/ui 是推荐最佳实践：优先把 shadcn 风格的组件 recipe 复制、封装和维护在 GameKit 或具体游戏的 React UI 层，而不是让业务 app 到处直接依赖第三方 primitive。
+- shadcn/ui 是推荐最佳实践：优先把 shadcn 风格的组件 recipe 复制、封装和维护在 GameKits 或具体游戏的 React UI 层，而不是让业务 app 到处直接依赖第三方 primitive。
 
 这些技术选择只属于 React UI / app UI 层。`ui-core` 不依赖 Tailwind、GSAP、shadcn/ui、Radix、Base UI 或 DOM 类型。GameRuntime、World、Physics、TCA、GAS、Renderer sync 和 gameplay module 也不能依赖这些 UI 实现细节。
 
@@ -112,7 +112,7 @@ Tailwind 和 GSAP 应被当作实现基础，而不是业务协议：
 
 ### Game UI Theme
 
-游戏可以在 React 层定义自己的 theme shape。GameKit 不强制统一字段，只建议遵守可维护的组织方式：
+游戏可以在 React 层定义自己的 theme shape。GameKits 不强制统一字段，只建议遵守可维护的组织方式：
 
 ```ts
 export type GameUiTheme = {
@@ -144,7 +144,7 @@ export type GameUiTheme = {
 
 React UI 样式建议按以下层次组织：
 
-1. React UI base：由 `@gamekit/react-ui` 通过 Tailwind CSS 提供 shell、panel、window、modal、focus ring、layout primitive 的最低可用样式。
+1. React UI base：由 `@gamekits/react-ui` 通过 Tailwind CSS 提供 shell、panel、window、modal、focus ring、layout primitive 的最低可用样式。
 2. Game theme：游戏自己的 token、CSS variables、字体、色彩、密度、动效策略。
 3. Game component library：Button、IconButton、Tabs、HUDPanel、ActorCard、AbilityButton、ResourceMeter 等组件。
 4. Feature UI：具体系统的 HUD、Inspector、Timeline、Inventory、QuestLog、BuildMenu。
@@ -182,10 +182,10 @@ packages/<game>-ui/
 
 ### React UI Defaults
 
-`@gamekit/react-ui` 可以提供默认工具型样式，但它们只是启动点：
+`@gamekits/react-ui` 可以提供默认工具型样式，但它们只是启动点：
 
 - 默认 CSS variables，例如 `--gk-surface-panel`、`--gk-text-primary`、`--gk-focus-ring`。
-- `GameKitStyleProvider` / `GameKitThemeProvider`，只属于 React 层。
+- `GameKitsStyleProvider` / `GameKitsThemeProvider`，只属于 React 层。
 - shell、panel、window、modal、tip、toolbar、split view 的基础 class。
 - `UiPanelHost`、`UiWindowHost`、`UiModalHost` 和轻量 `UiTip` primitive，用于验证 UI runtime 到 React 渲染层的默认路径。
 - GSAP-backed animation helpers，用于低频 UI 进入、退出、强调和布局过渡。
@@ -202,7 +202,7 @@ packages/<game>-ui/
 - 通用组件接收语义 props，不接收 gameplay model。
 - Feature 组件可以读取 snapshot / selector，但不直接订阅每帧 world state。
 - 组件库默认使用 Tailwind CSS 组织样式，可以结合 CSS variables 表达游戏主题。
-- shadcn/ui 是组件结构和可访问性实践的推荐来源；采用时应把 recipe 收敛到 `@gamekit/react-ui` 或游戏 UI 包，而不是把第三方 primitive 类型扩散到 gameplay。
+- shadcn/ui 是组件结构和可访问性实践的推荐来源；采用时应把 recipe 收敛到 `@gamekits/react-ui` 或游戏 UI 包，而不是把第三方 primitive 类型扩散到 gameplay。
 - 可复用组件可以暴露 `className` 或 `slotProps` escape hatch，但基础样式不应要求调用方每次手写 class。
 
 长期禁止：
@@ -212,7 +212,7 @@ packages/<game>-ui/
 - 在 `ui-core`、GameRuntime、World、TCA 或 GAS 中导入 Tailwind、GSAP、shadcn/ui、Radix 或 Base UI。
 - 让 GameRuntime、World system、GAS/TCA runtime 依赖 UI 组件或样式。
 - 在多个 feature 中复制同一组 panel/window/button 基础样式。
-- 把某个游戏的视觉 token 上推成 GameKit 框架 token。
+- 把某个游戏的视觉 token 上推成 GameKits 框架 token。
 
 ### Accessibility / Responsiveness
 
@@ -256,7 +256,7 @@ UI Core 只描述 focus state；具体 DOM focus 监听、React event bridge、P
 - snapshot / selector bridge
 - common utility components for tools and game UI
 
-底层 Tailwind、shadcn/ui、Base UI、Radix 等实现细节不应散落到业务 app。若引入这些库，应封装进 `@gamekit/react-ui`，并避免把第三方组件类型变成 GameKit 公共协议。
+底层 Tailwind、shadcn/ui、Base UI、Radix 等实现细节不应散落到业务 app。若引入这些库，应封装进 `@gamekits/react-ui`，并避免把第三方组件类型变成 GameKits 公共协议。
 
 React UI 可以提供一组通用组件：
 

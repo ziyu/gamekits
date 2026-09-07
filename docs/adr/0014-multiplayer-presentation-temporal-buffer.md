@@ -25,7 +25,7 @@ ADR 0013 已经把 Multiplayer 的标准同步边界收敛为 authority endpoint
 
 Multiplayer presentation 的长期公共设计采用“temporal snapshot buffer + typed interpolation primitives + declared `Network*` track projection + app-owned final write”。
 
-`@gamekit/multiplayer-core` 应提供 provider-neutral 的 presentation timing toolkit：
+`@gamekits/multiplayer-core` 应提供 provider-neutral 的 presentation timing toolkit：
 
 - 按 `tick`、`serverTime` 或 provider version 接收 authoritative snapshot。
 - 维护短期 ordered buffer，处理过期、乱序、重复、resync、trim 和 reset。
@@ -33,7 +33,7 @@ Multiplayer presentation 的长期公共设计采用“temporal snapshot buffer 
 - 提供低成本 typed interpolation primitives，例如 number、angle、vector2、vector3、quaternion/slerp 和 step/snap value。
 - 提供 declared `Network*` presentation tracks，由 game/app 声明 selector、track key 和 snap policy，core 根据 sampled `previous` / `next` / `alpha` 产出 typed presented values。Runtime 热路径使用 reusable projector、writer-style selector 和 direct-write getter，避免每帧创建 projection map、sample array 或临时 vector clone。
 
-`@gamekit/multiplayer-core` 不提供 deep generic snapshot interpolator，也不把二维 vector smoothing helper 作为稳定抽象中心。
+`@gamekits/multiplayer-core` 不提供 deep generic snapshot interpolator，也不把二维 vector smoothing helper 作为稳定抽象中心。
 
 游戏或 app presentation 层负责 track declaration 和最终写入：
 

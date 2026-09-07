@@ -22,7 +22,7 @@ export function renderSandboxSceneHost(
     root.render(
       <div className="sandbox-scene-host">
         <aside className="scene-rail" aria-label="Sandbox scenes">
-          <div className="scene-rail__brand" aria-label="GameKit Sandbox">
+          <div className="scene-rail__brand" aria-label="GameKits Sandbox">
             <span>GK</span>
             <strong>LAB</strong>
           </div>

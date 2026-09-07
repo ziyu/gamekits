@@ -6,13 +6,13 @@ Navigation 是路径、共享路线场与可通行空间的 facade / Game Module
 
 相关包：
 
-- `@gamekit/navigation-core`：游戏侧协议、请求/路线生命周期、layout 组合和 GameModule。
-- `@gamekit/navigation-core/backend`：Graph/Grid/Navmesh/Worker adapter port。
-- `@gamekit/navigation-core/testing`：conformance、Memory/Deferred Backend 和 fixture。
-- `@gamekit/navigation-graph`：authored graph Backend 与 layout factory。
-- `@gamekit/navigation-grid`：规则格网 Backend、`navigation.grid` DataType 与 layout factory。
-- `@gamekit/navigation-navmesh`：Backend-neutral triangle/build source、area metadata 与 DataType。
-- `@gamekit/navigation-recast`：Recast/Detour WebAssembly adapter、NavMesh generator/query runtime 与 tooling boundary。
+- `@gamekits/navigation-core`：游戏侧协议、请求/路线生命周期、layout 组合和 GameModule。
+- `@gamekits/navigation-core/backend`：Graph/Grid/Navmesh/Worker adapter port。
+- `@gamekits/navigation-core/testing`：conformance、Memory/Deferred Backend 和 fixture。
+- `@gamekits/navigation-graph`：authored graph Backend 与 layout factory。
+- `@gamekits/navigation-grid`：规则格网 Backend、`navigation.grid` DataType 与 layout factory。
+- `@gamekits/navigation-navmesh`：Backend-neutral triangle/build source、area metadata 与 DataType。
+- `@gamekits/navigation-recast`：Recast/Detour WebAssembly adapter、NavMesh generator/query runtime 与 tooling boundary。
 - 可选 Backend：navcat、原生/远程 baker、Worker-backed adapter 等。
 
 Core 不自研完整 navmesh 烘焙器、几何引擎、Physics collision 或 crowd solver。具体算法和 native runtime 只存在于 Backend package。
@@ -40,13 +40,13 @@ Navigation 不负责：
 ```txt
 game / AI / Editor
        ↓
-@gamekit/navigation-core
+@gamekits/navigation-core
        ↓
 NavigationHandle / NavigationQueries
 
 Graph/Grid/Navmesh adapter
        ↓
-@gamekit/navigation-core/backend
+@gamekits/navigation-core/backend
 ```
 
 业务代码不 import Backend subpath。Adapter 不 import App Host、AI、Physics Backend、Renderer 或具体游戏。
@@ -200,15 +200,15 @@ Grid origin 表示 `(0, 0)` cell center，未声明的 cell 是不可通行空�
 
 NavMesh source package 使用普通可序列化数据表达 triangle geometry、agent build profile、area 标注和 off-mesh connection authoring。它不导出 Recast poly ref、WASM handle、query filter 或 native tile。
 
-Recast adapter 负责显式异步初始化、single/tiled NavMesh generation、projection、polygon corridor path、共享 polygon route field、area filter/cost、off-mesh connection、tiled rebuild 和 native dispose。静态关卡优先离线/Editor 烘焙；程序化地图和测试可以 runtime generation，浏览器中的昂贵 generation 应放入 Worker。没有显式 portal cost 时，point path 可以直接使用 Detour corridor query；存在已启用且带显式 cost 的 portal 时，adapter 必须先用 GameKit cost 语义选择准确的 native polygon corridor，再把该 corridor 交给 Detour straight-path/funnel 生成几何，不能让 Detour 以 endpoint 物理距离替代 authored traversal cost。
+Recast adapter 负责显式异步初始化、single/tiled NavMesh generation、projection、polygon corridor path、共享 polygon route field、area filter/cost、off-mesh connection、tiled rebuild 和 native dispose。静态关卡优先离线/Editor 烘焙；程序化地图和测试可以 runtime generation，浏览器中的昂贵 generation 应放入 Worker。没有显式 portal cost 时，point path 可以直接使用 Detour corridor query；存在已启用且带显式 cost 的 portal 时，adapter 必须先用 GameKits cost 语义选择准确的 native polygon corridor，再把该 corridor 交给 Detour straight-path/funnel 生成几何，不能让 Detour 以 endpoint 物理距离替代 authored traversal cost。
 
-Navigation 的有效 area cost 语义是 `(profile override ?? layout base cost) × dynamic multiplier`，允许小于 `1` 的优惠区域。若具体寻路库的启发式要求原生 traversal multiplier 不小于 `1`，Adapter 必须在单次 query 内按所有可通行区域的最小有效 cost 做等比例归一化，保持路线排序不变；公共 result cost、cost limit、debug 和数据协议仍使用未归一化的 GameKit 有效 cost，不能泄漏第三方库的数值限制。
+Navigation 的有效 area cost 语义是 `(profile override ?? layout base cost) × dynamic multiplier`，允许小于 `1` 的优惠区域。若具体寻路库的启发式要求原生 traversal multiplier 不小于 `1`，Adapter 必须在单次 query 内按所有可通行区域的最小有效 cost 做等比例归一化，保持路线排序不变；公共 result cost、cost limit、debug 和数据协议仍使用未归一化的 GameKits 有效 cost，不能泄漏第三方库的数值限制。
 
 不同 agent radius/height/climb/slope 是 build-time 约束。需要显著不同尺寸的单位时，组合层选择不同 build profile/NavMesh layer，不能只在查询时修改 radius 并假设已侵蚀空间会重新出现。门/权限/危险区等不改变几何的状态优先使用 area/flag/filter；真实几何变化使用 tile rebuild/TileCache。
 
 NavMesh Backend 只有在真正提供可复用 polygon/region field 与 sampler 时才声明 `routeFields`。对同一 goal 为每个 agent 重跑完整 path query 不算共享 field，必须通过 capability 返回 unsupported。
 
-Recast field 在 adapter 内从 native NavMesh 编译私有有向 polygon topology，将 off-mesh connection 折叠为保持单向/双向语义的 traversal arc，再按 GameKit 有效 area cost 从目标执行反向搜索。Field sampler 对普通 polygon passage 返回局部 steering target，对 off-mesh arc 返回 entry/exit traversal；poly ref、反向树和 native portal handle 不进入 Core。动态 area/portal 更新按 field tree dependency 失效，field cache 有界且不能淘汰仍被 request/Core route 持有的 generation。
+Recast field 在 adapter 内从 native NavMesh 编译私有有向 polygon topology，将 off-mesh connection 折叠为保持单向/双向语义的 traversal arc，再按 GameKits 有效 area cost 从目标执行反向搜索。Field sampler 对普通 polygon passage 返回局部 steering target，对 off-mesh arc 返回 entry/exit traversal；poly ref、反向树和 native portal handle 不进入 Core。动态 area/portal 更新按 field tree dependency 失效，field cache 有界且不能淘汰仍被 request/Core route 持有的 generation。
 
 Recast 的 off-mesh arc 必须把 authored portal cost 用作离散连接成本，并分别保留 polygon→entry 与 exit→polygon 的局部成本；不能用 endpoint 世界距离覆盖显式 portal cost。该成本同时参与 point path corridor 与 shared field 的选择，两种 route kind 对同一 profile、状态和目标必须选择相同的 portal 语义。采样时返回 entry/exit traversal，不能让 agent 沿 endpoint chord 穿过不可导航空间。
 

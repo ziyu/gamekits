@@ -1,8 +1,8 @@
-import type { CameraController, CameraState2D, PointLike } from "@gamekit/camera-core";
-import { defineGameModule } from "@gamekit/core";
-import type { DataRegistry } from "@gamekit/data";
-import { createEventBus, type EventBus } from "@gamekit/event-bus";
-import { createGame, type GameInstallContext, type GameRuntime } from "@gamekit/game-runtime";
+import type { CameraController, CameraState2D, PointLike } from "@gamekits/camera-core";
+import { defineGameModule } from "@gamekits/core";
+import type { DataRegistry } from "@gamekits/data";
+import { createEventBus, type EventBus } from "@gamekits/event-bus";
+import { createGame, type GameInstallContext, type GameRuntime } from "@gamekits/game-runtime";
 import {
   createPhysicsHandle,
   createPhysicsInterpolationStore,
@@ -20,9 +20,9 @@ import {
   type PhysicsInterpolationStore,
   type PhysicsInterpolationTransform,
   type PhysicsTraceStore
-} from "@gamekit/physics-core";
-import type { RendererAdapter } from "@gamekit/renderer-core";
-import type { EntityId, GameWorld } from "@gamekit/world";
+} from "@gamekits/physics-core";
+import type { RendererAdapter } from "@gamekits/renderer-core";
+import type { EntityId, GameWorld } from "@gamekits/world";
 import {
   OUTPOST_MOVEMENT_PROFILE_TYPE,
   OUTPOST_PLAYER_TYPE,

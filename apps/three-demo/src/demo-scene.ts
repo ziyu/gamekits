@@ -1,11 +1,15 @@
-import type { AssetLoadStatus, AssetManager } from "@gamekit/asset";
+import type { AssetLoadStatus, AssetManager } from "@gamekits/asset";
 import type {
   ThreeDriverCameraAdapter,
   ThreeRendererNative,
   ThreeRenderTargetDiagnostics,
   ThreeRenderTargetState
-} from "@gamekit/driver-three";
-import type { RenderNodeDefinition, RenderObjectId, RendererAdapter } from "@gamekit/renderer-core";
+} from "@gamekits/driver-three";
+import type {
+  RenderNodeDefinition,
+  RenderObjectId,
+  RendererAdapter
+} from "@gamekits/renderer-core";
 import * as THREE from "three";
 import { THREE_DEMO_ASSET_IDS } from "./demo-assets";
 

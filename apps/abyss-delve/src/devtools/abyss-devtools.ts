@@ -3,7 +3,7 @@ import type {
   DevToolsRuntime,
   DevToolsTraceInput,
   DevToolsTraceKind
-} from "@gamekit/devtools";
+} from "@gamekits/devtools";
 import type { AbyssCheckpointData, AbyssSnapshot, AbyssTraceEntry } from "../game";
 
 export const ABYSS_CHAIN_PANEL_ID = "abyss.chain";

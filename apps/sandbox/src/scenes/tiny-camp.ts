@@ -1,6 +1,6 @@
-import { createConfiguredAppHost } from "@gamekit/app-host";
-import type { NormalizedInputEvent } from "@gamekit/input-core";
-import { createUiRuntime } from "@gamekit/ui-core";
+import { createConfiguredAppHost } from "@gamekits/app-host";
+import type { NormalizedInputEvent } from "@gamekits/input-core";
+import { createUiRuntime } from "@gamekits/ui-core";
 import {
   routeSandboxSceneOverlayInput,
   SANDBOX_SCENE_CLICK_ACTION_ID,

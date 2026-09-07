@@ -1,4 +1,4 @@
-import type { NavigationLayoutDefinition, NavigationPoint } from "@gamekit/navigation-core";
+import type { NavigationLayoutDefinition, NavigationPoint } from "@gamekits/navigation-core";
 
 export type NavigationGraphNodeDefinition = {
   id: string;

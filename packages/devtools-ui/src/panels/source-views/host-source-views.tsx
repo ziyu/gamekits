@@ -12,14 +12,14 @@ export function HostSourceView({ value }: { value: unknown }) {
   const diagnostics = readArray(record.diagnostics);
 
   return (
-    <div className="gamekit-devtools-view">
-      <div className="gamekit-devtools-snapshot__summary">
+    <div className="gamekits-devtools-view">
+      <div className="gamekits-devtools-snapshot__summary">
         <Metric label="Phase" value={readString(record.phase)} />
         <Metric label="Services" value={services.length} />
         <Metric label="Config" value={readArray(config.entries).length} />
         <Metric label="Diagnostics" value={diagnostics.length} />
       </div>
-      <table className="gamekit-devtools-table">
+      <table className="gamekits-devtools-table">
         <thead>
           <tr>
             <th>Service</th>
@@ -52,7 +52,7 @@ export function PlatformSourceView({ value }: { value: unknown }) {
   const services = records(record.services).map(recordId);
   const capabilities = records(record.capabilities).map(recordId);
   return (
-    <div className="gamekit-devtools-view">
+    <div className="gamekits-devtools-view">
       <KeyValueGrid
         entries={[
           ["Platform", readString(record.id)],
@@ -70,10 +70,10 @@ export function DriverSourceView({ value }: { value: unknown }) {
   const source = value && typeof value === "object" ? (value as Record<string, unknown>) : {};
   const drivers = records(source.drivers);
   return (
-    <div className="gamekit-devtools-view">
-      <div className="gamekit-devtools-card-grid">
+    <div className="gamekits-devtools-view">
+      <div className="gamekits-devtools-card-grid">
         {drivers.map((driver) => (
-          <article className="gamekit-devtools-mini-card" key={recordId(driver)}>
+          <article className="gamekits-devtools-mini-card" key={recordId(driver)}>
             <strong>{recordId(driver)}</strong>
             <span>
               {readString(driver.kind)} · {readString(driver.phase)}

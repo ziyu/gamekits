@@ -1,4 +1,4 @@
-import type { NavigationPoint } from "@gamekit/navigation-core";
+import type { NavigationPoint } from "@gamekits/navigation-core";
 import type { CompiledNavigationNode } from "./types";
 
 type Axis = 0 | 1 | 2;

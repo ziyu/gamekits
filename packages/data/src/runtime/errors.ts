@@ -1,4 +1,4 @@
-import { GameError } from "@gamekit/core";
+import { GameError } from "@gamekits/core";
 import { describeDiagnostic } from "./diagnostics";
 import type { DataDiagnostic } from "./types";
 

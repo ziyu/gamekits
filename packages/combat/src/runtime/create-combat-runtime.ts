@@ -1,10 +1,10 @@
-import type { PhysicsQueryResult } from "@gamekit/physics-core";
+import type { PhysicsQueryResult } from "@gamekits/physics-core";
 import {
   PhysicsBodyComponent,
   PhysicsColliderComponent,
   PhysicsTransformComponent
-} from "@gamekit/physics-core";
-import type { EntityId } from "@gamekit/world";
+} from "@gamekits/physics-core";
+import type { EntityId } from "@gamekits/world";
 import { COMBAT_DELIVERY_TYPE } from "../data";
 import { createCombatError } from "./errors";
 import { createCombatProjectileController } from "./projectile-controller";
@@ -57,7 +57,7 @@ import type {
 } from "./types";
 
 export function createCombatRuntime(config: CombatRuntimeConfig): CombatRuntime {
-  const runtimeId = config.id ?? "gamekit.combat";
+  const runtimeId = config.id ?? "gamekits.combat";
   const limits = resolveCombatRuntimeLimits(config.limits);
   const traceStore = config.traceStore ?? createCombatTraceStore();
   const deliveryHistory = new Map<string, DeliveryHistory>();

@@ -11,7 +11,7 @@ import {
   type MultiplayerRuntime,
   type SnapshotPlaybackDiagnostics,
   type SnapshotPlaybackSample
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import { REALTIME_ARENA_TICK_MS } from "./config";
 import { REALTIME_ARENA_SCHEMA_VERSION } from "./authority-path";
 import type { RealtimeArenaSnapshot, RealtimeInputFrame } from "./domain";

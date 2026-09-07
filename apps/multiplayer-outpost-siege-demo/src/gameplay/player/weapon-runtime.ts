@@ -1,4 +1,4 @@
-import type { GasHandle } from "@gamekit/gas";
+import type { GasHandle } from "@gamekits/gas";
 
 import type {
   OutpostReplicatedWeaponFeedback,

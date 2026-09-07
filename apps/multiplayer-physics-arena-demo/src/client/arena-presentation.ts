@@ -1,19 +1,19 @@
-import { createAssetDataType } from "@gamekit/asset";
+import { createAssetDataType } from "@gamekits/asset";
 import {
   createAnimatorDataTypes,
   createAnimatorRuntime,
   type AnimatorControllerSnapshot
-} from "@gamekit/animator-core";
+} from "@gamekits/animator-core";
 import type {
   AnimationPlaybackFrame,
   AnimationPlaybackLayerFrame
-} from "@gamekit/animator-core/playback";
+} from "@gamekits/animator-core/playback";
 import type {
   CharacterMotorPredictionCheckpoint,
   CharacterMotorState
-} from "@gamekit/character-controller";
-import { createDataRegistry, type DataTypeDefinition } from "@gamekit/data";
-import type { PhysicsPredictionIslandStateSnapshot } from "@gamekit/physics-core";
+} from "@gamekits/character-controller";
+import { createDataRegistry, type DataTypeDefinition } from "@gamekits/data";
+import type { PhysicsPredictionIslandStateSnapshot } from "@gamekits/physics-core";
 
 import { compileArenaItemCatalog } from "../items/item-definition";
 import { ARENA_COMPILED_CONTENT } from "../content/default-content";

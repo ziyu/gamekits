@@ -1,4 +1,4 @@
-import type { DataRef, DataRegistry } from "@gamekit/data";
+import type { DataRef, DataRegistry } from "@gamekits/data";
 import type { NavigationBackendAdapter, NavigationBackendFactory } from "../backend/port";
 import { createNavigationError } from "../contracts/errors";
 import type { NavigationLayoutDefinition } from "../contracts/layout";

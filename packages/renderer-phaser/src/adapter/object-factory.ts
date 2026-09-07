@@ -1,4 +1,4 @@
-import type { RenderNodeDefinition, RenderObjectDefinition } from "@gamekit/renderer-core";
+import type { RenderNodeDefinition, RenderObjectDefinition } from "@gamekits/renderer-core";
 import type { PhaserRenderRecord } from "./object-registry";
 import { applyObjectDefinition } from "./target-state";
 

@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/physics-rapier2d",
+  "name": "@gamekits/physics-rapier2d",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -18,11 +18,11 @@
   },
   "dependencies": {
     "@dimforge/rapier2d-compat": "^0.19.3",
-    "@gamekit/core": "workspace:*",
-    "@gamekit/physics-core": "workspace:*"
+    "@gamekits/core": "workspace:*",
+    "@gamekits/physics-core": "workspace:*"
   },
   "devDependencies": {
-    "@gamekit/test-utils": "workspace:*"
+    "@gamekits/test-utils": "workspace:*"
   },
   "files": [
     "dist"

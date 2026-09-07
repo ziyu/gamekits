@@ -1,8 +1,8 @@
-import type { GameAudio } from "@gamekit/audio-core";
-import type { CameraController } from "@gamekit/camera-core";
-import type { DataRegistry } from "@gamekit/data";
-import type { PhysicsBackendAdapter } from "@gamekit/physics-core";
-import type { RendererAdapter } from "@gamekit/renderer-core";
+import type { GameAudio } from "@gamekits/audio-core";
+import type { CameraController } from "@gamekits/camera-core";
+import type { DataRegistry } from "@gamekits/data";
+import type { PhysicsBackendAdapter } from "@gamekits/physics-core";
+import type { RendererAdapter } from "@gamekits/renderer-core";
 
 import type { OutpostRenderTargetWriter } from "../preview-presentation-module";
 import { createOutpostDynamicRenderObjectDefinition } from "../player-render-object";

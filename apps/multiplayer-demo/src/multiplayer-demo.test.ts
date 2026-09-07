@@ -1,4 +1,4 @@
-import { createGameKitColyseusServer } from "@gamekit/multiplayer-colyseus/server";
+import { createGameKitsColyseusServer } from "@gamekits/multiplayer-colyseus/server";
 import { describe, expect, it } from "vitest";
 import { createMultiplayerDemoClient, type MultiplayerDemoClient } from "./client";
 import type { RealtimeArenaSnapshot } from "./realtime/domain";
@@ -100,7 +100,7 @@ describe("multiplayer-demo", () => {
   });
 
   it("rejects client connection to an unhosted selected room", async () => {
-    const colyseus = await createGameKitColyseusServer({
+    const colyseus = await createGameKitsColyseusServer({
       roomName: `${MULTIPLAYER_DEMO_ROOM_NAME}_unhosted_${Date.now()}_${Math.floor(
         Math.random() * 10000
       )}`
@@ -123,7 +123,7 @@ describe("multiplayer-demo", () => {
   });
 
   it("connects multiple clients to the selected room without counting left peers as active", async () => {
-    const colyseus = await createGameKitColyseusServer({
+    const colyseus = await createGameKitsColyseusServer({
       roomName: `${MULTIPLAYER_DEMO_ROOM_NAME}_selected_${Date.now()}_${Math.floor(
         Math.random() * 10000
       )}`
@@ -159,7 +159,7 @@ describe("multiplayer-demo", () => {
   });
 
   it("keeps specified rooms isolated on one Colyseus server", async () => {
-    const colyseus = await createGameKitColyseusServer({
+    const colyseus = await createGameKitsColyseusServer({
       roomName: `${MULTIPLAYER_DEMO_ROOM_NAME}_isolated_${Date.now()}_${Math.floor(
         Math.random() * 10000
       )}`
@@ -207,7 +207,7 @@ describe("multiplayer-demo", () => {
   });
 
   it("synchronizes the realtime arena through the host authoritative room", async () => {
-    const colyseus = await createGameKitColyseusServer({
+    const colyseus = await createGameKitsColyseusServer({
       roomName: `${MULTIPLAYER_DEMO_ROOM_NAME}_realtime_${Date.now()}_${Math.floor(
         Math.random() * 10000
       )}`

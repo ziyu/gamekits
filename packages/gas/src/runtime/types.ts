@@ -1,8 +1,8 @@
-import type { DataRegistry } from "@gamekit/data";
-import type { EventBus } from "@gamekit/event-bus";
-import type { GameInstallContext } from "@gamekit/game-runtime";
-import type { TcaDefinitionSet } from "@gamekit/tca";
-import type { EntityId, GameWorld } from "@gamekit/world";
+import type { DataRegistry } from "@gamekits/data";
+import type { EventBus } from "@gamekits/event-bus";
+import type { GameInstallContext } from "@gamekits/game-runtime";
+import type { TcaDefinitionSet } from "@gamekits/tca";
+import type { EntityId, GameWorld } from "@gamekits/world";
 
 export type GasActorId = string;
 export type GasDefinitionId = string;

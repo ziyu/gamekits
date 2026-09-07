@@ -2,36 +2,36 @@
 
 ## 定位
 
-DevTools 负责可解释性、可观察性和调试工作台。GameKit 越依赖 Data、Physics、TCA、GAS、Renderer Adapter、Save Contributor 和 App Host 组合，越需要 DevTools 能回答“为什么发生了这件事”“哪个数据定义驱动了它”“哪个系统改了状态”“后续产生了哪些表现和存档影响”。
+DevTools 负责可解释性、可观察性和调试工作台。GameKits 越依赖 Data、Physics、TCA、GAS、Renderer Adapter、Save Contributor 和 App Host 组合，越需要 DevTools 能回答“为什么发生了这件事”“哪个数据定义驱动了它”“哪个系统改了状态”“后续产生了哪些表现和存档影响”。
 
 相关包：
 
-- `@gamekit/devtools`
-- `@gamekit/ui-core`
-- `@gamekit/react-ui`
-- `@gamekit/devtools-ui`
+- `@gamekits/devtools`
+- `@gamekits/ui-core`
+- `@gamekits/react-ui`
+- `@gamekits/devtools-ui`
 
 协作包：
 
-- `@gamekit/app-host`
-- `@gamekit/event-bus`
-- `@gamekit/game-runtime`
-- `@gamekit/world`
-- `@gamekit/data`
-- `@gamekit/asset`
-- `@gamekit/renderer-core`
-- `@gamekit/input-core`
-- `@gamekit/camera-core`
-- `@gamekit/physics-core`
-- `@gamekit/tca`
-- `@gamekit/gas`
-- `@gamekit/combat`
-- `@gamekit/navigation-core`
-- `@gamekit/ai-core`
-- `@gamekit/animator-core`
-- `@gamekit/audio-core`
-- `@gamekit/multiplayer-core`
-- `@gamekit/save`
+- `@gamekits/app-host`
+- `@gamekits/event-bus`
+- `@gamekits/game-runtime`
+- `@gamekits/world`
+- `@gamekits/data`
+- `@gamekits/asset`
+- `@gamekits/renderer-core`
+- `@gamekits/input-core`
+- `@gamekits/camera-core`
+- `@gamekits/physics-core`
+- `@gamekits/tca`
+- `@gamekits/gas`
+- `@gamekits/combat`
+- `@gamekits/navigation-core`
+- `@gamekits/ai-core`
+- `@gamekits/animator-core`
+- `@gamekits/audio-core`
+- `@gamekits/multiplayer-core`
+- `@gamekits/save`
 
 DevTools 是 App Service / tooling，不是 GameModule，不进入 gameplay loop，不改变正式玩法结果。它可以观察 GameRuntime、Host services、trace store、diagnostics 和 snapshots；只有显式 debug command / editor command 才能改变状态。
 
@@ -47,7 +47,7 @@ DevTools 是 App Service / tooling，不是 GameModule，不进入 gameplay loop
 
 ## 非目标
 
-- 不替代浏览器开发者工具、引擎原生 CPU flamegraph、GPU profiler 或录制回放系统。DevTools 负责 GameKit 级 frame / system / service / adapter span、预算和归因。
+- 不替代浏览器开发者工具、引擎原生 CPU flamegraph、GPU profiler 或录制回放系统。DevTools 负责 GameKits 级 frame / system / service / adapter span、预算和归因。
 - 不负责修改 gameplay 规则；调试命令必须显式注册并可审计。
 - 不存储长期游戏进度；DevTools snapshot 和 trace buffer 是可丢弃调试数据。
 - 不直接解析具体游戏业务数据模型，例如 hero、monster、building。
@@ -138,9 +138,9 @@ const profile = createStandardAppProfile({
 
 `devtools: true` 等价于启用标准 preset。标准 preset 由 App Host 自动注册已经存在的标准服务数据源，例如 Host、Platform、Drivers、Data、Assets、Audio、Renderer、Input、Multiplayer、GameRuntime、UI 和 Save；标准 Combat、Navigation、AI、Animator GameModule 使用 core handle 装配时，也暴露同一 handle 的有界 snapshot。缺失的服务或未装配的模块不会生成空数据源，未绑定 handle 只报告 `bound: false`，不能触发 gameplay 行为。
 
-在标准 Web bootstrap 中，`devtools: true` 还表示“开发环境启用 DevTools 可视入口”：当应用安装并挂载 `@gamekit/devtools-ui` 且存在 `ui` service 时，页面应自动出现 DevTools launcher，并可以显示标准 pinned widgets。点击 launcher 打开完整 DevTools shell；DevTools shell 读取 `services.devtools` snapshot 和 UI Runtime panel metadata，不要求普通游戏手写入口。
+在标准 Web bootstrap 中，`devtools: true` 还表示“开发环境启用 DevTools 可视入口”：当应用安装并挂载 `@gamekits/devtools-ui` 且存在 `ui` service 时，页面应自动出现 DevTools launcher，并可以显示标准 pinned widgets。点击 launcher 打开完整 DevTools shell；DevTools shell 读取 `services.devtools` snapshot 和 UI Runtime panel metadata，不要求普通游戏手写入口。
 
-Headless app、测试环境或没有挂载 `@gamekit/devtools-ui` 的自定义 shell 不创建可视入口，只创建 DevToolsRuntime、sources、panels 和 commands。这样 `devtools: true` 在所有环境都安全，但“自动看到按钮”只属于带 DevTools UI package 的标准浏览器启动路径。
+Headless app、测试环境或没有挂载 `@gamekits/devtools-ui` 的自定义 shell 不创建可视入口，只创建 DevToolsRuntime、sources、panels 和 commands。这样 `devtools: true` 在所有环境都安全，但“自动看到按钮”只属于带 DevTools UI package 的标准浏览器启动路径。
 
 需要裁剪时使用配置：
 
@@ -188,13 +188,13 @@ Sandbox 可以追加 Tiny Camp 专用 source，但这些 source 不应成为 Dev
 DevTools 必须拆成运行时协议和 UI 实现两个包：
 
 ```txt
-@gamekit/devtools
+@gamekits/devtools
   - DevToolsRuntime
   - DataSource / Trace / Diagnostic / Profiler / Command
   - Panel metadata
   - 无 React、DOM、CSS、Tailwind、GSAP 依赖
 
-@gamekit/devtools-ui
+@gamekits/devtools-ui
   - DevToolsLauncher
   - DevToolsPinDock / pinned widgets
   - DevToolsShell
@@ -214,11 +214,11 @@ devtools → core
 
 边界规则：
 
-- `@gamekit/devtools` 不 import `@gamekit/devtools-ui`、React、DOM、Tailwind、GSAP 或 shadcn/ui。
-- `@gamekit/app-host` 不 import `@gamekit/devtools-ui`。App Host 只能注册 DevTools runtime、sources、panel metadata 和 UI Runtime panel definition。
-- `@gamekit/react-ui` 不内置 DevTools 专用面板。它只提供通用 UI shell、panel/window/modal/focus/style 基础设施。
-- `@gamekit/devtools-ui` 可以使用 `@gamekit/react-ui` 的通用基础设施，但 DevTools-specific UI 不回流进 `react-ui`。
-- 普通游戏可以不安装 `@gamekit/devtools-ui`；这时仍可在 headless 或测试中使用 `@gamekit/devtools`。
+- `@gamekits/devtools` 不 import `@gamekits/devtools-ui`、React、DOM、Tailwind、GSAP 或 shadcn/ui。
+- `@gamekits/app-host` 不 import `@gamekits/devtools-ui`。App Host 只能注册 DevTools runtime、sources、panel metadata 和 UI Runtime panel definition。
+- `@gamekits/react-ui` 不内置 DevTools 专用面板。它只提供通用 UI shell、panel/window/modal/focus/style 基础设施。
+- `@gamekits/devtools-ui` 可以使用 `@gamekits/react-ui` 的通用基础设施，但 DevTools-specific UI 不回流进 `react-ui`。
+- 普通游戏可以不安装 `@gamekits/devtools-ui`；这时仍可在 headless 或测试中使用 `@gamekits/devtools`。
 
 ## Launcher / Pin Surface / Shell
 
@@ -262,7 +262,7 @@ devtools: {
     shell: {
       defaultOpen: false,
       hotkeys: ["F12", "Backquote"],
-      panelId: "gamekit.devtools.shell"
+      panelId: "gamekits.devtools.shell"
     },
     pins: {
       enabled: true,
@@ -328,7 +328,7 @@ export type DevToolsPanelDefinition = {
 - `pin.enabled` 只表示“这个 panel 可以被 pin”，不代表当前一定 pinned。
 - 当前 pinned / collapsed / order / size / area 是 DevTools UI 状态，不进入 DevToolsRuntime snapshot 的核心调试事实。
 - App / profile 可以给默认 pin 配置；用户调整后的 pin 布局属于开发工具 UI 偏好，可以存在 platform storage、本地 profile 或 editor workspace，不进入游戏 Save。
-- Panel 不应假设自己一定有 pinned renderer；没有 `@gamekit/devtools-ui` 时 metadata 仍然安全。
+- Panel 不应假设自己一定有 pinned renderer；没有 `@gamekits/devtools-ui` 时 metadata 仍然安全。
 - Pinned widget 应优先读取 DevTools snapshot 中已经聚合好的 summary。需要详情时打开 Shell 或请求 panel detail，避免常驻 widget 拉全量 source snapshot。
 
 DevTools UI 内部可以维护如下状态：
@@ -344,7 +344,7 @@ export type DevToolsPinnedPanelState = {
 };
 ```
 
-这个状态属于 `@gamekit/devtools-ui`，不是 `@gamekit/devtools` 必须持久化的 runtime 状态。
+这个状态属于 `@gamekits/devtools-ui`，不是 `@gamekits/devtools` 必须持久化的 runtime 状态。
 
 ## Standard Pinned Widgets
 
@@ -388,7 +388,7 @@ Performance pinned widget 最小信息：
 
 完整 panel 和 pinned widget 是两套 renderer，不要把完整 panel 缩小后塞进主屏幕。
 
-建议 `@gamekit/devtools-ui` 文件组织：
+建议 `@gamekits/devtools-ui` 文件组织：
 
 ```txt
 components/
@@ -538,7 +538,7 @@ TCA、GAS、Physics、Combat 等 domain trace store，以及 Navigation、AI、A
 
 ## Performance Profiler
 
-Performance Profiler 用于回答 GameKit 层面的“慢在哪里”，而不是做完整 JavaScript CPU profiler。它关注 frame、GameRuntime system、App Host service lifecycle、physics step/query、renderer sync、asset loading、driver boot 和 UI/DevTools 自身刷新成本。
+Performance Profiler 用于回答 GameKits 层面的“慢在哪里”，而不是做完整 JavaScript CPU profiler。它关注 frame、GameRuntime system、App Host service lifecycle、physics step/query、renderer sync、asset loading、driver boot 和 UI/DevTools 自身刷新成本。
 
 核心模型：
 
@@ -651,7 +651,7 @@ Profiler 规则：
 
 ## 面板模型
 
-DevTools 面板 metadata 由 `@gamekit/devtools` 定义，实际渲染由 `@gamekit/devtools-ui` 或自定义工具 UI 完成，不直接耦合具体 app。
+DevTools 面板 metadata 由 `@gamekits/devtools` 定义，实际渲染由 `@gamekits/devtools-ui` 或自定义工具 UI 完成，不直接耦合具体 app。
 
 ```ts
 export type DevToolsPanelDefinition = {
@@ -663,7 +663,7 @@ export type DevToolsPanelDefinition = {
 };
 ```
 
-Core 只定义 panel metadata 和数据源关系；`@gamekit/devtools-ui` 提供默认面板组件。具体游戏或 Editor 可以注册自定义面板，并在挂载 DevTools UI 时传入自定义 panel renderer；自定义面板仍应通过 DevToolsRuntime snapshot / data source / trace 读取数据，不直接抓模块私有对象。
+Core 只定义 panel metadata 和数据源关系；`@gamekits/devtools-ui` 提供默认面板组件。具体游戏或 Editor 可以注册自定义面板，并在挂载 DevTools UI 时传入自定义 panel renderer；自定义面板仍应通过 DevToolsRuntime snapshot / data source / trace 读取数据，不直接抓模块私有对象。
 
 ## 基础面板
 
@@ -764,13 +764,13 @@ DevTools 不能改变 system 执行顺序。profiler 包装必须保证 system �
 
 ## UI 集成
 
-DevTools UI 由 `@gamekit/devtools-ui` 提供，并复用 `ui-core` / `react-ui` 的通用能力：
+DevTools UI 由 `@gamekits/devtools-ui` 提供，并复用 `ui-core` / `react-ui` 的通用能力：
 
 - DevTools shell 是 UI panel/window，不是单独 DOM 管理体系。
 - DevTools focus 使用 `devtools` 或 `ui` input scope，不能让 gameplay/camera action 穿透。
 - DevTools 面板使用稳定 snapshot 和 selector，不订阅每帧大对象。
-- `@gamekit/react-ui` 只提供通用 UI 基础设施，不内置 DevTools 专用面板。
-- `@gamekit/devtools-ui` 提供默认 DevTools launcher、shell 和标准面板。
+- `@gamekits/react-ui` 只提供通用 UI 基础设施，不内置 DevTools 专用面板。
+- `@gamekits/devtools-ui` 提供默认 DevTools launcher、shell 和标准面板。
 - 具体游戏可以注册自定义 DevTools 面板，并把 app-local renderer 传给 DevTools shell / overlay；面板仍通过 DevToolsRuntime 读取数据，不 import gameplay 私有 runtime 或 native renderer。
 
 DevTools 面板应支持：
@@ -843,13 +843,13 @@ DevTools diagnostic 至少包含：
 ### 模块集成
 
 - DevTools 作为 App Service / tooling 集成，普通游戏优先使用 App Host 的 `devtools: true` 标准 preset。
-- 标准浏览器应用若安装并挂载 `@gamekit/devtools-ui`，`devtools: true` 应自动出现 DevTools launcher 并能打开 shell。
+- 标准浏览器应用若安装并挂载 `@gamekits/devtools-ui`，`devtools: true` 应自动出现 DevTools launcher 并能打开 shell。
 - 只有业务专属状态需要通过 app profile 追加自定义 data source、panel definitions 和 debug commands。
 - 各模块通过稳定 snapshot、trace store 或 diagnostics 接入 DevTools，不把私有 runtime、native handle 或第三方库对象交给 DevTools Core。
 - 使用 App Host gameplay correlation helper 时只释放 helper，不重复注册或分别释放其 DataSource/source；自定义 summary 必须小、可序列化，并通过 redaction policy 删除 secret、token 和完整业务 payload。
 - Performance profiler 通过 App Host/test harness 或 runtime wrapper 接入，不能改变 system 执行顺序、错误传播或 gameplay 结果。
 - 普通游戏优先使用标准 profiler preset；只有业务热点需要自定义 span 或 budget。
-- DevTools UI 通过 `@gamekit/devtools-ui` mount，focus 必须进入 `devtools` 或 `ui` input scope。
+- DevTools UI 通过 `@gamekits/devtools-ui` mount，focus 必须进入 `devtools` 或 `ui` input scope。
 - Headless 测试应能不启动 React、浏览器或 Phaser，只用 DevToolsRuntime 验证 data source、trace correlation 和 profiler。
 - 修改 correlation ingest/index/snapshot 时运行 `corepack pnpm bench:diagnostics:check`，同时检查每条 trace 成本、snapshot 成本和 retained 上限。
 

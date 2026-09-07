@@ -1,6 +1,6 @@
 import { schema, type SchemaType } from "@colyseus/schema";
 
-export type GameKitColyseusNativeStateMessage = {
+export type GameKitsColyseusNativeStateMessage = {
   sessionId: string;
   sourcePeerId: string;
   tick: number;
@@ -9,7 +9,7 @@ export type GameKitColyseusNativeStateMessage = {
   stateJson: string;
 };
 
-export const GameKitColyseusNativeState = schema({
+export const GameKitsColyseusNativeState = schema({
   sessionId: "string",
   sourcePeerId: "string",
   tick: "number",
@@ -20,4 +20,4 @@ export const GameKitColyseusNativeState = schema({
   updateCount: "number"
 });
 
-export type GameKitColyseusNativeState = SchemaType<typeof GameKitColyseusNativeState>;
+export type GameKitsColyseusNativeState = SchemaType<typeof GameKitsColyseusNativeState>;

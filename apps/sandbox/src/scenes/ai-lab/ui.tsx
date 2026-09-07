@@ -1,7 +1,7 @@
-import type { DevToolsRuntime } from "@gamekit/devtools";
-import { DevToolsOverlay } from "@gamekit/devtools-ui";
-import { GameKitUiShell, UiFocusBridge } from "@gamekit/react-ui";
-import type { UiRuntime } from "@gamekit/ui-core";
+import type { DevToolsRuntime } from "@gamekits/devtools";
+import { DevToolsOverlay } from "@gamekits/devtools-ui";
+import { GameKitsUiShell, UiFocusBridge } from "@gamekits/react-ui";
+import type { UiRuntime } from "@gamekits/ui-core";
 import { createRef, memo, type CSSProperties, type RefObject } from "react";
 import { flushSync } from "react-dom";
 import { createRoot, type Root as ReactRoot } from "react-dom/client";
@@ -104,12 +104,12 @@ function AiLabView({
     snapshot?.stress.status === "warming" || snapshot?.stress.status === "sampling";
 
   return (
-    <GameKitUiShell runtime={uiRuntime} className="ai-lab-ui" density="compact" theme="ai-lab">
+    <GameKitsUiShell runtime={uiRuntime} className="ai-lab-ui" density="compact" theme="ai-lab">
       <UiFocusBridge runtime={uiRuntime} gameViewportRef={stageRef} uiRootRef={shellRef} />
       <section className="ai-lab" ref={shellRef}>
         <header className="ai-lab__header">
           <div className="ai-lab__title-lockup">
-            <span>GAMEKIT · AI ECOSYSTEM LAB</span>
+            <span>GAMEKITS · AI ECOSYSTEM LAB</span>
             <h1>林间一日</h1>
             <p>每只小动物都在自己决定：先吃饭、喝水、休息，还是继续探索。</p>
           </div>
@@ -410,7 +410,7 @@ function AiLabView({
         </main>
       </section>
       <div className="devtools-overlay-root" ref={devtoolsRef} />
-    </GameKitUiShell>
+    </GameKitsUiShell>
   );
 }
 

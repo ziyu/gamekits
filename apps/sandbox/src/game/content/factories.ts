@@ -1,4 +1,4 @@
-import type { RenderObjectDefinition } from "@gamekit/renderer-core";
+import type { RenderObjectDefinition } from "@gamekits/renderer-core";
 import type { SandboxRenderNodeAnimation, SandboxSceneRole } from "../components";
 import { SANDBOX_ENTITY_TEXTURE_ID, SANDBOX_RING_TEXTURE_ID } from "./constants";
 import type {

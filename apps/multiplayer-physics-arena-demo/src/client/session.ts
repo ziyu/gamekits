@@ -1,7 +1,7 @@
-import { createStandardMultiplayerPhysicsArenaPrediction } from "@gamekit/app-host";
-import { createEventBus } from "@gamekit/event-bus";
-import { createGame, type GameInstallContext, type GameRuntime } from "@gamekit/game-runtime";
-import { createColyseusMultiplayerBackend } from "@gamekit/multiplayer-colyseus";
+import { createStandardMultiplayerPhysicsArenaPrediction } from "@gamekits/app-host";
+import { createEventBus } from "@gamekits/event-bus";
+import { createGame, type GameInstallContext, type GameRuntime } from "@gamekits/game-runtime";
+import { createColyseusMultiplayerBackend } from "@gamekits/multiplayer-colyseus";
 import {
   createMultiplayerAuthorityBindingStore,
   createMultiplayerModule,
@@ -9,13 +9,13 @@ import {
   defineMultiplayerReplicationSchema,
   type MultiplayerClientReplicationView,
   type MultiplayerRuntime
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import type {
   PhysicsBackendAdapter,
   PhysicsBodyState,
   PhysicsPredictionIslandStateSnapshot
-} from "@gamekit/physics-core";
-import { createKootaWorld } from "@gamekit/world-koota";
+} from "@gamekits/physics-core";
+import { createKootaWorld } from "@gamekits/world-koota";
 
 import { ARENA_COMPILED_CONTENT } from "../content/default-content";
 import { type ArenaItemActionType } from "../items/item-action";

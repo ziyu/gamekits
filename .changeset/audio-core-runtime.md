@@ -1,5 +1,5 @@
 ---
-"@gamekit/audio-core": minor
+"@gamekits/audio-core": minor
 ---
 
 Add a backend-neutral `GameAudio` facade with separate Music, SFX, Dialogue, Mix, and Spatial

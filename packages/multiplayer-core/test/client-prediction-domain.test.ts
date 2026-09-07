@@ -1,4 +1,4 @@
-import { createEventBus } from "@gamekit/event-bus";
+import { createEventBus } from "@gamekits/event-bus";
 import { describe, expect, it } from "vitest";
 import {
   createMultiplayerAuthorityBindingStore,

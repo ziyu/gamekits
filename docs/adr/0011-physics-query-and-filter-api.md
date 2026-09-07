@@ -16,7 +16,7 @@ ADR 0010 已决定引入统一 Physics facade 与多后端 adapter。下一步�
 - Collision layer/mask 容易和 team、damage channel、projectile owner 等玩法语义混在一起。
 - Backend 不支持某种 query 时可能静默降级，导致命中结果和调试信息不可信。
 
-GameKit 需要借鉴常见引擎的物理查询族，但不能复制某个引擎或某个物理库的 API。公共协议必须保持 backend-neutral、可测试、可保存、可诊断，并允许 adapter 在 native path 中暴露高级能力。
+GameKits 需要借鉴常见引擎的物理查询族，但不能复制某个引擎或某个物理库的 API。公共协议必须保持 backend-neutral、可测试、可保存、可诊断，并允许 adapter 在 native path 中暴露高级能力。
 
 ## Decision
 
@@ -43,7 +43,7 @@ Physics Core 使用一个统一 `PhysicsQuery` discriminated envelope 作为底�
 - `includeBodies?: PhysicsBodyId[]`
 - `includeColliders?: PhysicsColliderId[]`
 
-Query result 返回稳定 GameKit 字段：
+Query result 返回稳定 GameKits 字段：
 
 - `colliderId`
 - `bodyId`
@@ -85,7 +85,7 @@ Backend capability 必须声明：
 - collision filter 映射方式和 bit 数限制。
 - native path 是否可用。
 
-公共 API 调用未支持能力时，adapter 必须返回明确 diagnostic 或抛出 GameKit error，不能用不等价行为静默降级。
+公共 API 调用未支持能力时，adapter 必须返回明确 diagnostic 或抛出 GameKits error，不能用不等价行为静默降级。
 
 ## Consequences
 

@@ -1,4 +1,4 @@
-import type { DataTypeDefinition } from "@gamekit/data";
+import type { DataTypeDefinition } from "@gamekits/data";
 import type { AssetAnimationManifest, AssetDefinition, AssetSource, AssetType } from "./types";
 
 export type AssetDataTypeOptions = {

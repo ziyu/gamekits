@@ -1,4 +1,4 @@
-import { initRapier3dPhysicsBackend } from "@gamekit/physics-rapier3d";
+import { initRapier3dPhysicsBackend } from "@gamekits/physics-rapier3d";
 import { describe, expect, it } from "vitest";
 import { characterControllerLabIntent } from "./motor";
 import { createCharacterControllerLab } from "./runtime";

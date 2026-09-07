@@ -1,5 +1,5 @@
-import { createTcaModule } from "@gamekit/tca";
-import type { DataRegistry } from "@gamekit/data";
+import { createTcaModule } from "@gamekits/tca";
+import type { DataRegistry } from "@gamekits/data";
 import type { StandardServiceBuildContext, StandardTcaGameModuleOptions } from "../types";
 import { resolveStandardValue } from "../resolve";
 
@@ -16,7 +16,7 @@ export function createStandardTcaModule<TContext>(
     options.handle === undefined ? undefined : resolveStandardValue(ctx, options.handle);
 
   return createTcaModule({
-    id: options.id ?? "gamekit.tca",
+    id: options.id ?? "gamekits.tca",
     dataRegistry,
     ruleKind: options.ruleKind,
     definitions,

@@ -1,8 +1,8 @@
-import "@gamekit/devtools-ui/styles.css";
+import "@gamekits/devtools-ui/styles.css";
 import "./styles.css";
-import { createConfiguredAppHost } from "@gamekit/app-host";
-import type { InputActionEvent } from "@gamekit/input-core";
-import { createUiRuntime } from "@gamekit/ui-core";
+import { createConfiguredAppHost } from "@gamekits/app-host";
+import type { InputActionEvent } from "@gamekits/input-core";
+import { createUiRuntime } from "@gamekits/ui-core";
 import { flushSync } from "react-dom";
 import { createRoot } from "react-dom/client";
 import { ABYSS_ACTION, applyAbyssInputAction } from "./app-input";

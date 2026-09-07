@@ -1,5 +1,5 @@
-import { createGameAudio, type CreateGameAudioOptions, type GameAudio } from "@gamekit/audio-core";
-import type { AudioBackend } from "@gamekit/audio-core/backend";
+import { createGameAudio, type CreateGameAudioOptions, type GameAudio } from "@gamekits/audio-core";
+import type { AudioBackend } from "@gamekits/audio-core/backend";
 
 export const ARENA_AUDIO_IDS = {
   musicLobby: "music.knockout.lobby",

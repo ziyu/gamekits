@@ -6,9 +6,9 @@ Assets 负责资源声明、来源解析、加载状态、adapter 委托和低�
 
 相关包：
 
-- `@gamekit/asset`
-- `@gamekit/driver-phaser`
-- `@gamekit/driver-three`
+- `@gamekits/asset`
+- `@gamekits/driver-phaser`
+- `@gamekits/driver-three`
 
 核心原则：
 
@@ -77,7 +77,7 @@ export type AssetDefinition = {
 };
 ```
 
-`asset.definition` 是 GameKit 内置 DataType。DataRegistry 负责校验定义、追踪来源和引用关系；AssetManager 负责加载状态。
+`asset.definition` 是 GameKits 内置 DataType。DataRegistry 负责校验定义、追踪来源和引用关系；AssetManager 负责加载状态。
 
 Atlas metadata 只描述 atlas data source，Audio metadata 只描述可选格式 source 与实例策略，Animation manifest 只描述 clip/frame range；这些字段都保持 backend-neutral。`variants` 可以按 profile 替换 source 和附加 metadata，`resolveAssetVariant(...)` 只解析声明，不加载资源。DataType 必须校验 source、frame、variant key、audio source 和 animation id/range 的有效性，native texture、frame、sound 或 animation object 不进入 AssetDefinition。
 
@@ -162,7 +162,7 @@ Asset adapter 边界：
 - 返回稳定加载状态或错误。
 - 不读取 DataPack。
 - 不解释 gameplay 数据。
-- 不把 Phaser、Three.js、平台私有对象泄漏到 `@gamekit/asset` 公共 API。
+- 不把 Phaser、Three.js、平台私有对象泄漏到 `@gamekits/asset` 公共 API。
 
 ## 与 Data 的关系
 

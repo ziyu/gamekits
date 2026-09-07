@@ -6,7 +6,7 @@ import type {
   AiPerceptionFact,
   AiRuntimeSnapshot,
   AiTraceEntry
-} from "@gamekit/ai-core";
+} from "@gamekits/ai-core";
 
 export type AiLabSpecies = "rabbit" | "squirrel" | "hedgehog" | "mouse";
 
@@ -203,7 +203,7 @@ export type AiLabIntentRecord = {
 };
 
 export type AiLabBehaviorLogExport = {
-  schema: "gamekit.sandbox.ai-lab.behavior-log";
+  schema: "gamekits.sandbox.ai-lab.behavior-log";
   version: 1;
   sceneId: "ai-lab";
   exportedAt: number;

@@ -1,4 +1,4 @@
-import type { PhysicsPredictionIsland } from "@gamekit/physics-core";
+import type { PhysicsPredictionIsland } from "@gamekits/physics-core";
 import type { ArenaActorControlFrame, ArenaMatchPhase, ArenaMoveInput } from "../shared/config";
 
 export type ArenaActorAuthorityAction =

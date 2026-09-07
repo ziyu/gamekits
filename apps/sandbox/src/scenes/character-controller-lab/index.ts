@@ -1,6 +1,6 @@
-import { createConfiguredAppHost } from "@gamekit/app-host";
-import type { ThreeRendererNative } from "@gamekit/driver-three";
-import { initRapier3dPhysicsBackend } from "@gamekit/physics-rapier3d";
+import { createConfiguredAppHost } from "@gamekits/app-host";
+import type { ThreeRendererNative } from "@gamekits/driver-three";
+import { initRapier3dPhysicsBackend } from "@gamekits/physics-rapier3d";
 import { characterControllerLabAppDefinition } from "./app-definition";
 import {
   createCharacterControllerLabWebProfile,

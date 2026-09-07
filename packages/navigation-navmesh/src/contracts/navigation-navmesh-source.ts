@@ -1,4 +1,4 @@
-import type { NavigationPoint } from "@gamekit/navigation-core";
+import type { NavigationPoint } from "@gamekits/navigation-core";
 
 export type NavigationNavMeshBuildProfile = {
   /** Horizontal raster cell size in world units. */

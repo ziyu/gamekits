@@ -5,7 +5,7 @@ import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
-const workDir = mkdtempSync(join(tmpdir(), "gamekit-core-release-"));
+const workDir = mkdtempSync(join(tmpdir(), "gamekits-core-release-"));
 const packDir = join(workDir, "pack");
 const consumerDir = join(workDir, "consumer");
 
@@ -21,7 +21,7 @@ try {
   mkdirSync(packDir, { recursive: true });
   mkdirSync(consumerDir, { recursive: true });
 
-  run("corepack", ["pnpm", "--filter", "@gamekit/core", "pack", "--pack-destination", packDir]);
+  run("corepack", ["pnpm", "--filter", "@gamekits/core", "pack", "--pack-destination", packDir]);
 
   const tarballs = run("find", [packDir, "-maxdepth", "1", "-name", "*.tgz"])
     .trim()
@@ -53,7 +53,7 @@ try {
     join(consumerDir, "package.json"),
     JSON.stringify(
       {
-        name: "gamekit-core-release-smoke",
+        name: "gamekits-core-release-smoke",
         private: true,
         type: "module"
       },
@@ -70,7 +70,7 @@ try {
       "--input-type=module",
       "-e",
       [
-        "import { Clock, Registry, createSeededRng } from '@gamekit/core';",
+        "import { Clock, Registry, createSeededRng } from '@gamekits/core';",
         "const clock = new Clock();",
         "clock.start();",
         "clock.tick(16);",
@@ -82,7 +82,7 @@ try {
     consumerDir
   );
 
-  console.log(`Verified @gamekit/core release tarball: ${tarball}`);
+  console.log(`Verified @gamekits/core release tarball: ${tarball}`);
 } finally {
   rmSync(workDir, { recursive: true, force: true });
 }

@@ -1,4 +1,4 @@
-import type { FsBaseDir, PlatformFileSystem, PlatformPath } from "@gamekit/platform-core";
+import type { FsBaseDir, PlatformFileSystem, PlatformPath } from "@gamekits/platform-core";
 import { encodeBase64, decodeBase64 } from "./base64";
 import { createMissingSlotError, createSaveError } from "./errors";
 import { serializeStoreMutation } from "./store-queue";
@@ -11,7 +11,7 @@ export type PlatformFileSaveStoreOptions = {
   baseDir?: FsBaseDir;
 };
 
-type SlotRecord = { format: "gamekit.slot.v1"; data: string; metadata: SaveSlotSummary };
+type SlotRecord = { format: "gamekits.slot.v1"; data: string; metadata: SaveSlotSummary };
 
 export function createPlatformFileSaveStore(options: PlatformFileSaveStoreOptions): SaveStore {
   const { fs, path } = options;
@@ -26,7 +26,7 @@ export function createPlatformFileSaveStore(options: PlatformFileSaveStoreOption
   const readRecord = async (id: string): Promise<SlotRecord> => {
     const record = JSON.parse(await fs.readText(slotPath(id, "slot"), fsOptions)) as SlotRecord;
     if (
-      record?.format !== "gamekit.slot.v1" ||
+      record?.format !== "gamekits.slot.v1" ||
       typeof record.data !== "string" ||
       record.metadata?.id !== id
     ) {
@@ -74,7 +74,7 @@ export function createPlatformFileSaveStore(options: PlatformFileSaveStoreOption
           "File saves require atomic replacement and removal"
         );
       const record: SlotRecord = {
-        format: "gamekit.slot.v1",
+        format: "gamekits.slot.v1",
         data: encodeBase64(data),
         metadata: { ...metadata, id }
       };

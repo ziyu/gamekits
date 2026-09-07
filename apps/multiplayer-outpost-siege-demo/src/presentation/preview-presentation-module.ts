@@ -1,13 +1,13 @@
-import { defineGameModule } from "@gamekit/core";
-import type { DataRegistry } from "@gamekit/data";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import { defineGameModule } from "@gamekits/core";
+import type { DataRegistry } from "@gamekits/data";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import {
   PhysicsBodyComponent,
   PhysicsTransformComponent,
   type PhysicsInterpolationStore,
   type PhysicsInterpolationTransform
-} from "@gamekit/physics-core";
-import type { RenderObjectDefinition, RendererAdapter } from "@gamekit/renderer-core";
+} from "@gamekits/physics-core";
+import type { RenderObjectDefinition, RendererAdapter } from "@gamekits/renderer-core";
 import { OUTPOST_ARENA_DEFINITION_ID } from "../content/arena-scene";
 import {
   OUTPOST_ARENA_TYPE,

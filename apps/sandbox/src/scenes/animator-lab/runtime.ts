@@ -4,16 +4,16 @@ import type {
   AnimatorMarkerEvent,
   AnimatorRuntimeSnapshot,
   AnimatorTraceEntry
-} from "@gamekit/animator-core";
+} from "@gamekits/animator-core";
 import type {
   AnimationPlaybackAdapter,
   AnimationPlaybackFrame
-} from "@gamekit/animator-core/playback";
+} from "@gamekits/animator-core/playback";
 import type {
   RenderObjectDefinition,
   RenderObjectId,
   RendererAdapter
-} from "@gamekit/renderer-core";
+} from "@gamekits/renderer-core";
 import { ANIMATOR_LAB_BINDING_ID, ANIMATOR_LAB_TEXTURE_ID } from "./content";
 
 const CONTROLLER_ID = "sandbox.animator-lab.signal-runner";

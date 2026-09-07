@@ -9,7 +9,7 @@ import {
   GasEffects,
   GasTags
 } from "./components";
-import type { ComponentDef } from "@gamekit/world";
+import type { ComponentDef } from "@gamekits/world";
 import {
   cloneGasActorState,
   cloneGasAttributes,

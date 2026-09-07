@@ -1,5 +1,5 @@
-import type { GameModule } from "@gamekit/core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import type { GameModule } from "@gamekits/core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import { resolveDriverCamera } from "../driver-adapters";
 import { resolveStandardValue } from "../resolve";
 import type {

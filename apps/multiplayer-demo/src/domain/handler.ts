@@ -1,5 +1,5 @@
-import type { GameInstallContext } from "@gamekit/game-runtime";
-import type { MultiplayerCommandHandler } from "@gamekit/multiplayer-core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
+import type { MultiplayerCommandHandler } from "@gamekits/multiplayer-core";
 import {
   decodeMultiplayerDemoCommand,
   MULTIPLAYER_DEMO_RELIABLE_CHANNEL,

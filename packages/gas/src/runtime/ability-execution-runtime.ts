@@ -1,4 +1,4 @@
-import type { DataRegistry } from "@gamekit/data";
+import type { DataRegistry } from "@gamekits/data";
 import { GAS_ABILITY_TYPE, GAS_EFFECT_TYPE } from "./data-types";
 import { createGasError } from "./errors";
 import { assertGasEffectPeriod } from "./effect-validation";

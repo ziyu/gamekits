@@ -1,4 +1,4 @@
-# @gamekit/world
+# @gamekits/world
 
 ## 0.1.0-alpha.8
 

@@ -1,15 +1,15 @@
-# @gamekit/physics-core
+# @gamekits/physics-core
 
 ## 0.1.0-alpha.8
 
 ### Patch Changes
 
 - Updated dependencies [0326356]
-  - @gamekit/save@0.1.0-alpha.8
-  - @gamekit/core@0.1.0-alpha.8
-  - @gamekit/world@0.1.0-alpha.8
-  - @gamekit/game-runtime@0.1.0-alpha.8
-  - @gamekit/data@0.1.0-alpha.8
+  - @gamekits/save@0.1.0-alpha.8
+  - @gamekits/core@0.1.0-alpha.8
+  - @gamekits/world@0.1.0-alpha.8
+  - @gamekits/game-runtime@0.1.0-alpha.8
+  - @gamekits/data@0.1.0-alpha.8
 
 ## 0.1.0-alpha.7
 
@@ -20,11 +20,11 @@
 ### Patch Changes
 
 - Updated dependencies [398165e]
-  - @gamekit/game-runtime@0.1.0-alpha.7
-  - @gamekit/save@0.1.0-alpha.7
-  - @gamekit/core@0.1.0-alpha.7
-  - @gamekit/world@0.1.0-alpha.7
-  - @gamekit/data@0.1.0-alpha.7
+  - @gamekits/game-runtime@0.1.0-alpha.7
+  - @gamekits/save@0.1.0-alpha.7
+  - @gamekits/core@0.1.0-alpha.7
+  - @gamekits/world@0.1.0-alpha.7
+  - @gamekits/data@0.1.0-alpha.7
 
 ## 0.1.0-alpha.6
 
@@ -34,29 +34,29 @@
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.6
-- @gamekit/world@0.1.0-alpha.6
-- @gamekit/game-runtime@0.1.0-alpha.6
-- @gamekit/data@0.1.0-alpha.6
-- @gamekit/save@0.1.0-alpha.6
+- @gamekits/core@0.1.0-alpha.6
+- @gamekits/world@0.1.0-alpha.6
+- @gamekits/game-runtime@0.1.0-alpha.6
+- @gamekits/data@0.1.0-alpha.6
+- @gamekits/save@0.1.0-alpha.6
 
 ## 0.1.0-alpha.5
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.5
-- @gamekit/world@0.1.0-alpha.5
-- @gamekit/game-runtime@0.1.0-alpha.5
-- @gamekit/data@0.1.0-alpha.5
+- @gamekits/core@0.1.0-alpha.5
+- @gamekits/world@0.1.0-alpha.5
+- @gamekits/game-runtime@0.1.0-alpha.5
+- @gamekits/data@0.1.0-alpha.5
 
 ## 0.1.0-alpha.4
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.4
-- @gamekit/world@0.1.0-alpha.4
-- @gamekit/game-runtime@0.1.0-alpha.4
-- @gamekit/data@0.1.0-alpha.4
+- @gamekits/core@0.1.0-alpha.4
+- @gamekits/world@0.1.0-alpha.4
+- @gamekits/game-runtime@0.1.0-alpha.4
+- @gamekits/data@0.1.0-alpha.4
 
 ## 0.1.0-alpha.3
 

@@ -1,5 +1,5 @@
-import type { GameInstallContext } from "@gamekit/game-runtime";
-import { createDataRegistry } from "@gamekit/data";
+import type { GameInstallContext } from "@gamekits/game-runtime";
+import { createDataRegistry } from "@gamekits/data";
 import { describe, expect, it } from "vitest";
 import {
   createNavigationAgentProfileDataType,

@@ -1,4 +1,4 @@
-import type { ComponentDef, EntityId, GameWorld } from "@gamekit/world";
+import type { ComponentDef, EntityId, GameWorld } from "@gamekits/world";
 
 export function createMemoryWorld(): GameWorld {
   let nextEntity = 1;

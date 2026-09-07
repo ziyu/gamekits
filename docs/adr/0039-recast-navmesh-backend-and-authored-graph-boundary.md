@@ -10,13 +10,13 @@ Related decisions: ADR 0036 defines the public query/backend lifecycle; ADR 0037
 
 Graph 和 Grid 已经验证同一 Navigation Handle 可以切换不同 Backend，但复杂自由空间暴露了错误的职责扩张：Sandbox 曾从 raster terrain 中选择大量采样点，再为每个点保留多方向 line-of-sight 边。它虽然能够避免明显穿墙，却生成了接近 visibility mesh 的高密度网络，无法表达道路、门洞、走廊和备用通路等稀疏语义；agent radius clearance、轮廓简化、region decomposition、portal corridor 和局部重建也会逐步迫使项目重写成熟 NavMesh 工具链。
 
-GameKit 的设计信条要求成熟库负责底层能力。Graph Backend 已有明确定位：它适合人工或内容工具产出的道路、巡逻、交通和剧情移动网络，不应承担任意自由空间烘焙。复杂二维/三维地形需要独立 NavMesh Backend，并继续通过 Navigation Core 的 backend port、layout、profile、revision 和 diagnostics 组合。
+GameKits 的设计信条要求成熟库负责底层能力。Graph Backend 已有明确定位：它适合人工或内容工具产出的道路、巡逻、交通和剧情移动网络，不应承担任意自由空间烘焙。复杂二维/三维地形需要独立 NavMesh Backend，并继续通过 Navigation Core 的 backend port、layout、profile、revision 和 diagnostics 组合。
 
 ## Decision
 
 ### Graph 回归稀疏 authored route network
 
-`@gamekit/navigation-graph` 只消费明确 authored nodes/edges。App/editor tooling 可以从道路 spline、门洞、房间连接、地图语义或策划标注生成 Graph，但不能把任意自由空间中的所有可见关系当成最终 topology。
+`@gamekits/navigation-graph` 只消费明确 authored nodes/edges。App/editor tooling 可以从道路 spline、门洞、房间连接、地图语义或策划标注生成 Graph，但不能把任意自由空间中的所有可见关系当成最终 topology。
 
 Graph authoring 必须满足：
 
@@ -25,20 +25,20 @@ Graph authoring 必须满足：
 - 自动工具生成的候选 visibility、采样点或中间几何只进入 tooling diagnostics，不直接成为运行时 Graph。
 - 自由空间路径平滑不能靠预先塞入大量跨区捷径实现。
 
-### 新增 GameKit-owned NavMesh source package
+### 新增 GameKits-owned NavMesh source package
 
-新增 `@gamekit/navigation-navmesh`，定义不依赖具体库的 NavMesh build source、area/triangle 标注、DataType 和 validation。它是 backend/tooling authoring contract，不进入 gameplay root API，也不拥有几何烘焙算法。
+新增 `@gamekits/navigation-navmesh`，定义不依赖具体库的 NavMesh build source、area/triangle 标注、DataType 和 validation。它是 backend/tooling authoring contract，不进入 gameplay root API，也不拥有几何烘焙算法。
 
 稳定 source 使用普通可序列化数据表达三角形地形、agent build 参数和 area metadata。Recast native objects、poly refs、query filters、WASM handles 和序列化 native tile 不进入该包公共协议。
 
 ### 通过独立 Recast adapter 接入成熟实现
 
-新增 `@gamekit/navigation-recast`，依赖 `@gamekit/navigation-navmesh`、`@gamekit/navigation-core/backend` 和 `recast-navigation`。该包负责：
+新增 `@gamekits/navigation-recast`，依赖 `@gamekits/navigation-navmesh`、`@gamekits/navigation-core/backend` 和 `recast-navigation`。该包负责：
 
 - 显式异步初始化 Recast WebAssembly runtime。
-- 从 GameKit NavMesh source 生成 single/tiled NavMesh。
+- 从 GameKits NavMesh source 生成 single/tiled NavMesh。
 - 把 projection、path query、area filter/cost、off-mesh connection、revision 和 dispose 映射到 Navigation Backend port。
-- 在 Detour query boundary 等比例归一化 area cost，使最小可通行有效 cost 为 `1`；GameKit 仍允许小于 `1` 的优惠区域，公共 result/debug/cost limit 使用未归一化 cost。
+- 在 Detour query boundary 等比例归一化 area cost，使最小可通行有效 cost 为 `1`；GameKits 仍允许小于 `1` 的优惠区域，公共 result/debug/cost limit 使用未归一化 cost。
 - 通过 typed tooling/native boundary 提供 backend-specific debug geometry；不把 Recast 类型泄漏到 Navigation Core、gameplay、Data 或 Save。
 - 对 runtime generation、query 和 native resource 生命周期产生 bounded diagnostics。
 
@@ -64,7 +64,7 @@ Navigation Lab 保持一份场景 API：
 
 Positive consequences:
 
-- GameKit 不再维护自研自由空间拓扑生成器，产品级 clearance、region、contour 和 polygon generation 交给成熟库。
+- GameKits 不再维护自研自由空间拓扑生成器，产品级 clearance、region、contour 和 polygon generation 交给成熟库。
 - Graph、Grid 和 NavMesh 的职责不再混淆，调试图层更可解释。
 - Recast 被限制在具体 adapter，未来可替换为 navcat、原生服务或离线导入器而不改变 gameplay API。
 - NavMesh runtime 可以复用 Core 的 request、cache、revision、route retention 和 trace，而不复制第二套游戏侧 facade。
@@ -74,7 +74,7 @@ Costs and constraints:
 - WebAssembly 需要异步初始化、资源释放、bundler 配置和 Worker/离线烘焙策略。
 - 不同 agent radius 通常需要不同 build profile 或明确的多层 NavMesh；仅靠 query filter 不能恢复烘焙时被侵蚀掉的空间。
 - Recast 参数仍需要按游戏尺度校准，但这是有边界的内容配置，不再是自研算法调参。
-- Detour A\* 的 heuristic 假设 traversal multiplier 不小于 `1`；Adapter 必须保留 query-time 归一化及低于 `1` 的折扣绕路回归测试，不能直接把 GameKit cost 原值写入 native filter。
+- Detour A\* 的 heuristic 假设 traversal multiplier 不小于 `1`；Adapter 必须保留 query-time 归一化及低于 `1` 的折扣绕路回归测试，不能直接把 GameKits cost 原值写入 native filter。
 - `recast-navigation` 是 adapter dependency；升级必须通过 package tests、Sandbox behavior matrix 和外部发布 smoke。
 
 ## Rejected Alternatives

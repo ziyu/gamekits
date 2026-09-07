@@ -1,10 +1,10 @@
-import { createAssetDataType, type AssetDefinition } from "@gamekit/asset";
+import { createAssetDataType, type AssetDefinition } from "@gamekits/asset";
 import {
   createDataRegistry,
   type DataPack,
   type DataPackEntry,
   type DataRegistry
-} from "@gamekit/data";
+} from "@gamekits/data";
 
 export const THREE_DEMO_ASSET_GROUP = "three-demo.remote";
 

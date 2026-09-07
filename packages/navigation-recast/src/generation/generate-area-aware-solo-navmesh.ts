@@ -1,4 +1,4 @@
-import type { NavigationNavMeshSource } from "@gamekit/navigation-navmesh";
+import type { NavigationNavMeshSource } from "@gamekits/navigation-navmesh";
 import {
   allocCompactHeightfield,
   allocContourSet,

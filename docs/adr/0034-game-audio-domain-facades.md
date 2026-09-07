@@ -23,7 +23,7 @@ ADR 0033 解决了最初 cue/voice command API 缺少稳定播放实例、分层
 
 ### 首层 API 按游戏音频领域拆分
 
-`@gamekit/audio-core` 的应用侧入口是 `GameAudio`，不提供可播放任意内容的顶层 `play(eventId)`：
+`@gamekits/audio-core` 的应用侧入口是 `GameAudio`，不提供可播放任意内容的顶层 `play(eventId)`：
 
 ```ts
 export interface GameAudio {
@@ -67,7 +67,7 @@ Music、SFX 和 Dialogue 可以共享内部 playback coordinator、逻辑 instan
 
 公共术语使用：
 
-- `PlaybackInstance` / `PlaybackHandle`：GameKit 可控制的逻辑播放生命周期。
+- `PlaybackInstance` / `PlaybackHandle`：GameKits 可控制的逻辑播放生命周期。
 - `Dialogue` / `VoiceOver`：人声对白内容。
 - `nativeChannel` 或 `nativePlaybackCount`：Backend 内部播放槽位或 diagnostics 计数。
 

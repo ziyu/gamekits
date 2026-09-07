@@ -3,7 +3,7 @@ import {
   type PhysicsKinematicSweepQueries,
   type PhysicsQueryResult,
   type PhysicsVector
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 import {
   cloneCombatKinematicProjectileRecord,
   createCombatKinematicProjectileRecordBuffer,

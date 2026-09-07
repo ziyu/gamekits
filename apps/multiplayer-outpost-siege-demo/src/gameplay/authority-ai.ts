@@ -9,18 +9,18 @@ import {
   type AiTaskExecutor,
   type AiTaskStep,
   type AiUtilityInputResolver
-} from "@gamekit/ai-core";
-import { defineGameModule } from "@gamekit/core";
-import type { DataRegistry } from "@gamekit/data";
-import type { GameInstallContext } from "@gamekit/game-runtime";
-import type { GasHandle } from "@gamekit/gas";
-import type { NavigationHandle, NavigationPoint } from "@gamekit/navigation-core";
+} from "@gamekits/ai-core";
+import { defineGameModule } from "@gamekits/core";
+import type { DataRegistry } from "@gamekits/data";
+import type { GameInstallContext } from "@gamekits/game-runtime";
+import type { GasHandle } from "@gamekits/gas";
+import type { NavigationHandle, NavigationPoint } from "@gamekits/navigation-core";
 import {
   PhysicsTransformComponent,
   PhysicsVelocityComponent,
   type PhysicsQueries
-} from "@gamekit/physics-core";
-import type { GameWorld } from "@gamekit/world";
+} from "@gamekits/physics-core";
+import type { GameWorld } from "@gamekits/world";
 
 import { OUTPOST_NAVIGATION_PROFILE_ID } from "../content/foundation-definitions";
 import { OUTPOST_ENEMY_TYPE, type OutpostEnemyDefinition } from "../domain";

@@ -40,7 +40,7 @@ type PackageManifest = {
 };
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
-const releaseRepositoryUrl = "https://github.com/ziyu/gamekit";
+const releaseRepositoryUrl = "https://github.com/ziyu/gamekits";
 const workspaceVersion = (
   JSON.parse(readFileSync(join(root, "packages/core/package.json"), "utf8")) as PackageManifest
 ).version;
@@ -118,7 +118,7 @@ import { createPlatformServiceRegistry } from "@gamekits/platform-core";
 import { createMultiplayerRuntime } from "@gamekits/multiplayer-core";
 import { createMemoryMultiplayerBackend } from "@gamekits/multiplayer-memory";
 import { createColyseusMultiplayerBackend } from "@gamekits/multiplayer-colyseus";
-import { GameKitColyseusRoom } from "@gamekits/multiplayer-colyseus/server";
+import { GameKitsColyseusRoom } from "@gamekits/multiplayer-colyseus/server";
 
 const clock = new Clock();
 clock.start();
@@ -156,7 +156,7 @@ const colyseusBackend = createColyseusMultiplayerBackend({
   endpoint: "ws://127.0.0.1:1",
   roomName: "release_smoke"
 });
-if (colyseusBackend.kind !== "colyseus" || typeof GameKitColyseusRoom !== "function") {
+if (colyseusBackend.kind !== "colyseus" || typeof GameKitsColyseusRoom !== "function") {
   throw new Error("colyseus multiplayer smoke failed");
 }
 const multiplayerHost = createMultiplayerRuntime({
@@ -457,8 +457,8 @@ import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createUiRuntime as createWave3UiRuntime } from "@gamekits/ui-core";
 import {
-  createGameKitUiAnimator,
-  GameKitUiShell,
+  createGameKitsUiAnimator,
+  GameKitsUiShell,
   UiPanelHost,
   UiTip
 } from "@gamekits/react-ui";
@@ -486,7 +486,7 @@ ui.open("actor", { actorId: "a" });
 
 const shellHtml = renderToStaticMarkup(
   createElement(
-    GameKitUiShell,
+    GameKitsUiShell,
     { runtime: ui },
     createElement(UiPanelHost, {
       renderPanel: (panel) => createElement("span", null, String(panel.props))
@@ -503,7 +503,7 @@ const tipHtml = renderToStaticMarkup(
 );
 if (!tipHtml.includes('role="tooltip"')) throw new Error("react-ui tip smoke failed");
 
-const animator = createGameKitUiAnimator({ reducedMotion: true });
+const animator = createGameKitsUiAnimator({ reducedMotion: true });
 if (typeof animator.enter !== "function" || typeof animator.exit !== "function") {
   throw new Error("react-ui animator smoke failed");
 }
@@ -517,7 +517,7 @@ if (!bridge.snapshot().shell.open) throw new Error("devtools-ui bridge smoke fai
 const launcherHtml = renderToStaticMarkup(
   createElement(DevToolsLauncher, { runtime: devtools, uiRuntime: devtoolsUi, label: "Inspect" })
 );
-if (!launcherHtml.includes("gamekit-devtools-launcher")) {
+if (!launcherHtml.includes("gamekits-devtools-launcher")) {
   throw new Error("devtools-ui launcher smoke failed");
 }
 
@@ -544,7 +544,7 @@ function unique(values: string[]): string[] {
 function readWorkspacePackageManifest(slug: string): PackageManifest {
   const manifestPath = join(root, "packages", slug, "package.json");
   if (!existsSync(manifestPath)) {
-    throw new Error(`Unknown GameKit package: ${slug}`);
+    throw new Error(`Unknown GameKits package: ${slug}`);
   }
 
   return JSON.parse(readFileSync(manifestPath, "utf8")) as PackageManifest;
@@ -571,8 +571,8 @@ function workspaceDependencySlugs(manifest: PackageManifest): string[] {
       ...Object.keys(manifest.optionalDependencies ?? {}),
       ...Object.keys(manifest.optionalPeerDependencies ?? {})
     ]
-      .filter((name) => name.startsWith("@gamekit/"))
-      .map((name) => name.slice("@gamekit/".length))
+      .filter((name) => name.startsWith("@gamekits/"))
+      .map((name) => name.slice("@gamekits/".length))
   );
 }
 
@@ -586,12 +586,12 @@ function resolveWorkspacePackageClosure(packageSlugs: string[]): string[] {
       return;
     }
     if (visiting.has(slug)) {
-      throw new Error(`Circular GameKit package dependency detected at ${slug}`);
+      throw new Error(`Circular GameKits package dependency detected at ${slug}`);
     }
 
     const manifest = readWorkspacePackageManifest(slug);
     if (manifest.private === true) {
-      throw new Error(`Cannot include private GameKit package in release verification: ${slug}`);
+      throw new Error(`Cannot include private GameKits package in release verification: ${slug}`);
     }
 
     visiting.add(slug);
@@ -688,11 +688,7 @@ function runInherit(command: string, args: string[], cwd = root): void {
 }
 
 function workspaceName(slug: string): string {
-  return `@gamekit/${slug}`;
-}
-
-function publicName(name: string): string {
-  return name.replace(/^@gamekit\//, "@gamekits/");
+  return `@gamekits/${slug}`;
 }
 
 function mapDependencies(dependencies: Record<string, string> | undefined) {
@@ -702,8 +698,8 @@ function mapDependencies(dependencies: Record<string, string> | undefined) {
 
   const mapped = Object.fromEntries(
     Object.entries(dependencies).map(([name, range]) => {
-      if (name.startsWith("@gamekit/")) {
-        return [publicName(name), releaseVersion];
+      if (name.startsWith("@gamekits/")) {
+        return [name, releaseVersion];
       }
 
       return [name, range];
@@ -731,7 +727,7 @@ function rewritePackageScope(path: string): void {
   }
 
   const current = readFileSync(path, "utf8");
-  const next = current.replaceAll("@gamekit/", "@gamekits/");
+  const next = current.replaceAll("@gamekits/", "@gamekits/");
   if (next !== current) {
     writeFileSync(path, next);
   }
@@ -760,13 +756,13 @@ function listFiles(path: string): string[] {
   return readdirSync(path).flatMap((entry) => listFiles(join(path, entry)));
 }
 
-function assertNoInternalScope(path: string): void {
+function assertNoLegacyScope(path: string): void {
   const offenders = listFiles(path).filter((file) => {
     if (!/\.(js|mjs|cjs|d\.ts|map|json)$/.test(file)) {
       return false;
     }
 
-    return readFileSync(file, "utf8").includes("@gamekit/");
+    return /@gamekit\//.test(readFileSync(file, "utf8"));
   });
 
   if (offenders.length > 0) {
@@ -838,7 +834,7 @@ function preparePackage(slug: string, packagesDir: string): string {
     files: string[];
     publishConfig: { access: "public" };
   } = {
-    name: publicName(manifest.name),
+    name: manifest.name,
     version: releaseVersion,
     type: manifest.type,
     main: manifest.main,
@@ -873,7 +869,7 @@ function preparePackage(slug: string, packagesDir: string): string {
 
   assertPublishManifest(publishManifest, slug);
   writeJson(join(targetDir, "package.json"), publishManifest);
-  assertNoInternalScope(targetDir);
+  assertNoLegacyScope(targetDir);
 
   return targetDir;
 }
@@ -907,7 +903,7 @@ try {
   });
 
   const localTarballDependencies = Object.fromEntries(
-    packageSlugs.map((slug, index) => [publicName(workspaceName(slug)), `file:${tarballs[index]!}`])
+    packageSlugs.map((slug, index) => [workspaceName(slug), `file:${tarballs[index]!}`])
   );
   const runTestUtilsSmoke = shouldRunTestUtilsSmoke(packageSlugs);
 

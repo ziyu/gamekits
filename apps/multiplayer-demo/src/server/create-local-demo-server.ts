@@ -1,10 +1,10 @@
-import { createGameKitColyseusServer } from "@gamekit/multiplayer-colyseus/server";
-import { createColyseusMultiplayerBackend } from "@gamekit/multiplayer-colyseus";
+import { createGameKitsColyseusServer } from "@gamekits/multiplayer-colyseus/server";
+import { createColyseusMultiplayerBackend } from "@gamekits/multiplayer-colyseus";
 import {
   createMultiplayerRuntime,
   type MultiplayerMessageEnvelope,
   type MultiplayerRuntime
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import { createMultiplayerDemoRuntime, type MultiplayerDemoRuntime } from "../domain";
 import { createRealtimeArenaHost, type RealtimeArenaHost } from "../realtime/host";
 import {
@@ -13,7 +13,7 @@ import {
   type RealtimeArenaAuthorityPath
 } from "../realtime/authority-path";
 
-export const MULTIPLAYER_DEMO_ROOM_NAME = "gamekit_multiplayer_demo";
+export const MULTIPLAYER_DEMO_ROOM_NAME = "gamekits_multiplayer_demo";
 export const MULTIPLAYER_DEMO_SESSION_ID = "multiplayer-demo-session";
 export const MULTIPLAYER_DEMO_HOST_PEER_ID = "demo-host";
 
@@ -57,7 +57,7 @@ export async function createLocalMultiplayerDemoServer(
   const sessionId = options.sessionId ?? MULTIPLAYER_DEMO_SESSION_ID;
   const hostPeerId = options.hostPeerId ?? MULTIPLAYER_DEMO_HOST_PEER_ID;
   const authoritativePath = options.authoritativePath ?? REALTIME_ARENA_DEFAULT_AUTHORITY_PATH;
-  const colyseus = await createGameKitColyseusServer({
+  const colyseus = await createGameKitsColyseusServer({
     roomName,
     ...(options.port === undefined ? {} : { port: options.port }),
     roomOptions: {

@@ -153,13 +153,13 @@ function resolvePackageNames() {
     .map((manifestPath) => JSON.parse(readFileSync(manifestPath, "utf8")))
     .filter((manifest) => manifest.private !== true)
     .map((manifest) => manifest.name)
-    .filter((name) => typeof name === "string" && name.startsWith("@gamekit/"))
+    .filter((name) => typeof name === "string" && name.startsWith("@gamekits/"))
     .map(publicPackageName)
     .sort();
 }
 
 function publicPackageName(name) {
-  return name.replace(/^@gamekit\//, "@gamekits/");
+  return name.replace(/^@gamekits\//, "@gamekits/");
 }
 
 function git(args) {

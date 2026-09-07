@@ -1,4 +1,4 @@
-import type { AppHostSnapshot } from "@gamekit/app-host";
+import type { AppHostSnapshot } from "@gamekits/app-host";
 import type {
   ThreeDemoCameraPreset,
   ThreeDemoClip,
@@ -81,7 +81,7 @@ export function renderThreeDemoShell(root: HTMLElement): ThreeDemoUiHandles {
   const panel = element("aside", "three-demo__panel");
   const title = element("header", "three-demo__header");
   title.append(
-    element("p", "three-demo__eyebrow", "GameKit"),
+    element("p", "three-demo__eyebrow", "GameKits"),
     element("h1", "three-demo__title", "Three Capability Lab")
   );
 

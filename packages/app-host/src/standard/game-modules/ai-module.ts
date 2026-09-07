@@ -1,4 +1,4 @@
-import { createAiHandle, createAiModule, type CreateAiModuleOptions } from "@gamekit/ai-core";
+import { createAiHandle, createAiModule, type CreateAiModuleOptions } from "@gamekits/ai-core";
 import { resolveStandardValue } from "../resolve";
 import type { StandardServiceBuildContext, StandardValue } from "../types";
 

@@ -10,11 +10,11 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/event-bus": "workspace:*",
-    "@gamekit/game-runtime": "workspace:*",
-    "@gamekit/physics-core": "workspace:*",
-    "@gamekit/physics-rapier2d": "workspace:*",
-    "@gamekit/world": "workspace:*"
+    "@gamekits/event-bus": "workspace:*",
+    "@gamekits/game-runtime": "workspace:*",
+    "@gamekits/physics-core": "workspace:*",
+    "@gamekits/physics-rapier2d": "workspace:*",
+    "@gamekits/world": "workspace:*"
   },
   "devDependencies": {
     "vite": "^6.3.5",

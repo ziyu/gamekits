@@ -1,10 +1,10 @@
-import type { AnimatorBindingDefinition } from "@gamekit/animator-core";
+import type { AnimatorBindingDefinition } from "@gamekits/animator-core";
 import type {
   AnimationPlaybackAdapter,
   AnimationPlaybackFrame
-} from "@gamekit/animator-core/playback";
-import type { RenderNodePath, RenderObjectId } from "@gamekit/renderer-core";
-import type { PhaserRendererNative } from "@gamekit/renderer-phaser";
+} from "@gamekits/animator-core/playback";
+import type { RenderNodePath, RenderObjectId } from "@gamekits/renderer-core";
+import type { PhaserRendererNative } from "@gamekits/renderer-phaser";
 
 type BoundAnimationController = {
   binding: AnimatorBindingDefinition;

@@ -1,7 +1,7 @@
-import { DevToolsOverlay } from "@gamekit/devtools-ui";
-import type { DevToolsRuntime } from "@gamekit/devtools";
-import { GameKitUiShell, UiFocusBridge } from "@gamekit/react-ui";
-import type { UiRuntime } from "@gamekit/ui-core";
+import { DevToolsOverlay } from "@gamekits/devtools-ui";
+import type { DevToolsRuntime } from "@gamekits/devtools";
+import { GameKitsUiShell, UiFocusBridge } from "@gamekits/react-ui";
+import type { UiRuntime } from "@gamekits/ui-core";
 import { createRef } from "react";
 import { flushSync } from "react-dom";
 import { createRoot, type Root as ReactRoot } from "react-dom/client";
@@ -58,7 +58,7 @@ export function renderCombatRangeUi(rootElement: HTMLElement, uiRuntime: UiRunti
 
   flushSync(() => {
     root.render(
-      <GameKitUiShell
+      <GameKitsUiShell
         runtime={uiRuntime}
         className="combat-range-ui"
         density="compact"
@@ -170,7 +170,7 @@ export function renderCombatRangeUi(rootElement: HTMLElement, uiRuntime: UiRunti
           </footer>
         </section>
         <div className="combat-range__devtools" data-ui="combat-devtools" />
-      </GameKitUiShell>
+      </GameKitsUiShell>
     );
   });
 

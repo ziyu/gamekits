@@ -1,4 +1,4 @@
-import type { SaveContributor } from "@gamekit/save";
+import type { SaveContributor } from "@gamekits/save";
 import type { SandboxRuntime, SandboxSaveData } from "./types";
 
 export const SANDBOX_SAVE_SLOT_ID = "tiny-camp.local";

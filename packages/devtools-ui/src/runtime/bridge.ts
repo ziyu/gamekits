@@ -1,14 +1,14 @@
-import type { DevToolsUiSnapshot } from "@gamekit/devtools";
+import type { DevToolsUiSnapshot } from "@gamekits/devtools";
 import type { DevToolsUiBridge, DevToolsUiBridgeOptions } from "./types";
 
-const DEFAULT_LAUNCHER_PANEL_ID = "gamekit.devtools.launcher";
-const DEFAULT_SHELL_PANEL_ID = "gamekit.devtools.shell";
+const DEFAULT_LAUNCHER_PANEL_ID = "gamekits.devtools.launcher";
+const DEFAULT_SHELL_PANEL_ID = "gamekits.devtools.shell";
 
 export function createDevToolsUiBridge(options: DevToolsUiBridgeOptions): DevToolsUiBridge {
   const launcherPanelId = options.launcher?.panelId ?? DEFAULT_LAUNCHER_PANEL_ID;
   const shellPanelId =
     options.shell?.panelId ?? options.launcher?.shellPanelId ?? DEFAULT_SHELL_PANEL_ID;
-  const shellTitle = options.shell?.title ?? "GameKit DevTools";
+  const shellTitle = options.shell?.title ?? "GameKits DevTools";
   const launcherLabel = options.launcher?.label ?? "DevTools";
   const pins = options.pins;
 
@@ -91,7 +91,7 @@ function ensureShellPanel(
     id: shellPanelId,
     title: shellTitle,
     kind: "devtools",
-    tags: ["gamekit", "devtools", "shell"],
+    tags: ["gamekits", "devtools", "shell"],
     defaultProps: options.shell
   });
 }

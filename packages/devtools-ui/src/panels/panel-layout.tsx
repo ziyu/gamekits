@@ -1,4 +1,4 @@
-import type { DevToolsPanelDefinition } from "@gamekit/devtools";
+import type { DevToolsPanelDefinition } from "@gamekits/devtools";
 import type { ReactNode } from "react";
 
 export function PanelSummary({
@@ -13,7 +13,7 @@ export function PanelSummary({
   traces: number;
 }) {
   return (
-    <header className="gamekit-devtools-panel__summary">
+    <header className="gamekits-devtools-panel__summary">
       <div>
         <span>Panel</span>
         <strong>{panel.label}</strong>
@@ -27,7 +27,7 @@ export function PanelSummary({
 
 export function Metric({ label, value }: { label: string; value: number | string }) {
   return (
-    <div className="gamekit-devtools-metric">
+    <div className="gamekits-devtools-metric">
       <span>{label}</span>
       <strong>{value}</strong>
     </div>
@@ -36,7 +36,7 @@ export function Metric({ label, value }: { label: string; value: number | string
 
 export function EmptyState({ detail, title }: { detail: string; title: string }) {
   return (
-    <div className="gamekit-devtools-empty-state">
+    <div className="gamekits-devtools-empty-state">
       <strong>{title}</strong>
       <p>{detail}</p>
     </div>
@@ -45,7 +45,7 @@ export function EmptyState({ detail, title }: { detail: string; title: string })
 
 export function KeyValueGrid({ entries }: { entries: Array<[string, ReactNode]> }) {
   return (
-    <dl className="gamekit-devtools-kv-grid">
+    <dl className="gamekits-devtools-kv-grid">
       {entries.map(([label, value]) => (
         <div key={label}>
           <dt>{label}</dt>
@@ -58,13 +58,13 @@ export function KeyValueGrid({ entries }: { entries: Array<[string, ReactNode]> 
 
 export function ChipList({ items }: { items: Array<number | string> }) {
   if (items.length === 0) {
-    return <span className="gamekit-devtools-muted">none</span>;
+    return <span className="gamekits-devtools-muted">none</span>;
   }
 
   return (
-    <div className="gamekit-devtools-chip-list">
+    <div className="gamekits-devtools-chip-list">
       {items.map((item, index) => (
-        <span className="gamekit-devtools-chip" key={`${String(item)}:${index}`}>
+        <span className="gamekits-devtools-chip" key={`${String(item)}:${index}`}>
           {item}
         </span>
       ))}

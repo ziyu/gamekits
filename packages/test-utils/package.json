@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/test-utils",
+  "name": "@gamekits/test-utils",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -17,14 +17,14 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/ai-core": "workspace:*",
-    "@gamekit/animator-core": "workspace:*",
-    "@gamekit/audio-core": "workspace:*",
-    "@gamekit/event-bus": "workspace:*",
-    "@gamekit/navigation-core": "workspace:*",
-    "@gamekit/platform-core": "workspace:*",
-    "@gamekit/renderer-core": "workspace:*",
-    "@gamekit/world": "workspace:*"
+    "@gamekits/ai-core": "workspace:*",
+    "@gamekits/animator-core": "workspace:*",
+    "@gamekits/audio-core": "workspace:*",
+    "@gamekits/event-bus": "workspace:*",
+    "@gamekits/navigation-core": "workspace:*",
+    "@gamekits/platform-core": "workspace:*",
+    "@gamekits/renderer-core": "workspace:*",
+    "@gamekits/world": "workspace:*"
   },
   "files": [
     "dist"

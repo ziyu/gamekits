@@ -1,4 +1,4 @@
-# @gamekit/renderer-core
+# @gamekits/renderer-core
 
 ## 0.1.0-alpha.8
 

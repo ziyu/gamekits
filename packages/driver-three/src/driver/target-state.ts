@@ -5,7 +5,7 @@ import type {
   RenderObjectId,
   RendererAdapter,
   RenderTransform
-} from "@gamekit/renderer-core";
+} from "@gamekits/renderer-core";
 import type { Object3D } from "three";
 import type {
   ThreeMaterialSlot,

@@ -5,15 +5,15 @@ import type {
   AiHandle,
   AiIntent,
   AiRuntimeCheckpoint
-} from "@gamekit/ai-core";
-import type { NavigationHandle, NavigationQueries } from "@gamekit/navigation-core";
+} from "@gamekits/ai-core";
+import type { NavigationHandle, NavigationQueries } from "@gamekits/navigation-core";
 import {
   PhysicsBodyComponent,
   PhysicsColliderComponent,
   PhysicsTransformComponent,
   type PhysicsQueries
-} from "@gamekit/physics-core";
-import type { EntityId, GameWorld } from "@gamekit/world";
+} from "@gamekits/physics-core";
+import type { EntityId, GameWorld } from "@gamekits/world";
 import { AI_LAB_NAVIGATION_PROFILE, type AiLabSharedFacts } from "./capabilities";
 import { AI_LAB_AGENT_PREFIX, aiLabAgentDefinitionId } from "./content";
 import {
@@ -497,7 +497,7 @@ export function createAiLabController(options: {
         .map((entry) => ({ ...entry }));
       notice = `已整理${animal.name}最近 ${formatLogDuration(windowEnd - windowStart)}的行为日志。`;
       return {
-        schema: "gamekit.sandbox.ai-lab.behavior-log",
+        schema: "gamekits.sandbox.ai-lab.behavior-log",
         version: 1,
         sceneId: "ai-lab",
         exportedAt: windowEnd,

@@ -1,4 +1,4 @@
-import { createNavigationError } from "@gamekit/navigation-core";
+import { createNavigationError } from "@gamekits/navigation-core";
 import { init } from "recast-navigation";
 
 let initialization: Promise<void> | undefined;

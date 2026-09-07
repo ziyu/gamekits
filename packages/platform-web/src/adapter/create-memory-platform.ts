@@ -1,4 +1,4 @@
-import type { PlatformRuntime, PlatformRuntimeId } from "@gamekit/platform-core";
+import type { PlatformRuntime, PlatformRuntimeId } from "@gamekits/platform-core";
 import { createMemoryFileSystem } from "./memory-file-system";
 import { createMemoryStorage } from "./memory-storage";
 import { createWebPlatform } from "./create-web-platform";

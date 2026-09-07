@@ -1,5 +1,8 @@
-import { renderStandardDevToolsPanel, type DevToolsPanelRendererProps } from "@gamekit/devtools-ui";
-import type { DevToolsSourceSnapshot } from "@gamekit/devtools";
+import {
+  renderStandardDevToolsPanel,
+  type DevToolsPanelRendererProps
+} from "@gamekits/devtools-ui";
+import type { DevToolsSourceSnapshot } from "@gamekits/devtools";
 import { ABYSS_CHAIN_PANEL_ID, ABYSS_SOURCE_ID } from "../../devtools/abyss-devtools";
 import type { AbyssSnapshot, AbyssTraceEntry } from "../../game";
 

@@ -1,7 +1,7 @@
 import type {
   NavigationGridCellDefinition,
   NavigationGridDefinition
-} from "@gamekit/navigation-grid";
+} from "@gamekits/navigation-grid";
 import { BLACKGLASS_BASIN_TERRAIN } from "../scenarios/blackglass-basin-terrain";
 
 const GRID_SUBDIVISIONS = 2;

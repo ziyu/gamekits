@@ -5,7 +5,7 @@ import type {
   MultiplayerChannel,
   MultiplayerPeerInput,
   MultiplayerSessionKind
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import type {
   ColyseusNativeCapabilityInput,
   ColyseusNativeCapabilitySummary,
@@ -17,7 +17,7 @@ import type {
 
 export type ColyseusMessageType = string | number;
 
-export type GameKitColyseusRoomJoinOptions = {
+export type GameKitsColyseusRoomJoinOptions = {
   sessionId?: string;
   roomId?: string;
   sessionKind?: MultiplayerSessionKind;

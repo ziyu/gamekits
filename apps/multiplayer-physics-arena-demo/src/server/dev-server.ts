@@ -1,6 +1,6 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { fileURLToPath } from "node:url";
-import { createGameKitColyseusServer } from "@gamekit/multiplayer-colyseus/server";
+import { createGameKitsColyseusServer } from "@gamekits/multiplayer-colyseus/server";
 import { createServer as createViteServer } from "vite";
 
 import { ARENA_BROWSER_CONFIG_PATH, ARENA_ROOM_NAME } from "../shared/config";
@@ -8,7 +8,7 @@ import { KnockoutArenaRoom } from "./arena-room";
 
 const host = process.env.ARENA_HOST ?? "127.0.0.1";
 const webPort = readPort(process.env.ARENA_WEB_PORT, 5184);
-const colyseus = await createGameKitColyseusServer({
+const colyseus = await createGameKitsColyseusServer({
   host,
   port: 0,
   roomName: ARENA_ROOM_NAME,

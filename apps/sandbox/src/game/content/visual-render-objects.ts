@@ -1,4 +1,4 @@
-import type { DataPackEntry } from "@gamekit/data";
+import type { DataPackEntry } from "@gamekits/data";
 import { sandboxCampfireRenderEntries } from "./visual-render-campfire";
 import { sandboxEntityRenderEntries } from "./visual-render-entity";
 import { sandboxMonsterRenderEntries } from "./visual-render-monsters";

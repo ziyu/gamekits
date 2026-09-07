@@ -1,7 +1,7 @@
-import { createColyseusMultiplayerBackend } from "@gamekit/multiplayer-colyseus";
-import { createGameKitColyseusServer } from "@gamekit/multiplayer-colyseus/server";
-import { createMultiplayerRuntime } from "@gamekit/multiplayer-core";
-import type { CombatKinematicProjectileRecord } from "@gamekit/combat";
+import { createColyseusMultiplayerBackend } from "@gamekits/multiplayer-colyseus";
+import { createGameKitsColyseusServer } from "@gamekits/multiplayer-colyseus/server";
+import { createMultiplayerRuntime } from "@gamekits/multiplayer-core";
+import type { CombatKinematicProjectileRecord } from "@gamekits/combat";
 import { describe, expect, it } from "vitest";
 
 import { readOutpostClientAuthoritySnapshot } from "../gameplay";
@@ -19,7 +19,7 @@ describe("Outpost Room-owned authority", () => {
         room = createdRoom;
       }
     });
-    const server = await createGameKitColyseusServer({ roomName, roomClass: RoomClass });
+    const server = await createGameKitsColyseusServer({ roomName, roomClass: RoomClass });
     const leader = createMultiplayerRuntime({
       id: "outpost.room-test.leader",
       backend: createColyseusMultiplayerBackend({
@@ -165,7 +165,7 @@ describe("Outpost Room-owned authority", () => {
         rooms.push(room);
       }
     });
-    const server = await createGameKitColyseusServer({ roomName, roomClass: RoomClass });
+    const server = await createGameKitsColyseusServer({ roomName, roomClass: RoomClass });
     const alpha = createMultiplayerRuntime({
       id: "outpost.room-isolation.alpha",
       backend: createColyseusMultiplayerBackend({
@@ -254,7 +254,7 @@ describe("Outpost Room-owned authority", () => {
         room = createdRoom;
       }
     });
-    const server = await createGameKitColyseusServer({ roomName, roomClass: RoomClass });
+    const server = await createGameKitsColyseusServer({ roomName, roomClass: RoomClass });
     const observerBackend = createColyseusMultiplayerBackend({
       endpoint: server.endpoint,
       roomName,

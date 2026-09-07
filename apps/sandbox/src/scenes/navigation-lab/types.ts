@@ -7,7 +7,7 @@ import type {
   NavigationRouteSample,
   NavigationSnapshot,
   NavigationTraceEntry
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import type { NavigationLabBackendSummary } from "./backends";
 import type { NavigationLabProfileId, NavigationLabScenarioDefinition } from "./scenario";
 

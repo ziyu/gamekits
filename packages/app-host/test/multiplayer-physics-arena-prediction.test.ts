@@ -1,15 +1,15 @@
-import { createEventBus } from "@gamekit/event-bus";
+import { createEventBus } from "@gamekits/event-bus";
 import type {
   MultiplayerAuthorityBinding,
   MultiplayerBridgeInstallContext,
   MultiplayerRuntime
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import {
   createMemoryPhysicsBackend,
   createPhysicsPredictionIsland,
   type PhysicsPredictionIslandMemberDefinition,
   type PhysicsPredictionIslandMemberState
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 import { describe, expect, it } from "vitest";
 import {
   createStandardMultiplayerPhysicsArenaAuthorityProjection,

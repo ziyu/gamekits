@@ -1,5 +1,5 @@
-import type { DevToolsRuntime } from "@gamekit/devtools";
-import type { UiRuntime } from "@gamekit/ui-core";
+import type { DevToolsRuntime } from "@gamekits/devtools";
+import type { UiRuntime } from "@gamekits/ui-core";
 import { createDevToolsUiBridge } from "../runtime";
 
 export type DevToolsLauncherProps = {
@@ -28,9 +28,9 @@ export function DevToolsLauncher({
 
   return (
     <button
-      aria-label="Open GameKit DevTools"
-      className="gamekit-devtools-launcher"
-      title="Open GameKit DevTools"
+      aria-label="Open GameKits DevTools"
+      className="gamekits-devtools-launcher"
+      title="Open GameKits DevTools"
       type="button"
       data-devtools-launcher={snapshot.launcher.panelId}
       data-devtools-position={snapshot.launcher.position}

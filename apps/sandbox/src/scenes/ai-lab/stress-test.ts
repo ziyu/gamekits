@@ -1,4 +1,4 @@
-import type { AiRuntimeSnapshot } from "@gamekit/ai-core";
+import type { AiRuntimeSnapshot } from "@gamekits/ai-core";
 import type { AiLabStressSnapshot, AiLabStressStatus } from "./types";
 
 export const AI_LAB_STRESS_MAX_OPTIONS = [128, 256, 512, 1024, 2048, 4096] as const;

@@ -1,9 +1,9 @@
-import { createStandardAppProfile, type AppProfile } from "@gamekit/app-host";
-import type { DriverRegistry, GameDriver } from "@gamekit/driver-core";
-import { createThreeDriver } from "@gamekit/driver-three";
-import type { PlatformRuntime } from "@gamekit/platform-core";
-import { createWebPlatform } from "@gamekit/platform-web";
-import type { RendererAdapter, RendererBootContext } from "@gamekit/renderer-core";
+import { createStandardAppProfile, type AppProfile } from "@gamekits/app-host";
+import type { DriverRegistry, GameDriver } from "@gamekits/driver-core";
+import { createThreeDriver } from "@gamekits/driver-three";
+import type { PlatformRuntime } from "@gamekits/platform-core";
+import { createWebPlatform } from "@gamekits/platform-web";
+import type { RendererAdapter, RendererBootContext } from "@gamekits/renderer-core";
 import {
   CHARACTER_CONTROLLER_LAB_DRIVER_ID,
   CHARACTER_CONTROLLER_LAB_RENDER_SIZE
@@ -17,7 +17,7 @@ export type CharacterControllerLabAppContext = {
 };
 
 export function createCharacterControllerLabWebProfile(): AppProfile<CharacterControllerLabAppContext> {
-  const platform = createWebPlatform({ appName: "GameKit Character Controller Lab" });
+  const platform = createWebPlatform({ appName: "GameKits Character Controller Lab" });
   const driver = createThreeDriver({
     id: CHARACTER_CONTROLLER_LAB_DRIVER_ID,
     backgroundColor: "#080b0a",

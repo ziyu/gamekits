@@ -5,10 +5,10 @@ import {
   type CombatKinematicProjectileRecord,
   type CombatKinematicProjectileSample,
   type CombatProjectileDefinition
-} from "@gamekit/combat";
-import { createStandardCombatKinematicProjectilePresentationTransition } from "@gamekit/app-host";
-import type { DataRegistry } from "@gamekit/data";
-import { createMultiplayerPredictedLifecycleDomain } from "@gamekit/multiplayer-core";
+} from "@gamekits/combat";
+import { createStandardCombatKinematicProjectilePresentationTransition } from "@gamekits/app-host";
+import type { DataRegistry } from "@gamekits/data";
+import { createMultiplayerPredictedLifecycleDomain } from "@gamekits/multiplayer-core";
 import {
   createPhysicsLayoutDefinitions,
   raycast as raycastPhysicsScene,
@@ -18,7 +18,7 @@ import {
   type PhysicsColliderData,
   type PhysicsKinematicSweepQueries,
   type PhysicsScene
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 
 import {
   createOutpostArenaPhysicsSceneConfig,

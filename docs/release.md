@@ -1,21 +1,20 @@
 # Release Runbook
 
-本文档是 GameKit 当前发布流程的操作入口。长期发布原则写在
+本文档是 GameKits 当前发布流程的操作入口。长期发布原则写在
 `docs/best-practices.md` 的 Package Release 段落；发布构建工具链决策写在
 `docs/adr/0008-package-publication-and-build-toolchain.md`；历史落地记录写在
 `docs/implementation/package-release-readiness.md`。
 
 ## 发布模型
 
-GameKit 使用多包 lockstep 发布。仓库内部包名仍是 `@gamekit/*`，发布到 npm 时映射为
-`@gamekits/*`。
+GameKits 使用多包 lockstep 发布。workspace 和 npm 包统一使用 `@gamekits/*` scope。
 
 当前自动发布链路是：
 
 1. 普通 PR 修改可发布包。
 2. Auto Changeset workflow 在 PR 分支生成 `.changeset/auto-pr-<number>.md`。
 3. PR 合并到 `main`。
-4. Release workflow 发现待消费 changeset，创建 `Version GameKit packages` PR。
+4. Release workflow 发现待消费 changeset，创建 `Version GameKits packages` PR。
 5. 合并 Version PR。
 6. Release workflow 发现没有待消费 changeset，检查 npm registry 中当前版本和 dist-tag。
 7. 若当前版本缺失或 dist-tag 过期，workflow 运行 `corepack pnpm release:publish`。
@@ -36,7 +35,7 @@ GameKit 使用多包 lockstep 发布。仓库内部包名仍是 `@gamekit/*`，�
    - `changeset:patch`、`semver-patch` 或 `release:patch`
 3. 等 Auto Changeset workflow 把自动 changeset commit 回 PR 分支。
 4. 合并普通 PR。
-5. 等 Release workflow 创建 `Version GameKit packages` PR。
+5. 等 Release workflow 创建 `Version GameKits packages` PR。
 6. 检查 Version PR 只包含版本、changelog、lockfile 和 consumed changeset 状态变化。
 7. 合并 Version PR。
 8. 检查 Release workflow 的 `Publish` job、npm package 页面、GitHub Release 和 `v<version>` tag。
@@ -51,7 +50,7 @@ changeset。这样的 PR 合并后 Release workflow 仍会运行 registry 状态
 
 Version PR 是唯一应该把 package version 推进到下一版的 PR。合并前确认：
 
-- PR 标题是 `Version GameKit packages`。
+- PR 标题是 `Version GameKits packages`。
 - 改动来自 Changesets action 或 `corepack pnpm release:version`。
 - `corepack pnpm test:release-state` 通过：所有非私有 `packages/*` 都在同一个 Changesets fixed
   group 中，且 manifest version 与 `packages/core` 完全一致。
@@ -133,7 +132,7 @@ GitHub repository 设置：
 - `Release` workflow 使用受保护 Environment：`npm-release`。
 - `Release` workflow 需要 `id-token: write`，用于 npm Trusted Publishing/OIDC。
 - 每个要发布的 `@gamekits/*` 包都应在 npm package settings 中配置 Trusted Publisher：
-  `ziyu/gamekit` + `release.yml`。
+  `ziyu/gamekits` + `release.yml`。
 - `npm-release` 环境必须配置 `NPM_TOKEN` secret 作为新包首发 bootstrap 和 fallback；没有
   Trusted Publisher、OIDC 授权失败或 package 尚未存在于 npm registry 时才使用 token。
 
@@ -154,7 +153,7 @@ issue。
 Trusted Publisher。未补 Trusted Publisher 的包后续版本仍会依赖 `NPM_TOKEN` fallback 发布。
 
 Trusted Publishing 会校验 npm provenance。发布 staging 生成的 package manifest 必须包含
-`repository.url: "https://github.com/ziyu/gamekit"`；否则 npm 会因为 provenance 中的仓库来源和
+`repository.url: "https://github.com/ziyu/gamekits"`；否则 npm 会因为 provenance 中的仓库来源和
 package metadata 不匹配拒绝发布。
 
 ## dist-tag 策略
@@ -186,7 +185,7 @@ Version PR 没创建：
 
 合并普通 PR 后直接跳过发布：
 
-- 这是正常的第一阶段。应先出现 `Version GameKit packages` PR。
+- 这是正常的第一阶段。应先出现 `Version GameKits packages` PR。
 - 只有合并 Version PR 后才应该发布 npm package。
 
 Version PR 合并后没有 npm 发布：
@@ -218,7 +217,7 @@ Publish job 报 E422 provenance / repository mismatch：
 
 - 这是 Trusted Publishing 的 provenance 校验失败，不是 npm token 或 Trusted Publisher 授权缺失。
 - 检查 release staging 生成的 package manifest，确认 `repository.url` 是
-  `https://github.com/ziyu/gamekit`。
+  `https://github.com/ziyu/gamekits`。
 - 修复 `scripts/verify-gamekits-release.ts` 的 publish manifest 生成逻辑后重新运行 Release
   workflow；不要把这类错误降级为 token fallback。
 

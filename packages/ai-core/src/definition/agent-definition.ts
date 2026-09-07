@@ -1,4 +1,4 @@
-import type { DataRef } from "@gamekit/data";
+import type { DataRef } from "@gamekits/data";
 
 export type AiAgentDefinition = {
   id: string;

@@ -11,14 +11,14 @@ probe、坡度、台阶、coyote time、jump buffer、moving platform、dive、s
 authority/client session 中会复制 Physics query、timer、checkpoint 与 diagnostics；把它们塞进 Physics Core 又会让底层 facade
 拥有具体角色玩法。
 
-GameKit 需要可复用的角色 motor，但不需要自研完整 locomotion engine。该能力必须是可选 gameplay toolkit，使用 Physics Core
+GameKits 需要可复用的角色 motor，但不需要自研完整 locomotion engine。该能力必须是可选 gameplay toolkit，使用 Physics Core
 协议驱动成熟 solver，并让玩家和 authority AI 消费同一种 intent。
 
 ## 决策
 
 ### 独立可选包
 
-新增 `@gamekit/character-controller`。它只依赖 GameKit Core/Data、Physics Core，以及实现 GameModule helper 时所需的
+新增 `@gamekits/character-controller`。它只依赖 GameKits Core/Data、Physics Core，以及实现 GameModule helper 时所需的
 GameRuntime/World 协议；不依赖 DOM、Input adapter、Renderer、Camera、Three、Rapier、AI 或 Multiplayer。
 
 Physics Core 继续只拥有 body/query/command/checkpoint。Arena 的拾取、使用、投掷、攻击、淘汰和胜负不进入 controller 包。
@@ -103,7 +103,7 @@ Controller 包不依赖 Multiplayer。Motor state 通过显式 checkpoint contri
 
 ### 直接采用 Rapier character controller 作为公共 API
 
-拒绝作为 GameKit 公共边界。可以在窄 backend strategy 中使用成熟实现，但 native state、配置和行为差异不能泄漏给 gameplay、
+拒绝作为 GameKits 公共边界。可以在窄 backend strategy 中使用成熟实现，但 native state、配置和行为差异不能泄漏给 gameplay、
 Data 或多人 snapshot。
 
 ## 后果

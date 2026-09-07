@@ -4,8 +4,8 @@ import type {
   DevToolsPinsOptions,
   DevToolsRuntime,
   DevToolsSnapshot
-} from "@gamekit/devtools";
-import type { UiRuntime } from "@gamekit/ui-core";
+} from "@gamekits/devtools";
+import type { UiRuntime } from "@gamekits/ui-core";
 import { renderStandardPinnedDevToolsPanel, type DevToolsPinnedPanelRenderer } from "../panels";
 
 export type DevToolsPinDockProps = {
@@ -90,7 +90,7 @@ export function DevToolsPinDock({
 
   return (
     <aside
-      className={`gamekit-devtools-pin-dock gamekit-devtools-pin-dock--${area}`}
+      className={`gamekits-devtools-pin-dock gamekits-devtools-pin-dock--${area}`}
       data-devtools-pin-dock={area}
       onPointerDown={focusDevTools}
     >
@@ -130,7 +130,7 @@ function PinnedPanel({
   if (collapsed) {
     return (
       <section
-        className="gamekit-devtools-pinned-panel gamekit-devtools-pinned-panel--collapsed"
+        className="gamekits-devtools-pinned-panel gamekits-devtools-pinned-panel--collapsed"
         data-devtools-pinned-panel={panel.id}
         onClick={onToggle}
         onKeyDown={(event) => {
@@ -143,14 +143,14 @@ function PinnedPanel({
         tabIndex={0}
         title={`Expand ${label}`}
       >
-        <div className="gamekit-devtools-pinned-panel__body">{children}</div>
+        <div className="gamekits-devtools-pinned-panel__body">{children}</div>
       </section>
     );
   }
 
   return (
-    <section className="gamekit-devtools-pinned-panel" data-devtools-pinned-panel={panel.id}>
-      <header className="gamekit-devtools-pinned-panel__header">
+    <section className="gamekits-devtools-pinned-panel" data-devtools-pinned-panel={panel.id}>
+      <header className="gamekits-devtools-pinned-panel__header">
         <button
           aria-label={`Collapse ${label}`}
           onClick={onToggle}
@@ -163,7 +163,7 @@ function PinnedPanel({
           &gt;
         </button>
       </header>
-      <div className="gamekit-devtools-pinned-panel__body">{children}</div>
+      <div className="gamekits-devtools-pinned-panel__body">{children}</div>
     </section>
   );
 }

@@ -1,5 +1,5 @@
 import { schema, type SchemaType } from "@colyseus/schema";
-import type { ColyseusNativeStateUpdate } from "@gamekit/multiplayer-colyseus";
+import type { ColyseusNativeStateUpdate } from "@gamekits/multiplayer-colyseus";
 
 import type { OutpostClientAuthoritySnapshot } from "../gameplay/client-shadow-runtime";
 import { OUTPOST_COLYSEUS_SCHEMA_VERSION } from "../gameplay/constants";

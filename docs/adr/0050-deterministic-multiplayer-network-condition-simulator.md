@@ -2,7 +2,7 @@
 
 ## 背景
 
-GameKit 的 managed prediction、冗余 fixed-step input、authority inbox、snapshot playback 和 Physics Arena 回滚已经有
+GameKits 的 managed prediction、冗余 fixed-step input、authority inbox、snapshot playback 和 Physics Arena 回滚已经有
 各自的单元与集成测试，但应用若要验证 latency、jitter、loss 和 duplicate，仍容易在 app 内包一层 `setTimeout`、随机
 丢包或自建消息队列。这样的模拟器通常拥有自己的隐式时钟、不可复现随机数、无界 pending delivery，并且不同 Demo
 会得到不同的 ordered-channel 语义。
@@ -13,7 +13,7 @@ Provider adapter 的真实网络测试仍然必要，但它不适合作为逐提
 
 ## 决策
 
-`@gamekit/multiplayer-core` 提供 `createMultiplayerNetworkConditionSimulator(...)`。它接收任意
+`@gamekits/multiplayer-core` 提供 `createMultiplayerNetworkConditionSimulator(...)`。它接收任意
 `MultiplayerBackendAdapter`，返回包装后的 backend、手动 `advance(deltaMs)` / `flush()` 控制器、只读 diagnostics 和
 `dispose()`。
 

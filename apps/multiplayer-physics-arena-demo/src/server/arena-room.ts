@@ -1,11 +1,11 @@
 import { Room, type Client } from "@colyseus/core";
-import type { GameKitColyseusRoomJoinOptions } from "@gamekit/multiplayer-colyseus";
+import type { GameKitsColyseusRoomJoinOptions } from "@gamekits/multiplayer-colyseus";
 import {
   createColyseusRoomRuntimeBridge,
   type ColyseusRoomOwnedRuntime,
   type ColyseusRoomRuntimeBridge
-} from "@gamekit/multiplayer-colyseus/server";
-import { initRapier3dPhysicsBackend } from "@gamekit/physics-rapier3d";
+} from "@gamekits/multiplayer-colyseus/server";
+import { initRapier3dPhysicsBackend } from "@gamekits/physics-rapier3d";
 
 import { prepareArenaBotNavigationRuntime } from "../ai/navigation";
 import { ARENA_COMPILED_CONTENT } from "../content/default-content";
@@ -21,7 +21,7 @@ import {
   type ArenaAuthorityRuntimeSnapshot
 } from "./arena-authority";
 
-export type ArenaRoomCreateOptions = GameKitColyseusRoomJoinOptions;
+export type ArenaRoomCreateOptions = GameKitsColyseusRoomJoinOptions;
 
 type ArenaRoomBridge = ColyseusRoomRuntimeBridge<
   KnockoutArenaRoom,
@@ -52,7 +52,7 @@ export class KnockoutArenaRoom extends Room {
     const stageSelection = resolveArenaStageSelection(requestedStage);
     this.maxClients = 8;
     this.metadata = {
-      gamekit: {
+      gamekits: {
         kind: options.sessionKind ?? "private",
         authority: "server-authoritative",
         demo: "knockout-circuit",

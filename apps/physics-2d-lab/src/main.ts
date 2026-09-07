@@ -1,5 +1,5 @@
 import "./styles.css";
-import { initRapier2dPhysicsBackend } from "@gamekit/physics-rapier2d";
+import { initRapier2dPhysicsBackend } from "@gamekits/physics-rapier2d";
 import { PHYSICS_2D_GROUPS, createPhysics2dLab } from "./physics-2d-lab";
 import {
   bindPhysics2dLabUi,

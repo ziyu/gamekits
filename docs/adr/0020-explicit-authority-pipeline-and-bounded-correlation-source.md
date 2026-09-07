@@ -19,11 +19,11 @@ Authority pipeline 继续由 app 显式组合：
 
 DevTools correlation 使用增量、显式、有界的 source：
 
-- `@gamekit/devtools` 提供 domain-neutral `createDevToolsCorrelationSource(...)`。它把 trace 写入 DevToolsRuntime 的有界 timeline，同时只维护最近 correlation 的增量 summary。
+- `@gamekits/devtools` 提供 domain-neutral `createDevToolsCorrelationSource(...)`。它把 trace 写入 DevToolsRuntime 的有界 timeline，同时只维护最近 correlation 的增量 summary。
 - Correlation source 只把显式 `correlationId` 视为确定因果；`parentId` 保留直接父 trace。它不按时间窗口猜测 gameplay 关系。
 - Runtime trace buffer、retained correlation 数量和每条 correlation 保留的 root id 数量分别有独立上限。
 - TCA、GAS、Physics trace store factory 提供可选 `onEntry` hook。Observer 和 observer error reporter 的异常都必须被 trace store 隔离，不能改变 gameplay write、rule、ability 或 physics step 的结果。Domain package 仍不依赖 DevTools；未配置 hook 时不增加 observer 工作。
-- `@gamekit/app-host` 提供 `createGameplayDevToolsCorrelation(...)` 组合 helper，创建三套 domain trace store、注册一个 DevTools source，并通过单一 `dispose()` 完成注销和清理。调用方只拥有 helper 返回的组合生命周期，不分别管理 DataSource registration 和 source。
+- `@gamekits/app-host` 提供 `createGameplayDevToolsCorrelation(...)` 组合 helper，创建三套 domain trace store、注册一个 DevTools source，并通过单一 `dispose()` 完成注销和清理。调用方只拥有 helper 返回的组合生命周期，不分别管理 DataSource registration 和 source。
 - 通用映射默认只输出白名单摘要：TCA rule/event/count、GAS operation/time/effect/message、Physics kind/tick/cost/body/collider。GAS `details`、Physics `payload` 等任意业务对象不默认进入 DevTools；游戏需要额外字段时必须显式提供 summary mapper，并可通过统一 redaction hook 再处理。
 - Multiplayer standard module 产生的 accepted/rejected/expired/overflow EventBus fact 继承 message `correlationId`，并以 message id 作为 `parentId`。
 - Physics trace protocol允许 app semantic query/contact bridge附带 correlation，但 Physics core 不推断 damage、ability 或 network 语义。

@@ -1,5 +1,5 @@
-import { raycast, shapeCast, type PhysicsKinematicSweepQueries } from "@gamekit/physics-core";
-import { initRapier2dPhysicsBackend } from "@gamekit/physics-rapier2d";
+import { raycast, shapeCast, type PhysicsKinematicSweepQueries } from "@gamekits/physics-core";
+import { initRapier2dPhysicsBackend } from "@gamekits/physics-rapier2d";
 import { beforeAll, describe, expect, it } from "vitest";
 import {
   createCombatKinematicProjectileRuntime,

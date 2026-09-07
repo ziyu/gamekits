@@ -1,4 +1,4 @@
-import type { DataPack } from "@gamekit/data";
+import type { DataPack } from "@gamekits/data";
 import { abyssAbilityEntries } from "./abilities/core";
 import { abyssEnemyEntries } from "./enemies/profiles";
 import { renderObject } from "./factories";

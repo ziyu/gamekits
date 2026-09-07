@@ -2,13 +2,13 @@
 
 ## 定位
 
-App Host 是 GameKit 的应用组合层。它负责把 Platform、Driver、Data、Asset、Renderer、Audio、Input、Multiplayer、GameRuntime、UI、Save、DevTools 等应用服务装配成一个可启动、可停止、可观察、可扩展的游戏应用实例。
+App Host 是 GameKits 的应用组合层。它负责把 Platform、Driver、Data、Asset、Renderer、Audio、Input、Multiplayer、GameRuntime、UI、Save、DevTools 等应用服务装配成一个可启动、可停止、可观察、可扩展的游戏应用实例。
 
 App Host 不是 gameplay runtime，也不是具体平台 adapter。它解决的是“上层如何无痛启动游戏应用，只关心具体游戏逻辑”的问题。
 
 相关包：
 
-- `@gamekit/app-host`
+- `@gamekits/app-host`
 
 ## 设计目标
 
@@ -33,7 +33,7 @@ App Host 提供统一能力管理：
 
 ## 与 GameRuntime 的边界
 
-`@gamekit/game-runtime` 继续保持薄内核，只管理 gameplay lifecycle：
+`@gamekits/game-runtime` 继续保持薄内核，只管理 gameplay lifecycle：
 
 - world
 - eventBus
@@ -207,7 +207,7 @@ platform
 
 ## Driver 启动边界
 
-Driver 是 App Host 管理的应用级服务，用于统一持有 Phaser、Three.js 等外部运行时。Driver 可以从同一个外部 runtime 暴露 renderer、asset loader、input source、camera sync、physics backend 等 GameKit adapter。
+Driver 是 App Host 管理的应用级服务，用于统一持有 Phaser、Three.js 等外部运行时。Driver 可以从同一个外部 runtime 暴露 renderer、asset loader、input source、camera sync、physics backend 等 GameKits adapter。
 
 App Host profile 负责选择标准服务使用哪个 driver adapter：
 

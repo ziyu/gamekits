@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import * as THREE from "three";
-import { createAssetManager } from "@gamekit/asset";
+import { createAssetManager } from "@gamekits/asset";
 import { createThreeRuntimeResources } from "../src/driver/runtime";
 
 function nativeResources(timeoutMs = 1000) {

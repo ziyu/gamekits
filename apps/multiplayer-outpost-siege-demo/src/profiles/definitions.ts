@@ -2,7 +2,7 @@ import {
   loadAssetGroupWithRetry,
   type AssetGroupLoadResult,
   type AssetManager
-} from "@gamekit/asset";
+} from "@gamekits/asset";
 import type { OutpostAssetGroup } from "../domain";
 
 export type OutpostProfileId =

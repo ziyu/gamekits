@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/app-host",
+  "name": "@gamekits/app-host",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -17,28 +17,28 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/ai-core": "workspace:*",
-    "@gamekit/animator-core": "workspace:*",
-    "@gamekit/asset": "workspace:*",
-    "@gamekit/audio-core": "workspace:*",
-    "@gamekit/camera-core": "workspace:*",
-    "@gamekit/combat": "workspace:*",
-    "@gamekit/core": "workspace:*",
-    "@gamekit/data": "workspace:*",
-    "@gamekit/devtools": "workspace:*",
-    "@gamekit/driver-core": "workspace:*",
-    "@gamekit/gas": "workspace:*",
-    "@gamekit/game-runtime": "workspace:*",
-    "@gamekit/input-core": "workspace:*",
-    "@gamekit/multiplayer-core": "workspace:*",
-    "@gamekit/navigation-core": "workspace:*",
-    "@gamekit/physics-core": "workspace:*",
-    "@gamekit/platform-core": "workspace:*",
-    "@gamekit/renderer-core": "workspace:*",
-    "@gamekit/save": "workspace:*",
-    "@gamekit/tca": "workspace:*",
-    "@gamekit/ui-core": "workspace:*",
-    "@gamekit/world": "workspace:*"
+    "@gamekits/ai-core": "workspace:*",
+    "@gamekits/animator-core": "workspace:*",
+    "@gamekits/asset": "workspace:*",
+    "@gamekits/audio-core": "workspace:*",
+    "@gamekits/camera-core": "workspace:*",
+    "@gamekits/combat": "workspace:*",
+    "@gamekits/core": "workspace:*",
+    "@gamekits/data": "workspace:*",
+    "@gamekits/devtools": "workspace:*",
+    "@gamekits/driver-core": "workspace:*",
+    "@gamekits/gas": "workspace:*",
+    "@gamekits/game-runtime": "workspace:*",
+    "@gamekits/input-core": "workspace:*",
+    "@gamekits/multiplayer-core": "workspace:*",
+    "@gamekits/navigation-core": "workspace:*",
+    "@gamekits/physics-core": "workspace:*",
+    "@gamekits/platform-core": "workspace:*",
+    "@gamekits/renderer-core": "workspace:*",
+    "@gamekits/save": "workspace:*",
+    "@gamekits/tca": "workspace:*",
+    "@gamekits/ui-core": "workspace:*",
+    "@gamekits/world": "workspace:*"
   },
   "files": [
     "dist"
@@ -47,7 +47,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "gamekitBuild": {
+  "gamekitsBuild": {
     "bundleDts": false
   }
 }

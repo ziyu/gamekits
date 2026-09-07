@@ -42,7 +42,7 @@ function main(): void {
     JSON.stringify(
       {
         benchmark: "combat",
-        package: "@gamekit/combat",
+        package: "@gamekits/combat",
         methodology: {
           warmupTicks: 10,
           reports: [

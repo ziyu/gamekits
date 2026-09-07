@@ -1,6 +1,6 @@
-# GameKit
+# GameKits
 
-GameKit 是面向多个独立游戏复用的 TypeScript 游戏框架实验仓库。
+GameKits 是面向多个独立游戏复用的 TypeScript 游戏框架实验仓库。
 
 ## 常用命令
 

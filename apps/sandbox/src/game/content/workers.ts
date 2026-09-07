@@ -1,4 +1,4 @@
-import type { DataPackEntry } from "@gamekit/data";
+import type { DataPackEntry } from "@gamekits/data";
 
 export const sandboxWorkerEntries: DataPackEntry[] = [
   {

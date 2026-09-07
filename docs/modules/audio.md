@@ -2,18 +2,18 @@
 
 ## 定位
 
-Audio Core 是 GameKit 的游戏音频 facade。它向游戏和应用提供按领域区分的 Music、SFX、Dialogue、Mix 与 Spatial API，并统一逻辑播放实例、生命周期、诊断和 Backend 边界。
+Audio Core 是 GameKits 的游戏音频 facade。它向游戏和应用提供按领域区分的 Music、SFX、Dialogue、Mix 与 Spatial API，并统一逻辑播放实例、生命周期、诊断和 Backend 边界。
 
 Audio Core 不负责解码器、设备输出、DSP graph、streaming、bank、native channel pool 或平台音频 runtime。这些能力由 Phaser/Web Audio adapter、成熟音频中间件或平台 SDK 持有。Core 也不根据音频成功、marker 或播放位置决定命中、资源消耗、AI、剧情分支或 match phase。
 
 相关边界：
 
-- `@gamekit/audio-core`：领域 facade、内容定义、共享播放语义和组合入口。
-- `@gamekit/audio-core/backend`：Driver/Adapter 实现的低层执行协议。
-- `@gamekit/audio-core/testing`：Backend conformance、Memory/Null Backend 和 fixture。
-- `@gamekit/asset`：音频 AssetDefinition、格式变体、加载状态和缓存 identity。
-- `@gamekit/app-host`：应用级 boot、unlock、suspend/resume、tick 和 dispose。
-- `@gamekit/driver-phaser`：复用同一个 Phaser runtime 的 Audio Backend slice。
+- `@gamekits/audio-core`：领域 facade、内容定义、共享播放语义和组合入口。
+- `@gamekits/audio-core/backend`：Driver/Adapter 实现的低层执行协议。
+- `@gamekits/audio-core/testing`：Backend conformance、Memory/Null Backend 和 fixture。
+- `@gamekits/asset`：音频 AssetDefinition、格式变体、加载状态和缓存 identity。
+- `@gamekits/app-host`：应用级 boot、unlock、suspend/resume、tick 和 dispose。
+- `@gamekits/driver-phaser`：复用同一个 Phaser runtime 的 Audio Backend slice。
 
 领域 API 决策见 `docs/adr/0034-game-audio-domain-facades.md`，包内架构决策见 `docs/adr/0035-audio-core-package-internal-architecture.md`。ADR 0033 仅保留为被取代的历史决策。
 
@@ -42,7 +42,7 @@ Bus 只决定路由和混音，不决定内容行为。`bus: "music"` 不能代�
 
 ### 公共术语无歧义
 
-- `PlaybackInstance` / `PlaybackHandle`：GameKit 可控制的一次逻辑播放。
+- `PlaybackInstance` / `PlaybackHandle`：GameKits 可控制的一次逻辑播放。
 - `Dialogue` / `VoiceOver`：角色对白、旁白或配音内容。
 - `nativeChannel` / `nativePlaybackCount`：Backend 内部播放通道及其诊断计数。
 - `voiceChat`：实时通信能力，不属于 Audio Core。
@@ -258,7 +258,7 @@ AssetManager 负责 audio source、codec/format variant、load group、retry 和
 
 ## Backend 协议
 
-Driver/Adapter 通过 `@gamekit/audio-core/backend` 实现低层协议：
+Driver/Adapter 通过 `@gamekits/audio-core/backend` 实现低层协议：
 
 ```ts
 export interface AudioBackend {
@@ -416,7 +416,7 @@ composition
 - `backend` 定义端口和 DTO，不导入 composition 或领域 controller。
 - `observability` 从只读状态和事件构建 snapshot/diagnostic；业务状态机不依赖具体 observer。
 - `composition` 是唯一同时装配全部领域 controller、共享 coordinator 和 Backend 的位置。`game-audio-runtime.ts` 只协调生命周期，不能重新吸收各领域算法。
-- `testing` 通过 `@gamekit/audio-core/testing` 导出，不从 root 入口泄漏 fixture。
+- `testing` 通过 `@gamekits/audio-core/testing` 导出，不从 root 入口泄漏 fixture。
 - 不创建覆盖全部模块的 `types.ts`、`definitions.ts`、`helpers.ts` 或 `utils.ts`。类型与行为放在拥有它们的领域目录中。
 - 内部 barrel 只用于明确的 public subpath；领域实现之间优先直接导入目标文件，避免循环依赖和无意扩大导出面。
 
@@ -450,7 +450,7 @@ Diagnostics 使用有界、克隆后的白名单 payload。Observer failure 不�
 - Playback 测试 scheduled/playing/paused/stopping/completed/failed 状态、fade、Backend rejection 和 ended callback 幂等。
 - Mix 测试 Bus 继承、mute/pause、ramp、Snapshot priority/weight/owner cleanup。
 - Spatial 测试隐式fallback替换、Listener选择、Emitter batch、删除策略和单 Listener Backend降级；真实Backend必须覆盖运行中 Listener移动后已有实例重新衰减和pan。
-- 每个 Backend 先通过 `@gamekit/audio-core/testing` conformance，再补真实 runtime 行为。
+- 每个 Backend 先通过 `@gamekits/audio-core/testing` conformance，再补真实 runtime 行为。
 - App Host 集成测试从 `GameAudio` facade 和 Driver snapshot 同时观察结果，不能只断言 Backend 私有对象。
 
 ## 最佳实践

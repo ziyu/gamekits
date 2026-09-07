@@ -1,15 +1,15 @@
 import { Room, type Client } from "@colyseus/core";
 import {
   createColyseusNativeCapabilitySummary,
-  type GameKitColyseusRoomJoinOptions
-} from "@gamekit/multiplayer-colyseus";
+  type GameKitsColyseusRoomJoinOptions
+} from "@gamekits/multiplayer-colyseus";
 import {
   createColyseusRoomRuntimeBridge,
   type ColyseusRoomRuntimeBridge,
   type ColyseusRoomRuntimeBridgeSnapshot
-} from "@gamekit/multiplayer-colyseus/server";
-import type { MultiplayerPeerInput } from "@gamekit/multiplayer-core";
-import type { PhysicsBackendAdapter } from "@gamekit/physics-core";
+} from "@gamekits/multiplayer-colyseus/server";
+import type { MultiplayerPeerInput } from "@gamekits/multiplayer-core";
+import type { PhysicsBackendAdapter } from "@gamekits/physics-core";
 
 import {
   createOutpostColyseusState,
@@ -22,9 +22,9 @@ import {
   type OutpostRoomAuthorityRuntimeSnapshot
 } from "./outpost-room-authority-runtime";
 
-const OUTPOST_MESSAGE_TYPE = "gamekit.message";
+const OUTPOST_MESSAGE_TYPE = "gamekits.message";
 
-export type OutpostSiegeRoomCreateOptions = GameKitColyseusRoomJoinOptions & {
+export type OutpostSiegeRoomCreateOptions = GameKitsColyseusRoomJoinOptions & {
   seed?: string;
 };
 
@@ -68,7 +68,7 @@ export class OutpostSiegeRoom extends Room<{ state: OutpostColyseusState }> {
       createOutpostColyseusState(sessionId, authorityPeerId, runtimeOptions.clock?.() ?? Date.now())
     );
     this.metadata = {
-      gamekit: {
+      gamekits: {
         kind: options.sessionKind ?? "private",
         authority: "server-authoritative",
         nativeCapabilities: createColyseusNativeCapabilitySummary({

@@ -1,6 +1,6 @@
-import type { AppProfile } from "@gamekit/app-host";
-import type { PlatformRuntime } from "@gamekit/platform-core";
-import { createTauriPlatform } from "@gamekit/platform-tauri";
+import type { AppProfile } from "@gamekits/app-host";
+import type { PlatformRuntime } from "@gamekits/platform-core";
+import { createTauriPlatform } from "@gamekits/platform-tauri";
 import { createOutpostVisualProfile, type OutpostVisualContext } from "./visual";
 
 export type OutpostTauriSmokeContext = OutpostVisualContext;

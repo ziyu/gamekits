@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import type { UiOpenPanel } from "@gamekit/ui-core";
+import type { UiOpenPanel } from "@gamekits/ui-core";
 import { UiRuntimeProvider, useUiRuntime, useUiSnapshot } from "./provider";
-import { GameKitStyleProvider } from "./style-provider";
-import type { FocusBridgeProps, GameKitUiShellProps, UiHostProps, UiTipProps } from "./types";
+import { GameKitsStyleProvider } from "./style-provider";
+import type { FocusBridgeProps, GameKitsUiShellProps, UiHostProps, UiTipProps } from "./types";
 
-export function GameKitUiShell({
+export function GameKitsUiShell({
   runtime,
   children,
   className,
@@ -12,10 +12,10 @@ export function GameKitUiShell({
   motion,
   style,
   theme
-}: GameKitUiShellProps) {
+}: GameKitsUiShellProps) {
   return (
     <UiRuntimeProvider runtime={runtime}>
-      <GameKitStyleProvider
+      <GameKitsStyleProvider
         className={className}
         density={density}
         motion={motion}
@@ -23,7 +23,7 @@ export function GameKitUiShell({
         theme={theme}
       >
         {children}
-      </GameKitStyleProvider>
+      </GameKitsStyleProvider>
     </UiRuntimeProvider>
   );
 }
@@ -50,9 +50,9 @@ export function UiModalHost({ renderPanel, className }: UiHostProps) {
 
 export function UiTip({ children, className, content, side = "top" }: UiTipProps) {
   return (
-    <span className={`gamekit-ui-tip${className ? ` ${className}` : ""}`} data-tip-side={side}>
-      <span className="gamekit-ui-tip__anchor">{children}</span>
-      <span className="gamekit-ui-tip__bubble" role="tooltip">
+    <span className={`gamekits-ui-tip${className ? ` ${className}` : ""}`} data-tip-side={side}>
+      <span className="gamekits-ui-tip__anchor">{children}</span>
+      <span className="gamekits-ui-tip__bubble" role="tooltip">
         {content}
       </span>
     </span>
@@ -114,10 +114,10 @@ function UiHost({ panels, renderPanel, className }: UiHostProps & { panels: UiOp
       {panels.map((panel) => (
         <section
           key={panel.id}
-          className={`gamekit-ui-panel gamekit-ui-panel--${panel.kind}${panel.focused ? " is-focused" : ""}`}
+          className={`gamekits-ui-panel gamekits-ui-panel--${panel.kind}${panel.focused ? " is-focused" : ""}`}
           data-ui-panel={panel.id}
         >
-          <header className="gamekit-ui-panel__header">
+          <header className="gamekits-ui-panel__header">
             <strong>{panel.title}</strong>
             <button
               type="button"
@@ -127,7 +127,7 @@ function UiHost({ panels, renderPanel, className }: UiHostProps & { panels: UiOp
               ×
             </button>
           </header>
-          <div className="gamekit-ui-panel__body">{renderPanel?.(panel) ?? null}</div>
+          <div className="gamekits-ui-panel__body">{renderPanel?.(panel) ?? null}</div>
         </section>
       ))}
     </div>

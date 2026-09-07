@@ -1,6 +1,6 @@
 # Multiplayer Realtime Game Demo
 
-Status: Closed on 2026-07-11; Waves 0-7 implemented for the GameKit envelope baseline. The real Colyseus Schema Demo lane continues in `multiplayer-colyseus-native-lane.md`.
+Status: Closed on 2026-07-11; Waves 0-7 implemented for the GameKits envelope baseline. The real Colyseus Schema Demo lane continues in `multiplayer-colyseus-native-lane.md`.
 
 ## Goal
 
@@ -27,7 +27,7 @@ Status: Closed on 2026-07-11; Waves 0-7 implemented for the GameKit envelope bas
 
 ## Package Boundary Follow-up
 
-早期 demo 已用 app-local host authoritative snapshot stream 修复“同 room 但各端本地独立 simulation”的问题；本轮已把这条通用同步骨架收敛到 `@gamekit/multiplayer-core` 的 authority binding、host/local authority loop 和 client receiver helper。
+早期 demo 已用 app-local host authoritative snapshot stream 修复“同 room 但各端本地独立 simulation”的问题；本轮已把这条通用同步骨架收敛到 `@gamekits/multiplayer-core` 的 authority binding、host/local authority loop 和 client receiver helper。
 
 设计结论已经沉淀到 `docs/adr/0013-standard-authoritative-replication-boundary.md` 和 `docs/modules/multiplayer.md`：
 
@@ -35,16 +35,16 @@ Status: Closed on 2026-07-11; Waves 0-7 implemented for the GameKit envelope bas
 - `multiplayer-core` 已提供标准 authority binding / replication helper，覆盖 action/input/snapshot/patch/result source gate、tick boundary、input sequence、bounded action/input queue、peer/player binding、participant policy 和 diagnostics。
 - Demo 保留 app-local 玩法 payload、simulation、actor/slot 应用和 presentation，但不再手写 authority binding、host loop、snapshot receiver、snapshot source gate 或通用 participant decision vocabulary。
 - 离线单机/本地练习继续成立，并已走 `local` authority binding 和 in-process delivery，复用同一 action/input、simulation、snapshot/apply 和 diagnostics contract；它不再是另一套单机 gameplay runtime。
-- `@gamekit/multiplayer-core` 的单元测试和 demo 的 headless Colyseus integration test 已覆盖 host authoritative action/input/snapshot、local authority、非 authority snapshot 拒绝和双 client 同步。
+- `@gamekits/multiplayer-core` 的单元测试和 demo 的 headless Colyseus integration test 已覆盖 host authoritative action/input/snapshot、local authority、非 authority snapshot 拒绝和双 client 同步。
 
 Provider-native state sync、seat reservation/reconnect 和 renderer-core dogfood 已迁移到独立后续工作流；本工作流不继续维护增量 backlog。
 
 完整可用能力需要同时保留两条验证路径：
 
-- GameKit baseline lane：使用 `multiplayer-core` authority helper 和 GameKit envelope snapshot/patch，验证跨 backend 最小 contract、离线单机复用、source gate 和 conformance。
-- Colyseus native lane：使用 `@gamekit/multiplayer-colyseus` 的 provider-native bridge，例如 Schema state sync、room metadata、reconnect/seat reservation 和 provider diagnostics，验证成熟 backend 的真实能力没有被 GameKit facade 压扁。
+- GameKits baseline lane：使用 `multiplayer-core` authority helper 和 GameKits envelope snapshot/patch，验证跨 backend 最小 contract、离线单机复用、source gate 和 conformance。
+- Colyseus native lane：使用 `@gamekits/multiplayer-colyseus` 的 provider-native bridge，例如 Schema state sync、room metadata、reconnect/seat reservation 和 provider diagnostics，验证成熟 backend 的真实能力没有被 GameKits facade 压扁。
 
-Demo 可以先以 GameKit baseline lane 作为默认路径，但规划上必须给 native lane 留出切换、测试和诊断位置。两条 lane 不能同时写同一份 authority state；当前 room 必须声明 authoritative path。
+Demo 可以先以 GameKits baseline lane 作为默认路径，但规划上必须给 native lane 留出切换、测试和诊断位置。两条 lane 不能同时写同一份 authority state；当前 room 必须声明 authoritative path。
 
 ## Demo Concept
 
@@ -114,7 +114,7 @@ Complete game loop
   -> local playable arena
   -> browser input sampler
   -> multiplayer room lifecycle
-  -> Colyseus message / GameKit multiplayer facade
+  -> Colyseus message / GameKits multiplayer facade
   -> server-hosted fixed tick simulation
   -> authoritative arena snapshot
   -> client interpolation / prediction
@@ -134,16 +134,16 @@ Complete game loop
 推荐采用混合路径：
 
 - 高频 arena state：优先使用 Colyseus 自身 state sync 或 app-local Colyseus message stream，由 app-specific typed native path 持有。
-- 低频语义事实：继续使用 GameKit `MultiplayerMessageEnvelope`，例如 `game.event`、`game.command.result`、`debug.trace`。
-- Diagnostics：GameKit snapshot 展示 backend、session、peers、sent/received、rtt、snapshot age、input queue、rejected inputs。
+- 低频语义事实：继续使用 GameKits `MultiplayerMessageEnvelope`，例如 `game.event`、`game.command.result`、`debug.trace`。
+- Diagnostics：GameKits snapshot 展示 backend、session、peers、sent/received、rtt、snapshot age、input queue、rejected inputs。
 
-这样能真正考验成熟 backend 的实时能力，同时保持 GameKit core 薄内核。如果后续决定把 state sync helper 做成可复用 package API，需要单独 ADR。
+这样能真正考验成熟 backend 的实时能力，同时保持 GameKits core 薄内核。如果后续决定把 state sync helper 做成可复用 package API，需要单独 ADR。
 
 完整能力规划：
 
-- 当前默认 lane 使用 GameKit envelope authoritative snapshot stream，适合跨 backend baseline、local authority 和 conformance。
-- Colyseus native lane 应使用 backend package 提供的 typed bridge，把 Schema/onStateChange 或 provider state summary 映射成 GameKit authority diagnostics，而不是让 UI 直接依赖 Colyseus Room。
-- 同一局只能选择一个 authority writer：`gamekit-envelope` 或 `colyseus-schema`。另一条路径只能提供低频 summary、debug comparison 或迁移验证，避免双写。
+- 当前默认 lane 使用 GameKits envelope authoritative snapshot stream，适合跨 backend baseline、local authority 和 conformance。
+- Colyseus native lane 应使用 backend package 提供的 typed bridge，把 Schema/onStateChange 或 provider state summary 映射成 GameKits authority diagnostics，而不是让 UI 直接依赖 Colyseus Room。
+- 同一局只能选择一个 authority writer：`gamekits-envelope` 或 `colyseus-schema`。另一条路径只能提供低频 summary、debug comparison 或迁移验证，避免双写。
 - Diagnostics 必须展示当前 lane、authority source、snapshot/schema version、last applied tick、resync state、state size 和 rejected non-authority updates。
 
 ## Gameplay Contract
@@ -324,7 +324,7 @@ Status: First pass implemented.
 任务：
 
 1. 已让 Browser client 在 connected mode 以固定频率发送 `RealtimeInputFrame`；离线练习已通过 `local` authority binding / in-process delivery 复用同一 action/input、simulation 和 snapshot contract。
-2. 已让 Host 通过 `@gamekit/multiplayer-core` authority loop 在固定 tick 消费 action/input，并通过 GameKit envelope 广播 authoritative arena snapshot。
+2. 已让 Host 通过 `@gamekits/multiplayer-core` authority loop 在固定 tick 消费 action/input，并通过 GameKits envelope 广播 authoritative arena snapshot。
 3. Running 状态外的 gameplay input 由 domain authority gate 拒绝，不再让 browser client 本地推进比赛。
 4. 已添加 headless integration test：启动一个 Colyseus server、一个 host、两个 clients，验证 ready/start gate、running snapshot 和输入后的双方位置一致。
 5. 已覆盖 duplicate/stale/non-running/invalid input rejection、authority 距离判定、action/input queue overflow、人工延迟和断线场景。
@@ -342,14 +342,14 @@ Status: Minimal package bridge implemented; real Demo Schema lane migrated to `m
 
 任务：
 
-1. 已在 `@gamekit/multiplayer-colyseus` 实现 app-facing typed native state bridge、capability summary 和 authority diagnostics mapping。
+1. 已在 `@gamekits/multiplayer-colyseus` 实现 app-facing typed native state bridge、capability summary 和 authority diagnostics mapping。
 2. 已在 package tests 覆盖 session/source endpoint/tick/version/size gate、resync、redaction 和 dispose。
-3. GameKit envelope 继续作为 Demo baseline；真实 Schema authority writer、Demo lane selector、双 client 测试和 HUD provider diagnostics 进入独立工作流。
+3. GameKits envelope 继续作为 Demo baseline；真实 Schema authority writer、Demo lane selector、双 client 测试和 HUD provider diagnostics 进入独立工作流。
 
 验收：
 
-- Demo 可以证明 Colyseus Schema/state sync 与 GameKit authority binding 可以共存，并且不会把 Colyseus 类型泄漏到 `multiplayer-core` 或玩法 domain。
-- GameKit baseline lane 和 Colyseus native lane 用同一玩法 action/input/snapshot/view model 验证，避免 demo 维护两套游戏。
+- Demo 可以证明 Colyseus Schema/state sync 与 GameKits authority binding 可以共存，并且不会把 Colyseus 类型泄漏到 `multiplayer-core` 或玩法 domain。
+- GameKits baseline lane 和 Colyseus native lane 用同一玩法 action/input/snapshot/view model 验证，避免 demo 维护两套游戏。
 - Diagnostics 能解释当前 authoritative path，不再让用户误以为“只要 Colyseus 连上就等于 gameplay synced”。
 
 ### Wave 5: Prediction, Interpolation, Diagnostics
@@ -387,7 +387,7 @@ Status: Implemented; temporal snapshot interpolation buffer, local prediction/co
 
 ### Wave 6: Multiplayer Feature Completion
 
-Status: Implemented for the GameKit envelope lane; provider-native reconnect remains explicitly unsupported.
+Status: Implemented for the GameKits envelope lane; provider-native reconnect remains explicitly unsupported.
 
 目标：补齐作为多人 dogfood 必须具备的真实房间行为。
 
@@ -408,7 +408,7 @@ Status: Implemented for the GameKit envelope lane; provider-native reconnect rem
 验证记录（2026-07-10）：
 
 - `corepack pnpm --filter multiplayer-demo test`：53 tests 全部通过；覆盖 late join next-round、waiting input rejection、running disconnect state cleanup、同 peer 原 slot 与 input sequence epoch 恢复、再次断线、rematch 清理与 next-round 晋升。
-- `corepack pnpm --filter @gamekit/multiplayer-core test`：34 tests 全部通过；覆盖 `releasePeer()` 清理待处理 action/input、queue depth 和旧 sequence key，并允许恢复后的 sequence 重新从 1 开始；同时覆盖由应用上下文驱动的 join、late join、leave、disconnect、reconnect 和 round-boundary 参与者策略。
+- `corepack pnpm --filter @gamekits/multiplayer-core test`：34 tests 全部通过；覆盖 `releasePeer()` 清理待处理 action/input、queue depth 和旧 sequence key，并允许恢复后的 sequence 重新从 1 开始；同时覆盖由应用上下文驱动的 join、late join、leave、disconnect、reconnect 和 round-boundary 参与者策略。
 - `corepack pnpm build`、`corepack pnpm lint`、`corepack pnpm format`、`git diff --check`：全部通过。全仓 `corepack pnpm test` 完成 60/62 tasks，剩余 Colyseus/demo Turbo task 因受限环境禁止监听 `127.0.0.1` 而失败；上述两个相关 package 的定向 86 tests 已在允许本地监听的执行路径全部通过。
 - `corepack pnpm bench:multiplayer:check`：9 个性能预算全部通过；本机 32 clients host loop 为 `0.0187 ms/tick`，32 clients burst 4 latest coalescing 为 `0.0423 ms/tick`。`corepack pnpm bench:world` 的 10k entity 场景为 spawn/add `11.48ms`、query/update `7.31ms`。
 - 本地浏览器 smoke：host join 后 HUD 展示 `p1/1`，页面无 console warning/error，新增 participant diagnostics 未破坏首屏布局。

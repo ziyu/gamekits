@@ -1,4 +1,4 @@
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import { describe, expect, it } from "vitest";
 import { createAnimatorHandle, createAnimatorModule } from "../../src";
 import { createMemoryAnimationPlaybackAdapter } from "../../src/testing";

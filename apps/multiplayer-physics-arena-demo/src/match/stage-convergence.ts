@@ -1,4 +1,4 @@
-import type { PhysicsVector } from "@gamekit/physics-core";
+import type { PhysicsVector } from "@gamekits/physics-core";
 import type { ArenaGameplayVolumeDefinition, ArenaStageKind } from "../content/types";
 
 export type ArenaConvergenceCandidate = {

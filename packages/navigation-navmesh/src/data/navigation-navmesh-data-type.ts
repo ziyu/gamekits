@@ -1,4 +1,4 @@
-import type { DataDiagnostic, DataDocument, DataTypeDefinition } from "@gamekit/data";
+import type { DataDiagnostic, DataDocument, DataTypeDefinition } from "@gamekits/data";
 import type {
   NavigationNavMeshBuildProfile,
   NavigationNavMeshSource

@@ -86,8 +86,8 @@ jobs:
         if: steps.check-changesets.outputs.has-changesets == 'true'
         uses: changesets/action@v1
         with:
-          title: Version GameKit packages
-          commit: Version GameKit packages
+          title: Version GameKits packages
+          commit: Version GameKits packages
           version: corepack pnpm release:version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

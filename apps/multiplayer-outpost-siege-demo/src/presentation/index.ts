@@ -1,4 +1,4 @@
-import type { RenderObjectId } from "@gamekit/renderer-core";
+import type { RenderObjectId } from "@gamekits/renderer-core";
 
 export * from "./client-presentation-module";
 export * from "./audio-content";

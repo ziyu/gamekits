@@ -3,7 +3,7 @@ import {
   type NavigationAgentProfileDefinition,
   type NavigationPoint,
   type NavigationProjection
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import { gridCellId } from "../compiler/compile-navigation-grid";
 import type { CompiledNavigationGrid, CompiledNavigationGridCell } from "../compiler/types";
 

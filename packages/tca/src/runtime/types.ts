@@ -1,6 +1,6 @@
-import type { DataRegistry } from "@gamekit/data";
-import type { EventBus, GameEvent } from "@gamekit/event-bus";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import type { DataRegistry } from "@gamekits/data";
+import type { EventBus, GameEvent } from "@gamekits/event-bus";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 
 export type TcaRule = {
   id: string;

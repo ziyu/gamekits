@@ -1,7 +1,7 @@
-import { createDataRegistry, type DataPack } from "@gamekit/data";
-import { createEventBus } from "@gamekit/event-bus";
-import { createGame } from "@gamekit/game-runtime";
-import { type GameWorld } from "@gamekit/world";
+import { createDataRegistry, type DataPack } from "@gamekits/data";
+import { createEventBus } from "@gamekits/event-bus";
+import { createGame } from "@gamekits/game-runtime";
+import { type GameWorld } from "@gamekits/world";
 import { describe, expect, it } from "vitest";
 import {
   createTcaHandle,

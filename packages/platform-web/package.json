@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/platform-web",
+  "name": "@gamekits/platform-web",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -17,10 +17,10 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/platform-core": "workspace:*"
+    "@gamekits/platform-core": "workspace:*"
   },
   "devDependencies": {
-    "@gamekit/test-utils": "workspace:*"
+    "@gamekits/test-utils": "workspace:*"
   },
   "files": [
     "dist"

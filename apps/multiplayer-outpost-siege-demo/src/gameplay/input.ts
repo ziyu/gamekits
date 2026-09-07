@@ -1,5 +1,5 @@
-import type { InputActionEvent, InputRouter } from "@gamekit/input-core";
-import { STANDARD_GAMEPAD_CONTROL } from "@gamekit/input-dom";
+import type { InputActionEvent, InputRouter } from "@gamekits/input-core";
+import { STANDARD_GAMEPAD_CONTROL } from "@gamekits/input-dom";
 
 export const OUTPOST_GAME_CONTEXT_ID = "outpost.gameplay";
 const MAX_ACTIVE_CONTROLS_PER_ACTION = 8;

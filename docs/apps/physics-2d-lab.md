@@ -2,7 +2,7 @@
 
 ## 定位
 
-Physics 2D Lab 是 `@gamekit/physics-core` 与 `@gamekit/physics-rapier2d` 的独立能力实验台。它用一个小型 2D 场景验证 body、collider、material、sensor、contact event、point/overlap query、collision group、trace、snapshot 和 native diagnostics 能通过 GameKit Physics facade 稳定消费。
+Physics 2D Lab 是 `@gamekits/physics-core` 与 `@gamekits/physics-rapier2d` 的独立能力实验台。它用一个小型 2D 场景验证 body、collider、material、sensor、contact event、point/overlap query、collision group、trace、snapshot 和 native diagnostics 能通过 GameKits Physics facade 稳定消费。
 
 Physics 2D Lab 不挂在 Sandbox / Tiny Camp 内，也不作为 Abyss Delve 的玩法切片。它的目标是让 Physics package 的 2D 能力先独立跑通，再决定是否进入 Sandbox、Abyss Delve 或 Phaser Driver。
 
@@ -47,7 +47,7 @@ Physics 2D Lab 的 app shell 负责组合：
 - Renderer / Input / UI 的最小可视化和命令入口。
 - DataRegistry 注册 physics scene、body、collider 和 material definitions。
 - GameRuntime 安装 `createPhysicsModule(...)`。
-- `@gamekit/physics-rapier2d` 提供 backend factory。
+- `@gamekits/physics-rapier2d` 提供 backend factory。
 - UI 只消费 snapshot、trace、query result、contact fact 和低频 command。
 
 World component 只保存稳定 physics id、transform、velocity、scene role、presentation state 和 query cursor state。Rapier native body/collider、broadphase cache、solver state 和 contact manifold 留在 adapter 内。
@@ -79,7 +79,7 @@ Physics 2D Lab 应优先建立 headless 测试，再补浏览器 smoke：
 
 ## 设计约束
 
-- Physics 2D Lab 可以显式依赖 `@gamekit/physics-rapier2d` 和具体 renderer adapter，但这些依赖不得进入可复用 gameplay package 或 `physics-core`。
+- Physics 2D Lab 可以显式依赖 `@gamekits/physics-rapier2d` 和具体 renderer adapter，但这些依赖不得进入可复用 gameplay package 或 `physics-core`。
 - Physics scene 跟随 GameRuntime lifecycle，不成为 App Host standard service。
-- Data 和 snapshot 使用 GameKit 稳定类型；native path 只出现在 app-specific diagnostics 和 debug rendering 中。
+- Data 和 snapshot 使用 GameKits 稳定类型；native path 只出现在 app-specific diagnostics 和 debug rendering 中。
 - 该实验台跑通后，Sandbox / Abyss Delve 再按各自长期设计决定是否复用其中的装配方式。

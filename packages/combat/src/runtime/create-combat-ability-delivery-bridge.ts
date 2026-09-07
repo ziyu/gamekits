@@ -1,6 +1,6 @@
-import type { DataRegistry } from "@gamekit/data";
-import type { EventBus, GameEvent } from "@gamekit/event-bus";
-import type { GasAbilityExecutionState } from "@gamekit/gas";
+import type { DataRegistry } from "@gamekits/data";
+import type { EventBus, GameEvent } from "@gamekits/event-bus";
+import type { GasAbilityExecutionState } from "@gamekits/gas";
 import { COMBAT_ABILITY_DELIVERY_TYPE } from "../data/combat-data-types";
 import type {
   CombatAbilityDeliveryBridgeConfig,
@@ -26,7 +26,7 @@ export type CombatAbilityDeliveryBridge = {
 export function createCombatAbilityDeliveryBridge(
   options: CreateCombatAbilityDeliveryBridgeOptions
 ): CombatAbilityDeliveryBridge {
-  const source = options.id ?? "gamekit.combat.ability-delivery";
+  const source = options.id ?? "gamekits.combat.ability-delivery";
   const bindingsByAbility = indexBindings(options.dataRegistry, options.bindings);
   let disposed = false;
   const unsubscribe = options.eventBus.on<GasAbilityExecutionState>(

@@ -1,4 +1,4 @@
-import type { DevToolsProfilerSummary, DevToolsSnapshot } from "@gamekit/devtools";
+import type { DevToolsProfilerSummary, DevToolsSnapshot } from "@gamekits/devtools";
 
 export type PerformancePanelModel = {
   latestFrame: DevToolsSnapshot["profilerFrames"][number] | undefined;

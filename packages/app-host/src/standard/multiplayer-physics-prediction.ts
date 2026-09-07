@@ -5,7 +5,7 @@ import {
   type MultiplayerPredictedLifecycleHooks,
   type MultiplayerPredictedLifecycleSyncResult,
   type MultiplayerPredictionGeneration
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import type {
   PhysicsPredictionIsland,
   PhysicsPredictionIslandDiagnostics,
@@ -14,7 +14,7 @@ import type {
   PhysicsPredictionIslandMemberState,
   PhysicsPredictionIslandReconcileResult,
   PhysicsPredictionIslandStateSnapshot
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 
 export type StandardMultiplayerPhysicsAuthoritySpawn = {
   correlationId: string;

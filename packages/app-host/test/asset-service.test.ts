@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
-import { createAssetManager } from "@gamekit/asset";
-import type { GameDriver } from "@gamekit/driver-core";
+import { createAssetManager } from "@gamekits/asset";
+import type { GameDriver } from "@gamekits/driver-core";
 import { createConfiguredAppHost, createStandardAppProfile, defineGameApp } from "../src";
 
 it("retains required preload assets under a resident budget until the host disposes", async () => {

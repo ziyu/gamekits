@@ -1,12 +1,12 @@
 # Changesets
 
-GameKit uses Changesets to automate package version PRs and release publishing.
+GameKits uses Changesets to automate package version PRs and release publishing.
 
 - Current prerelease mode: `alpha`.
 - Current publish scope: `@gamekits/*`.
-- Internal workspace package names remain `@gamekit/*`; release staging maps them to `@gamekits/*`.
+- Internal workspace package names remain `@gamekits/*`; release staging maps them to `@gamekits/*`.
 - Public packages are versioned as a fixed lockstep group.
-- `@gamekit/platform-tauri` stays ignored until the Wave 4 Tauri validation path is ready.
+- `@gamekits/platform-tauri` stays ignored until the Wave 4 Tauri validation path is ready.
 
 For ordinary package changes, add a changeset with:
 

@@ -1,10 +1,14 @@
-import { CombatProjectileComponent, createCombatHandle, createCombatModule } from "@gamekit/combat";
-import { createEventBus } from "@gamekit/event-bus";
-import { createGame } from "@gamekit/game-runtime";
-import { createGasHandle, createGasModule } from "@gamekit/gas";
-import { createPhysicsHandle, createPhysicsModule } from "@gamekit/physics-core";
-import { initRapier2dPhysicsBackend } from "@gamekit/physics-rapier2d";
-import { createKootaWorld } from "@gamekit/world-koota";
+import {
+  CombatProjectileComponent,
+  createCombatHandle,
+  createCombatModule
+} from "@gamekits/combat";
+import { createEventBus } from "@gamekits/event-bus";
+import { createGame } from "@gamekits/game-runtime";
+import { createGasHandle, createGasModule } from "@gamekits/gas";
+import { createPhysicsHandle, createPhysicsModule } from "@gamekits/physics-core";
+import { initRapier2dPhysicsBackend } from "@gamekits/physics-rapier2d";
+import { createKootaWorld } from "@gamekits/world-koota";
 import { beforeAll, describe, expect, it } from "vitest";
 import { createCombatRangeDataRegistry } from "./data";
 import {

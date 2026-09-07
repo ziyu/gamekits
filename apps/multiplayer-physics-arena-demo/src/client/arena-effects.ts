@@ -1,8 +1,8 @@
 import {
   createMultiplayerSpeculativeEffectJournal,
   type MultiplayerSpeculativeEffectJournalDiagnostics
-} from "@gamekit/multiplayer-core";
-import type { PhysicsPredictionIslandContact } from "@gamekit/physics-core";
+} from "@gamekits/multiplayer-core";
+import type { PhysicsPredictionIslandContact } from "@gamekits/physics-core";
 
 import { arenaItemPhysicsMemberId } from "../items/item-physics";
 import type {

@@ -2,7 +2,7 @@
 
 ## 目标
 
-游戏 UI 只展示玩家做决策需要的信息。GameKit service graph、network packet、entity count、Physics binding、GAS/TCA trace 和 profiler 只存在于可收起 DevTools，不复制进正式 HUD。
+游戏 UI 只展示玩家做决策需要的信息。GameKits service graph、network packet、entity count、Physics binding、GAS/TCA trace 和 profiler 只存在于可收起 DevTools，不复制进正式 HUD。
 
 UI 使用 React 组件与稳定 view model。React 不订阅每帧 World transform；世界空间提示由 Renderer 或专用 world UI presentation 处理，低频 HUD 通过 selector/signature 节流更新。
 

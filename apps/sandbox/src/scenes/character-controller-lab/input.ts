@@ -3,8 +3,8 @@ import {
   type InputActionEvent,
   type InputActionId,
   type InputRouter
-} from "@gamekit/input-core";
-import { createDomInputAdapter } from "@gamekit/input-dom";
+} from "@gamekits/input-core";
+import { createDomInputAdapter } from "@gamekits/input-dom";
 import type { CharacterControllerLabCameraInput } from "./camera";
 import type { CharacterControllerLabAxes } from "./motor";
 

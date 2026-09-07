@@ -1,4 +1,4 @@
-import { createGasModule } from "@gamekit/gas";
+import { createGasModule } from "@gamekits/gas";
 import { resolveStandardValue } from "../resolve";
 import type { StandardGasGameModuleOptions, StandardServiceBuildContext } from "../types";
 

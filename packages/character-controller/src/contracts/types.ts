@@ -3,7 +3,7 @@ import type {
   PhysicsBodyPatch,
   PhysicsBodyState,
   PhysicsVector
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 
 export type CharacterControlIntent = {
   sequence: number;

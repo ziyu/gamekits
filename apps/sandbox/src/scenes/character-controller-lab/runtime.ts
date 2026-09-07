@@ -6,7 +6,7 @@ import {
   type CharacterMotorDiagnostics,
   type CharacterMotorState,
   type CharacterMotorTraceEntry
-} from "@gamekit/character-controller";
+} from "@gamekits/character-controller";
 import type {
   PhysicsBackendAdapter,
   PhysicsBodyState,
@@ -14,8 +14,8 @@ import type {
   PhysicsScene,
   PhysicsSceneSnapshot,
   PhysicsVector
-} from "@gamekit/physics-core";
-import type { Rapier3dPhysicsNative } from "@gamekit/physics-rapier3d";
+} from "@gamekits/physics-core";
+import type { Rapier3dPhysicsNative } from "@gamekits/physics-rapier3d";
 import {
   characterControllerLabSpawnPoint,
   characterControllerLabStationSpawn,

@@ -3,7 +3,7 @@ import {
   type NavigationAgentProfileDefinition,
   type NavigationPoint,
   type NavigationProjection
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import type { CompiledNavigationGraph, CompiledNavigationNode } from "../compiler";
 
 export function projectGraphPoint(

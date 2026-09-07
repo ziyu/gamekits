@@ -6,21 +6,21 @@ Accepted
 
 ## 背景
 
-UI Core 已被明确为 headless 协议层，只负责 panel、window、command、focus 和 snapshot。主题、样式、组件库和动效不应进入 `@gamekit/ui-core`，否则会让大多数游戏被迫关心过度抽象的 theme runtime，也会让核心协议过早绑定 React、DOM 或 CSS 技术。
+UI Core 已被明确为 headless 协议层，只负责 panel、window、command、focus 和 snapshot。主题、样式、组件库和动效不应进入 `@gamekits/ui-core`，否则会让大多数游戏被迫关心过度抽象的 theme runtime，也会让核心协议过早绑定 React、DOM 或 CSS 技术。
 
-但 `@gamekit/react-ui` 需要有明确的默认实现基础，否则 Sandbox、DevTools、Editor 和未来游戏 demo 会继续各自手写样式和动画，导致 UI 体验、可访问性、组件结构和维护方式分裂。
+但 `@gamekits/react-ui` 需要有明确的默认实现基础，否则 Sandbox、DevTools、Editor 和未来游戏 demo 会继续各自手写样式和动画，导致 UI 体验、可访问性、组件结构和维护方式分裂。
 
 ## 决策
 
-`@gamekit/react-ui` 的默认实现采用：
+`@gamekits/react-ui` 的默认实现采用：
 
 - Tailwind CSS 作为样式基础。
 - GSAP 作为低频 UI 动效基础。
 - shadcn/ui 作为推荐组件 recipe 最佳实践。
 
-这些选择只属于 React UI / app UI 层。`@gamekit/ui-core` 不依赖 Tailwind、GSAP、shadcn/ui、Radix、Base UI、DOM 或 React 类型。
+这些选择只属于 React UI / app UI 层。`@gamekits/ui-core` 不依赖 Tailwind、GSAP、shadcn/ui、Radix、Base UI、DOM 或 React 类型。
 
-shadcn/ui 不作为不可替换的运行时依赖。它是推荐实践和组件 recipe 来源：GameKit 或具体游戏可以复制、封装、改造组件代码，并把它维护在 `@gamekit/react-ui` 或游戏自己的 UI 包中。
+shadcn/ui 不作为不可替换的运行时依赖。它是推荐实践和组件 recipe 来源：GameKits 或具体游戏可以复制、封装、改造组件代码，并把它维护在 `@gamekits/react-ui` 或游戏自己的 UI 包中。
 
 ## 后果
 
@@ -42,4 +42,4 @@ shadcn/ui 不作为不可替换的运行时依赖。它是推荐实践和组件 
 
 ### shadcn/ui 作为强制公共依赖
 
-拒绝。shadcn 的价值在于可拥有的组件 recipe，而不是把第三方 primitive 类型扩散成 GameKit 公共 API。
+拒绝。shadcn 的价值在于可拥有的组件 recipe，而不是把第三方 primitive 类型扩散成 GameKits 公共 API。

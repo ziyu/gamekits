@@ -3,7 +3,7 @@ import type {
   DataDocument,
   DataReferenceTarget,
   DataTypeDefinition
-} from "@gamekit/data";
+} from "@gamekits/data";
 import {
   ARENA_BOT_ARCHETYPE_TYPE,
   ARENA_BOT_PROFILE_TYPE,

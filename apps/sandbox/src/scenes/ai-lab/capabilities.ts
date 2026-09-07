@@ -1,10 +1,10 @@
-import type { AiPerceptionFact, AiSharedFactQueries } from "@gamekit/ai-core";
-import type { NavigationAgentProfileDefinition } from "@gamekit/navigation-core";
+import type { AiPerceptionFact, AiSharedFactQueries } from "@gamekits/ai-core";
+import type { NavigationAgentProfileDefinition } from "@gamekits/navigation-core";
 import {
   createGridNavigationBackend,
   type NavigationGridCellDefinition,
   type NavigationGridDefinition
-} from "@gamekit/navigation-grid";
+} from "@gamekits/navigation-grid";
 import { AI_LAB_OBSTACLE_BLUEPRINTS } from "./ecosystem";
 
 const AI_LAB_GRID_ORIGIN = { x: 4, y: 6 } as const;

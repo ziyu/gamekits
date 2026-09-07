@@ -1,15 +1,15 @@
-import { defineGameModule } from "@gamekit/core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import { defineGameModule } from "@gamekits/core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import type {
   RenderNodePath,
   RenderObjectDefinition,
   RendererAdapter
-} from "@gamekit/renderer-core";
+} from "@gamekits/renderer-core";
 import {
   applyPhaserRenderTargetState,
   type PhaserRenderTargetState
-} from "@gamekit/renderer-phaser";
-import type { EntityId, GameWorld } from "@gamekit/world";
+} from "@gamekits/renderer-phaser";
+import type { EntityId, GameWorld } from "@gamekits/world";
 import {
   LinkState,
   ObjectiveState,

@@ -6,19 +6,19 @@ Accepted
 
 ## Context
 
-ADR 0010 定义了 Multiplayer Core 与 backend adapter 的边界，ADR 0012 决定优先接入 Colyseus 等成熟 backend，而不是在 GameKit 内自研通用 room、transport、presence、reconnect 或 state sync engine。
+ADR 0010 定义了 Multiplayer Core 与 backend adapter 的边界，ADR 0012 决定优先接入 Colyseus 等成熟 backend，而不是在 GameKits 内自研通用 room、transport、presence、reconnect 或 state sync engine。
 
 这个方向仍然留下一个高风险缺口：如果 core 只提供 session、peer、message envelope 和 backend adapter，app 很容易写出“网络层已连接，但 gameplay state 仍然各端本地运行”的伪多人体验。UI 可以显示多个 peer 在同一个 room 中，但 ready、start、input、simulation、snapshot 仍各自独立。这不是单个 demo 的小问题，而是底层抽象没有提供足够强的标准同步路径。
 
-GameKit 不应把玩法规则、碰撞、得分或具体 snapshot schema 上推到 `multiplayer-core`；但它必须提供一条清晰、可测试、可复用的权威复制边界，让 app 不需要手写多人同步骨架，也不能轻易把“connected session”误当作“authoritative gameplay state 已绑定”。
+GameKits 不应把玩法规则、碰撞、得分或具体 snapshot schema 上推到 `multiplayer-core`；但它必须提供一条清晰、可测试、可复用的权威复制边界，让 app 不需要手写多人同步骨架，也不能轻易把“connected session”误当作“authoritative gameplay state 已绑定”。
 
 同一条边界还必须覆盖离线单机。单机/offline 不能走一套完全独立的 gameplay runtime；它应该绑定到 in-process local authority endpoint，复用相同的 action/input、tick、validation、snapshot/patch/result 和 diagnostics 语义，只是不经过远程 backend transport。
 
 ## Decision
 
-Multiplayer 采用“成熟 backend 负责底层多人能力，GameKit core 提供标准权威复制组合边界”的分工。
+Multiplayer 采用“成熟 backend 负责底层多人能力，GameKits core 提供标准权威复制组合边界”的分工。
 
-`@gamekit/multiplayer-core` 应提供 provider-neutral 的 authority / replication toolkit，用来表达以下稳定流程。这条流程是跨 backend 的 baseline contract，不是对 Colyseus、Nakama 等成熟 backend 能力的替代。
+`@gamekits/multiplayer-core` 应提供 provider-neutral 的 authority / replication toolkit，用来表达以下稳定流程。这条流程是跨 backend 的 baseline contract，不是对 Colyseus、Nakama 等成熟 backend 能力的替代。
 
 ```txt
 client input/action
@@ -45,11 +45,11 @@ client input/action
 
 - 不定义具体游戏的 `PlayerSnapshot`、`InputFrame`、地图、碰撞、得分、ready 条件或胜负规则。
 - 不自研 backend 的 room server、matchmaker、reconnect engine、presence store、transport codec 或生产级 state sync engine。
-- 不替代 Colyseus Schema、Nakama match state 或 provider-native state sync；它只提供 GameKit 侧的组合边界、authority gate、diagnostics 和测试契约。
+- 不替代 Colyseus Schema、Nakama match state 或 provider-native state sync；它只提供 GameKits 侧的组合边界、authority gate、diagnostics 和测试契约。
 
 Backend adapter 职责：
 
-- `@gamekit/multiplayer-colyseus` 等 backend package 继续拥有具体 SDK、Room、message routing、provider room id 映射、reconnect、native bridge 和 provider diagnostics。
+- `@gamekits/multiplayer-colyseus` 等 backend package 继续拥有具体 SDK、Room、message routing、provider room id 映射、reconnect、native bridge 和 provider diagnostics。
 - Adapter 必须能承载 core 的 authority / replication helper 所需的 message routing、channel capability、presence summary 和 session identity。
 - 若 provider 提供原生 state sync，例如 Colyseus Schema，adapter 可以通过 typed native bridge 或 provider mapping 接入；该类型不得泄漏进 `multiplayer-core`、Save payload、DataType 或可复用 gameplay module。
 - 完整可用 backend adapter 不能只把 provider 当作普通 message transport。它应保留并测试 provider-native capability bridge，例如 Schema/match state、reconnect/seat reservation、matchmaking、room metadata、state size/update diagnostics 和 server/runtime native path。
@@ -58,7 +58,7 @@ App / game 职责：
 
 - App 定义玩法 state、input/action payload、snapshot/patch payload、规则校验、simulation 和 presentation。
 - App 为 participant policy 提供自己的 phase/capacity/mode context，并执行 core decision 对玩法 actor、slot、team 和 round stats 的影响；不能要求 core 认识 lobby/running 等游戏状态。
-- App 可以选择使用 provider-native state sync、GameKit snapshot stream、lockstep 或 rollback；但必须通过 core 的 authority binding 明确谁是权威源。
+- App 可以选择使用 provider-native state sync、GameKits snapshot stream、lockstep 或 rollback；但必须通过 core 的 authority binding 明确谁是权威源。
 - 离线单机选择 `local` authority binding；它可以使用 in-process delivery 或 memory backend，但不能绕过同一套玩法 action/input、authority validation 和 snapshot presentation contract。
 - Browser/UI 不直接把 local simulation state 当成联网模式的权威状态。连接后本地预测只能作为表现层或可回滚缓存。
 
@@ -66,7 +66,7 @@ App / game 职责：
 
 收益：
 
-- GameKit 保持薄内核，不接管具体玩法，也不自研成熟 backend 已经提供的底层系统。
+- GameKits 保持薄内核，不接管具体玩法，也不自研成熟 backend 已经提供的底层系统。
 - App 不需要每次手写 ready/start/input/snapshot 的多人骨架，减少伪多人接线错误。
 - 单机、host-authoritative 和 server-authoritative 可以共享同一套 gameplay orchestration，避免 local mode 和 multiplayer mode 长期分叉。
 - `multiplayer-core` 的测试可以真正覆盖“两个 client 是否共享同一份 authoritative state”，而不只覆盖 room/presence/message 是否连通。
@@ -78,7 +78,7 @@ App / game 职责：
 - `multiplayer-core` 的公共 API 会从纯 message facade 扩展到 authority / replication toolkit，需要更严格的类型边界和 conformance tests。
 - App 仍需要设计 payload schema 和 gameplay validation；标准 helper 不能自动保证游戏规则正确。
 - Backend adapter 需要补足更细的能力声明和测试，例如 authority routing、重复 peer id、provider room id 映射和 source gate。
-- 若同时支持 GameKit snapshot stream 与 provider-native state sync，需要清楚标记哪条路径是 authority source，避免双写；backend package 还需要为 provider-native lane 提供额外测试和 diagnostics。
+- 若同时支持 GameKits snapshot stream 与 provider-native state sync，需要清楚标记哪条路径是 authority source，避免双写；backend package 还需要为 provider-native lane 提供额外测试和 diagnostics。
 - Local authority 也需要进入 conformance tests；同一 input/action log 在 local authority 和 remote authority fixture 中应产生等价的稳定 gameplay snapshot。
 
 约束：

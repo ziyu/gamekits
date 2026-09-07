@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/audio-core",
+  "name": "@gamekits/audio-core",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -25,8 +25,8 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/asset": "workspace:*",
-    "@gamekit/core": "workspace:*"
+    "@gamekits/asset": "workspace:*",
+    "@gamekits/core": "workspace:*"
   },
   "files": [
     "dist"
@@ -35,7 +35,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "gamekitBuild": {
+  "gamekitsBuild": {
     "bundleDts": false,
     "entries": [
       "src/index.ts",

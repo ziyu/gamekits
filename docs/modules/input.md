@@ -6,11 +6,11 @@ Input 是独立系统，不属于 Renderer。它负责把物理输入归一化�
 
 相关包：
 
-- `@gamekit/input-core`
-- `@gamekit/input-dom`
-- `@gamekit/input-tauri`
-- `@gamekit/driver-phaser`
-- `@gamekit/driver-three`
+- `@gamekits/input-core`
+- `@gamekits/input-dom`
+- `@gamekits/input-tauri`
+- `@gamekits/driver-phaser`
+- `@gamekits/driver-three`
 
 ## 为什么独立
 
@@ -205,7 +205,7 @@ export type InputSourceAdapter = {
 
 ## Web Gamepad Adapter
 
-`@gamekit/input-dom` 的 `createWebGamepadInputAdapter()` 持有 `navigator.getGamepads()`，默认支持 W3C standard mapping、最多四个设备以及固定大小的上一帧 control state。
+`@gamekits/input-dom` 的 `createWebGamepadInputAdapter()` 持有 `navigator.getGamepads()`，默认支持 W3C standard mapping、最多四个设备以及固定大小的上一帧 control state。
 
 - Button、trigger、D-pad 与双摇杆通过 `STANDARD_GAMEPAD_CONTROL` 暴露稳定 code；gameplay 不读取 `buttons[]` / `axes[]` 索引。
 - Stick 使用 radial dead zone，button/trigger 使用 press threshold；只有边沿或超过 change epsilon 的值变化才派发 normalized event。角色移动曲线、aim sensitivity、Y 轴反向和辅助瞄准仍归 app policy。

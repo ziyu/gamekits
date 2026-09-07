@@ -1,4 +1,4 @@
-import type { PlatformPath } from "@gamekit/platform-core";
+import type { PlatformPath } from "@gamekits/platform-core";
 
 export function createWebPath(): PlatformPath {
   return {

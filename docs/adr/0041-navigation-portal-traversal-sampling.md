@@ -31,7 +31,7 @@ type NavigationRouteTraversal = {
 - traversal 执行后 progress tracker 从新的观测位置继续采样；调用方可以重置该 agent 的 progress baseline，避免把原子位移误判成 stuck。
 - portal id 是稳定 gameplay/content identity；Graph node、Grid cell、Recast poly ref、Detour flag 和 native handle 仍不进入公共 API。
 - Recast 的 point path 与 field 都使用 layout 的 authored portal cost，而不是用两个 endpoint 的世界距离替代 traversal cost；polygon 到 endpoint 的局部接近成本仍由 Recast adapter 计算。
-- Detour 原生 off-mesh query 不知道 GameKit authored portal cost。存在已启用且带显式 cost 的 portal 时，Recast adapter 先通过与 field 共享的私有有向 topology/cost 语义选择 native polygon corridor，再把完整 corridor 交给 Detour straight-path/funnel 生成路径点与 off-mesh flags。事后只改 route cost 不满足该约束，因为无法改变 native query 已经选定的走廊。
+- Detour 原生 off-mesh query 不知道 GameKits authored portal cost。存在已启用且带显式 cost 的 portal 时，Recast adapter 先通过与 field 共享的私有有向 topology/cost 语义选择 native polygon corridor，再把完整 corridor 交给 Detour straight-path/funnel 生成路径点与 off-mesh flags。事后只改 route cost 不满足该约束，因为无法改变 native query 已经选定的走廊。
 
 `traversal` 和 path `traversals` 都是可选字段，因此没有 portal 的现有 Backend 和调用方保持兼容。
 

@@ -1,4 +1,4 @@
-import type { NavigationPoint } from "@gamekit/navigation-core";
+import type { NavigationPoint } from "@gamekits/navigation-core";
 import type { NavigationLabSnapshot } from "../types";
 import {
   BLACKGLASS_BASIN_TERRAIN,

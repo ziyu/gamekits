@@ -1,5 +1,5 @@
-import { createAssetDataType } from "@gamekit/asset";
-import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekit/data";
+import { createAssetDataType } from "@gamekits/asset";
+import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekits/data";
 import { createAnimatorDataTypes, createAnimatorRuntime, type AnimatorTraceEntry } from "../../src";
 import { createMemoryAnimationPlaybackAdapter } from "../../src/testing";
 

@@ -1,4 +1,4 @@
-import type { EntityId } from "@gamekit/world";
+import type { EntityId } from "@gamekits/world";
 import type { AiAgentBinding } from "../contracts/agent-binding";
 import type { AiBlackboardValue } from "../contracts/blackboard-value";
 import type { AiPerceptionFact } from "../perception/perception-fact";

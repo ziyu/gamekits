@@ -2,7 +2,7 @@
 
 ## 文档定位
 
-本目录是 Outpost Siege 玩法与游戏级系统的长期事实源。它描述游戏为什么可玩、每个系统如何协作、哪些规则属于 Outpost，以及玩法对 GameKit 底层能力提出什么稳定要求。
+本目录是 Outpost Siege 玩法与游戏级系统的长期事实源。它描述游戏为什么可玩、每个系统如何协作、哪些规则属于 Outpost，以及玩法对 GameKits 底层能力提出什么稳定要求。
 
 综合验证应用的 authority、profile、资源、复制、存档、诊断和性能合同见 [`../multiplayer-outpost-siege-demo.md`](../multiplayer-outpost-siege-demo.md)。底层模块的最终公共协议见 [`../../modules/`](../../modules/README.md)。实现状态、阶段拆分和验证证据见 [`../../implementation/outpost-siege-gameplay-foundation.md`](../../implementation/outpost-siege-gameplay-foundation.md)。
 

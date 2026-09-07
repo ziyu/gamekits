@@ -1,6 +1,6 @@
 # IndexedDB SaveStore
 
-Transactional browser adapter for GameKit Save. Production code uses native IndexedDB and Web Crypto; it can be imported without opening a database.
+Transactional browser adapter for GameKits Save. Production code uses native IndexedDB and Web Crypto; it can be imported without opening a database.
 
 ```ts
 import { createIndexedDbSaveStore } from "@gamekits/save-indexeddb";

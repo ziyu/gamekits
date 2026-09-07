@@ -1,4 +1,4 @@
-import type { PhysicsBounds, PhysicsQueryResult, PhysicsVector } from "@gamekit/physics-core";
+import type { PhysicsBounds, PhysicsQueryResult, PhysicsVector } from "@gamekits/physics-core";
 import type {
   CombatBlockResult,
   CombatDeliveryRequest,

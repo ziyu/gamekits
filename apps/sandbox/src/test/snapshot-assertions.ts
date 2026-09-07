@@ -1,6 +1,6 @@
-import type { DataKey, DataRegistry } from "@gamekit/data";
+import type { DataKey, DataRegistry } from "@gamekits/data";
 import { expect } from "vitest";
-import type { MemoryRendererAdapter } from "@gamekit/test-utils";
+import type { MemoryRendererAdapter } from "@gamekits/test-utils";
 import type {
   SandboxEntitySnapshot,
   SandboxSceneRole,

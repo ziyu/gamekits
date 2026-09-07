@@ -1,5 +1,5 @@
-import type { DataRef } from "@gamekit/data";
-import type { PhysicsVector } from "@gamekit/physics-core";
+import type { DataRef } from "@gamekits/data";
+import type { PhysicsVector } from "@gamekits/physics-core";
 
 export const ARENA_MATCH_RULE_TYPE = "arena.match-rule";
 export const ARENA_STAGE_TYPE = "arena.stage";

@@ -1,4 +1,4 @@
-import type { DataDiagnostic, DataDocument } from "@gamekit/data";
+import type { DataDiagnostic, DataDocument } from "@gamekits/data";
 
 export function validateAnimatorDefinitionId<T extends { id: string }>(
   document: DataDocument<T>,

@@ -12,7 +12,7 @@ GAS Cue 只携带 source/target Actor 和静态 payload，不能安全承载命�
 
 - GAS 是 Ability/Effect Cue 的唯一 gameplay presentation intent source。Ability phase Cue 表达前摇、释放、恢复和取消；Effect Cue 只在 Effect 成功应用后表达受击、治疗和状态反馈。
 - Combat 不增加平行 Cue registry。它继续发出有界 delivery/hit/projectile fact，并把连续 projectile 状态留在 World/Physics。
-- `@gamekit/combat` 提供 `combat.ability-delivery` DataType 和可选 module bridge。Bridge 在 GAS execution 首次进入 `committed` 时自动、幂等地调用 Combat delivery，并传播 actor、target、execution、correlation 和 parent identity。
+- `@gamekits/combat` 提供 `combat.ability-delivery` DataType 和可选 module bridge。Bridge 在 GAS execution 首次进入 `committed` 时自动、幂等地调用 Combat delivery，并传播 actor、target、execution、correlation 和 parent identity。
 - Delivery definition 承载静态空间配置；动态 aim/socket/charge 数据通过注入的窄 request resolver 提供。Resolver 不拥有订阅、runtime 或命中结算。
 - Presentation bridge/consumer 使用 correlation、execution、ticket、projectile id 关联 GAS Cue 与 Combat fact/World state。Cue 决定“播放什么”，Combat/World 决定“在哪里、沿什么方向播放”。
 - 环境伤害、关卡脚本和测试工具仍可显式调用 Combat delivery；这不是普通 Ability 集成的默认路径。

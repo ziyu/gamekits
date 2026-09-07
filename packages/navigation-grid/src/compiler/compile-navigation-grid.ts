@@ -4,7 +4,7 @@ import {
   type NavigationLayoutDefinition,
   type NavigationObstacleTarget,
   type NavigationPoint
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import type { NavigationGridDefinition } from "../contracts/grid-definition";
 import type {
   CompiledNavigationGrid,

@@ -1,7 +1,7 @@
 import type {
   NavigationNavMeshSource,
   NavigationNavMeshTriangle
-} from "@gamekit/navigation-navmesh";
+} from "@gamekits/navigation-navmesh";
 import {
   BLACKGLASS_BASIN_TERRAIN,
   type BlackglassTerrainCell

@@ -1,4 +1,4 @@
-import { GameError } from "@gamekit/core";
+import { GameError } from "@gamekits/core";
 import type {
   RenderCommand,
   RenderNodePath,
@@ -6,7 +6,7 @@ import type {
   RenderObjectHandle,
   RenderObjectId,
   RendererBootContext
-} from "@gamekit/renderer-core";
+} from "@gamekits/renderer-core";
 import { Box3, type Object3D, Vector3 } from "three";
 import { applyRenderCommand } from "./command-handlers";
 import { createThreeRenderRecord, SUPPORTED_OBJECT_TYPES } from "./object-factory";

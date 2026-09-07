@@ -1,8 +1,8 @@
 ---
-"@gamekit/asset": minor
-"@gamekit/driver-core": patch
-"@gamekit/driver-phaser": minor
-"@gamekit/renderer-phaser": minor
+"@gamekits/asset": minor
+"@gamekits/driver-core": patch
+"@gamekits/driver-phaser": minor
+"@gamekits/renderer-phaser": minor
 ---
 
 Add validated atlas, audio, variant, and animation manifest metadata, load those resources through

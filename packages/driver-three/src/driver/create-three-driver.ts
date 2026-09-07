@@ -1,6 +1,6 @@
-import { GameError } from "@gamekit/core";
-import type { DriverCapabilities, DriverLifecyclePhase } from "@gamekit/driver-core";
-import type { RendererBootContext } from "@gamekit/renderer-core";
+import { GameError } from "@gamekits/core";
+import type { DriverCapabilities, DriverLifecyclePhase } from "@gamekits/driver-core";
+import type { RendererBootContext } from "@gamekits/renderer-core";
 import { createThreeDriverAssetLoader } from "./assets";
 import { createThreeDriverCameraAdapter } from "./camera";
 import { createThreeRenderer } from "./create-three-renderer";

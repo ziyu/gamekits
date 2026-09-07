@@ -6,7 +6,7 @@ Related decision: ADR 0034 defines the public Game Audio domain facades.
 
 ## Context
 
-`@gamekit/audio-core` 同时包含内容编译、共享播放调度、音乐状态、音效选择与并发、对白队列、混音、空间状态、Backend port、diagnostics、组合入口和测试能力。这些职责具有不同的变化原因和测试策略。
+`@gamekits/audio-core` 同时包含内容编译、共享播放调度、音乐状态、音效选择与并发、对白队列、混音、空间状态、Backend port、diagnostics、组合入口和测试能力。这些职责具有不同的变化原因和测试策略。
 
 初版目录照搬了其他 package 的通用 `src/runtime` 平铺结构，把几乎所有公共类型放进单个 `types.ts`，把定义编译、播放调度、并发、混音、空间、生命周期和 diagnostics 聚合到单个 runtime 文件。这种结构没有表达 Audio 自身的领域边界，并形成高耦合的 god runtime。
 
@@ -75,9 +75,9 @@ composition
 
 包提供三个入口：
 
-- `@gamekit/audio-core`：游戏/app 使用的领域 API、内容定义和创建函数。
-- `@gamekit/audio-core/backend`：Driver/Adapter 实现的低层协议。
-- `@gamekit/audio-core/testing`：conformance、Memory/Null Backend 和测试 fixture。
+- `@gamekits/audio-core`：游戏/app 使用的领域 API、内容定义和创建函数。
+- `@gamekits/audio-core/backend`：Driver/Adapter 实现的低层协议。
+- `@gamekits/audio-core/testing`：conformance、Memory/Null Backend 和测试 fixture。
 
 Root 入口不导出内部 registry、编译状态、native handle 或测试替身。Backend 与 testing 使用独立 subpath，避免为了 Driver 或测试扩大游戏侧默认 API。
 

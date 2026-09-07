@@ -952,9 +952,9 @@ async function fetchConfig(): Promise<MultiplayerDemoConfig> {
   return (await response.json()) as MultiplayerDemoConfig;
 }
 
-const MULTIPLAYER_DEMO_HOST_OWNER_STORAGE_KEY = "gamekit.multiplayerDemo.hostOwnerId";
-const MULTIPLAYER_DEMO_PEER_ID_STORAGE_KEY = "gamekit.multiplayerDemo.peerId";
-const MULTIPLAYER_DEMO_PLAYER_NAME_STORAGE_KEY = "gamekit.multiplayerDemo.playerName";
+const MULTIPLAYER_DEMO_HOST_OWNER_STORAGE_KEY = "gamekits.multiplayerDemo.hostOwnerId";
+const MULTIPLAYER_DEMO_PEER_ID_STORAGE_KEY = "gamekits.multiplayerDemo.peerId";
+const MULTIPLAYER_DEMO_PLAYER_NAME_STORAGE_KEY = "gamekits.multiplayerDemo.playerName";
 const FALLBACK_MULTIPLAYER_DEMO_HOST_OWNER_ID = createMultiplayerDemoHostOwnerId();
 const FALLBACK_MULTIPLAYER_DEMO_PEER_ID = createMultiplayerDemoPeerId();
 const FALLBACK_MULTIPLAYER_DEMO_PLAYER_NAME = createDefaultMultiplayerDemoPlayerName();

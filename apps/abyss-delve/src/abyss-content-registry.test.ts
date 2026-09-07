@@ -1,6 +1,6 @@
-import { createDataRegistry, DataRegistryError, type DataPack } from "@gamekit/data";
-import { createGasDataTypes } from "@gamekit/gas";
-import { createTcaRuleDataType } from "@gamekit/tca";
+import { createDataRegistry, DataRegistryError, type DataPack } from "@gamekits/data";
+import { createGasDataTypes } from "@gamekits/gas";
+import { createTcaRuleDataType } from "@gamekits/tca";
 import { describe, expect, it } from "vitest";
 import {
   ABYSS_ENEMY_TYPE,

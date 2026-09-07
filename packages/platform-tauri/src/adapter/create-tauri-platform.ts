@@ -13,7 +13,7 @@ import {
   type FsOptions,
   type PlatformCapabilityId,
   type PlatformRuntime
-} from "@gamekit/platform-core";
+} from "@gamekits/platform-core";
 import { createDefaultTauriDrivers } from "./drivers";
 import { createBaseDirectoryMap, toTauriFsOptions } from "./base-dir";
 import type { TauriPlatformDrivers, TauriPlatformOptions } from "./types";
@@ -131,7 +131,7 @@ export function createTauriPlatformFromDrivers(drivers: TauriPlatformDrivers): P
         await drivers.fs.writeTextFile(path, "", fsOptions({ baseDir: "appConfig" }));
       },
       async clear() {
-        // Tauri storage is path-oriented; GameKit clears concrete keys through removeItem.
+        // Tauri storage is path-oriented; GameKits clears concrete keys through removeItem.
       }
     },
     window: {

@@ -1,7 +1,7 @@
-import { createGameplayDevToolsCorrelation } from "@gamekit/app-host";
-import { createDevToolsRuntime } from "@gamekit/devtools";
-import { createInputRouter, type NormalizedInputEvent } from "@gamekit/input-core";
-import { createMemorySaveStore, createSaveManager } from "@gamekit/save";
+import { createGameplayDevToolsCorrelation } from "@gamekits/app-host";
+import { createDevToolsRuntime } from "@gamekits/devtools";
+import { createInputRouter, type NormalizedInputEvent } from "@gamekits/input-core";
+import { createMemorySaveStore, createSaveManager } from "@gamekits/save";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
@@ -104,8 +104,8 @@ describe("Abyss Delve DevTools chain", () => {
     expect(traceLabels.some((label) => label.includes("picked"))).toBe(true);
     expect(traceLabels.some((label) => label.includes("selected"))).toBe(true);
     expect(traceLabels).toContain("checkpoint saved");
-    expect(devtools.snapshot().traces.some((trace) => trace.source === "gamekit.gas")).toBe(true);
-    expect(devtools.snapshot().traces.some((trace) => trace.source === "gamekit.tca")).toBe(true);
+    expect(devtools.snapshot().traces.some((trace) => trace.source === "gamekits.gas")).toBe(true);
+    expect(devtools.snapshot().traces.some((trace) => trace.source === "gamekits.tca")).toBe(true);
     expect(save.envelope.payload.sections["abyss.run_checkpoint"]?.data).toMatchObject({
       selectedRewardIds: [reward.id],
       gold: harness.abyss.snapshot().player.gold

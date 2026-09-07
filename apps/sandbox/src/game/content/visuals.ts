@@ -1,5 +1,5 @@
-import type { DataPackEntry } from "@gamekit/data";
-import type { RenderNodeDefinition, RenderObjectDefinition } from "@gamekit/renderer-core";
+import type { DataPackEntry } from "@gamekits/data";
+import type { RenderNodeDefinition, RenderObjectDefinition } from "@gamekits/renderer-core";
 import { sandboxVisualAssetEntries } from "./visual-assets";
 import { sandboxVisualRenderObjectEntries } from "./visual-render-objects";
 import { sandboxVisualRenderRigEntries } from "./visual-render-rigs";

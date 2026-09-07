@@ -14,7 +14,7 @@ import {
   type MultiplayerPeer,
   type MultiplayerPeerInput,
   type MultiplayerSession
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 
 export type MemoryMultiplayerBackendOptions = {
   id?: string;

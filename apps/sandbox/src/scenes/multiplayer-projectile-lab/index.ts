@@ -1,4 +1,4 @@
-import { initRapier2dPhysicsBackend } from "@gamekit/physics-rapier2d";
+import { initRapier2dPhysicsBackend } from "@gamekits/physics-rapier2d";
 import { createMultiplayerProjectileLabRuntime } from "./runtime";
 import {
   bindMultiplayerProjectileLabUi,

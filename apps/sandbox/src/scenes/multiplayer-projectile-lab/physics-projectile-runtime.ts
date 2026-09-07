@@ -1,7 +1,7 @@
 import {
   createStandardMultiplayerPhysicsPredictionDomain,
   type StandardMultiplayerPhysicsPredictionDomain
-} from "@gamekit/app-host";
+} from "@gamekits/app-host";
 import {
   createPhysicsPredictionIsland,
   type PhysicsBackendAdapter,
@@ -13,7 +13,7 @@ import {
   type PhysicsPredictionIslandReconcileResult,
   type PhysicsPredictionIslandStateSnapshot,
   type PhysicsVector
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 import { getMultiplayerProjectileWeapon, type MultiplayerPhysicsProjectileWeapon } from "./arsenal";
 import {
   MULTIPLAYER_PROJECTILE_OBSTACLES,

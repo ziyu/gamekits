@@ -1,4 +1,4 @@
-import type { DataPack } from "@gamekit/data";
+import type { DataPack } from "@gamekits/data";
 import { describe, expect, it } from "vitest";
 import { createArenaDataTypes } from "../content/data-types";
 import { ARENA_DEFAULT_MATCH_RULE_ID, arenaContentPack } from "../content/pack";

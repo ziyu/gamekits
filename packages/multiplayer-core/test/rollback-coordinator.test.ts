@@ -1,4 +1,4 @@
-import { createSeededRng } from "@gamekit/core";
+import { createSeededRng } from "@gamekits/core";
 import {
   createMultiplayerRngRollbackContributor,
   createMultiplayerRollbackCoordinator,

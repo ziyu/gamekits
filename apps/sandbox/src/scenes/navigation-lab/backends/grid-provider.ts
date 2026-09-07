@@ -1,16 +1,16 @@
-import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekit/data";
+import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekits/data";
 import {
   createNavigationAgentProfileDataType,
   createNavigationLayoutDataType,
   type NavigationLayoutDefinition,
   type NavigationPoint
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import {
   createGridNavigationBackendFactory,
   createNavigationGridDataType,
   type NavigationGridCellDefinition,
   type NavigationGridDefinition
-} from "@gamekit/navigation-grid";
+} from "@gamekits/navigation-grid";
 import { NAVIGATION_LAB_PROFILES } from "../scenario";
 import type { NavigationLabBackendProvider } from "./contract";
 import type {

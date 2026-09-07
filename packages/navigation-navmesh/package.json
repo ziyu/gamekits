@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/navigation-navmesh",
+  "name": "@gamekits/navigation-navmesh",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -17,8 +17,8 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/data": "workspace:*",
-    "@gamekit/navigation-core": "workspace:*"
+    "@gamekits/data": "workspace:*",
+    "@gamekits/navigation-core": "workspace:*"
   },
   "files": [
     "dist"

@@ -2,8 +2,8 @@ import type {
   CharacterMotorMode,
   CharacterMotorPredictionCheckpoint,
   CharacterMotorState
-} from "@gamekit/character-controller";
-import type { PhysicsPredictionIslandStateSnapshot } from "@gamekit/physics-core";
+} from "@gamekits/character-controller";
+import type { PhysicsPredictionIslandStateSnapshot } from "@gamekits/physics-core";
 import { describe, expect, it } from "vitest";
 
 import { createArenaPresentationRuntime } from "../client/arena-presentation";

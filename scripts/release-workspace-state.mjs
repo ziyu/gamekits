@@ -1,7 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
-const internalWorkspaceScope = "@gamekit/";
+const internalWorkspaceScope = "@gamekits/";
 const publicPackageScope = "@gamekits/";
 
 export function readPublishableWorkspacePackages(root) {
@@ -171,7 +171,7 @@ export function assertPreparedReleaseState({ packageSlugs, releaseDir, releaseVe
 }
 
 export function publicPackageName(name) {
-  return name.replace(/^@gamekit\//, publicPackageScope);
+  return name.replace(/^@gamekits\//, publicPackageScope);
 }
 
 function duplicates(values) {

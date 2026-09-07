@@ -1,4 +1,4 @@
-import type { AssetRef } from "@gamekit/asset";
+import type { AssetRef } from "@gamekits/asset";
 
 export type AudioValueRange = number | { min: number; max: number };
 

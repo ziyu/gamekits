@@ -1,4 +1,4 @@
-import type { NavigationPoint } from "@gamekit/navigation-core";
+import type { NavigationPoint } from "@gamekits/navigation-core";
 
 export type BlackglassTerrainArea = "ground" | "road" | "ridge" | "swamp" | "blast-door" | "gantry";
 

@@ -1,6 +1,6 @@
 import { createServer as createViteServer } from "vite";
 import type { IncomingMessage, ServerResponse } from "node:http";
-import { createGameKitColyseusServer } from "@gamekit/multiplayer-colyseus/server";
+import { createGameKitsColyseusServer } from "@gamekits/multiplayer-colyseus/server";
 import {
   MULTIPLAYER_DEMO_SESSION_ID,
   MULTIPLAYER_DEMO_ROOM_NAME,
@@ -25,7 +25,7 @@ const authoritativePath =
   REALTIME_ARENA_DEFAULT_AUTHORITY_PATH;
 const schemaStateSync = authoritativePath === "colyseus-schema";
 
-const colyseus = await createGameKitColyseusServer({
+const colyseus = await createGameKitsColyseusServer({
   roomName: `${MULTIPLAYER_DEMO_ROOM_NAME}_dev_${Date.now()}`,
   roomOptions: schemaStateSync
     ? {

@@ -6,13 +6,13 @@ Data 是游戏内容定义的统一注册、校验、索引、引用追踪和来
 
 相关包：
 
-- `@gamekit/data`
+- `@gamekits/data`
 
 核心原则：
 
-- 游戏开发者拥有自己的数据模型。GameKit 不强制定义“英雄应该长什么样”“怪物应该有哪些字段”“建筑必须有哪些配置”。
+- 游戏开发者拥有自己的数据模型。GameKits 不强制定义“英雄应该长什么样”“怪物应该有哪些字段”“建筑必须有哪些配置”。
 - Data 只提供弱约束：进入 DataRegistry 的数据必须能声明 `type` 和 `id`，并能被对应 DataTypeDefinition 理解。
-- DataType 可以由 GameKit 内置，也可以由游戏项目、插件、mod、编辑器工具自由定义。
+- DataType 可以由 GameKits 内置，也可以由游戏项目、插件、mod、编辑器工具自由定义。
 - DataPack 是数据交付单元，不是内容包模型，也不是内容分类模型。用户可以按英雄、怪物、建筑、关卡、章节、DLC、mod 或任意业务方式组织文件。
 - 内置类型是可引用的能力积木，不是必须继承的数据模板。游戏可以定义自己的 `game.hero`，再选择性引用 `gas.actor`、`gas.ability`、`render.object`、`physics.body`、`tca.rule` 等内置类型。
 - 资源引用可以作为数据字段存在，但资源加载和状态管理属于 Asset 模块。
@@ -49,7 +49,7 @@ export const emberKnightEntries = [
 ];
 ```
 
-也允许一个 DataPack 只包含某类数据，例如纯 localization、纯 map、纯 mod manifest。GameKit 不从文件夹、文件名或 DataPack id 推断业务语义。
+也允许一个 DataPack 只包含某类数据，例如纯 localization、纯 map、纯 mod manifest。GameKits 不从文件夹、文件名或 DataPack id 推断业务语义。
 
 ## DataType
 
@@ -76,7 +76,7 @@ export type DataTypeDefinition<TData> = {
 
 类型命名应使用命名空间，避免不同游戏、mod 或插件冲突：
 
-- GameKit 内置类型：`asset.definition`、`render.object`、`physics.material`、`physics.body`、`physics.collider`、`tca.rule`、`gas.actor`、`gas.ability`、`gas.effect`。
+- GameKits 内置类型：`asset.definition`、`render.object`、`physics.material`、`physics.body`、`physics.collider`、`tca.rule`、`gas.actor`、`gas.ability`、`gas.effect`。
 - 游戏自定义类型：`game.hero`、`game.monster`、`game.building`、`game.quest`、`game.biome`。
 - 工具或插件类型：`editor.brush`、`mod.manifest`、`localization.bundle`。
 
@@ -99,7 +99,7 @@ export type DataDocument<TData = unknown> = {
 };
 ```
 
-DataDocument 的 `data` 字段完全由对应 DataTypeDefinition 解释。GameKit 不要求 `game.hero` 必须引用 GAS，也不要求 `game.monster` 必须有 health、level、loot、sprite 等字段。这些都是游戏自己的设计。
+DataDocument 的 `data` 字段完全由对应 DataTypeDefinition 解释。GameKits 不要求 `game.hero` 必须引用 GAS，也不要求 `game.monster` 必须有 health、level、loot、sprite 等字段。这些都是游戏自己的设计。
 
 ## DataPack
 
@@ -149,7 +149,7 @@ Content Package / App Host profile / Editor / Test Fixture
 → DataRegistry.registerPack(...)
 ```
 
-因此 `@gamekit/data` 不定义 `DataPackSource`、`DataPackLoader` 或 `DataPackManifest`。这些概念属于未来 Content Package System、平台 adapter、编辑器导入器或 app/profile 层。
+因此 `@gamekits/data` 不定义 `DataPackSource`、`DataPackLoader` 或 `DataPackManifest`。这些概念属于未来 Content Package System、平台 adapter、编辑器导入器或 app/profile 层。
 
 DataPack 可以携带轻量元数据，例如 source pack id、namespace、priority、metadata。若未来保留 DataPack 间顺序依赖，它只表达 DataRegistry 注册顺序约束，不表达文件加载、内容包依赖、资源挂载或 mod 权限。
 

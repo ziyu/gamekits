@@ -1,5 +1,5 @@
-import { worldToScreen } from "@gamekit/camera-core";
-import type { EntityId } from "@gamekit/world";
+import { worldToScreen } from "@gamekits/camera-core";
+import type { EntityId } from "@gamekits/world";
 import { SANDBOX_RENDER_SIZE, type SandboxSnapshot } from "../game";
 import { formatNumber } from "./format";
 import type { SandboxUiHandles, SandboxWorkbenchState } from "./types";

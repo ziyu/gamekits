@@ -20,8 +20,8 @@ Server-authoritative multiplayer room 采用 Room-owned lifecycle：
 - Room 是 authority endpoint 和 fixed-step scheduler 的所有者。Browser client、party leader、spectator 和 bot 都不能推进 authority clock。
 - Party leader 是 app-owned permission role，只能提交 start、rematch、leader transfer 或 room close 请求；请求必须经过 server policy，不能获得 authority state write capability。
 - Room close、idle timeout 或 server shutdown 统一 dispose App Host、GameRuntime、physics scene、listener、timer、queue、peer binding 和 replication state。Leader leave 不自动关闭仍有 participant 或保留 seat 的 server-authoritative room。
-- `@gamekit/multiplayer-colyseus/server` 可以提供 typed room-side runtime bridge，把 Colyseus Room 的 join/leave/message/send/snapshot lifecycle 映射为 GameKit provider-neutral MultiplayerRuntime/authority ingress。该 bridge 不拥有 app gameplay、participant policy 或 app Schema。
-- `@gamekit/multiplayer-core` 的 authority helper 允许把一个 authority tick 拆成 ingress 与 commit 两个受约束阶段：ingress 消费有界 action/latest input，app-owned GameRuntime systems 在中间运行，commit 在 simulation 完成后捕获并发布状态、推进 ack/version 和 diagnostics。原有单调用 loop 可以作为兼容便利入口保留。
+- `@gamekits/multiplayer-colyseus/server` 可以提供 typed room-side runtime bridge，把 Colyseus Room 的 join/leave/message/send/snapshot lifecycle 映射为 GameKits provider-neutral MultiplayerRuntime/authority ingress。该 bridge 不拥有 app gameplay、participant policy 或 app Schema。
+- `@gamekits/multiplayer-core` 的 authority helper 允许把一个 authority tick 拆成 ingress 与 commit 两个受约束阶段：ingress 消费有界 action/latest input，app-owned GameRuntime systems 在中间运行，commit 在 simulation 完成后捕获并发布状态、推进 ack/version 和 diagnostics。原有单调用 loop 可以作为兼容便利入口保留。
 - Server app 显式组合 system 顺序：network ingress → gameplay intent/AI → physics → contacts/combat/lifecycle → replication projection → provider commit → diagnostics。暂不为此向 GameRuntime 引入全局 phase catalog；只有第二个稳定场景需要相同调度协议时再评估下沉。
 - Host-authoritative Relay Arena 继续保留。Host authority 离开时可以关闭 room；server-authoritative Room-owned 模式不得复用这条 host-close policy。
 
@@ -32,11 +32,11 @@ Server-authoritative multiplayer room 采用 Room-owned lifecycle：
 - Browser creator 关闭或 leader 转移不会中断仍有效的 server simulation。
 - App Host、GameRuntime、Physics 和 diagnostics 的 server lifecycle 有单一 owner，room close 后可以统一验证 cleanup。
 - Authority ack 和 Schema commit 只在完整 simulation tick 完成后推进，不会确认尚未进入 Physics/combat 的输入。
-- Colyseus Room integration 保留在 backend package，gameplay domain 继续只依赖 GameKit authority contract。
+- Colyseus Room integration 保留在 backend package，gameplay domain 继续只依赖 GameKits authority contract。
 
 代价：
 
-- `@gamekit/multiplayer-colyseus/server` 需要新增 room-side bridge 和真实 Room lifecycle tests。
+- `@gamekits/multiplayer-colyseus/server` 需要新增 room-side bridge 和真实 Room lifecycle tests。
 - Authority helper 需要向后兼容的阶段化接口、重入保护、异常边界和更细 diagnostics。
 - Server app 必须显式定义模块顺序和 room close policy，不能依赖 browser host 或 UI 状态隐式决定。
 

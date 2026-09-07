@@ -1,4 +1,4 @@
-import type { SaveContributor } from "@gamekit/save";
+import type { SaveContributor } from "@gamekits/save";
 import type { AbyssRuntime } from "../types";
 import {
   ABYSS_CHECKPOINT_SECTION_ID,

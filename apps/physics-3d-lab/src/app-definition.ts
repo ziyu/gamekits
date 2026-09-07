@@ -1,4 +1,4 @@
-import { defineGameApp } from "@gamekit/app-host";
+import { defineGameApp } from "@gamekits/app-host";
 
 export const PHYSICS_3D_LAB_DRIVER_ID = "physics-3d-lab.three";
 

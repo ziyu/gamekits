@@ -1,5 +1,5 @@
-import type { DriverRegistry } from "@gamekit/driver-core";
-import type { ThreeGameDriver } from "@gamekit/driver-three";
+import type { DriverRegistry } from "@gamekits/driver-core";
+import type { ThreeGameDriver } from "@gamekits/driver-three";
 
 const THREE_PREVIEW_DRIVER_ID = "sandbox.three";
 

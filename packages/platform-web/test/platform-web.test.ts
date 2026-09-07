@@ -1,5 +1,5 @@
-import { createPlatformUnsupportedError } from "@gamekit/platform-core";
-import { definePlatformConformanceTests } from "@gamekit/test-utils";
+import { createPlatformUnsupportedError } from "@gamekits/platform-core";
+import { definePlatformConformanceTests } from "@gamekits/test-utils";
 import { describe, expect, it } from "vitest";
 import {
   createMemoryStorage,

@@ -64,7 +64,7 @@ export function assertSaveEnvelope(value: unknown): asserts value is SaveEnvelop
   if (!isRecord(value)) {
     throw createCorruptedSaveError("envelope is not an object");
   }
-  if (value.format !== "gamekit.save") {
+  if (value.format !== "gamekits.save") {
     throw createCorruptedSaveError("unsupported envelope format");
   }
   if (typeof value.formatVersion !== "string") {

@@ -9,7 +9,7 @@ import {
   type SnapshotPlaybackDiagnostics,
   type SnapshotPlaybackSample,
   type SnapshotPresentationTrack
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import { REALTIME_ARENA_TICK_MS } from "./config";
 import type { RealtimeArenaPhase, RealtimeArenaSnapshot } from "./domain";
 

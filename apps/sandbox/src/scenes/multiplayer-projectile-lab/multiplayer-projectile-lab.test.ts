@@ -1,5 +1,5 @@
-import { createMemoryPhysicsBackend } from "@gamekit/physics-core";
-import { initRapier2dPhysicsBackend } from "@gamekit/physics-rapier2d";
+import { createMemoryPhysicsBackend } from "@gamekits/physics-core";
+import { initRapier2dPhysicsBackend } from "@gamekits/physics-rapier2d";
 import { describe, expect, it } from "vitest";
 import { createMultiplayerProjectileLabRuntime } from "./runtime";
 

@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/navigation-recast",
+  "name": "@gamekits/navigation-recast",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -17,8 +17,8 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/navigation-core": "workspace:*",
-    "@gamekit/navigation-navmesh": "workspace:*",
+    "@gamekits/navigation-core": "workspace:*",
+    "@gamekits/navigation-navmesh": "workspace:*",
     "recast-navigation": "^0.43.1"
   },
   "files": [

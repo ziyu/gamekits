@@ -1,4 +1,4 @@
-import type { DataRegistry } from "@gamekit/data";
+import type { DataRegistry } from "@gamekits/data";
 import type { NavigationPoint, NavigationProjection } from "../contracts/geometry";
 import type { NavigationLayoutDefinition } from "../contracts/layout";
 import type {

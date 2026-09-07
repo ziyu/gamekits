@@ -1,5 +1,5 @@
-import { defineGameModule } from "@gamekit/core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import { defineGameModule } from "@gamekits/core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import { spawnSandboxCamp } from "./sandbox-camp/spawn";
 import { registerSandboxCampSystems } from "./sandbox-camp/systems";
 import type { SandboxCampModuleOptions } from "./sandbox-camp/types";

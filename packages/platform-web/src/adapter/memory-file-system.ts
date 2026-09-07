@@ -1,4 +1,4 @@
-import type { FsOptions, PlatformDirEntry, PlatformFileSystem } from "@gamekit/platform-core";
+import type { FsOptions, PlatformDirEntry, PlatformFileSystem } from "@gamekits/platform-core";
 import { createWebPath } from "./path";
 
 type FileEntry = {

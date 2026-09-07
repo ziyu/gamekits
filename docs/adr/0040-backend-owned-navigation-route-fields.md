@@ -30,11 +30,11 @@ Core 不拥有具体 field topology、搜索树、portal target、native handle 
 
 ### Recast uses a private directed polygon field
 
-`@gamekit/navigation-recast` 从 native NavMesh 编译 adapter-private directed polygon topology：
+`@gamekits/navigation-recast` 从 native NavMesh 编译 adapter-private directed polygon topology：
 
 - 普通 polygon portal 形成有向 traversal arc。
 - off-mesh connection 折叠为 ground-to-ground arc，并保留单向或双向连接事实。
-- cost 使用 GameKit 的 `(profile override ?? layout base) × dynamic multiplier`，不会复用方向相反、cost 归属不同的 Detour parent tree。
+- cost 使用 GameKits 的 `(profile override ?? layout base) × dynamic multiplier`，不会复用方向相反、cost 归属不同的 Detour parent tree。
 - 从目标 polygon 对反向 arc 运行确定性 Dijkstra，保存 cost-to-go 和 next arc。
 - sampler 将世界位置投影到 polygon，并返回下一 portal 后方或 off-mesh exit 的局部 steering target；poly ref 和 field tree 不进入 Core。
 - area/portal 更新根据 field tree dependency 失效；inactive cache 有界，活动 generation 可以暂时超过 inactive 上限。

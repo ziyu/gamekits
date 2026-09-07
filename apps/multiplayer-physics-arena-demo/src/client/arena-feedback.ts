@@ -1,5 +1,5 @@
-import type { GameAudio, GameAudioSnapshot } from "@gamekit/audio-core";
-import type { PhysicsPredictionIslandStateSnapshot } from "@gamekit/physics-core";
+import type { GameAudio, GameAudioSnapshot } from "@gamekits/audio-core";
+import type { PhysicsPredictionIslandStateSnapshot } from "@gamekits/physics-core";
 
 import { sampleArenaStageHazards, type ArenaHazardPhase } from "../shared/arena-stage-course";
 import type { ArenaSnapshot } from "../shared/protocol";

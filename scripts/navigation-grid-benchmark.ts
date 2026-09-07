@@ -71,7 +71,7 @@ function main(): void {
     JSON.stringify(
       {
         benchmark: "navigation-grid",
-        package: "@gamekit/navigation-grid",
+        package: "@gamekits/navigation-grid",
         methodology: {
           grid: "32x32 walkable raster",
           connectivity: 8,

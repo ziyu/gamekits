@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/multiplayer-core",
+  "name": "@gamekits/multiplayer-core",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -17,8 +17,8 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/core": "workspace:*",
-    "@gamekit/event-bus": "workspace:*"
+    "@gamekits/core": "workspace:*",
+    "@gamekits/event-bus": "workspace:*"
   },
   "files": [
     "dist"

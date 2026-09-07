@@ -10,7 +10,7 @@ Physics GameModule 使用 fixed timestep 推进权威模拟，而 Browser 的 re
 
 ## Decision
 
-`@gamekit/physics-core` 提供 opt-in `createPhysicsInterpolationStore()`，由 `createPhysicsModule(...)` 通过 `interpolationStore` option 绑定和推进：
+`@gamekits/physics-core` 提供 opt-in `createPhysicsInterpolationStore()`，由 `createPhysicsModule(...)` 通过 `interpolationStore` option 绑定和推进：
 
 - store 对每个 physics-owned、会同步回 World 的 moving body 保留 previous/current fixed-step transform，并发布当前 accumulator alpha；不跟踪 static body 或 `syncFromWorld` body。
 - `sample(bodyId, target?)` 返回 previous/current 之间的表现 transform。Position/vector 使用线性插值，2D number rotation 使用最短角插值，quaternion 使用归一化线性插值。

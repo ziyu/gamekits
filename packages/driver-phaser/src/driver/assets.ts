@@ -1,5 +1,5 @@
-import type { AssetAnimationManifest, AssetDefinition, AssetLoaderAdapter } from "@gamekit/asset";
-import { GameError } from "@gamekit/core";
+import type { AssetAnimationManifest, AssetDefinition, AssetLoaderAdapter } from "@gamekits/asset";
+import { GameError } from "@gamekits/core";
 
 export type PhaserDriverAssetRuntime = {
   hasTexture(id: string): boolean;

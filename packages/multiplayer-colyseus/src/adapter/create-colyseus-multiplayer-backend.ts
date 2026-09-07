@@ -17,7 +17,7 @@ import {
   type MultiplayerPeerInput,
   type MultiplayerPhase,
   type MultiplayerSession
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 
 import {
   cloneEnvelope,
@@ -29,7 +29,7 @@ import {
   cloneColyseusNativeCapabilitySummary,
   createColyseusNativeCapabilitySummary,
   createColyseusNativeStateBridge,
-  GAMEKIT_COLYSEUS_NATIVE_STATE_MESSAGE,
+  GAMEKITS_COLYSEUS_NATIVE_STATE_MESSAGE,
   type ColyseusNativeStateListener,
   type ColyseusNativeStateUpdate
 } from "./native-state";
@@ -38,7 +38,7 @@ import type {
   ColyseusMultiplayerBackendAdapter,
   ColyseusMultiplayerBackendOptions,
   ColyseusMultiplayerNative,
-  GameKitColyseusRoomJoinOptions
+  GameKitsColyseusRoomJoinOptions
 } from "./types";
 
 type ColyseusConnectionState = {
@@ -67,16 +67,16 @@ export function createColyseusMultiplayerBackend(
   options: ColyseusMultiplayerBackendOptions
 ): ColyseusMultiplayerBackendAdapter {
   const id = options.id ?? "colyseus";
-  const messageType = options.messageType ?? "gamekit.message";
-  const presenceType = options.presenceType ?? "gamekit.presence";
+  const messageType = options.messageType ?? "gamekits.message";
+  const presenceType = options.presenceType ?? "gamekits.presence";
   const maxPayloadBytes = options.maxPayloadBytes ?? 32 * 1024;
   const nativeStateSyncEnabled = options.nativeStateSync?.enabled === true;
   const nativeStateMessageType =
-    options.nativeStateSync?.messageType ?? GAMEKIT_COLYSEUS_NATIVE_STATE_MESSAGE;
+    options.nativeStateSync?.messageType ?? GAMEKITS_COLYSEUS_NATIVE_STATE_MESSAGE;
   const nativeStateSourceEndpointId =
     options.nativeStateSync?.sourceEndpointId ?? "colyseus-schema";
   const nativeStateSchemaVersion =
-    options.nativeStateSync?.schemaVersion ?? "gamekit.native-state.v1";
+    options.nativeStateSync?.schemaVersion ?? "gamekits.native-state.v1";
   const nativeStateMaxBytes = options.nativeStateSync?.maxStateBytes ?? 256 * 1024;
   const client = options.client ?? new ColyseusClient(options.endpoint, options.clientOptions);
   const connections = new Set<ColyseusConnectionState>();
@@ -663,8 +663,8 @@ function createSessionSummary(
 function buildJoinOptions(
   defaults: Record<string, unknown> | undefined,
   backendOptions: ColyseusMultiplayerBackendOptions,
-  input: GameKitColyseusRoomJoinOptions
-): GameKitColyseusRoomJoinOptions {
+  input: GameKitsColyseusRoomJoinOptions
+): GameKitsColyseusRoomJoinOptions {
   const metadata = mergeMetadata(backendOptions.metadata, input.metadata);
   return {
     ...defaults,
@@ -682,7 +682,7 @@ function createRoomJoinInput(
   localPeer: MultiplayerPeerInput | undefined,
   providerRoomId: string | undefined,
   backendMetadata: Record<string, unknown> | undefined
-): GameKitColyseusRoomJoinOptions {
+): GameKitsColyseusRoomJoinOptions {
   return {
     ...(request.id === undefined ? {} : { sessionId: request.id }),
     ...(providerRoomId === undefined ? {} : { roomId: providerRoomId }),
@@ -705,7 +705,7 @@ async function joinRoomById(
   client: ColyseusClient,
   roomName: string,
   roomId: string,
-  joinOptions: GameKitColyseusRoomJoinOptions,
+  joinOptions: GameKitsColyseusRoomJoinOptions,
   options: { fallback: boolean }
 ): Promise<ColyseusRoom> {
   try {
@@ -774,7 +774,7 @@ function setLastReason(state: ColyseusConnectionState, reason: string | undefine
 
 function toColyseusRoomId(sessionId: string): string {
   const sanitized = sessionId.replace(/[^a-zA-Z0-9_-]/g, "_");
-  return sanitized.length > 0 ? sanitized : "gamekit_session";
+  return sanitized.length > 0 ? sanitized : "gamekits_session";
 }
 
 function defaultChannels(maxPayloadBytes: number): MultiplayerChannel[] {

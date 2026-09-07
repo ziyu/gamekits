@@ -1,5 +1,5 @@
-import { createEventBus } from "@gamekit/event-bus";
-import { createGame } from "@gamekit/game-runtime";
+import { createEventBus } from "@gamekits/event-bus";
+import { createGame } from "@gamekits/game-runtime";
 import {
   PhysicsBodyComponent,
   PhysicsColliderComponent,
@@ -8,13 +8,13 @@ import {
   createMemoryPhysicsBackend,
   createPhysicsHandle,
   createPhysicsModule
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 import {
   defineComponent,
   type CheckpointGameWorld,
   type ComponentDef,
   type EntityId
-} from "@gamekit/world";
+} from "@gamekits/world";
 import {
   createStandardMultiplayerPhysicsRollbackContributor,
   createStandardMultiplayerRollbackDomain

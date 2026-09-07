@@ -1,4 +1,4 @@
-import { defineComponent, type EntityId } from "@gamekit/world";
+import { defineComponent, type EntityId } from "@gamekits/world";
 
 export type PositionState = {
   x: number;

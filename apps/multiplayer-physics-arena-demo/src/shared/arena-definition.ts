@@ -3,7 +3,7 @@ import type {
   PhysicsPredictionIslandEnvironment,
   PhysicsPredictionIslandMemberDefinition,
   PhysicsVector
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 
 import { ARENA_COMPILED_CONTENT } from "../content/default-content";
 

@@ -29,7 +29,7 @@ lifecycle；Web Gamepad、未来原生控制器或其他主动采样 source 使�
 - `value?: number`：归一化 scalar control value；Gamepad 标准 control 使用 `[0, 1]`。
 
 Input Core 不引入 DOM `Gamepad`、Phaser pad、Tauri plugin 或厂商 controller 类型。标准 button、
-trigger 和 axis direction 通过 GameKit-owned control code constants 表达；axis 被拆成 positive /
+trigger 和 axis direction 通过 GameKits-owned control code constants 表达；axis 被拆成 positive /
 negative 两个方向 control，Action 继续消费单一非负 scalar value，不要求 gameplay 解析原始数组
 索引。
 
@@ -59,9 +59,9 @@ Source 不能创建自己的永久 `requestAnimationFrame` 或 timer。`poll()` 
 `stop()`、`destroy()` 与设备断连必须取消所有 active control。这样 headless test 可以显式传入 frame
 和 snapshot provider，App Host stop 后也不会残留隐式循环。
 
-### Web Gamepad 归属 `@gamekit/input-dom`
+### Web Gamepad 归属 `@gamekits/input-dom`
 
-`@gamekit/input-dom` 增加独立的 `createWebGamepadInputAdapter()`：
+`@gamekits/input-dom` 增加独立的 `createWebGamepadInputAdapter()`：
 
 - concrete adapter 独占 `navigator.getGamepads()` 与浏览器 `Gamepad` snapshot；
 - provider、clock 和 scope resolver 可注入，测试不依赖真实浏览器设备；
@@ -70,7 +70,7 @@ Source 不能创建自己的永久 `requestAnimationFrame` 或 timer。`poll()` 
 - 每个连接只保留固定大小的上一帧 control state，未变化的 control 不分配、不派发；
 - `Gamepad` native object 不写入 `originalEvent`、trace、Save 或 gameplay state。
 
-`@gamekit/driver-phaser` 不重复轮询 Web Gamepad，也不成为 Web controller identity 的事实源。
+`@gamekits/driver-phaser` 不重复轮询 Web Gamepad，也不成为 Web controller identity 的事实源。
 Phaser Web app 由 App Host 同时组合 Phaser pointer source、DOM keyboard source 和 Web Gamepad
 source。未来某个 Driver 或平台 SDK 真正拥有原生控制器 runtime 时，它可以实现同一个
 `InputSourceAdapter.poll()`，但必须产生相同的 Core 语义。

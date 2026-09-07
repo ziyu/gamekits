@@ -1,12 +1,12 @@
-import type { DataRef, DataRegistry } from "@gamekit/data";
-import type { EventBus } from "@gamekit/event-bus";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import type { DataRef, DataRegistry } from "@gamekits/data";
+import type { EventBus } from "@gamekits/event-bus";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import type {
   GasAbilityExecutionState,
   GasActorRuntimeState,
   GasEffectApplicationResult,
   GasHandle
-} from "@gamekit/gas";
+} from "@gamekits/gas";
 import type {
   PhysicsBounds,
   PhysicsCollisionFilter,
@@ -16,8 +16,8 @@ import type {
   PhysicsRotation,
   PhysicsShapeDefinition,
   PhysicsVector
-} from "@gamekit/physics-core";
-import type { EntityId, GameWorld } from "@gamekit/world";
+} from "@gamekits/physics-core";
+import type { EntityId, GameWorld } from "@gamekits/world";
 
 export type CombatDeliveryId = string;
 export type CombatProjectileId = string;

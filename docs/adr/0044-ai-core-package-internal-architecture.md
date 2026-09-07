@@ -4,7 +4,7 @@ Status: Accepted on 2026-07-23.
 
 ## Context
 
-`@gamekit/ai-core` 第一版把 agent definition、perception memory、blackboard、Utility
+`@gamekits/ai-core` 第一版把 agent definition、perception memory、blackboard、Utility
 scoring、goal selection、task lifecycle、scheduler、intent、trace、checkpoint、Handle、
 GameModule 和 conformance 聚合在 `src/data + src/runtime + runtime/types.ts` 中。
 `createAiRuntime()` 同时编译内容、持有全部 agent state、推进感知/决策/任务、处理存档并
@@ -88,9 +88,9 @@ composition
 
 ### 公共入口按消费者拆分
 
-- `@gamekit/ai-core`：游戏/app 使用的 definition、intent、runtime、Handle、GameModule、
+- `@gamekits/ai-core`：游戏/app 使用的 definition、intent、runtime、Handle、GameModule、
   observability 和 Save API。
-- `@gamekit/ai-core/testing`：runtime conformance 与 memory fixture。
+- `@gamekits/ai-core/testing`：runtime conformance 与 memory fixture。
 
 Root 不导出 conformance、测试替身、内部 agent state、registry、scheduler queue 或 trace store。
 `AiPlanner` 不建立只有类型没有 runtime 语义的假入口；只有第二个真实游戏证明动态多步计划

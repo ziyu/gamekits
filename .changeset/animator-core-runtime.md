@@ -1,5 +1,5 @@
 ---
-"@gamekit/animator-core": minor
+"@gamekits/animator-core": minor
 ---
 
 Add the backend-neutral Animator controller runtime with data-driven graphs, layers, transitions,

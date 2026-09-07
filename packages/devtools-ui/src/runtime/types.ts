@@ -4,8 +4,8 @@ import type {
   DevToolsRuntime,
   DevToolsShellOptions,
   DevToolsUiSnapshot
-} from "@gamekit/devtools";
-import type { UiRuntime } from "@gamekit/ui-core";
+} from "@gamekits/devtools";
+import type { UiRuntime } from "@gamekits/ui-core";
 
 export type DevToolsUiBridgeOptions = {
   devtools: DevToolsRuntime;

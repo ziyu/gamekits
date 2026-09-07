@@ -1,5 +1,5 @@
 import { createContext, useContext, useSyncExternalStore } from "react";
-import type { UiRuntime, UiRuntimeSnapshot } from "@gamekit/ui-core";
+import type { UiRuntime, UiRuntimeSnapshot } from "@gamekits/ui-core";
 import type { UiRuntimeProviderProps, UiRuntimeSelector } from "./types";
 
 const UiRuntimeContext = createContext<UiRuntime | undefined>(undefined);

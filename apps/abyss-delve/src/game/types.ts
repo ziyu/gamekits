@@ -1,9 +1,9 @@
-import type { GameRuntime } from "@gamekit/game-runtime";
-import type { EntityId } from "@gamekit/world";
-import type { GasRuntime, GasTraceStore } from "@gamekit/gas";
-import type { TcaTraceStore } from "@gamekit/tca";
-import type { GameEvent } from "@gamekit/event-bus";
-import type { CameraState2D, PointLike } from "@gamekit/camera-core";
+import type { GameRuntime } from "@gamekits/game-runtime";
+import type { EntityId } from "@gamekits/world";
+import type { GasRuntime, GasTraceStore } from "@gamekits/gas";
+import type { TcaTraceStore } from "@gamekits/tca";
+import type { GameEvent } from "@gamekits/event-bus";
+import type { CameraState2D, PointLike } from "@gamekits/camera-core";
 
 export type AbyssInputState = {
   moveX: number;

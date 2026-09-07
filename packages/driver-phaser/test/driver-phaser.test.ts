@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { createGameAudio } from "@gamekit/audio-core";
-import { runAudioBackendConformance } from "@gamekit/audio-core/testing";
+import { createGameAudio } from "@gamekits/audio-core";
+import { runAudioBackendConformance } from "@gamekits/audio-core/testing";
 import {
   createPhaserDriver,
   createPhaserDriverAssetLoader,

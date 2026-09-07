@@ -516,7 +516,7 @@ h2 {
   pointer-events: auto;
 }
 
-.scene-modal-host .gamekit-ui-panel {
+.scene-modal-host .gamekits-ui-panel {
   width: min(520px, 100%);
   border-left: 4px solid #d9b35f;
 }
@@ -842,192 +842,192 @@ h2 {
   }
 }
 
-[data-gamekit-theme="tiny-camp"] .workbench {
+[data-gamekits-theme="tiny-camp"] .workbench {
   background:
     linear-gradient(90deg, var(--tc-bg-grid) 1px, transparent 1px) 0 0 / 64px 64px,
     linear-gradient(var(--tc-bg-grid) 1px, transparent 1px) 0 0 / 64px 64px,
     var(--tc-bg);
 }
 
-[data-gamekit-theme="tiny-camp"] .topbar,
-[data-gamekit-theme="tiny-camp"] .stage-panel,
-[data-gamekit-theme="tiny-camp"] .inspector,
-[data-gamekit-theme="tiny-camp"] .timeline-panel,
-[data-gamekit-theme="tiny-camp"] .camp-strip,
-[data-gamekit-theme="tiny-camp"] .scene-modal-host .gamekit-ui-panel {
+[data-gamekits-theme="tiny-camp"] .topbar,
+[data-gamekits-theme="tiny-camp"] .stage-panel,
+[data-gamekits-theme="tiny-camp"] .inspector,
+[data-gamekits-theme="tiny-camp"] .timeline-panel,
+[data-gamekits-theme="tiny-camp"] .camp-strip,
+[data-gamekits-theme="tiny-camp"] .scene-modal-host .gamekits-ui-panel {
   border-color: var(--tc-line);
   border-radius: var(--gk-radius-panel);
   background: var(--tc-panel);
   box-shadow: 0 16px 42px rgba(0, 0, 0, 0.22);
 }
 
-[data-gamekit-theme="tiny-camp"] .topbar {
+[data-gamekits-theme="tiny-camp"] .topbar {
   border-left: 4px solid var(--tc-sprout);
   background: linear-gradient(90deg, var(--tc-panel-soft), transparent 38%), var(--tc-panel);
 }
 
-[data-gamekit-theme="tiny-camp"] .stage-panel {
+[data-gamekits-theme="tiny-camp"] .stage-panel {
   border-left: 4px solid var(--tc-amber);
 }
 
-[data-gamekit-theme="tiny-camp"] .inspector {
+[data-gamekits-theme="tiny-camp"] .inspector {
   border-left: 4px solid var(--tc-blue);
 }
 
-[data-gamekit-theme="tiny-camp"] .timeline-panel {
+[data-gamekits-theme="tiny-camp"] .timeline-panel {
   border-left: 4px solid var(--tc-violet);
 }
 
-[data-gamekit-theme="tiny-camp"] .scene-modal-host .gamekit-ui-panel {
+[data-gamekits-theme="tiny-camp"] .scene-modal-host .gamekits-ui-panel {
   border-left: 4px solid var(--tc-amber);
 }
 
-[data-gamekit-theme="tiny-camp"] .eyebrow,
-[data-gamekit-theme="tiny-camp"] .label,
-[data-gamekit-theme="tiny-camp"] .camp-strip span,
-[data-gamekit-theme="tiny-camp"] .objective-state span,
-[data-gamekit-theme="tiny-camp"] .timeline-entry__meta,
-[data-gamekit-theme="tiny-camp"] .summary-list span,
-[data-gamekit-theme="tiny-camp"] .kv dt,
-[data-gamekit-theme="tiny-camp"] .scene-object-card span,
-[data-gamekit-theme="tiny-camp"] .scene-modal__hero span,
-[data-gamekit-theme="tiny-camp"] .scene-modal__stats dt {
+[data-gamekits-theme="tiny-camp"] .eyebrow,
+[data-gamekits-theme="tiny-camp"] .label,
+[data-gamekits-theme="tiny-camp"] .camp-strip span,
+[data-gamekits-theme="tiny-camp"] .objective-state span,
+[data-gamekits-theme="tiny-camp"] .timeline-entry__meta,
+[data-gamekits-theme="tiny-camp"] .summary-list span,
+[data-gamekits-theme="tiny-camp"] .kv dt,
+[data-gamekits-theme="tiny-camp"] .scene-object-card span,
+[data-gamekits-theme="tiny-camp"] .scene-modal__hero span,
+[data-gamekits-theme="tiny-camp"] .scene-modal__stats dt {
   color: var(--tc-text-muted);
 }
 
-[data-gamekit-theme="tiny-camp"] h1,
-[data-gamekit-theme="tiny-camp"] h2,
-[data-gamekit-theme="tiny-camp"] .stage-panel__bar strong,
-[data-gamekit-theme="tiny-camp"] .inspector__header strong,
-[data-gamekit-theme="tiny-camp"] .timeline-panel__header strong,
-[data-gamekit-theme="tiny-camp"] .objective-state strong,
-[data-gamekit-theme="tiny-camp"] .camp-strip strong,
-[data-gamekit-theme="tiny-camp"] .kv dd,
-[data-gamekit-theme="tiny-camp"] .scene-object-card strong,
-[data-gamekit-theme="tiny-camp"] .scene-modal__hero strong,
-[data-gamekit-theme="tiny-camp"] .scene-modal__stats dd {
+[data-gamekits-theme="tiny-camp"] h1,
+[data-gamekits-theme="tiny-camp"] h2,
+[data-gamekits-theme="tiny-camp"] .stage-panel__bar strong,
+[data-gamekits-theme="tiny-camp"] .inspector__header strong,
+[data-gamekits-theme="tiny-camp"] .timeline-panel__header strong,
+[data-gamekits-theme="tiny-camp"] .objective-state strong,
+[data-gamekits-theme="tiny-camp"] .camp-strip strong,
+[data-gamekits-theme="tiny-camp"] .kv dd,
+[data-gamekits-theme="tiny-camp"] .scene-object-card strong,
+[data-gamekits-theme="tiny-camp"] .scene-modal__hero strong,
+[data-gamekits-theme="tiny-camp"] .scene-modal__stats dd {
   color: var(--tc-text);
 }
 
-[data-gamekit-theme="tiny-camp"] code,
-[data-gamekit-theme="tiny-camp"] .camp-strip strong,
-[data-gamekit-theme="tiny-camp"] .kv dd,
-[data-gamekit-theme="tiny-camp"] .timeline-entry__status,
-[data-gamekit-theme="tiny-camp"] .actor-buttons strong,
-[data-gamekit-theme="tiny-camp"] .entity-row strong,
-[data-gamekit-theme="tiny-camp"] .scene-object-card dd,
-[data-gamekit-theme="tiny-camp"] .scene-modal__stats dd {
+[data-gamekits-theme="tiny-camp"] code,
+[data-gamekits-theme="tiny-camp"] .camp-strip strong,
+[data-gamekits-theme="tiny-camp"] .kv dd,
+[data-gamekits-theme="tiny-camp"] .timeline-entry__status,
+[data-gamekits-theme="tiny-camp"] .actor-buttons strong,
+[data-gamekits-theme="tiny-camp"] .entity-row strong,
+[data-gamekits-theme="tiny-camp"] .scene-object-card dd,
+[data-gamekits-theme="tiny-camp"] .scene-modal__stats dd {
   font-family: var(--tc-code);
 }
 
-[data-gamekit-theme="tiny-camp"] .stage-panel__bar,
-[data-gamekit-theme="tiny-camp"] .timeline-panel__header,
-[data-gamekit-theme="tiny-camp"] .inspector__header,
-[data-gamekit-theme="tiny-camp"] .gamekit-ui-panel__header,
-[data-gamekit-theme="tiny-camp"] .tabs,
-[data-gamekit-theme="tiny-camp"] .objective-detail,
-[data-gamekit-theme="tiny-camp"] .inspector-section {
+[data-gamekits-theme="tiny-camp"] .stage-panel__bar,
+[data-gamekits-theme="tiny-camp"] .timeline-panel__header,
+[data-gamekits-theme="tiny-camp"] .inspector__header,
+[data-gamekits-theme="tiny-camp"] .gamekits-ui-panel__header,
+[data-gamekits-theme="tiny-camp"] .tabs,
+[data-gamekits-theme="tiny-camp"] .objective-detail,
+[data-gamekits-theme="tiny-camp"] .inspector-section {
   border-color: var(--tc-line);
 }
 
-[data-gamekit-theme="tiny-camp"] .objective-meter {
+[data-gamekits-theme="tiny-camp"] .objective-meter {
   background: rgba(243, 239, 231, 0.08);
 }
 
-[data-gamekit-theme="tiny-camp"] .objective-meter span {
+[data-gamekits-theme="tiny-camp"] .objective-meter span {
   background: linear-gradient(90deg, var(--tc-amber), var(--tc-sprout));
   box-shadow: 0 0 18px var(--tc-amber-soft);
 }
 
-[data-gamekit-theme="tiny-camp"] .stage {
+[data-gamekits-theme="tiny-camp"] .stage {
   background:
     linear-gradient(90deg, rgba(140, 214, 163, 0.04) 1px, transparent 1px) 0 0 / 40px 40px,
     linear-gradient(rgba(217, 179, 95, 0.035) 1px, transparent 1px) 0 0 / 40px 40px,
     #151917;
 }
 
-[data-gamekit-theme="tiny-camp"] .stage::before {
+[data-gamekits-theme="tiny-camp"] .stage::before {
   border-color: rgba(140, 214, 163, 0.24);
 }
 
-[data-gamekit-theme="tiny-camp"] .stage-hint span,
-[data-gamekit-theme="tiny-camp"] .camp-strip div,
-[data-gamekit-theme="tiny-camp"] .summary-list li,
-[data-gamekit-theme="tiny-camp"] .kv div,
-[data-gamekit-theme="tiny-camp"] .timeline li,
-[data-gamekit-theme="tiny-camp"] .scene-object-card dl div,
-[data-gamekit-theme="tiny-camp"] .scene-modal__stats div {
+[data-gamekits-theme="tiny-camp"] .stage-hint span,
+[data-gamekits-theme="tiny-camp"] .camp-strip div,
+[data-gamekits-theme="tiny-camp"] .summary-list li,
+[data-gamekits-theme="tiny-camp"] .kv div,
+[data-gamekits-theme="tiny-camp"] .timeline li,
+[data-gamekits-theme="tiny-camp"] .scene-object-card dl div,
+[data-gamekits-theme="tiny-camp"] .scene-modal__stats div {
   background: var(--tc-panel-raised);
 }
 
-[data-gamekit-theme="tiny-camp"] .tabs button,
-[data-gamekit-theme="tiny-camp"] .timeline-filters button,
-[data-gamekit-theme="tiny-camp"] .actor-buttons button,
-[data-gamekit-theme="tiny-camp"] .entity-row,
-[data-gamekit-theme="tiny-camp"] .inspector-actions button,
-[data-gamekit-theme="tiny-camp"] .objective-briefing,
-[data-gamekit-theme="tiny-camp"] .scene-object-card__actions button,
-[data-gamekit-theme="tiny-camp"] .scene-ui-action {
+[data-gamekits-theme="tiny-camp"] .tabs button,
+[data-gamekits-theme="tiny-camp"] .timeline-filters button,
+[data-gamekits-theme="tiny-camp"] .actor-buttons button,
+[data-gamekits-theme="tiny-camp"] .entity-row,
+[data-gamekits-theme="tiny-camp"] .inspector-actions button,
+[data-gamekits-theme="tiny-camp"] .objective-briefing,
+[data-gamekits-theme="tiny-camp"] .scene-object-card__actions button,
+[data-gamekits-theme="tiny-camp"] .scene-ui-action {
   border-color: var(--tc-line);
   border-radius: 5px;
   background: var(--tc-panel-raised);
 }
 
-[data-gamekit-theme="tiny-camp"] .tabs button:hover,
-[data-gamekit-theme="tiny-camp"] .timeline-filters button:hover,
-[data-gamekit-theme="tiny-camp"] .actor-buttons button:hover,
-[data-gamekit-theme="tiny-camp"] .entity-row:hover,
-[data-gamekit-theme="tiny-camp"] .inspector-actions button:hover,
-[data-gamekit-theme="tiny-camp"] .objective-briefing:hover,
-[data-gamekit-theme="tiny-camp"] .scene-object-card__actions button:hover,
-[data-gamekit-theme="tiny-camp"] .scene-ui-action:hover {
+[data-gamekits-theme="tiny-camp"] .tabs button:hover,
+[data-gamekits-theme="tiny-camp"] .timeline-filters button:hover,
+[data-gamekits-theme="tiny-camp"] .actor-buttons button:hover,
+[data-gamekits-theme="tiny-camp"] .entity-row:hover,
+[data-gamekits-theme="tiny-camp"] .inspector-actions button:hover,
+[data-gamekits-theme="tiny-camp"] .objective-briefing:hover,
+[data-gamekits-theme="tiny-camp"] .scene-object-card__actions button:hover,
+[data-gamekits-theme="tiny-camp"] .scene-ui-action:hover {
   border-color: var(--tc-line-strong);
   background: rgba(140, 214, 163, 0.1);
 }
 
-[data-gamekit-theme="tiny-camp"] .scene-object-card__actions button.is-selected {
+[data-gamekits-theme="tiny-camp"] .scene-object-card__actions button.is-selected {
   border-color: color-mix(in srgb, var(--tc-sprout) 58%, transparent);
   background: var(--tc-sprout-soft);
   color: var(--tc-text);
 }
 
-[data-gamekit-theme="tiny-camp"] .tabs button.is-active,
-[data-gamekit-theme="tiny-camp"] .timeline-filters button.is-active,
-[data-gamekit-theme="tiny-camp"] .actor-buttons button.is-selected,
-[data-gamekit-theme="tiny-camp"] .entity-row.is-selected,
-[data-gamekit-theme="tiny-camp"] .inspector-actions button.is-selected {
+[data-gamekits-theme="tiny-camp"] .tabs button.is-active,
+[data-gamekits-theme="tiny-camp"] .timeline-filters button.is-active,
+[data-gamekits-theme="tiny-camp"] .actor-buttons button.is-selected,
+[data-gamekits-theme="tiny-camp"] .entity-row.is-selected,
+[data-gamekits-theme="tiny-camp"] .inspector-actions button.is-selected {
   border-color: color-mix(in srgb, var(--tc-sprout) 58%, transparent);
   background: var(--tc-sprout-soft);
   color: var(--tc-text);
 }
 
-[data-gamekit-theme="tiny-camp"] .summary-list,
-[data-gamekit-theme="tiny-camp"] .timeline,
-[data-gamekit-theme="tiny-camp"] .kv,
-[data-gamekit-theme="tiny-camp"] .camp-strip {
+[data-gamekits-theme="tiny-camp"] .summary-list,
+[data-gamekits-theme="tiny-camp"] .timeline,
+[data-gamekits-theme="tiny-camp"] .kv,
+[data-gamekits-theme="tiny-camp"] .camp-strip {
   background: var(--tc-line);
 }
 
-[data-gamekit-theme="tiny-camp"] .timeline li {
+[data-gamekits-theme="tiny-camp"] .timeline li {
   border-top-color: var(--tc-text-muted);
 }
 
-[data-gamekit-theme="tiny-camp"] .timeline-entry--input {
+[data-gamekits-theme="tiny-camp"] .timeline-entry--input {
   border-top-color: var(--tc-blue);
 }
 
-[data-gamekit-theme="tiny-camp"] .timeline-entry--tca {
+[data-gamekits-theme="tiny-camp"] .timeline-entry--tca {
   border-top-color: var(--tc-amber);
 }
 
-[data-gamekit-theme="tiny-camp"] .timeline-entry--gas {
+[data-gamekits-theme="tiny-camp"] .timeline-entry--gas {
   border-top-color: var(--tc-threat);
 }
 
-[data-gamekit-theme="tiny-camp"] .timeline-entry--renderer {
+[data-gamekits-theme="tiny-camp"] .timeline-entry--renderer {
   border-top-color: var(--tc-violet);
 }
 
-[data-gamekit-theme="tiny-camp"] .timeline-entry--runtime {
+[data-gamekits-theme="tiny-camp"] .timeline-entry--runtime {
   border-top-color: var(--tc-sprout);
 }

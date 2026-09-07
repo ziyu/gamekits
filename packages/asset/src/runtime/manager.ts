@@ -1,5 +1,5 @@
 import { createAssetLifecycle } from "./lifecycle";
-import type { DataRegistry } from "@gamekit/data";
+import type { DataRegistry } from "@gamekits/data";
 import { createDuplicateAssetError, createMissingAssetError } from "./errors";
 import { DEFAULT_ASSET_DATA_TYPE } from "./asset-data-type";
 import type {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { createDataRegistry } from "@gamekit/data";
+import { createDataRegistry } from "@gamekits/data";
 import {
   createAssetDataType,
   createAssetManager,

@@ -1,4 +1,4 @@
-# @gamekit/driver-phaser
+# @gamekits/driver-phaser
 
 ## 0.1.0-alpha.8
 
@@ -6,30 +6,30 @@
 
 - 0326356: Add scoped assets and transactional save recovery
 - Updated dependencies [0326356]
-  - @gamekit/asset@0.1.0-alpha.8
-  - @gamekit/animator-core@0.1.0-alpha.8
-  - @gamekit/audio-core@0.1.0-alpha.8
-  - @gamekit/renderer-phaser@0.1.0-alpha.8
-  - @gamekit/core@0.1.0-alpha.8
-  - @gamekit/renderer-core@0.1.0-alpha.8
-  - @gamekit/input-core@0.1.0-alpha.8
-  - @gamekit/camera-core@0.1.0-alpha.8
-  - @gamekit/driver-core@0.1.0-alpha.8
+  - @gamekits/asset@0.1.0-alpha.8
+  - @gamekits/animator-core@0.1.0-alpha.8
+  - @gamekits/audio-core@0.1.0-alpha.8
+  - @gamekits/renderer-phaser@0.1.0-alpha.8
+  - @gamekits/core@0.1.0-alpha.8
+  - @gamekits/renderer-core@0.1.0-alpha.8
+  - @gamekits/input-core@0.1.0-alpha.8
+  - @gamekits/camera-core@0.1.0-alpha.8
+  - @gamekits/driver-core@0.1.0-alpha.8
 
 ## 0.1.0-alpha.7
 
 ### Patch Changes
 
 - Updated dependencies [398165e]
-  - @gamekit/asset@0.1.0-alpha.7
-  - @gamekit/input-core@0.1.0-alpha.7
-  - @gamekit/animator-core@0.1.0-alpha.7
-  - @gamekit/audio-core@0.1.0-alpha.7
-  - @gamekit/renderer-phaser@0.1.0-alpha.7
-  - @gamekit/core@0.1.0-alpha.7
-  - @gamekit/renderer-core@0.1.0-alpha.7
-  - @gamekit/camera-core@0.1.0-alpha.7
-  - @gamekit/driver-core@0.1.0-alpha.7
+  - @gamekits/asset@0.1.0-alpha.7
+  - @gamekits/input-core@0.1.0-alpha.7
+  - @gamekits/animator-core@0.1.0-alpha.7
+  - @gamekits/audio-core@0.1.0-alpha.7
+  - @gamekits/renderer-phaser@0.1.0-alpha.7
+  - @gamekits/core@0.1.0-alpha.7
+  - @gamekits/renderer-core@0.1.0-alpha.7
+  - @gamekits/camera-core@0.1.0-alpha.7
+  - @gamekits/driver-core@0.1.0-alpha.7
 
 ## 0.1.0-alpha.6
 
@@ -49,39 +49,39 @@
 - Updated dependencies [c6fdda9]
 - Updated dependencies [c6fdda9]
 - Updated dependencies [c6fdda9]
-  - @gamekit/animator-core@0.1.0-alpha.6
-  - @gamekit/audio-core@0.1.0-alpha.6
-  - @gamekit/asset@0.1.0-alpha.6
-  - @gamekit/driver-core@0.1.0-alpha.6
-  - @gamekit/renderer-phaser@0.1.0-alpha.6
-  - @gamekit/core@0.1.0-alpha.6
-  - @gamekit/renderer-core@0.1.0-alpha.6
-  - @gamekit/input-core@0.1.0-alpha.6
-  - @gamekit/camera-core@0.1.0-alpha.6
+  - @gamekits/animator-core@0.1.0-alpha.6
+  - @gamekits/audio-core@0.1.0-alpha.6
+  - @gamekits/asset@0.1.0-alpha.6
+  - @gamekits/driver-core@0.1.0-alpha.6
+  - @gamekits/renderer-phaser@0.1.0-alpha.6
+  - @gamekits/core@0.1.0-alpha.6
+  - @gamekits/renderer-core@0.1.0-alpha.6
+  - @gamekits/input-core@0.1.0-alpha.6
+  - @gamekits/camera-core@0.1.0-alpha.6
 
 ## 0.1.0-alpha.5
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.5
-- @gamekit/renderer-core@0.1.0-alpha.5
-- @gamekit/input-core@0.1.0-alpha.5
-- @gamekit/camera-core@0.1.0-alpha.5
-- @gamekit/driver-core@0.1.0-alpha.5
-- @gamekit/asset@0.1.0-alpha.5
-- @gamekit/renderer-phaser@0.1.0-alpha.5
+- @gamekits/core@0.1.0-alpha.5
+- @gamekits/renderer-core@0.1.0-alpha.5
+- @gamekits/input-core@0.1.0-alpha.5
+- @gamekits/camera-core@0.1.0-alpha.5
+- @gamekits/driver-core@0.1.0-alpha.5
+- @gamekits/asset@0.1.0-alpha.5
+- @gamekits/renderer-phaser@0.1.0-alpha.5
 
 ## 0.1.0-alpha.4
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.4
-- @gamekit/renderer-core@0.1.0-alpha.4
-- @gamekit/input-core@0.1.0-alpha.4
-- @gamekit/camera-core@0.1.0-alpha.4
-- @gamekit/driver-core@0.1.0-alpha.4
-- @gamekit/asset@0.1.0-alpha.4
-- @gamekit/renderer-phaser@0.1.0-alpha.4
+- @gamekits/core@0.1.0-alpha.4
+- @gamekits/renderer-core@0.1.0-alpha.4
+- @gamekits/input-core@0.1.0-alpha.4
+- @gamekits/camera-core@0.1.0-alpha.4
+- @gamekits/driver-core@0.1.0-alpha.4
+- @gamekits/asset@0.1.0-alpha.4
+- @gamekits/renderer-phaser@0.1.0-alpha.4
 
 ## 0.1.0-alpha.3
 
@@ -89,13 +89,13 @@
 
 - 544f137: [codex] Restore driver capabilities release guard
 - Updated dependencies [544f137]
-  - @gamekit/driver-core@0.1.0-alpha.3
-  - @gamekit/core@0.1.0-alpha.3
-  - @gamekit/renderer-core@0.1.0-alpha.3
-  - @gamekit/input-core@0.1.0-alpha.3
-  - @gamekit/camera-core@0.1.0-alpha.3
-  - @gamekit/asset@0.1.0-alpha.3
-  - @gamekit/renderer-phaser@0.1.0-alpha.3
+  - @gamekits/driver-core@0.1.0-alpha.3
+  - @gamekits/core@0.1.0-alpha.3
+  - @gamekits/renderer-core@0.1.0-alpha.3
+  - @gamekits/input-core@0.1.0-alpha.3
+  - @gamekits/camera-core@0.1.0-alpha.3
+  - @gamekits/asset@0.1.0-alpha.3
+  - @gamekits/renderer-phaser@0.1.0-alpha.3
 
 ## 0.1.0-alpha.2
 
@@ -103,13 +103,13 @@
 
 - 3469457: [codex] Make renderer native control explicit
 - Updated dependencies [3469457]
-  - @gamekit/driver-core@0.1.0-alpha.2
-  - @gamekit/renderer-core@0.1.0-alpha.2
-  - @gamekit/renderer-phaser@0.1.0-alpha.2
-  - @gamekit/core@0.1.0-alpha.2
-  - @gamekit/input-core@0.1.0-alpha.2
-  - @gamekit/camera-core@0.1.0-alpha.2
-  - @gamekit/asset@0.1.0-alpha.2
+  - @gamekits/driver-core@0.1.0-alpha.2
+  - @gamekits/renderer-core@0.1.0-alpha.2
+  - @gamekits/renderer-phaser@0.1.0-alpha.2
+  - @gamekits/core@0.1.0-alpha.2
+  - @gamekits/input-core@0.1.0-alpha.2
+  - @gamekits/camera-core@0.1.0-alpha.2
+  - @gamekits/asset@0.1.0-alpha.2
 
 ## 0.1.0-alpha.1
 
@@ -117,10 +117,10 @@
 
 - 5a5f227: Merge pull request #1 from ziyu/codex/alpha-package-release
 - Updated dependencies [5a5f227]
-  - @gamekit/asset@0.1.0-alpha.1
-  - @gamekit/camera-core@0.1.0-alpha.1
-  - @gamekit/core@0.1.0-alpha.1
-  - @gamekit/driver-core@0.1.0-alpha.1
-  - @gamekit/input-core@0.1.0-alpha.1
-  - @gamekit/renderer-core@0.1.0-alpha.1
-  - @gamekit/renderer-phaser@0.1.0-alpha.1
+  - @gamekits/asset@0.1.0-alpha.1
+  - @gamekits/camera-core@0.1.0-alpha.1
+  - @gamekits/core@0.1.0-alpha.1
+  - @gamekits/driver-core@0.1.0-alpha.1
+  - @gamekits/input-core@0.1.0-alpha.1
+  - @gamekits/renderer-core@0.1.0-alpha.1
+  - @gamekits/renderer-phaser@0.1.0-alpha.1

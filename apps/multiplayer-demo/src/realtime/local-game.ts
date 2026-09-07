@@ -3,7 +3,7 @@ import {
   type MultiplayerAuthorityDecision,
   type MultiplayerLocalAuthorityLoop,
   type NetworkVector2
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import {
   applyRealtimeArenaPlayerInteract,
   applyRealtimeInputFrame,

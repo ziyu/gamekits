@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/platform-tauri",
+  "name": "@gamekits/platform-tauri",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -17,10 +17,10 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/platform-core": "workspace:*"
+    "@gamekits/platform-core": "workspace:*"
   },
   "devDependencies": {
-    "@gamekit/test-utils": "workspace:*"
+    "@gamekits/test-utils": "workspace:*"
   },
   "peerDependencies": {
     "@tauri-apps/api": "^2.0.0",

@@ -1,4 +1,4 @@
-import type { ThreeRendererNative } from "@gamekit/driver-three";
+import type { ThreeRendererNative } from "@gamekits/driver-three";
 import * as THREE from "three";
 
 export type Physics3dFreeCameraState = {

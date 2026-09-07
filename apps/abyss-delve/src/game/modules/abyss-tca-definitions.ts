@@ -1,5 +1,5 @@
-import type { DataRegistry } from "@gamekit/data";
-import { mergeTcaDefinitionSets, type TcaDefinitionSet } from "@gamekit/tca";
+import type { DataRegistry } from "@gamekits/data";
+import { mergeTcaDefinitionSets, type TcaDefinitionSet } from "@gamekits/tca";
 import { Actor, Combat, Loot, Position, Presentation, Room } from "../components";
 import {
   ABYSS_ENEMY_TYPE,

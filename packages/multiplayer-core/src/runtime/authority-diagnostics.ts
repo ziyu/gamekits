@@ -11,7 +11,7 @@ import type { MultiplayerAuthorityMode } from "./types";
 
 export type MultiplayerAuthoritativePath =
   | "local-loop"
-  | "gamekit-envelope"
+  | "gamekits-envelope"
   | "provider-native"
   | "colyseus-schema"
   | string;
@@ -144,7 +144,7 @@ function inferAuthoritativePath(
     return "local-loop";
   }
 
-  return "gamekit-envelope";
+  return "gamekits-envelope";
 }
 
 function cloneAuthorityEndpoint(

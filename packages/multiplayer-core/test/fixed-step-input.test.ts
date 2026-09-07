@@ -93,7 +93,7 @@ describe("fixed-step input delivery", () => {
     expect(readMultiplayerFixedStepInputBundle({ protocol: "wrong", frames: [] })).toBeUndefined();
     expect(
       readMultiplayerFixedStepInputBundle({
-        protocol: "gamekit.fixed-step-input.v1",
+        protocol: "gamekits.fixed-step-input.v1",
         frames: [
           { sequence: 1, payload: {} },
           { sequence: 1, payload: {} }

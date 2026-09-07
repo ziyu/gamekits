@@ -2,11 +2,11 @@ import {
   createNavigationError,
   type NavigationLayoutDefinition,
   type NavigationPoint
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import type {
   NavigationNavMeshBuildProfile,
   NavigationNavMeshSource
-} from "@gamekit/navigation-navmesh";
+} from "@gamekits/navigation-navmesh";
 import {
   exportNavMesh,
   getNavMeshPositionsAndIndices,

@@ -1,9 +1,9 @@
-import type { DataTypeDefinition } from "@gamekit/data";
+import type { DataTypeDefinition } from "@gamekits/data";
 import type {
   RenderNodeDefinition,
   RenderObjectDefinition,
   RenderObjectType
-} from "@gamekit/renderer-core";
+} from "@gamekits/renderer-core";
 import type {
   SandboxAbilityDefinition,
   SandboxActorDefinition,

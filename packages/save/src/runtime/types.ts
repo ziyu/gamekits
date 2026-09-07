@@ -55,7 +55,7 @@ export type SavePayload = {
 };
 
 export type SaveEnvelope<TPayload = SavePayload> = {
-  format: "gamekit.save";
+  format: "gamekits.save";
   formatVersion: SaveVersion;
   appId: string;
   gameId: string;

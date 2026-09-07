@@ -20,13 +20,13 @@ Sandbox 逐步接入 Platform、Renderer、Input、Camera、Data、Asset 和 Gam
 
 这些职责不属于纯 gameplay runtime，但也不应该永远散落在每个 app 入口文件里。
 
-如果把这些能力直接塞进 `@gamekit/game-runtime`，会让 GameRuntime 过早绑定 DOM、平台、资源加载、输入、镜头和 UI 生命周期，破坏薄内核边界。
+如果把这些能力直接塞进 `@gamekits/game-runtime`，会让 GameRuntime 过早绑定 DOM、平台、资源加载、输入、镜头和 UI 生命周期，破坏薄内核边界。
 
 如果继续完全 app-owned，短期灵活，但长期会带来重复启动代码、debug 入口分散、装卸困难、平台差异处理重复和测试夹具成本上升。
 
 ## Decision
 
-引入 `@gamekit/app-host` 作为应用组合层。
+引入 `@gamekits/app-host` 作为应用组合层。
 
 App Host 负责：
 
@@ -39,7 +39,7 @@ App Host 负责：
 - adapter 和 service 的依赖顺序编排。
 - game app definition 到可运行应用实例的组合。
 
-`@gamekit/game-runtime` 继续保持薄内核：
+`@gamekits/game-runtime` 继续保持薄内核：
 
 - world
 - eventBus
@@ -51,7 +51,7 @@ App Host 负责：
 
 GameRuntime 不直接拥有 renderer、input、platform、asset、data、UI 或 DevTools。Camera/TCA/GAS 等 gameplay 会话能力不进入 GameRuntime 顶层，后续通过 GameModule helper 安装。
 
-内置服务和扩展服务都必须通过同一套 Service Binding 进入 Host lifecycle。底层模块不为了 Host 改造自身协议；`@gamekit/app-host` 内部维护标准服务定义，将 profile 参数转换成 Service Binding。应用侧不需要直接调用一组 `createXxxService` factory。
+内置服务和扩展服务都必须通过同一套 Service Binding 进入 Host lifecycle。底层模块不为了 Host 改造自身协议；`@gamekits/app-host` 内部维护标准服务定义，将 profile 参数转换成 Service Binding。应用侧不需要直接调用一组 `createXxxService` factory。
 
 Renderer lifecycle 仍不是 GameRuntime-owned。ADR 0002 的结论保留，但“app-owned”从手写 app 入口提升为 App Host 组合层负责。
 

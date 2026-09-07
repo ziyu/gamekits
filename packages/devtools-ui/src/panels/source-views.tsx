@@ -1,4 +1,4 @@
-import type { DevToolsSourceSnapshot } from "@gamekit/devtools";
+import type { DevToolsSourceSnapshot } from "@gamekits/devtools";
 import { EmptyState } from "./panel-layout";
 import { AssetSourceView, DataSourceView } from "./source-views/content-source-views";
 import { GenericSourceView } from "./source-views/generic-source-view";
@@ -25,7 +25,7 @@ export function SourceSnapshotList({ sources }: { sources: DevToolsSourceSnapsho
   }
 
   return (
-    <div className="gamekit-devtools-source-list">
+    <div className="gamekits-devtools-source-list">
       {sources.map((source) => (
         <SourceCard key={source.id} source={source} />
       ))}
@@ -35,7 +35,7 @@ export function SourceSnapshotList({ sources }: { sources: DevToolsSourceSnapsho
 
 function SourceCard({ source }: { source: DevToolsSourceSnapshot }) {
   return (
-    <article className="gamekit-devtools-source">
+    <article className="gamekits-devtools-source">
       <header>
         <div>
           <span>{source.kind}</span>
@@ -44,7 +44,7 @@ function SourceCard({ source }: { source: DevToolsSourceSnapshot }) {
         <code>{source.id}</code>
       </header>
       {source.error ? (
-        <div className="gamekit-devtools-error">
+        <div className="gamekits-devtools-error">
           <strong>{source.error.code}</strong>
           <p>{source.error.message}</p>
         </div>

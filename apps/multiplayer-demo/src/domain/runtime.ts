@@ -1,11 +1,11 @@
-import { createEventBus, type GameEvent } from "@gamekit/event-bus";
-import { createGame, type GameRuntime } from "@gamekit/game-runtime";
+import { createEventBus, type GameEvent } from "@gamekits/event-bus";
+import { createGame, type GameRuntime } from "@gamekits/game-runtime";
 import {
   createMultiplayerModule,
   type MultiplayerRuntime,
   type MultiplayerSnapshot
-} from "@gamekit/multiplayer-core";
-import { createKootaWorld } from "@gamekit/world-koota";
+} from "@gamekits/multiplayer-core";
+import { createKootaWorld } from "@gamekits/world-koota";
 import { createMultiplayerDemoAuthority } from "./authority";
 import { createMultiplayerDemoCommandHandler } from "./handler";
 import {

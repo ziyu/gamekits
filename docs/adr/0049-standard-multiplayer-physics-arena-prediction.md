@@ -2,7 +2,7 @@
 
 ## 背景
 
-GameKit 已经具备 managed client replication、单主体 Physics prediction transition、predicted lifecycle domain、
+GameKits 已经具备 managed client replication、单主体 Physics prediction transition、predicted lifecycle domain、
 Physics prediction island、跨模块 rollback contributor 和 speculative effect journal。普通角色移动已经可以只声明
 typed snapshot、输入 transition 和最终 writer；复杂刚体对象也能在低层 island 中完成 checkpoint、restore、replay
 和 hard correction。
@@ -19,7 +19,7 @@ Multiplayer GameModule 和 benchmark 使用的高风险公共路径。只在 app
 
 ### Provider-neutral client prediction domain bridge
 
-`@gamekit/multiplayer-core` 的 GameModule bridge 增加可选、provider-neutral 的 client prediction domain descriptor。
+`@gamekits/multiplayer-core` 的 GameModule bridge 增加可选、provider-neutral 的 client prediction domain descriptor。
 Descriptor 以 authority binding 为生命周期边界，由 factory 创建独立 runtime，并只接收通用上下文：
 
 - binding / generation reset；
@@ -59,7 +59,7 @@ authority inbox 按 peer + binding generation + sequence 去重、排序并每 t
 
 ### App Host Physics Arena adapter
 
-`@gamekit/app-host` 提供 `createStandardMultiplayerPhysicsArenaPrediction(...)` 作为默认高层 adapter。它组合：
+`@gamekits/app-host` 提供 `createStandardMultiplayerPhysicsArenaPrediction(...)` 作为默认高层 adapter。它组合：
 
 - `createPhysicsPredictionIsland(...)`；
 - `createStandardMultiplayerPhysicsPredictionDomain(...)`；

@@ -2,13 +2,13 @@ import {
   createNavigationDataTypes,
   createNavigationRuntime,
   type NavigationAgentProfileDefinition
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import type {
   NavigationBackendAdapter,
   NavigationBackendPathRequest,
   NavigationBackendPathResult
-} from "@gamekit/navigation-core/backend";
-import { createDataRegistry } from "@gamekit/data";
+} from "@gamekits/navigation-core/backend";
+import { createDataRegistry } from "@gamekits/data";
 import { describe, expect, it } from "vitest";
 import {
   createGraphNavigationBackend,

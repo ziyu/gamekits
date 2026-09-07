@@ -1,16 +1,16 @@
 # Sandbox 设计
 
-本文档负责 `apps/sandbox` 的长期演示设计。Sandbox 不是模块设计文档，也不是阶段状态文档；它描述这个验证面应该如何呈现 GameKit 各模块的协作关系。
+本文档负责 `apps/sandbox` 的长期演示设计。Sandbox 不是模块设计文档，也不是阶段状态文档；它描述这个验证面应该如何呈现 GameKits 各模块的协作关系。
 
 具体 Sandbox 工作流状态放在任务系统、PR 或 `../implementation/`。单个模块协议放在 `../modules/`。不要把本文档内容复制到模块文档或执行记录中。
 
 ## 定位
 
-Sandbox 是 GameKit 的多场景框架验证面。每个场景围绕一组明确能力提供最小但真实的交互闭环，用来证明 App Host、Data、Asset、Renderer、Input、Camera、Physics、TCA、GAS、Combat、EventBus、World 和 GameRuntime 能在可观察、可交互的应用中协同工作。
+Sandbox 是 GameKits 的多场景框架验证面。每个场景围绕一组明确能力提供最小但真实的交互闭环，用来证明 App Host、Data、Asset、Renderer、Input、Camera、Physics、TCA、GAS、Combat、EventBus、World 和 GameRuntime 能在可观察、可交互的应用中协同工作。
 
 Sandbox 不是长期玩法仓库，也不是 DevTools 的替代品。它可以像一个小 demo 游戏一样运行，但其目标是解释框架能力，而不是沉淀一套真实游戏内容生产线。
 
-Sandbox 的演示设计必须优先易懂：基础概念应该像普通小型游戏一样直觉，机制可以足够复杂，用来承载框架模块协作。不要用架构隐喻替代游戏对象；玩家不应该先理解 GameKit 才能看懂场景。
+Sandbox 的演示设计必须优先易懂：基础概念应该像普通小型游戏一样直觉，机制可以足够复杂，用来承载框架模块协作。不要用架构隐喻替代游戏对象；玩家不应该先理解 GameKits 才能看懂场景。
 
 ## 多场景验证台
 
@@ -21,13 +21,13 @@ Sandbox 外壳只负责场景发现、选择、懒加载、启动状态和错误
 - 一个场景只验证一组相互依赖、能形成闭环的能力，不把所有 package 强行塞入同一运行时。
 - 场景目录可以包含自己的 DataPack、组件、game module、表现和测试，但游戏特有概念不能上推到通用 package。
 - 场景必须通过 package 公共协议和标准 GameModule/App Host 装配能力，不能复制底层 runtime 或绕开 core。
-- 原始 trace、服务状态和性能细节进入 GameKit DevTools；场景 UI 只展示玩家或测试者完成操作所需的目标、状态和结果。
+- 原始 trace、服务状态和性能细节进入 GameKits DevTools；场景 UI 只展示玩家或测试者完成操作所需的目标、状态和结果。
 - 场景清单采用懒加载，未选择的场景不进入当前页面的启动与执行路径。
 - 场景选择可由外壳导航和稳定的 `scene` URL 参数表达，便于自动化测试、问题复现和直接分享。
 
 ## 场景：Character Controller Lab
 
-Character Controller Lab 是 `@gamekit/character-controller` 的可玩集成测试场，不承担通用 Physics 查询、掉落物或多人预测演示。
+Character Controller Lab 是 `@gamekits/character-controller` 的可玩集成测试场，不承担通用 Physics 查询、掉落物或多人预测演示。
 它使用 Sandbox 的独立惰性场景入口，通过 Three Driver 创建视觉 runtime，并以真实 Rapier3D PhysicsScene 驱动一个动态 capsule。
 角色每个 fixed tick 都走公共 `compileCharacterMotorDefinition → observeCharacterEnvironment → stepCharacterMotor → PhysicsScene`
 路径；场景不能直接设置 native Rapier velocity，也不能复制 coyote、jump buffer、dive、stagger 或 recovery 状态机。
@@ -519,7 +519,7 @@ Animator 的公共职责、层/one-shot/phase 协议与 Driver 边界以 [`../mo
 - 自然干预：测试者可以补充食物、触发降雨、直接点击并移动物理遮挡、敲响或解除警铃、惊起鸟群、留下或恢复叶印、暂停、确定性单步和调整观察速度。干预只改变 Sandbox world/resource/collider/shared-fact/checkpoint state，不能绕开标准 AI 决策直接指定动物 goal。
 - Lifecycle：场景启动时创建 World entity 并绑定对应 agent；退出时先 unbind 全部动物、释放场景 entity，再由 App Host 释放 GameRuntime 和 AI module。
 
-动物物种、名字、林地布局、食物点、水塘、地洞、倒木、岩石、昼夜节奏和自然观察册视觉都属于 Sandbox 内容，不进入 AI Core。Headless 测试使用 `@gamekit/ai-core/testing` memory fixture 消费同一 DataPack、Sensor、input resolver 和 task executor，并组合正式 Grid Navigation backend 与 Memory Physics backend，验证可见动物与 agent 一一对应、移动与生存交互、全部行为的阶段序列、自动动态 LOD、共享警戒驱动躲藏、动态 obstacle revision、route 线段不进入扩张 collider、清障后最短路缩短、逐 tick 圆形体积不穿模、path/trace budget、压力动物真实 bind/unbind 与 World 清理、容量探顶状态机、AI 与 World checkpoint 恢复、选中前历史仍可导出、资源干预、选中个体解释和确定性单步；浏览器 smoke test 另外验证地图第一屏、常驻行为气泡、警戒群体行为、全体重算、真实 route 折线、可点击障碍后的路径变化、容量压力选项与实时结果、叶印残影/回溯、日志导出、自然干预和 console error。
+动物物种、名字、林地布局、食物点、水塘、地洞、倒木、岩石、昼夜节奏和自然观察册视觉都属于 Sandbox 内容，不进入 AI Core。Headless 测试使用 `@gamekits/ai-core/testing` memory fixture 消费同一 DataPack、Sensor、input resolver 和 task executor，并组合正式 Grid Navigation backend 与 Memory Physics backend，验证可见动物与 agent 一一对应、移动与生存交互、全部行为的阶段序列、自动动态 LOD、共享警戒驱动躲藏、动态 obstacle revision、route 线段不进入扩张 collider、清障后最短路缩短、逐 tick 圆形体积不穿模、path/trace budget、压力动物真实 bind/unbind 与 World 清理、容量探顶状态机、AI 与 World checkpoint 恢复、选中前历史仍可导出、资源干预、选中个体解释和确定性单步；浏览器 smoke test 另外验证地图第一屏、常驻行为气泡、警戒群体行为、全体重算、真实 route 折线、可点击障碍后的路径变化、容量压力选项与实时结果、叶印残影/回溯、日志导出、自然干预和 console error。
 
 AI 的公共职责、Utility/Task/Scheduler/Trace 协议与应用边界以 [`../modules/ai.md`](../modules/ai.md)、ADR 0031 和 ADR 0044 为准。
 

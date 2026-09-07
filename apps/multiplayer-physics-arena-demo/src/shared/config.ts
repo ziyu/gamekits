@@ -1,7 +1,7 @@
 import { ARENA_COMPILED_CONTENT } from "../content/default-content";
 
-export const ARENA_ROOM_NAME = "gamekit-knockout-circuit";
-export const ARENA_BROWSER_CONFIG_PATH = "/__gamekit/knockout-config";
+export const ARENA_ROOM_NAME = "gamekits-knockout-circuit";
+export const ARENA_BROWSER_CONFIG_PATH = "/__gamekits/knockout-config";
 export const ARENA_SCHEMA_VERSION = "knockout-arena.v10";
 export const ARENA_DEFINITION_VERSION = ARENA_COMPILED_CONTENT.definitionVersion;
 export const ARENA_ISLAND_ID = "knockout.full-arena";
@@ -15,7 +15,7 @@ export const ARENA_ACTOR_COUNT = ARENA_MAX_HUMANS + ARENA_BOT_COUNT;
 export const ARENA_INPUT_KIND = "game.input";
 export const ARENA_ACTION_KIND = "game.action";
 export const ARENA_SNAPSHOT_KIND = "game.snapshot";
-export const ARENA_MESSAGE_TYPE = "gamekit.message";
+export const ARENA_MESSAGE_TYPE = "gamekits.message";
 
 export type ArenaMatchPhase = "lobby" | "countdown" | "running" | "results";
 

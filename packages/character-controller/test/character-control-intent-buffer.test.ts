@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   createCharacterControlIntentBuffer,
   type CharacterControlIntent
-} from "@gamekit/character-controller";
+} from "@gamekits/character-controller";
 
 describe("character control intent buffer", () => {
   it("latches discrete edges until a fixed tick consumes the latest continuous sample", () => {

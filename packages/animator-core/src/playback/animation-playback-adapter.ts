@@ -1,4 +1,4 @@
-import type { RenderObjectId } from "@gamekit/renderer-core";
+import type { RenderObjectId } from "@gamekits/renderer-core";
 import type { AnimatorBindingDefinition } from "../graph/binding-definition";
 import type { AnimationPlaybackFrame } from "./playback-frame";
 

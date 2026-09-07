@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/game-runtime",
+  "name": "@gamekits/game-runtime",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -17,9 +17,9 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/core": "workspace:*",
-    "@gamekit/event-bus": "workspace:*",
-    "@gamekit/world": "workspace:*"
+    "@gamekits/core": "workspace:*",
+    "@gamekits/event-bus": "workspace:*",
+    "@gamekits/world": "workspace:*"
   },
   "files": [
     "dist"

@@ -17,7 +17,7 @@ presentation 或 gameplay 中增加临时 `navigator.getGamepads()` 轮询。
 
 - Input Core 增加可选 `InputSourceAdapter.poll(frame)`、finite scalar `value` 和连接期
   `deviceId`；Router 用模拟量 `moved` 刷新后续 held value，并隔离多个设备的同名 control。
-- `@gamekit/input-dom` 增加 W3C standard mapping、四设备上限、radial dead zone、button threshold、
+- `@gamekits/input-dom` 增加 W3C standard mapping、四设备上限、radial dead zone、button threshold、
   change epsilon、generation identity、断连取消、scope neutral re-arm 与有界 diagnostics。
 - App Host Input service 使用 `source.poll → router.tick` 顺序，不创建 adapter-owned RAF/timer。
 - Outpost visual profile 组合 Phaser pointer、DOM keyboard 和 Web Gamepad source；左/右摇杆、Trigger、
@@ -35,7 +35,7 @@ Host service 和 Outpost Input DevTools source 正常启动；当前环境没有
 - `InputDevice` 已包含 `gamepad`，但 `NormalizedInputEvent` 没有通用 scalar value 或设备实例 identity。
 - `InputSourceAdapter` 只有 `start/stop/destroy`，无法由 App Host tick 推进 polling source。
 - `InputRouter` 只为 `pressed/held` 保存 active action；它不能用模拟量 `moved` 刷新后续 held value。
-- `@gamekit/input-dom` 只有 keyboard/pointer/wheel event adapter。
+- `@gamekits/input-dom` 只有 keyboard/pointer/wheel event adapter。
 - Phaser Driver input source 只有 keyboard/pointer/wheel；Outpost visual profile 已把它和独立 DOM
   keyboard adapter 组合到同一个 Input Router。
 
@@ -58,7 +58,7 @@ export type InputSourceAdapter = {
 };
 ```
 
-Web adapter 使用 GameKit-owned constants，而不是把 W3C 数组索引暴露给 app：
+Web adapter 使用 GameKits-owned constants，而不是把 W3C 数组索引暴露给 app：
 
 ```ts
 export const STANDARD_GAMEPAD_CONTROL = {
@@ -108,7 +108,7 @@ sensitivity、反向 Y 轴与辅助瞄准仍归 app player-control policy。
 
 ### 2. Web adapter
 
-- 在 `@gamekit/input-dom` 增加 Gamepad snapshot provider、standard mapping normalizer、polling source
+- 在 `@gamekits/input-dom` 增加 Gamepad snapshot provider、standard mapping normalizer、polling source
   与 adapter-specific diagnostics。
 - 使用固定 control layout 和上一帧数值缓存；只为边沿/超过 epsilon 的变化创建事件。
 - 连接 index 被浏览器复用时创建新的 `deviceId` generation，并先取消旧 generation。

@@ -1,6 +1,6 @@
 import { createRoot } from "react-dom/client";
-import type { DevToolsRuntime } from "@gamekit/devtools";
-import { DevToolsOverlay } from "@gamekit/devtools-ui";
+import type { DevToolsRuntime } from "@gamekits/devtools";
+import { DevToolsOverlay } from "@gamekits/devtools-ui";
 import type { SandboxUiHandles } from "./types";
 
 export function mountSandboxDevToolsOverlay(

@@ -2,11 +2,11 @@
 
 ## 定位
 
-TCA 是 Trigger / Condition / Action 数据驱动规则系统，是 GameKit 的核心资产之一。
+TCA 是 Trigger / Condition / Action 数据驱动规则系统，是 GameKits 的核心资产之一。
 
 相关包：
 
-- `@gamekit/tca`
+- `@gamekits/tca`
 
 包归属：
 

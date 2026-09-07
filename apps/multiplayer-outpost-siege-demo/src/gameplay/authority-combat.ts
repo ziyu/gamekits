@@ -1,14 +1,14 @@
-import { defineGameModule } from "@gamekit/core";
-import type { CombatHitResult } from "@gamekit/combat";
-import type { GasOperationContext } from "@gamekit/gas";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import { defineGameModule } from "@gamekits/core";
+import type { CombatHitResult } from "@gamekits/combat";
+import type { GasOperationContext } from "@gamekits/gas";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import {
   PhysicsTransformComponent,
   PhysicsVelocityComponent,
   type PhysicsBodyData,
   type PhysicsVector
-} from "@gamekit/physics-core";
-import type { TcaDefinitionSet } from "@gamekit/tca";
+} from "@gamekits/physics-core";
+import type { TcaDefinitionSet } from "@gamekits/tca";
 
 import {
   OUTPOST_BUILDABLE_TYPE,

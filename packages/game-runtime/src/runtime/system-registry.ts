@@ -1,5 +1,5 @@
-import { GameError, Registry } from "@gamekit/core";
-import type { WorldSystem } from "@gamekit/world";
+import { GameError, Registry } from "@gamekits/core";
+import type { WorldSystem } from "@gamekits/world";
 import type { SystemRegistry } from "./types";
 
 export function createSystemRegistry(): SystemRegistry {

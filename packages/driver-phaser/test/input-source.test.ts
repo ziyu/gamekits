@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { NormalizedInputEvent } from "@gamekit/input-core";
+import type { NormalizedInputEvent } from "@gamekits/input-core";
 import {
   createPhaserDriverInputSource,
   type PhaserDriverInputRuntime

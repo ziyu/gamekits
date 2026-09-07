@@ -1,12 +1,12 @@
-import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekit/data";
-import { createEventBus } from "@gamekit/event-bus";
-import { createGame } from "@gamekit/game-runtime";
+import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekits/data";
+import { createEventBus } from "@gamekits/event-bus";
+import { createGame } from "@gamekits/game-runtime";
 import {
   createGasDataTypes,
   createGasHandle,
   createGasModule,
   createGasRuntime
-} from "@gamekit/gas";
+} from "@gamekits/gas";
 import {
   createPhysicsDataTypes,
   createPhysicsHandle,
@@ -18,9 +18,9 @@ import {
   PhysicsVelocityComponent,
   type PhysicsQueries,
   type PhysicsQueryResult
-} from "@gamekit/physics-core";
-import { initRapier2dPhysicsBackend } from "@gamekit/physics-rapier2d";
-import { createKootaWorld } from "@gamekit/world-koota";
+} from "@gamekits/physics-core";
+import { initRapier2dPhysicsBackend } from "@gamekits/physics-rapier2d";
+import { createKootaWorld } from "@gamekits/world-koota";
 import { beforeAll, describe, expect, it } from "vitest";
 import {
   CombatProjectileComponent,

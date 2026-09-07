@@ -4,14 +4,14 @@ import {
   type CombatDeliveryRequest,
   type CombatDeliveryRequestResult,
   type CombatGasFacade
-} from "@gamekit/combat";
-import { createDataRegistry, type DataPack } from "@gamekit/data";
-import { createEventBus } from "@gamekit/event-bus";
+} from "@gamekits/combat";
+import { createDataRegistry, type DataPack } from "@gamekits/data";
+import { createEventBus } from "@gamekits/event-bus";
 import {
   createGasDataTypes,
   type GasAbilityExecutionState,
   type GasActorRuntimeState
-} from "@gamekit/gas";
+} from "@gamekits/gas";
 import { describe, expect, it, vi } from "vitest";
 
 describe("Combat GAS ability delivery bridge", () => {

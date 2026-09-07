@@ -4,7 +4,7 @@ import type {
   PhysicsRotation,
   PhysicsScene,
   PhysicsVector
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 
 export type CharacterControllerLabCourseObjectRole =
   | "floor"

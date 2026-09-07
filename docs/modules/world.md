@@ -2,17 +2,17 @@
 
 ## 定位
 
-World 是 ECS facade。业务层只依赖 `@gamekit/world`，不直接依赖 Koota 或其他 ECS 库。
+World 是 ECS facade。业务层只依赖 `@gamekits/world`，不直接依赖 Koota 或其他 ECS 库。
 
 相关包：
 
-- `@gamekit/world`
-- `@gamekit/world-koota`
-- 可替换 adapter：`@gamekit/world-bitecs`、`@gamekit/world-custom`
+- `@gamekits/world`
+- `@gamekits/world-koota`
+- 可替换 adapter：`@gamekits/world-bitecs`、`@gamekits/world-custom`
 
 ## 核心职责
 
-`@gamekit/world` 定义稳定协议：
+`@gamekits/world` 定义稳定协议：
 
 - `EntityId`
 - `ComponentDef<T>`
@@ -54,7 +54,7 @@ export type GameWorld = {
 
 ## Adapter 边界
 
-`@gamekit/world-koota`：
+`@gamekits/world-koota`：
 
 - 内部使用 Koota。
 - 实现 `CheckpointGameWorld`，public stable id 与 Koota native entity 映射留在 adapter 内。
@@ -82,10 +82,10 @@ export type GameWorld = {
 
 ## 数据与存档
 
-ECS runtime state 需要可序列化，但序列化不应由 `@gamekit/world` 强行规定全部格式。职责划分：
+ECS runtime state 需要可序列化，但序列化不应由 `@gamekits/world` 强行规定全部格式。职责划分：
 
-- `@gamekit/world` 提供基本遍历/组件访问能力。
-- `@gamekit/save` 负责 SaveGame schema。
+- `@gamekits/world` 提供基本遍历/组件访问能力。
+- `@gamekits/save` 负责 SaveGame schema。
 - 游戏模块声明哪些组件可存档、如何迁移。
 
 World runtime checkpoint 与长期 Save schema 不等价。Checkpoint 面向同版本、同 simulation domain 的短期 rewind；
@@ -104,13 +104,13 @@ Save 仍负责版本迁移、跨内容版本兼容和业务 identity mapping。
 
 - World adapter 必须持续跑 conformance tests。新增 adapter 时先证明 spawn/despawn/add/get/set/remove/query/count 行为一致，再优化底层性能。
 - 游戏或 App Host 集成 World 时只暴露 `GameWorld` facade 给 GameModule，不把 Koota、bitecs 或其他 ECS 后端实例传给业务层。
-- Save 集成 World 时通过显式可保存组件和 entity mapping，不让 `@gamekit/world` 强行规定完整存档 schema。
+- Save 集成 World 时通过显式可保存组件和 entity mapping，不让 `@gamekits/world` 强行规定完整存档 schema。
 - Multiplayer rollback 集成只把实际参与该 domain 的 entity/component 交给 checkpoint controller；使用独立 Physics
   contributor 时，World contributor 不再重复拥有 Physics component。
 
 ### 模块使用
 
-- 业务和游戏模块只依赖 `@gamekit/world` facade，不直接导入 Koota、bitecs 或其他 ECS 后端类型。
+- 业务和游戏模块只依赖 `@gamekits/world` facade，不直接导入 Koota、bitecs 或其他 ECS 后端类型。
 - ComponentDef 应表达运行时状态，不要把 DataRegistry document、AssetDefinition、renderer native handle 或 physics backend body/collider handle 直接塞进 component。
 - 高频系统中优先复用 query 结果和临时对象；不要在每个 entity 更新中深拷贝、JSON 序列化、动态解析路径或触发 UI 更新。
 - 基础 `GameWorld` 的 EntityId 是否可恢复由 adapter capability 决定。短期多人回滚需要 `CheckpointGameWorld` 的

@@ -1,5 +1,5 @@
-import { createInputRouter, type NormalizedInputEvent } from "@gamekit/input-core";
-import { STANDARD_GAMEPAD_CONTROL } from "@gamekit/input-dom";
+import { createInputRouter, type NormalizedInputEvent } from "@gamekits/input-core";
+import { STANDARD_GAMEPAD_CONTROL } from "@gamekits/input-dom";
 import { describe, expect, it } from "vitest";
 
 import {

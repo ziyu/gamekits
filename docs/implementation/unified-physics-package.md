@@ -4,7 +4,7 @@ Status: Active
 
 ## Goal
 
-规划并落地 GameKit 的统一 Physics package，使多个游戏可以复用刚体、碰撞体、空间查询、低频接触事件、Save contributor、DevTools snapshot 和 backend adapter，同时保持薄内核和 Driver / Adapter 边界。
+规划并落地 GameKits 的统一 Physics package，使多个游戏可以复用刚体、碰撞体、空间查询、低频接触事件、Save contributor、DevTools snapshot 和 backend adapter，同时保持薄内核和 Driver / Adapter 边界。
 
 长期设计入口：
 
@@ -16,9 +16,9 @@ Status: Active
 
 包含：
 
-- `@gamekit/physics-core` facade、类型、标准 GameModule helper、DataType、Save contributor 和 conformance helper。
-- 至少一个独立 backend adapter，优先候选为 `@gamekit/physics-rapier2d`；Rapier 3D 通过独立的 `@gamekit/physics-rapier3d` 接入。
-- 可选 2D backend adapter，例如 `@gamekit/physics-matter`。
+- `@gamekits/physics-core` facade、类型、标准 GameModule helper、DataType、Save contributor 和 conformance helper。
+- 至少一个独立 backend adapter，优先候选为 `@gamekits/physics-rapier2d`；Rapier 3D 通过独立的 `@gamekits/physics-rapier3d` 接入。
+- 可选 2D backend adapter，例如 `@gamekits/physics-matter`。
 - Phaser Driver 暴露绑定 Phaser Scene 的 physics backend adapter 的边界设计。
 - World sync、fixed timestep、contact EventBus bridge、DevTools data source 和 Save restore 流程。
 - Headless 测试夹具和 backend conformance tests。
@@ -33,22 +33,22 @@ Status: Active
 
 ## Task Breakdown
 
-| Task                        | Status   | 目标                                                                                       | 验证                                                    |
-| --------------------------- | -------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
-| 文档基础                    | Verified | 补齐模块设计、ADR、架构索引和跨模块边界                                                    | `corepack pnpm format`                                  |
-| `physics-core` skeleton     | Verified | 新增 package、公共类型、`src/index.ts` re-export、基础 package manifest                    | `corepack pnpm build --filter @gamekit/physics-core`    |
-| Physics conformance helper  | Planned  | 在 `test-utils` 或 `physics-core` 测试入口提供 backend 契约测试                            | unit tests                                              |
-| Memory / fake backend       | Verified | 提供 headless deterministic fake backend，验证 module lifecycle 与 World sync              | `corepack pnpm --filter @gamekit/physics-core test`     |
-| Physics GameModule helper   | Verified | 实现 fixed timestep、World binding、contact bridge、dispose cleanup                        | `corepack pnpm --filter @gamekit/physics-core test`     |
-| DataType integration        | Verified | 注册 `physics.material`、`physics.body`、`physics.collider`、`physics.scene`               | `corepack pnpm --filter @gamekit/physics-core test`     |
-| Save contributor            | Planned  | 捕获和恢复可恢复 physics state，排除 backend cache                                         | fixed seed save/load tests                              |
-| DevTools source             | Planned  | 暴露 scene/body/collider/contact/query/performance summary                                 | devtools snapshot tests                                 |
-| Rapier 2D backend           | Verified | 适配 Rapier 2D，处理 WASM async init、native path、contact、query 和 World module 集成     | `corepack pnpm --filter @gamekit/physics-rapier2d test` |
-| Rapier 3D backend           | Verified | 通过独立 package 接入 Rapier 3D，保持 3D shape、rotation、query 和 WASM runtime 独立       | `corepack pnpm --filter @gamekit/physics-rapier3d test` |
-| Matter backend              | Planned  | 适配 Matter.js 2D 常用 body/collider/query/contact 能力                                    | conformance + adapter tests                             |
-| Phaser driver physics slice | Planned  | 从 `driver-phaser` 暴露 Phaser Arcade / Matter Physics adapter，不单独创建 Phaser runtime  | driver integration tests                                |
-| Physics 2D Lab demo         | Verified | 新增 2D 物理能力实验台，跑通 Rapier 2D、2D shape/query/contact、group 和 diagnostics       | headless 2D demo tests + browser smoke                  |
-| Physics 3D Lab demo         | Verified | 新增 3D 物理能力实验台，跑通 Rapier 3D、quaternion、3D shape/query/contact 和 Three 可视化 | headless 3D demo tests + browser smoke                  |
+| Task                        | Status   | 目标                                                                                       | 验证                                                     |
+| --------------------------- | -------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------- |
+| 文档基础                    | Verified | 补齐模块设计、ADR、架构索引和跨模块边界                                                    | `corepack pnpm format`                                   |
+| `physics-core` skeleton     | Verified | 新增 package、公共类型、`src/index.ts` re-export、基础 package manifest                    | `corepack pnpm build --filter @gamekits/physics-core`    |
+| Physics conformance helper  | Planned  | 在 `test-utils` 或 `physics-core` 测试入口提供 backend 契约测试                            | unit tests                                               |
+| Memory / fake backend       | Verified | 提供 headless deterministic fake backend，验证 module lifecycle 与 World sync              | `corepack pnpm --filter @gamekits/physics-core test`     |
+| Physics GameModule helper   | Verified | 实现 fixed timestep、World binding、contact bridge、dispose cleanup                        | `corepack pnpm --filter @gamekits/physics-core test`     |
+| DataType integration        | Verified | 注册 `physics.material`、`physics.body`、`physics.collider`、`physics.scene`               | `corepack pnpm --filter @gamekits/physics-core test`     |
+| Save contributor            | Planned  | 捕获和恢复可恢复 physics state，排除 backend cache                                         | fixed seed save/load tests                               |
+| DevTools source             | Planned  | 暴露 scene/body/collider/contact/query/performance summary                                 | devtools snapshot tests                                  |
+| Rapier 2D backend           | Verified | 适配 Rapier 2D，处理 WASM async init、native path、contact、query 和 World module 集成     | `corepack pnpm --filter @gamekits/physics-rapier2d test` |
+| Rapier 3D backend           | Verified | 通过独立 package 接入 Rapier 3D，保持 3D shape、rotation、query 和 WASM runtime 独立       | `corepack pnpm --filter @gamekits/physics-rapier3d test` |
+| Matter backend              | Planned  | 适配 Matter.js 2D 常用 body/collider/query/contact 能力                                    | conformance + adapter tests                              |
+| Phaser driver physics slice | Planned  | 从 `driver-phaser` 暴露 Phaser Arcade / Matter Physics adapter，不单独创建 Phaser runtime  | driver integration tests                                 |
+| Physics 2D Lab demo         | Verified | 新增 2D 物理能力实验台，跑通 Rapier 2D、2D shape/query/contact、group 和 diagnostics       | headless 2D demo tests + browser smoke                   |
+| Physics 3D Lab demo         | Verified | 新增 3D 物理能力实验台，跑通 Rapier 3D、quaternion、3D shape/query/contact 和 Three 可视化 | headless 3D demo tests + browser smoke                   |
 
 ## Dogfood Demo Plan
 
@@ -58,12 +58,12 @@ Status: Active
 
 归属：新增 `apps/physics-2d-lab`，长期设计见 `docs/apps/physics-2d-lab.md`。
 
-目标：建立独立 2D 物理能力实验台，验证 `@gamekit/physics-rapier2d` 的 2D shape、rotation、query、contact、collision group 和 native diagnostics。
+目标：建立独立 2D 物理能力实验台，验证 `@gamekits/physics-rapier2d` 的 2D shape、rotation、query、contact、collision group 和 native diagnostics。
 
 覆盖能力：
 
-- `@gamekit/physics-core`：标准 component、DataType、Physics module、trace store、EventBus contact bridge。
-- `@gamekit/physics-rapier2d`：circle、box、capsule、polygon/polyline 中至少三类 shape，2D rotation、group map、sensor、point/overlap query、native diagnostics。
+- `@gamekits/physics-core`：标准 component、DataType、Physics module、trace store、EventBus contact bridge。
+- `@gamekits/physics-rapier2d`：circle、box、capsule、polygon/polyline 中至少三类 shape，2D rotation、group map、sensor、point/overlap query、native diagnostics。
 - World sync：body/collider id materialization、transform/velocity 写回、destroy cleanup。
 - Renderer / UI integration：2D stage 展示 collider debug shape、query cursor、contact pulse 和 backend diagnostics。
 - Snapshot/Timeline：body/collider summary、active contacts、last query、physics trace 与 TCA/GAS/EventBus 串联。
@@ -88,12 +88,12 @@ Status: Active
 
 归属：新增 `apps/physics-3d-lab`，长期设计见 `docs/apps/physics-3d-lab.md`。
 
-目标：建立独立 3D 物理能力实验台，用 Three Driver 只做可视化，验证 `@gamekit/physics-rapier3d` 的 3D shape、quaternion rotation、query、contact 和 native diagnostics。
+目标：建立独立 3D 物理能力实验台，用 Three Driver 只做可视化，验证 `@gamekits/physics-rapier3d` 的 3D shape、quaternion rotation、query、contact 和 native diagnostics。
 
 覆盖能力：
 
-- `@gamekit/physics-core`：3D scene config、`PhysicsQuaternion` state、standard Physics module、snapshot。
-- `@gamekit/physics-rapier3d`：sphere、box depth、capsule、convex polygon/polyline、quaternion/Euler rotation、3D linear/angular velocity、sensor、point/overlap query、native path。
+- `@gamekits/physics-core`：3D scene config、`PhysicsQuaternion` state、standard Physics module、snapshot。
+- `@gamekits/physics-rapier3d`：sphere、box depth、capsule、convex polygon/polyline、quaternion/Euler rotation、3D linear/angular velocity、sensor、point/overlap query、native path。
 - Renderer sync：Physics transform 同步到 Three mesh，collider debug ghost 与 query probe 可视化。
 - App boundary：Three Driver 持有 renderer/scene/camera；Rapier native handle 只出现在 app-specific diagnostics/debug draw。
 
@@ -185,7 +185,7 @@ corepack pnpm dev
 - `corepack pnpm test`
 - `corepack pnpm build`
 - `corepack pnpm lint`
-- `corepack pnpm bench:world`：`@gamekit/world-koota`，10,000 entities / 5,000 moving，spawn/add 11.25ms，query/update 9.42ms。
+- `corepack pnpm bench:world`：`@gamekits/world-koota`，10,000 entities / 5,000 moving，spawn/add 11.25ms，query/update 9.42ms。
 - `corepack pnpm test:physics2d`
 - `corepack pnpm test:physics3d`
 - `corepack pnpm build:physics2d`

@@ -1,13 +1,13 @@
-import { createDataRegistry } from "@gamekit/data";
-import { createEventBus } from "@gamekit/event-bus";
+import { createDataRegistry } from "@gamekits/data";
+import { createEventBus } from "@gamekits/event-bus";
 import {
   createGasDataTypes,
   createGasHandle,
   createGasModule,
   createGasSaveContributor,
   createGasTcaDefinitions
-} from "@gamekit/gas";
-import { createGame } from "@gamekit/game-runtime";
+} from "@gamekits/gas";
+import { createGame } from "@gamekits/game-runtime";
 import {
   PhysicsBodyComponent,
   PhysicsTransformComponent,
@@ -16,15 +16,15 @@ import {
   createPhysicsHandle,
   createPhysicsModule,
   createPhysicsSaveContributor
-} from "@gamekit/physics-core";
-import { createMemorySaveStore, createSaveManager } from "@gamekit/save";
+} from "@gamekits/physics-core";
+import { createMemorySaveStore, createSaveManager } from "@gamekits/save";
 import {
   createTcaHandle,
   createTcaModule,
   createTcaRuleDataType,
   createTcaSaveContributor
-} from "@gamekit/tca";
-import type { ComponentDef, EntityId, GameWorld } from "@gamekit/world";
+} from "@gamekits/tca";
+import type { ComponentDef, EntityId, GameWorld } from "@gamekits/world";
 import { describe, expect, it } from "vitest";
 
 describe("gameplay checkpoint composition", () => {

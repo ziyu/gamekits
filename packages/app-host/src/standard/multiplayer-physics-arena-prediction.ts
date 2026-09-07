@@ -3,7 +3,7 @@ import type {
   MultiplayerClientPredictionDomainDescriptor,
   MultiplayerClientPredictionDomainInputContext,
   MultiplayerClientReplicationSnapshotContext
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import {
   createPhysicsPredictionIsland,
   type CreatePhysicsPredictionIslandOptions,
@@ -19,7 +19,7 @@ import {
   type PhysicsPredictionIslandMemberDefinition,
   type PhysicsPredictionIslandMemberState,
   type PhysicsPredictionIslandStateSnapshot
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 import {
   createStandardMultiplayerPhysicsPredictionDomain,
   type StandardMultiplayerPhysicsAuthoritySpawn,

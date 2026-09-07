@@ -18,7 +18,7 @@
     --gk-shadow-window: 0 18px 60px rgba(0, 0, 0, 0.32);
   }
 
-  [data-gamekit-ui-shell] {
+  [data-gamekits-ui-shell] {
     color: var(--gk-text-primary);
     font-family:
       Inter,
@@ -30,26 +30,26 @@
       sans-serif;
   }
 
-  [data-gamekit-ui-shell] button,
-  [data-gamekit-ui-shell] input,
-  [data-gamekit-ui-shell] textarea,
-  [data-gamekit-ui-shell] select {
+  [data-gamekits-ui-shell] button,
+  [data-gamekits-ui-shell] input,
+  [data-gamekits-ui-shell] textarea,
+  [data-gamekits-ui-shell] select {
     font: inherit;
   }
 
-  [data-gamekit-ui-shell] :focus-visible {
+  [data-gamekits-ui-shell] :focus-visible {
     outline: 2px solid var(--gk-focus-ring);
     outline-offset: 2px;
   }
 }
 
 @layer components {
-  .gamekit-ui-shell {
+  .gamekits-ui-shell {
     min-width: 0;
     min-height: 0;
   }
 
-  .gamekit-ui-panel {
+  .gamekits-ui-panel {
     overflow: hidden;
     border: 1px solid var(--gk-border-subtle);
     border-radius: var(--gk-radius-panel);
@@ -57,11 +57,11 @@
     box-shadow: var(--gk-shadow-window);
   }
 
-  .gamekit-ui-panel.is-focused {
+  .gamekits-ui-panel.is-focused {
     border-color: color-mix(in srgb, var(--gk-accent-primary) 60%, transparent);
   }
 
-  .gamekit-ui-panel__header {
+  .gamekits-ui-panel__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -71,7 +71,7 @@
     color: var(--gk-text-primary);
   }
 
-  .gamekit-ui-panel__header button {
+  .gamekits-ui-panel__header button {
     display: inline-grid;
     width: 1.75rem;
     height: 1.75rem;
@@ -83,25 +83,25 @@
     cursor: pointer;
   }
 
-  .gamekit-ui-panel__header button:hover {
+  .gamekits-ui-panel__header button:hover {
     border-color: var(--gk-border-strong);
     color: var(--gk-text-primary);
   }
 
-  .gamekit-ui-panel__body {
+  .gamekits-ui-panel__body {
     padding: 0.875rem;
   }
 
-  .gamekit-ui-tip {
+  .gamekits-ui-tip {
     position: relative;
     display: inline-flex;
   }
 
-  .gamekit-ui-tip__anchor {
+  .gamekits-ui-tip__anchor {
     display: inline-flex;
   }
 
-  .gamekit-ui-tip__bubble {
+  .gamekits-ui-tip__bubble {
     pointer-events: none;
     position: absolute;
     z-index: 50;
@@ -122,63 +122,63 @@
     white-space: normal;
   }
 
-  .gamekit-ui-tip:hover .gamekit-ui-tip__bubble,
-  .gamekit-ui-tip:focus-within .gamekit-ui-tip__bubble {
+  .gamekits-ui-tip:hover .gamekits-ui-tip__bubble,
+  .gamekits-ui-tip:focus-within .gamekits-ui-tip__bubble {
     opacity: 1;
     transform: translate3d(0, 0, 0) scale(1);
   }
 
-  .gamekit-ui-tip[data-tip-side="top"] .gamekit-ui-tip__bubble {
+  .gamekits-ui-tip[data-tip-side="top"] .gamekits-ui-tip__bubble {
     bottom: calc(100% + 0.45rem);
     left: 50%;
     transform: translate3d(-50%, 0.25rem, 0) scale(0.98);
   }
 
-  .gamekit-ui-tip[data-tip-side="top"]:hover .gamekit-ui-tip__bubble,
-  .gamekit-ui-tip[data-tip-side="top"]:focus-within .gamekit-ui-tip__bubble {
+  .gamekits-ui-tip[data-tip-side="top"]:hover .gamekits-ui-tip__bubble,
+  .gamekits-ui-tip[data-tip-side="top"]:focus-within .gamekits-ui-tip__bubble {
     transform: translate3d(-50%, 0, 0) scale(1);
   }
 
-  .gamekit-ui-tip[data-tip-side="bottom"] .gamekit-ui-tip__bubble {
+  .gamekits-ui-tip[data-tip-side="bottom"] .gamekits-ui-tip__bubble {
     top: calc(100% + 0.45rem);
     left: 50%;
     transform: translate3d(-50%, -0.25rem, 0) scale(0.98);
   }
 
-  .gamekit-ui-tip[data-tip-side="bottom"]:hover .gamekit-ui-tip__bubble,
-  .gamekit-ui-tip[data-tip-side="bottom"]:focus-within .gamekit-ui-tip__bubble {
+  .gamekits-ui-tip[data-tip-side="bottom"]:hover .gamekits-ui-tip__bubble,
+  .gamekits-ui-tip[data-tip-side="bottom"]:focus-within .gamekits-ui-tip__bubble {
     transform: translate3d(-50%, 0, 0) scale(1);
   }
 
-  .gamekit-ui-tip[data-tip-side="right"] .gamekit-ui-tip__bubble {
+  .gamekits-ui-tip[data-tip-side="right"] .gamekits-ui-tip__bubble {
     top: 50%;
     left: calc(100% + 0.45rem);
     transform: translate3d(-0.25rem, -50%, 0) scale(0.98);
   }
 
-  .gamekit-ui-tip[data-tip-side="right"]:hover .gamekit-ui-tip__bubble,
-  .gamekit-ui-tip[data-tip-side="right"]:focus-within .gamekit-ui-tip__bubble {
+  .gamekits-ui-tip[data-tip-side="right"]:hover .gamekits-ui-tip__bubble,
+  .gamekits-ui-tip[data-tip-side="right"]:focus-within .gamekits-ui-tip__bubble {
     transform: translate3d(0, -50%, 0) scale(1);
   }
 
-  .gamekit-ui-tip[data-tip-side="left"] .gamekit-ui-tip__bubble {
+  .gamekits-ui-tip[data-tip-side="left"] .gamekits-ui-tip__bubble {
     top: 50%;
     right: calc(100% + 0.45rem);
     transform: translate3d(0.25rem, -50%, 0) scale(0.98);
   }
 
-  .gamekit-ui-tip[data-tip-side="left"]:hover .gamekit-ui-tip__bubble,
-  .gamekit-ui-tip[data-tip-side="left"]:focus-within .gamekit-ui-tip__bubble {
+  .gamekits-ui-tip[data-tip-side="left"]:hover .gamekits-ui-tip__bubble,
+  .gamekits-ui-tip[data-tip-side="left"]:focus-within .gamekits-ui-tip__bubble {
     transform: translate3d(0, -50%, 0) scale(1);
   }
 
-  [data-gamekit-density="compact"] .gamekit-ui-panel__header,
-  [data-gamekit-density="compact"] .gamekit-ui-panel__body {
+  [data-gamekits-density="compact"] .gamekits-ui-panel__header,
+  [data-gamekits-density="compact"] .gamekits-ui-panel__body {
     padding: 0.625rem;
   }
 
-  [data-gamekit-density="spacious"] .gamekit-ui-panel__header,
-  [data-gamekit-density="spacious"] .gamekit-ui-panel__body {
+  [data-gamekits-density="spacious"] .gamekits-ui-panel__header,
+  [data-gamekits-density="spacious"] .gamekits-ui-panel__body {
     padding: 1rem;
   }
 }

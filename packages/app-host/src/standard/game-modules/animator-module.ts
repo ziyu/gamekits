@@ -2,7 +2,7 @@ import {
   createAnimatorHandle,
   createAnimatorModule,
   type CreateAnimatorModuleOptions
-} from "@gamekit/animator-core";
+} from "@gamekits/animator-core";
 import { resolveStandardValue } from "../resolve";
 import type { StandardServiceBuildContext, StandardValue } from "../types";
 

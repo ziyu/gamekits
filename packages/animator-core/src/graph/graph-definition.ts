@@ -1,4 +1,4 @@
-import type { RenderNodePath } from "@gamekit/renderer-core";
+import type { RenderNodePath } from "@gamekits/renderer-core";
 
 export type AnimatorParameterType = "number" | "boolean" | "string" | "trigger";
 

@@ -44,7 +44,7 @@ console.log(
   JSON.stringify(
     {
       benchmark: "projectile-prediction",
-      packages: ["@gamekit/physics-core", "@gamekit/combat", "@gamekit/multiplayer-core"],
+      packages: ["@gamekits/physics-core", "@gamekits/combat", "@gamekits/multiplayer-core"],
       methodology: {
         timing: "process CPU time",
         recordFixtureCreation: "included",

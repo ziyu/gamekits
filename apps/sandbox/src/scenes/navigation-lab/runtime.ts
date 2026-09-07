@@ -1,5 +1,5 @@
-import { defineGameModule, type GameModule } from "@gamekit/core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import { defineGameModule, type GameModule } from "@gamekits/core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import {
   createNavigationProgressTracker,
   type NavigationHandle,
@@ -9,7 +9,7 @@ import {
   type NavigationRequestResult,
   type NavigationRoute,
   type NavigationRouteSample
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import {
   NAVIGATION_LAB_PROFILES,
   NAVIGATION_LAB_SCENARIO,

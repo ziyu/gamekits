@@ -20,7 +20,7 @@ function main(): void {
     JSON.stringify(
       {
         benchmark: "audio",
-        package: "@gamekit/audio-core",
+        package: "@gamekits/audio-core",
         methodology: {
           reports: [
             "layered SFX burst",

@@ -78,7 +78,7 @@ Graph package 可以维护自己的窄确定性算法实现，但算法数据不
 
 ### 公共入口按消费者拆分
 
-`@gamekit/navigation-core` 提供：
+`@gamekits/navigation-core` 提供：
 
 - root：游戏/AI/Editor 使用的 contracts、DataType、facade、创建函数和 progress/content validation helper。
 - `/backend`：Backend port、factory、capabilities 和 DTO。
@@ -86,7 +86,7 @@ Graph package 可以维护自己的窄确定性算法实现，但算法数据不
 
 Root 不导出 Backend request token、request registry、cache entry、route registry、trace store 或测试替身。
 
-`@gamekit/navigation-graph` root 只导出 authored definition、DataType、direct factory 和 layout factory；compiler/search/runtime 私有类型不导出。
+`@gamekits/navigation-graph` root 只导出 authored definition、DataType、direct factory 和 layout factory；compiler/search/runtime 私有类型不导出。
 
 ### 文件和测试跟随状态所有权
 

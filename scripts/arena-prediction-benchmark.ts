@@ -75,7 +75,7 @@ console.log(
   JSON.stringify(
     {
       benchmark: "arena-prediction",
-      packages: ["@gamekit/app-host", "@gamekit/physics-core", "@gamekit/physics-rapier3d"],
+      packages: ["@gamekits/app-host", "@gamekits/physics-core", "@gamekits/physics-rapier3d"],
       methodology: {
         backend: "real Rapier3D compat WASM",
         timing: "wall-clock performance.now",

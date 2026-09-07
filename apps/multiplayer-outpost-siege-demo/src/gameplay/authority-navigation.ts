@@ -1,6 +1,6 @@
-import { defineGameModule } from "@gamekit/core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
-import type { NavigationHandle } from "@gamekit/navigation-core";
+import { defineGameModule } from "@gamekits/core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
+import type { NavigationHandle } from "@gamekits/navigation-core";
 
 import {
   outpostNavigationBarricadeBlockers,

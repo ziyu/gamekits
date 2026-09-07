@@ -1,10 +1,10 @@
-import type { NavigationAgentProfileDefinition, NavigationPoint } from "@gamekit/navigation-core";
-import type { NavigationRecastBuildArtifact } from "@gamekit/navigation-recast";
+import type { NavigationAgentProfileDefinition, NavigationPoint } from "@gamekits/navigation-core";
+import type { NavigationRecastBuildArtifact } from "@gamekits/navigation-recast";
 import {
   createRecastNavigationBackend,
   prepareRecastNavigationArtifact
-} from "@gamekit/navigation-recast";
-import type { PhysicsVector } from "@gamekit/physics-core";
+} from "@gamekits/navigation-recast";
+import type { PhysicsVector } from "@gamekits/physics-core";
 
 import type { CompiledArenaContent, CompiledArenaStage } from "./registry";
 import type {

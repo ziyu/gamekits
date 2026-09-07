@@ -1,4 +1,4 @@
-import { worldToScreen } from "@gamekit/camera-core";
+import { worldToScreen } from "@gamekits/camera-core";
 import { createSandboxCameraController } from "../camera";
 import {
   SANDBOX_RENDER_SIZE,

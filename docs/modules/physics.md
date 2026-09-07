@@ -2,25 +2,25 @@
 
 ## 定位
 
-Physics 是统一物理 facade 和 GameModule toolkit。它负责把刚体、碰撞体、触发器、空间查询、接触事件和调试快照抽象成 GameKit 稳定协议，让游戏代码不直接依赖 Rapier、Matter.js、Phaser Physics、Box2D 或其他底层物理库。
+Physics 是统一物理 facade 和 GameModule toolkit。它负责把刚体、碰撞体、触发器、空间查询、接触事件和调试快照抽象成 GameKits 稳定协议，让游戏代码不直接依赖 Rapier、Matter.js、Phaser Physics、Box2D 或其他底层物理库。
 
 相关包：
 
-- `@gamekit/physics-core`
-- `@gamekit/physics-rapier2d`
-- `@gamekit/physics-rapier3d`
-- `@gamekit/physics-matter`
-- Driver 暴露的 physics backend，例如 `@gamekit/driver-phaser` 中绑定 Phaser Scene 的 Arcade / Matter physics adapter
+- `@gamekits/physics-core`
+- `@gamekits/physics-rapier2d`
+- `@gamekits/physics-rapier3d`
+- `@gamekits/physics-matter`
+- Driver 暴露的 physics backend，例如 `@gamekits/driver-phaser` 中绑定 Phaser Scene 的 Arcade / Matter physics adapter
 
 包归属：
 
-- `@gamekit/physics-core`：Game Module toolkit + facade，定义物理协议、标准组件、DataType、GameModule helper、trace 和 conformance helper。
-- `@gamekit/physics-rapier2d` / `@gamekit/physics-rapier3d` / `@gamekit/physics-matter`：backend adapter，只把 `physics-core` 协议映射到底层库，不承载玩法规则。Rapier adapter 按物理维度分包，避免 2D 游戏默认安装 3D WASM/runtime。
+- `@gamekits/physics-core`：Game Module toolkit + facade，定义物理协议、标准组件、DataType、GameModule helper、trace 和 conformance helper。
+- `@gamekits/physics-rapier2d` / `@gamekits/physics-rapier3d` / `@gamekits/physics-matter`：backend adapter，只把 `physics-core` 协议映射到底层库，不承载玩法规则。Rapier adapter 按物理维度分包，避免 2D 游戏默认安装 3D WASM/runtime。
 - Phaser 这类把 physics 绑定在完整 scene runtime 内的后端，优先由 Driver 持有外部 runtime，再暴露 Physics backend adapter。
 
 Physics 不是 App Host 默认标准服务。物理模拟需要 world、tick、entity binding、gameplay filter、save contributor 和 session lifecycle，应通过 `createPhysicsModule(...)` 这类标准 GameModule helper 安装。App Host 或 profile 可以提供 backend factory、driver adapter、DataRegistry、DevTools 和 SaveManager，但不直接拥有 gameplay physics scene。
 
-使用 configured App Host 时，可以通过 `profile.standard.game.standardModules.physics` 声明 backend、scene、handle、interpolation store、bindings 和 trace policy。App Host helper 只解析这些 profile value 并调用 `@gamekit/physics-core` 的 `createPhysicsModule(...)`；live scene、fixed step、World sync 和 cleanup 仍完全属于 Physics GameModule。
+使用 configured App Host 时，可以通过 `profile.standard.game.standardModules.physics` 声明 backend、scene、handle、interpolation store、bindings 和 trace policy。App Host helper 只解析这些 profile value 并调用 `@gamekits/physics-core` 的 `createPhysicsModule(...)`；live scene、fixed step、World sync 和 cleanup 仍完全属于 Physics GameModule。
 
 ## 非目标
 
@@ -51,7 +51,7 @@ DevTools / Save
 → physics snapshot / contributor / trace
 ```
 
-Physics Core 保持薄协议。成熟库负责底层 broadphase、solver、constraint 和 shape implementation；GameKit 负责稳定 id、World integration、Data materialization、EventBus 边界、Save contributor 和可解释 trace。
+Physics Core 保持薄协议。成熟库负责底层 broadphase、solver、constraint 和 shape implementation；GameKits 负责稳定 id、World integration、Data materialization、EventBus 边界、Save contributor 和可解释 trace。
 
 客户端物理预测使用同一分层，但必须区分两种能力：
 
@@ -288,10 +288,10 @@ Adapter 规则：
 - Adapter 不把 backend body/collider object 存进 World component、Data document 或 Save payload。
 - Adapter diagnostic 必须能定位 body id、collider id、backend kind、phase 和错误码。
 - 需要 WASM 或异步 boot 的 backend 应由 adapter package 暴露 async factory 或由 app/profile 预初始化；`PhysicsScene` facade 本身保持同步 create/step/query/dispose。
-- Rapier 这类官方 2D / 3D 分包的 backend 应在 GameKit adapter 层保持同样拆分；共享语义沉淀到 `physics-core`，dimension-specific shape、rotation、query 和 native path 留在各自 adapter 包。
+- Rapier 这类官方 2D / 3D 分包的 backend 应在 GameKits adapter 层保持同样拆分；共享语义沉淀到 `physics-core`，dimension-specific shape、rotation、query 和 native path 留在各自 adapter 包。
 - 3D backend 可以把 `PhysicsRotation` 的 vector 形式解释为 Euler radians，并把 quaternion 作为无损 state/native round-trip；2D backend 可以把 number 解释为平面角度并拒绝 quaternion。
 - Backend native path 只允许 app-specific gameplay integration、Editor 后端工具或 DevTools backend plugin 显式依赖具体 adapter 包时使用。
-- Backend capability 必须声明支持的 shape、query family、trigger interaction、filter 映射、result ordering、rotation support 和 native path。公共 API 遇到不支持的能力时应返回明确 diagnostic 或抛出 GameKit error，不能以近似语义静默降级。
+- Backend capability 必须声明支持的 shape、query family、trigger interaction、filter 映射、result ordering、rotation support 和 native path。公共 API 遇到不支持的能力时应返回明确 diagnostic 或抛出 GameKits error，不能以近似语义静默降级。
 - 只有能恢复完整 scene/solver state 并在相同输入下稳定重演的 backend 才能声明 `checkpoints.fullScene` 与
   `checkpoints.deterministicReplay`。Checkpoint payload 始终由 adapter 私有持有，公共 envelope 只公开 backend、
   scene id 和 byte length；不同 backend/scene 的 restore 必须拒绝。
@@ -607,7 +607,7 @@ GameModule 内部需要做 targeting、line of sight、ground check 或 placemen
 
 Rapier、Matter.js、Box2D 这类独立物理库通常是 Physics backend adapter，不是 Driver。它们只拥有 physics scene，不拥有 renderer/input/camera/asset runtime。
 
-Phaser Physics 不同：Arcade / Matter physics 绑定在 Phaser Game / Scene runtime 内。它应由 `@gamekit/driver-phaser` 持有 Phaser runtime，再从同一个 runtime slice 暴露 Physics backend adapter。该 adapter 不创建 `Phaser.Game`，也不把 Phaser Scene 交给可复用 gameplay module。
+Phaser Physics 不同：Arcade / Matter physics 绑定在 Phaser Game / Scene runtime 内。它应由 `@gamekits/driver-phaser` 持有 Phaser runtime，再从同一个 runtime slice 暴露 Physics backend adapter。该 adapter 不创建 `Phaser.Game`，也不把 Phaser Scene 交给可复用 gameplay module。
 
 Three.js 本身不是物理引擎。Three Driver 不应为了 3D 物理直接承担 physics solver；如果 3D app 使用 Rapier、Cannon、Ammo、Jolt 或其他后端，应通过 Physics backend adapter 接入，再由 presentation layer 同步到 Three render object。
 
@@ -660,14 +660,14 @@ Physics module 应默认使用 fixed timestep 和稳定 system order，减少不
 - Presentation 可以读取 accumulator alpha 做 transient interpolation，但不能把插值结果写回 World 或用于 gameplay decision。
 - 同一 tick 内的 create/destroy/update 顺序应稳定。
 - Contact event 排序应按稳定 body/collider id 或 backend-provided pair id 归一化。
-- Backend snapshot 只承诺 GameKit 层稳定字段，不承诺 native memory layout。
+- Backend snapshot 只承诺 GameKits 层稳定字段，不承诺 native memory layout。
 - 只有 backend 明确声明 deterministic profile 时，游戏才能把它用于 rollback / lockstep 级别的确定性假设。
 - Prediction-island restore 必须恢复所有会在 replay window 内相互作用的 body、constraint 与 spawn/despawn
   顺序；一个 body 对未来 tick 的 dynamic scene 重放不能称为确定性 rollback。
 
 ## 测试要求
 
-`@gamekit/physics-core` 必须提供 conformance helper。新增 backend adapter 时至少覆盖：
+`@gamekits/physics-core` 必须提供 conformance helper。新增 backend adapter 时至少覆盖：
 
 - scene lifecycle、dispose cleanup。
 - create/update/destroy body。
@@ -687,7 +687,7 @@ Physics module 应默认使用 fixed timestep 和稳定 system order，减少不
 - 单主体 prediction transition 覆盖静态碰撞、checkpoint hit/miss、hard reset、history limit 和 dispose。
 - 声明 prediction-island capability 的 backend 额外覆盖多 dynamic body 交互、完整 checkpoint restore、
   spawn/despawn replay、partial-member rejection、history overflow 和 retained-state cleanup。
-- 声明 body-command capability 的 backend 必须通过 `@gamekit/physics-core/testing` 的共享 conformance，覆盖 missing/static
+- 声明 body-command capability 的 backend 必须通过 `@gamekits/physics-core/testing` 的共享 conformance，覆盖 missing/static
   rejection、linear/angular impulse、application point、wake policy 与 checkpoint replay；backend adapter 只能补专属误差容限和
   native capability 测试，不能复制另一套 contract。
 
@@ -744,7 +744,7 @@ Adapter 专属测试再覆盖底层库能力，例如 Rapier WASM 初始化、Ph
 
 ### 模块使用
 
-- 业务代码只依赖 `@gamekit/physics-core`、World component、query API 和低频 contact event，不直接 import Rapier、Matter、Phaser Physics 或 backend body 类型。
+- 业务代码只依赖 `@gamekits/physics-core`、World component、query API 和低频 contact event，不直接 import Rapier、Matter、Phaser Physics 或 backend body 类型。
 - 需要 raycast、overlap、check 或 point query 的业务模块通过 DI 接收 `PhysicsQueries` / `PhysicsHandle`；测试中注入 fake queries，生产组合中注入 Physics module 绑定的 handle。
 - Damage、team/faction、hit/hurt rule、projectile owner、pierce、ability activation 等玩法语义应在游戏模块、GAS 或 TCA 中解释；Physics 只回答空间、碰撞和运动事实。
 - Collision layer/mask 只表达物理过滤；不要把所有玩法 target rule 都塞进 physics filter。需要命中后解释的规则应放在 gameplay 数据中。

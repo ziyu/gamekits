@@ -7,13 +7,13 @@ import {
   type CombatKinematicProjectileRecord,
   type CombatKinematicProjectileRecordBuffer,
   type CombatKinematicProjectileRuntime
-} from "@gamekit/combat";
+} from "@gamekits/combat";
 import {
   createMultiplayerPredictedSpawnRegistry,
   createMultiplayerRuntime,
   type MultiplayerRuntime
-} from "@gamekit/multiplayer-core";
-import { createMemoryMultiplayerBackend } from "@gamekit/multiplayer-memory";
+} from "@gamekits/multiplayer-core";
+import { createMemoryMultiplayerBackend } from "@gamekits/multiplayer-memory";
 import {
   raycast,
   shapeCast,
@@ -23,7 +23,7 @@ import {
   type PhysicsPredictionIslandStateSnapshot,
   type PhysicsScene,
   type PhysicsVector
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 import {
   findMultiplayerProjectileWeaponByDefinition,
   getMultiplayerProjectileWeapon,

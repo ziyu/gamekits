@@ -1,5 +1,5 @@
-import type { GameEvent } from "@gamekit/event-bus";
-import type { EntityId } from "@gamekit/world";
+import type { GameEvent } from "@gamekits/event-bus";
+import type { EntityId } from "@gamekits/world";
 import { Actor, Combat, Loot, Position, Room } from "./components";
 import { PLAYER_ACTOR_ID } from "./constants";
 import type { AbyssRuntimeState } from "./runtime-state";

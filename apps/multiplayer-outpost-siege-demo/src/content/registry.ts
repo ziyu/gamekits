@@ -1,18 +1,18 @@
-import { createAssetDataType } from "@gamekit/asset";
-import { createAiDataTypes } from "@gamekit/ai-core";
-import { createAnimatorDataTypes } from "@gamekit/animator-core";
-import { createCombatDataTypes } from "@gamekit/combat";
+import { createAssetDataType } from "@gamekits/asset";
+import { createAiDataTypes } from "@gamekits/ai-core";
+import { createAnimatorDataTypes } from "@gamekits/animator-core";
+import { createCombatDataTypes } from "@gamekits/combat";
 import {
   createDataRegistry,
   type DataPack,
   type DataRegistry,
   type DataTypeDefinition
-} from "@gamekit/data";
-import { createGasDataTypes } from "@gamekit/gas";
-import { createNavigationDataTypes } from "@gamekit/navigation-core";
-import { createNavigationGraphDataType } from "@gamekit/navigation-graph";
-import { createPhysicsDataTypes } from "@gamekit/physics-core";
-import { createTcaRuleDataType } from "@gamekit/tca";
+} from "@gamekits/data";
+import { createGasDataTypes } from "@gamekits/gas";
+import { createNavigationDataTypes } from "@gamekits/navigation-core";
+import { createNavigationGraphDataType } from "@gamekits/navigation-graph";
+import { createPhysicsDataTypes } from "@gamekits/physics-core";
+import { createTcaRuleDataType } from "@gamekits/tca";
 import { createOutpostDataTypes } from "./data-types";
 import { outpostContentPack } from "./pack";
 

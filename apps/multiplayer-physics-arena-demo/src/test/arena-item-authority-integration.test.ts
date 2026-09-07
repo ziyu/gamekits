@@ -1,9 +1,9 @@
-import { createMemoryMultiplayerBackend } from "@gamekit/multiplayer-memory";
+import { createMemoryMultiplayerBackend } from "@gamekits/multiplayer-memory";
 import {
   createMultiplayerFixedStepInputBundle,
   createMultiplayerRuntime
-} from "@gamekit/multiplayer-core";
-import { createMemoryPhysicsBackend } from "@gamekit/physics-core";
+} from "@gamekits/multiplayer-core";
+import { createMemoryPhysicsBackend } from "@gamekits/physics-core";
 import { describe, expect, it } from "vitest";
 
 import { createArenaAuthorityRuntime } from "../server/arena-authority";

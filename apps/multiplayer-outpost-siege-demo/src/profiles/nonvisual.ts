@@ -3,25 +3,25 @@ import {
   createMemoryAssetAdapter,
   createStandardAppProfile,
   type AppProfile
-} from "@gamekit/app-host";
-import type { AssetDiagnosticEvent, AssetLoaderAdapter, AssetManager } from "@gamekit/asset";
-import type { GameAudio } from "@gamekit/audio-core";
-import { createMemoryAudioBackend } from "@gamekit/audio-core/testing";
-import type { DataRegistry } from "@gamekit/data";
-import type { DevToolsDataSource, DevToolsRuntime } from "@gamekit/devtools";
-import { createEventBus, type EventBus } from "@gamekit/event-bus";
-import type { GameRuntime } from "@gamekit/game-runtime";
-import { createInputRouter, type InputRouter } from "@gamekit/input-core";
-import { createMultiplayerRuntime, type MultiplayerRuntime } from "@gamekit/multiplayer-core";
-import { createMemoryMultiplayerBackend } from "@gamekit/multiplayer-memory";
-import { createMemoryPhysicsBackend, type PhysicsBackendAdapter } from "@gamekit/physics-core";
-import type { PlatformRuntime } from "@gamekit/platform-core";
-import { createMemoryPlatform } from "@gamekit/platform-web";
-import type { RendererAdapter } from "@gamekit/renderer-core";
-import { createMemorySaveStore, type SaveManager, type SaveStore } from "@gamekit/save";
-import { createUiRuntime, type UiRuntime } from "@gamekit/ui-core";
-import type { GameWorld } from "@gamekit/world";
-import { createKootaWorld } from "@gamekit/world-koota";
+} from "@gamekits/app-host";
+import type { AssetDiagnosticEvent, AssetLoaderAdapter, AssetManager } from "@gamekits/asset";
+import type { GameAudio } from "@gamekits/audio-core";
+import { createMemoryAudioBackend } from "@gamekits/audio-core/testing";
+import type { DataRegistry } from "@gamekits/data";
+import type { DevToolsDataSource, DevToolsRuntime } from "@gamekits/devtools";
+import { createEventBus, type EventBus } from "@gamekits/event-bus";
+import type { GameRuntime } from "@gamekits/game-runtime";
+import { createInputRouter, type InputRouter } from "@gamekits/input-core";
+import { createMultiplayerRuntime, type MultiplayerRuntime } from "@gamekits/multiplayer-core";
+import { createMemoryMultiplayerBackend } from "@gamekits/multiplayer-memory";
+import { createMemoryPhysicsBackend, type PhysicsBackendAdapter } from "@gamekits/physics-core";
+import type { PlatformRuntime } from "@gamekits/platform-core";
+import { createMemoryPlatform } from "@gamekits/platform-web";
+import type { RendererAdapter } from "@gamekits/renderer-core";
+import { createMemorySaveStore, type SaveManager, type SaveStore } from "@gamekits/save";
+import { createUiRuntime, type UiRuntime } from "@gamekits/ui-core";
+import type { GameWorld } from "@gamekits/world";
+import { createKootaWorld } from "@gamekits/world-koota";
 import { createOutpostDataRegistry } from "../content";
 import {
   createOutpostPreviewRuntime,

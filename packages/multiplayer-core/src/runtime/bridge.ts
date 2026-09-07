@@ -1,5 +1,5 @@
-import type { EventBus } from "@gamekit/event-bus";
-import type { GameModule } from "@gamekit/core";
+import type { EventBus } from "@gamekits/event-bus";
+import type { GameModule } from "@gamekits/core";
 import {
   createSnapshotPresentationProjector,
   createSnapshotPlayback,
@@ -206,7 +206,7 @@ export function createMultiplayerModule<
 >(
   options: MultiplayerModuleOptions<TInstallContext, TSnapshot, TInput, TPredictedState>
 ): GameModule<TInstallContext> {
-  const moduleId = options.id ?? "gamekit.multiplayer.bridge";
+  const moduleId = options.id ?? "gamekits.multiplayer.bridge";
   const predictionDomainDescriptors = validatePredictionDomainDescriptors(
     options.clientPredictionDomains ?? []
   );

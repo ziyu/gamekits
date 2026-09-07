@@ -1,5 +1,5 @@
-import type { ThreeRendererNative } from "@gamekit/driver-three";
-import type { PhysicsRotation } from "@gamekit/physics-core";
+import type { ThreeRendererNative } from "@gamekits/driver-three";
+import type { PhysicsRotation } from "@gamekits/physics-core";
 import * as THREE from "three";
 import type { CharacterControllerLabThirdPersonCamera } from "./camera";
 import type { CharacterControllerLabCourseObjectRole } from "./course";

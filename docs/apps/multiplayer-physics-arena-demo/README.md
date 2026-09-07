@@ -3,7 +3,7 @@
 ## 文档定位
 
 本目录是 Multiplayer Physics Arena Demo（Knockout Arena）游戏级设计的长期事实源。它描述比赛为什么可玩、角色与
-物理互动如何工作、内容如何组合，以及完整体验对 GameKit 底层能力提出哪些稳定要求。
+物理互动如何工作、内容如何组合，以及完整体验对 GameKits 底层能力提出哪些稳定要求。
 
 跨模块实现阶段、任务状态与验证证据见
 [`../../implementation/multiplayer-physics-arena-game.md`](../../implementation/multiplayer-physics-arena-game.md)。已关闭的
@@ -33,7 +33,7 @@ Knockout Arena 是一场 8 人参加的 3D 物理竞技电视秀。真人不足�
 道具乱斗和坍塌决赛，最终产生唯一 winner。参与者通过移动、跳跃、dive、推挤、拾取、近战和投掷控制空间优势，淘汰
 的直接条件是离开有效场地，而不是清空传统生命值。
 
-游戏既是可完整游玩的派对竞技应用，也是 GameKit 高互动多人能力的真实消费者：所有能通过碰撞改变本地预测结果的
+游戏既是可完整游玩的派对竞技应用，也是 GameKits 高互动多人能力的真实消费者：所有能通过碰撞改变本地预测结果的
 玩家、道具和机关必须在同一 Physics prediction island 中按固定 tick replay；胜负、晋级、道具归属和命中结果仍由
 headless authority 唯一提交。
 

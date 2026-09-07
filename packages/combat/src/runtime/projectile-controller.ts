@@ -3,15 +3,15 @@ import type {
   PhysicsColliderData,
   PhysicsQueryResult,
   PhysicsVector
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 import {
   PhysicsBodyComponent,
   PhysicsColliderComponent,
   PhysicsContactsComponent,
   PhysicsTransformComponent,
   PhysicsVelocityComponent
-} from "@gamekit/physics-core";
-import type { EntityId } from "@gamekit/world";
+} from "@gamekits/physics-core";
+import type { EntityId } from "@gamekits/world";
 import { CombatProjectileComponent } from "../components";
 import { COMBAT_PROJECTILE_TYPE } from "../data";
 import { createCombatError } from "./errors";

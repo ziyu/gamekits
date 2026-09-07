@@ -13,8 +13,8 @@ Outpost Siege 需要用同一应用合同覆盖 Browser Web、Tauri、headless s
 ## Decision
 
 - 多运行环境 app 复用同一个 `GameAppDefinition` 和 service dependency graph。
-- `@gamekit/app-host` 公开已有的 `createHeadlessRenderer()` 与 `createMemoryAssetAdapter()`，只作为 protocol-compatible non-visual composition fixture。
-- `@gamekit/platform-web` 提供 `createMemoryPlatform()`，强制使用隔离 memory fs/storage，并允许 profile 设置 runtime id；它不修改 `createWebPlatform()` 的既有行为。
+- `@gamekits/app-host` 公开已有的 `createHeadlessRenderer()` 与 `createMemoryAssetAdapter()`，只作为 protocol-compatible non-visual composition fixture。
+- `@gamekits/platform-web` 提供 `createMemoryPlatform()`，强制使用隔离 memory fs/storage，并允许 profile 设置 runtime id；它不修改 `createWebPlatform()` 的既有行为。
 - App-specific headless/deterministic profile 可以使用这些 fixture，但 World、Physics backend、Multiplayer runtime、SaveStore 和 GameRuntime factory 保持显式可注入。
 - 正式 server/Tauri composition 使用真实 adapter/backend；memory fixture 只承担确定性、生命周期、资源隔离和性能门禁。
 

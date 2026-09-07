@@ -1,11 +1,11 @@
-import { defineGameModule } from "@gamekit/core";
+import { defineGameModule } from "@gamekits/core";
 import {
   screenToWorld,
   type CameraController,
   type CameraState2D,
   type PointLike
-} from "@gamekit/camera-core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+} from "@gamekits/camera-core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import type {
   StandardCameraActionBinding,
   StandardCameraFollowOptions,
@@ -43,7 +43,7 @@ export function createStandardCameraModule<TContext>(
   let zoomAnchor: CameraZoomAnchor | undefined;
 
   return defineGameModule<GameInstallContext>({
-    id: options.id ?? "gamekit.camera",
+    id: options.id ?? "gamekits.camera",
     install(ctx) {
       syncCamera(options, undefined, displayState);
       const cleanups: Array<() => void> = [];
@@ -60,7 +60,7 @@ export function createStandardCameraModule<TContext>(
             ctx.eventBus.emit(
               "camera.follow_started",
               { targetEntity, state: options.controller.getState() },
-              "gamekit.camera"
+              "gamekits.camera"
             );
           })
         );
@@ -72,12 +72,12 @@ export function createStandardCameraModule<TContext>(
             ctx.eventBus.emit(
               "camera.follow_stopped",
               { state: options.controller.getState() },
-              "gamekit.camera"
+              "gamekits.camera"
             );
           })
         );
         ctx.systems.register({
-          id: `${options.id ?? "gamekit.camera"}.follow`,
+          id: `${options.id ?? "gamekits.camera"}.follow`,
           update() {
             if (applyCameraFollow(options)) {
               zoomAnchor = undefined;
@@ -92,7 +92,7 @@ export function createStandardCameraModule<TContext>(
 
       if (smoothing.enabled) {
         ctx.systems.register({
-          id: `${options.id ?? "gamekit.camera"}.smoothing`,
+          id: `${options.id ?? "gamekits.camera"}.smoothing`,
           update({ delta }) {
             const targetState = options.controller.getState();
             displayState = smoothCameraState(
@@ -140,7 +140,7 @@ export function createStandardCameraModule<TContext>(
                 actionId: action.actionId,
                 state: options.controller.getState()
               },
-              "gamekit.camera"
+              "gamekits.camera"
             );
           }
         }

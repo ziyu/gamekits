@@ -1,19 +1,19 @@
 import { gsap } from "gsap";
 import type {
-  GameKitUiAnimationOptions,
-  GameKitUiAnimator,
-  GameKitUiExitAnimationOptions
+  GameKitsUiAnimationOptions,
+  GameKitsUiAnimator,
+  GameKitsUiExitAnimationOptions
 } from "./types";
 
 const DEFAULT_DURATION = 0.18;
 
-export function createGameKitUiAnimator(
-  defaults: GameKitUiAnimationOptions = {}
-): GameKitUiAnimator {
-  const resolveReducedMotion = (options?: GameKitUiAnimationOptions) =>
+export function createGameKitsUiAnimator(
+  defaults: GameKitsUiAnimationOptions = {}
+): GameKitsUiAnimator {
+  const resolveReducedMotion = (options?: GameKitsUiAnimationOptions) =>
     options?.reducedMotion ?? defaults.reducedMotion ?? prefersReducedMotion();
 
-  const resolveDuration = (options?: GameKitUiAnimationOptions) =>
+  const resolveDuration = (options?: GameKitsUiAnimationOptions) =>
     options?.duration ?? defaults.duration ?? DEFAULT_DURATION;
 
   return {
@@ -35,7 +35,7 @@ export function createGameKitUiAnimator(
         }
       );
     },
-    exit(element, options?: GameKitUiExitAnimationOptions) {
+    exit(element, options?: GameKitsUiExitAnimationOptions) {
       if (resolveReducedMotion(options)) {
         gsap.set(element, { autoAlpha: 0 });
         options?.onComplete?.();

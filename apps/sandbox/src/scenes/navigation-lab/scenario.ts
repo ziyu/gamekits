@@ -1,4 +1,4 @@
-import type { NavigationAgentProfileDefinition, NavigationPoint } from "@gamekit/navigation-core";
+import type { NavigationAgentProfileDefinition, NavigationPoint } from "@gamekits/navigation-core";
 
 export type NavigationLabScenarioDefinition = {
   id: string;

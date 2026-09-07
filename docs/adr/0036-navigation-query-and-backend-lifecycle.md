@@ -41,7 +41,7 @@ export type NavigationQueries = {
 
 ### Backend 使用 submit/poll/cancel 生命周期
 
-Adapter 作者通过 `@gamekit/navigation-core/backend` 实现：
+Adapter 作者通过 `@gamekits/navigation-core/backend` 实现：
 
 ```ts
 export interface NavigationBackendAdapter {

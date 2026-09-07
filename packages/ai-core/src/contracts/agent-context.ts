@@ -1,5 +1,5 @@
-import type { NavigationQueries } from "@gamekit/navigation-core";
-import type { PhysicsQueries } from "@gamekit/physics-core";
+import type { NavigationQueries } from "@gamekits/navigation-core";
+import type { PhysicsQueries } from "@gamekits/physics-core";
 import type { AiAgentDefinition } from "../definition/agent-definition";
 import type { AiPerceptionFact } from "../perception/perception-fact";
 import type { AiBlackboardValue } from "./blackboard-value";

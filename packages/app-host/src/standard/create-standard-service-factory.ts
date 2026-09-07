@@ -1,10 +1,10 @@
 import { createAppHostError } from "../runtime/errors";
 import type { AppProfile, AppServiceFactory } from "../definition/types";
-import { createAssetManager, type AssetScope } from "@gamekit/asset";
-import { createGameAudio } from "@gamekit/audio-core";
-import { createDevToolsRuntime, type DevToolsRuntime } from "@gamekit/devtools";
-import { createDriverRegistry } from "@gamekit/driver-core";
-import { createSaveManager } from "@gamekit/save";
+import { createAssetManager, type AssetScope } from "@gamekits/asset";
+import { createGameAudio } from "@gamekits/audio-core";
+import { createDevToolsRuntime, type DevToolsRuntime } from "@gamekits/devtools";
+import { createDriverRegistry } from "@gamekits/driver-core";
+import { createSaveManager } from "@gamekits/save";
 import type { AppServiceBinding } from "../runtime/types";
 import {
   ASSET_SERVICE,
@@ -43,7 +43,7 @@ import type {
   StandardSaveServiceContextOptions,
   StandardServiceBuildContext
 } from "./types";
-import type { InputRouter, InputSourceAdapter } from "@gamekit/input-core";
+import type { InputRouter, InputSourceAdapter } from "@gamekits/input-core";
 
 export function createStandardServiceFactory<TContext>(
   profile: AppProfile<TContext>,

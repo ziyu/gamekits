@@ -4,7 +4,7 @@ import type {
   PhysicsRotation,
   PhysicsShapeDefinition,
   PhysicsVector
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 
 export type CombatProjectileNetworkStrategy =
   | "hitscan-lag-compensated"

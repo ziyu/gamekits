@@ -19,12 +19,12 @@ Status: Closed on 2026-07-11; backend gate and standalone Demo baseline were ver
 
 ## Current Baseline
 
-`@gamekit/multiplayer-colyseus` 已经落地为 demo 的第一个成熟真实 backend gate。当前基线包含：
+`@gamekits/multiplayer-colyseus` 已经落地为 demo 的第一个成熟真实 backend gate。当前基线包含：
 
 - root adapter `createColyseusMultiplayerBackend()`，供 app、测试夹具和 profile 创建 provider-neutral backend。
-- server-only subpath `@gamekit/multiplayer-colyseus/server`，提供 `GameKitColyseusRoom` 和 `createGameKitColyseusServer()`。
-- GameKit session id 与 Colyseus Room id 的映射，避免 app、DevTools 或 Save 依赖 Colyseus room id 格式。
-- 独立 demo app 通过可输入 session id 显式创建或加入 room；`Connect Client` 只加入已由 `Host Room` 托管的 GameKit session。
+- server-only subpath `@gamekits/multiplayer-colyseus/server`，提供 `GameKitsColyseusRoom` 和 `createGameKitsColyseusServer()`。
+- GameKits session id 与 Colyseus Room id 的映射，避免 app、DevTools 或 Save 依赖 Colyseus room id 格式。
+- 独立 demo app 通过可输入 session id 显式创建或加入 room；`Connect Client` 只加入已由 `Host Room` 托管的 GameKits session。
 - 基于真实本地 Colyseus Room 的 backend conformance，覆盖 create/join、broadcast、targeted message、leave、dispose、payload validation 和 cleanup。
 - provider diagnostics redaction，避免 endpoint、token、Room/Client/socket handle 或完整 payload 进入 provider-neutral snapshot。
 
@@ -32,28 +32,28 @@ Demo 不再放进 `apps/sandbox`。执行游标从独立 `apps/multiplayer-demo`
 
 ## Demo Shape
 
-Demo 名称：`GameKit Multiplayer Colyseus Loopback`
+Demo 名称：`GameKits Multiplayer Colyseus Loopback`
 
-核心一句话：启动一个本地 Colyseus server，让 host runtime 和 browser/client facade 加入用户选中的 GameKit session；client 发送 app-local 语义 command，Colyseus Room 转发到 host authority 边界，host 在 GameRuntime tick 边界验证并应用，再把低频 result/state summary 通过 Colyseus 和 HTTP summary 暴露给 UI。
+核心一句话：启动一个本地 Colyseus server，让 host runtime 和 browser/client facade 加入用户选中的 GameKits session；client 发送 app-local 语义 command，Colyseus Room 转发到 host authority 边界，host 在 GameRuntime tick 边界验证并应用，再把低频 result/state summary 通过 Colyseus 和 HTTP summary 暴露给 UI。
 
 ```txt
 apps/multiplayer-demo
   -> local Colyseus server
-  -> @gamekit/multiplayer-colyseus backend
+  -> @gamekits/multiplayer-colyseus backend
   -> host MultiplayerRuntime
   -> GameRuntime + createMultiplayerModule()
   -> demo authority / command handler / EventBus
   -> Vite browser console + client MultiplayerRuntime
 ```
 
-Memory backend 只作为 conformance、确定性测试和 fallback fixture，不作为 demo 最终跑通的唯一 backend。第一版可见 demo 必须经过 `@gamekit/multiplayer-colyseus`。
+Memory backend 只作为 conformance、确定性测试和 fallback fixture，不作为 demo 最终跑通的唯一 backend。第一版可见 demo 必须经过 `@gamekits/multiplayer-colyseus`。
 
 ## Scope
 
 包含：
 
 - 独立 app：新增 `apps/multiplayer-demo`，不把 demo 接入 Sandbox。
-- Colyseus backend package：消费已实现的 `@gamekit/multiplayer-colyseus` root adapter 和 `./server` helper。
+- Colyseus backend package：消费已实现的 `@gamekits/multiplayer-colyseus` root adapter 和 `./server` helper。
 - Headless 双端 harness：临时启动 local Colyseus server，host/client facade 通过 Colyseus Room 跑 create/join/send/dispose。
 - Demo command relay：client command 经过 bridge 在 host tick 处理，改变 app-local demo state。
 - Authority policy：host 接受合法 command，拒绝未知 kind、错误 peer、无效 payload、未知目标或越界优先级。
@@ -72,10 +72,10 @@ Memory backend 只作为 conformance、确定性测试和 fallback fixture，不
 
 ### Session Contract
 
-- Host facade 先 `createSession()`，client facade 再用 GameKit session id `joinSession()`。
-- Colyseus adapter 可以把 GameKit session id 映射到 provider Room id；demo 不能假设二者完全相同。
+- Host facade 先 `createSession()`，client facade 再用 GameKits session id `joinSession()`。
+- Colyseus adapter 可以把 GameKits session id 映射到 provider Room id；demo 不能假设二者完全相同。
 - UI 能显示 backend id、session id、phase、local peer、active peer count、sent/received count。
-- UI Room 输入框控制 GameKit session id；dev server 以 `sessionId -> host runtime` 管理多个 demo room。
+- UI Room 输入框控制 GameKits session id；dev server 以 `sessionId -> host runtime` 管理多个 demo room。
 - `Host Room` 是唯一会创建 host runtime 的 UI action；`Connect Client` 必须先查询已托管 session，不能 fallback 成创建 room。
 - Dispose 后 host runtime、room listener 和 pending command queue 不再处理新 command。
 
@@ -127,11 +127,11 @@ Status: Completed.
 已验证命令：
 
 ```bash
-corepack pnpm --filter @gamekit/multiplayer-colyseus test
-corepack pnpm --filter @gamekit/multiplayer-colyseus build
-corepack pnpm --filter @gamekit/multiplayer-colyseus lint
-corepack pnpm --filter @gamekit/multiplayer-core test
-corepack pnpm --filter @gamekit/multiplayer-memory test
+corepack pnpm --filter @gamekits/multiplayer-colyseus test
+corepack pnpm --filter @gamekits/multiplayer-colyseus build
+corepack pnpm --filter @gamekits/multiplayer-colyseus lint
+corepack pnpm --filter @gamekits/multiplayer-core test
+corepack pnpm --filter @gamekits/multiplayer-memory test
 ```
 
 ### Wave 1: Standalone Headless Harness
@@ -173,7 +173,7 @@ Status: Verified.
 2. 新增 browser UI，显示 session、active peers、message count、host state、timeline 和 client messages。
 3. UI button 只调用 app-local client facade，不 import backend adapter 私有类型。
 4. 保持 DOM 更新通过显式 element/textContent/replaceChildren 构建。
-5. Room 输入框通过 `/api/multiplayer-demo/session` 创建、查询和重置指定 GameKit session；`Connect Client` 使用查询路径，不能隐式调用创建路径。
+5. Room 输入框通过 `/api/multiplayer-demo/session` 创建、查询和重置指定 GameKits session；`Connect Client` 使用查询路径，不能隐式调用创建路径。
 
 验收：
 
@@ -217,24 +217,24 @@ Status: Migrated to `multiplayer-outpost-siege-demo.md`; not implemented in this
 
 ## Package Coverage Matrix
 
-| Package                         | Demo 覆盖点                                                                                           |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `@gamekit/multiplayer-core`     | facade phase、message envelope、subscribe cleanup、authority decision、GameModule bridge、snapshot    |
-| `@gamekit/multiplayer-colyseus` | root adapter、server helper、Room mapping、broadcast/targeted routing、cleanup、diagnostics redaction |
-| `@gamekit/game-runtime`         | tick boundary、stop/dispose 后不执行                                                                  |
-| `@gamekit/event-bus`            | command accepted/rejected/result 低频事实                                                             |
-| `apps/multiplayer-demo`         | app-local command、authority、handler、browser console 和 local Colyseus dev server                   |
+| Package                          | Demo 覆盖点                                                                                           |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `@gamekits/multiplayer-core`     | facade phase、message envelope、subscribe cleanup、authority decision、GameModule bridge、snapshot    |
+| `@gamekits/multiplayer-colyseus` | root adapter、server helper、Room mapping、broadcast/targeted routing、cleanup、diagnostics redaction |
+| `@gamekits/game-runtime`         | tick boundary、stop/dispose 后不执行                                                                  |
+| `@gamekits/event-bus`            | command accepted/rejected/result 低频事实                                                             |
+| `apps/multiplayer-demo`          | app-local command、authority、handler、browser console 和 local Colyseus dev server                   |
 
 ## Test Plan
 
 已完成 backend baseline：
 
 ```bash
-corepack pnpm --filter @gamekit/multiplayer-colyseus test
-corepack pnpm --filter @gamekit/multiplayer-colyseus build
-corepack pnpm --filter @gamekit/multiplayer-colyseus lint
-corepack pnpm --filter @gamekit/multiplayer-core test
-corepack pnpm --filter @gamekit/multiplayer-memory test
+corepack pnpm --filter @gamekits/multiplayer-colyseus test
+corepack pnpm --filter @gamekits/multiplayer-colyseus build
+corepack pnpm --filter @gamekits/multiplayer-colyseus lint
+corepack pnpm --filter @gamekits/multiplayer-core test
+corepack pnpm --filter @gamekits/multiplayer-memory test
 ```
 
 Demo 局部测试：
@@ -255,7 +255,7 @@ corepack pnpm dev:multiplayer
 
 - Vite 页面正常 boot。
 - Colyseus local server 正常接受连接。
-- Host Room 后创建指定 GameKit session。
+- Host Room 后创建指定 GameKits session。
 - Connect Client 后 active peer count 增加，且消息计数来自 Colyseus backend。
 - 多窗口连接同一个 room 与连接不同 room 的结果符合隔离预期。
 - Confirm / Priority / Strategy command 后 timeline 和 host state 都能看到结果。

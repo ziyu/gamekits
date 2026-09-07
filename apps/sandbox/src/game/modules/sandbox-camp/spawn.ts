@@ -1,5 +1,5 @@
-import type { GameInstallContext } from "@gamekit/game-runtime";
-import type { EntityId } from "@gamekit/world";
+import type { GameInstallContext } from "@gamekits/game-runtime";
+import type { EntityId } from "@gamekits/world";
 import {
   BuildingState,
   LinkState,

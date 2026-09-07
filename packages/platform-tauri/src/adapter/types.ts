@@ -1,4 +1,4 @@
-import type { FsBaseDir } from "@gamekit/platform-core";
+import type { FsBaseDir } from "@gamekits/platform-core";
 
 export type TauriFsDriver = {
   BaseDirectory: Record<string, unknown>;

@@ -1,9 +1,9 @@
-import { createStandardAppProfile, type AppProfile } from "@gamekit/app-host";
-import type { DriverRegistry, GameDriver } from "@gamekit/driver-core";
-import { createThreeDriver, type ThreeGameDriver } from "@gamekit/driver-three";
-import type { PlatformRuntime } from "@gamekit/platform-core";
-import { createWebPlatform } from "@gamekit/platform-web";
-import type { RendererAdapter, RendererBootContext } from "@gamekit/renderer-core";
+import { createStandardAppProfile, type AppProfile } from "@gamekits/app-host";
+import type { DriverRegistry, GameDriver } from "@gamekits/driver-core";
+import { createThreeDriver, type ThreeGameDriver } from "@gamekits/driver-three";
+import type { PlatformRuntime } from "@gamekits/platform-core";
+import { createWebPlatform } from "@gamekits/platform-web";
+import type { RendererAdapter, RendererBootContext } from "@gamekits/renderer-core";
 import {
   PHYSICS_3D_LAB_DRIVER_ID,
   PHYSICS_3D_LAB_RENDER_SIZE,
@@ -19,7 +19,7 @@ export type Physics3dLabAppContext = {
 };
 
 export function createPhysics3dLabProfile(): AppProfile<Physics3dLabAppContext> {
-  const platform = createWebPlatform({ appName: "GameKit Physics 3D Lab" });
+  const platform = createWebPlatform({ appName: "GameKits Physics 3D Lab" });
   const threeDriver = createThreeDriver({
     id: PHYSICS_3D_LAB_DRIVER_ID,
     backgroundColor: "#111512",

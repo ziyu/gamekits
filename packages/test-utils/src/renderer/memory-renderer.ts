@@ -5,7 +5,7 @@ import type {
   RendererAdapter,
   RendererBootContext,
   RenderTransform
-} from "@gamekit/renderer-core";
+} from "@gamekits/renderer-core";
 
 export type MemoryRenderObject = RenderObjectDefinition & {
   id: string;

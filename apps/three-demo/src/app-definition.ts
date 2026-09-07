@@ -1,4 +1,4 @@
-import { defineGameApp } from "@gamekit/app-host";
+import { defineGameApp } from "@gamekits/app-host";
 
 export const THREE_DEMO_RENDER_SIZE = {
   width: 960,

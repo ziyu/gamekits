@@ -4,23 +4,23 @@ import {
   type DevToolsCorrelationSourceOptions,
   type DevToolsRuntime,
   type DevToolsTraceInput
-} from "@gamekit/devtools";
+} from "@gamekits/devtools";
 import {
   createCombatTraceStore,
   type CombatTraceEntry,
   type CombatTraceStore
-} from "@gamekit/combat";
-import type { AiTraceEntry } from "@gamekit/ai-core";
-import type { AnimatorTraceEntry } from "@gamekit/animator-core";
-import type { AudioDiagnosticEntry } from "@gamekit/audio-core";
-import { createGasTraceStore, type GasTraceEntry, type GasTraceStore } from "@gamekit/gas";
-import type { NavigationTraceEntry } from "@gamekit/navigation-core";
+} from "@gamekits/combat";
+import type { AiTraceEntry } from "@gamekits/ai-core";
+import type { AnimatorTraceEntry } from "@gamekits/animator-core";
+import type { AudioDiagnosticEntry } from "@gamekits/audio-core";
+import { createGasTraceStore, type GasTraceEntry, type GasTraceStore } from "@gamekits/gas";
+import type { NavigationTraceEntry } from "@gamekits/navigation-core";
 import {
   createPhysicsTraceStore,
   type PhysicsTraceEntry,
   type PhysicsTraceStore
-} from "@gamekit/physics-core";
-import { createTcaTraceStore, type TcaTraceEntry, type TcaTraceStore } from "@gamekit/tca";
+} from "@gamekits/physics-core";
+import { createTcaTraceStore, type TcaTraceEntry, type TcaTraceStore } from "@gamekits/tca";
 
 export type GameplayDevToolsCorrelationOptions = DevToolsCorrelationSourceOptions & {
   devtools: DevToolsRuntime;
@@ -196,13 +196,13 @@ function mapNavigationTrace(
   traceId: string,
   summaries: GameplayDevToolsTraceSummaries | undefined
 ) {
-  const context = createSummaryContext("navigation", "gamekit.navigation", traceId);
+  const context = createSummaryContext("navigation", "gamekits.navigation", traceId);
   return {
     id: traceId,
     time: entry.timestamp,
     kind: "navigation" as const,
     label: entry.label,
-    source: "gamekit.navigation",
+    source: "gamekits.navigation",
     ...(entry.requestId === undefined ? {} : { correlationId: entry.requestId }),
     payload: summarize(
       summaries?.navigation
@@ -239,13 +239,13 @@ function mapAiTrace(
   traceId: string,
   summaries: GameplayDevToolsTraceSummaries | undefined
 ) {
-  const context = createSummaryContext("ai", "gamekit.ai", traceId);
+  const context = createSummaryContext("ai", "gamekits.ai", traceId);
   return {
     id: traceId,
     time: entry.timestamp,
     kind: "ai" as const,
     label: entry.label,
-    source: "gamekit.ai",
+    source: "gamekits.ai",
     payload: summarize(
       summaries?.ai
         ? summaries.ai(entry)
@@ -279,14 +279,14 @@ function mapAnimatorTrace(
   traceId: string,
   summaries: GameplayDevToolsTraceSummaries | undefined
 ) {
-  const context = createSummaryContext("animator", "gamekit.animator", traceId);
+  const context = createSummaryContext("animator", "gamekits.animator", traceId);
   const correlationId = payloadString(entry.payload, "executionId");
   return {
     id: traceId,
     time: entry.timestamp,
     kind: "animator" as const,
     label: entry.label,
-    source: "gamekit.animator",
+    source: "gamekits.animator",
     ...(correlationId === undefined ? {} : { correlationId }),
     payload: summarize(
       summaries?.animator
@@ -325,7 +325,7 @@ function mapAudioDiagnostic(
   traceId: string,
   summaries: GameplayDevToolsTraceSummaries | undefined
 ) {
-  const context = createSummaryContext("audio", "gamekit.audio", traceId);
+  const context = createSummaryContext("audio", "gamekits.audio", traceId);
   const correlationId =
     payloadString(entry.payload, "dedupeKey") ?? payloadString(entry.payload, "instanceId");
   return {
@@ -333,7 +333,7 @@ function mapAudioDiagnostic(
     time: entry.timestamp,
     kind: "audio" as const,
     label: entry.type,
-    source: "gamekit.audio",
+    source: "gamekits.audio",
     ...(correlationId === undefined ? {} : { correlationId }),
     payload: summarize(
       summaries?.audio
@@ -376,12 +376,12 @@ function mapCombatTrace(
   entry: CombatTraceEntry,
   summaries: GameplayDevToolsTraceSummaries | undefined
 ) {
-  const context = createSummaryContext("combat", "gamekit.combat", entry.id);
+  const context = createSummaryContext("combat", "gamekits.combat", entry.id);
   return {
     id: entry.id,
     kind: "combat" as const,
     label: `combat.${entry.type}`,
-    source: "gamekit.combat",
+    source: "gamekits.combat",
     ...(entry.correlationId === undefined ? {} : { correlationId: entry.correlationId }),
     ...(entry.parentId === undefined ? {} : { parentId: entry.parentId }),
     ...(entry.sourceActorId === undefined ? {} : { actorId: entry.sourceActorId }),
@@ -404,12 +404,12 @@ function mapCombatTrace(
 }
 
 function mapTcaTrace(entry: TcaTraceEntry, summaries: GameplayDevToolsTraceSummaries | undefined) {
-  const context = createSummaryContext("tca", "gamekit.tca", entry.id);
+  const context = createSummaryContext("tca", "gamekits.tca", entry.id);
   return {
     id: entry.id,
     kind: "tca" as const,
     label: `tca.rule.${entry.status}`,
-    source: "gamekit.tca",
+    source: "gamekits.tca",
     status: entry.status,
     ...(entry.correlationId === undefined ? {} : { correlationId: entry.correlationId }),
     ...(entry.parentId === undefined ? {} : { parentId: entry.parentId }),
@@ -432,12 +432,12 @@ function mapTcaTrace(entry: TcaTraceEntry, summaries: GameplayDevToolsTraceSumma
 }
 
 function mapGasTrace(entry: GasTraceEntry, summaries: GameplayDevToolsTraceSummaries | undefined) {
-  const context = createSummaryContext("gas", "gamekit.gas", entry.id);
+  const context = createSummaryContext("gas", "gamekits.gas", entry.id);
   return {
     id: entry.id,
     kind: "gas" as const,
     label: `gas.${entry.type}`,
-    source: "gamekit.gas",
+    source: "gamekits.gas",
     ...(entry.correlationId === undefined ? {} : { correlationId: entry.correlationId }),
     ...(entry.parentId === undefined ? {} : { parentId: entry.parentId }),
     ...(entry.actorId === undefined ? {} : { actorId: entry.actorId }),
@@ -465,12 +465,12 @@ function mapPhysicsTrace(
   entry: PhysicsTraceEntry,
   summaries: GameplayDevToolsTraceSummaries | undefined
 ) {
-  const context = createSummaryContext("physics", "gamekit.physics", entry.id);
+  const context = createSummaryContext("physics", "gamekits.physics", entry.id);
   return {
     id: entry.id,
     kind: "physics" as const,
     label: truncateText(entry.label),
-    source: "gamekit.physics",
+    source: "gamekits.physics",
     ...(entry.correlationId === undefined ? {} : { correlationId: entry.correlationId }),
     ...(entry.parentId === undefined ? {} : { parentId: entry.parentId }),
     ...(entry.entityId === undefined ? {} : { entityId: entry.entityId }),

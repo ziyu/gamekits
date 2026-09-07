@@ -1,6 +1,6 @@
-import type { AiAgentDefinition, AiTaskDefinition } from "@gamekit/ai-core";
-import { createMemoryAiRuntimeFixture, createMemoryAiWorld } from "@gamekit/ai-core/testing";
-import { createNavigationRuntime, type NavigationRuntime } from "@gamekit/navigation-core";
+import type { AiAgentDefinition, AiTaskDefinition } from "@gamekits/ai-core";
+import { createMemoryAiRuntimeFixture, createMemoryAiWorld } from "@gamekits/ai-core/testing";
+import { createNavigationRuntime, type NavigationRuntime } from "@gamekits/navigation-core";
 import {
   checkCollision,
   checkOverlap,
@@ -12,7 +12,7 @@ import {
   shapeCast,
   type PhysicsQueries,
   type PhysicsScene
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 import { describe, expect, it } from "vitest";
 import {
   AI_LAB_SCHEDULER_CLASSES,
@@ -200,7 +200,7 @@ describe("AI Lab ecosystem", () => {
     const log = lab.controller.exportSelectedBehaviorLog();
 
     expect(log).toMatchObject({
-      schema: "gamekit.sandbox.ai-lab.behavior-log",
+      schema: "gamekits.sandbox.ai-lab.behavior-log",
       version: 1,
       sceneId: "ai-lab",
       exportedAt: selectedAt,

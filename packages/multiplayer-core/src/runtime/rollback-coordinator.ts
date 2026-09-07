@@ -1,4 +1,4 @@
-import type { Rng, RngState } from "@gamekit/core";
+import type { Rng, RngState } from "@gamekits/core";
 import type { MultiplayerPredictionGeneration } from "./predicted-spawn";
 
 export type MultiplayerRollbackContributorContext = {

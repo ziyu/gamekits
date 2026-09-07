@@ -1,5 +1,5 @@
-import type { CombatKinematicProjectileReconciliation } from "@gamekit/combat";
-import type { PhysicsVector } from "@gamekit/physics-core";
+import type { CombatKinematicProjectileReconciliation } from "@gamekits/combat";
+import type { PhysicsVector } from "@gamekits/physics-core";
 
 export type MultiplayerProjectileLabNetworkConfig = {
   latencyMs: number;

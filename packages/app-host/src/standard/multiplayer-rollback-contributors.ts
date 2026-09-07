@@ -1,4 +1,4 @@
-import type { Rng } from "@gamekit/core";
+import type { Rng } from "@gamekits/core";
 import {
   createMultiplayerRngRollbackContributor,
   createMultiplayerRollbackCoordinator,
@@ -8,18 +8,18 @@ import {
   type MultiplayerRollbackContributor,
   type MultiplayerRollbackCoordinator,
   type MultiplayerRollbackCoordinatorOptions
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import type {
   PhysicsCheckpointRestoreOptions,
   PhysicsHandle,
   PhysicsRuntimeCheckpoint
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 import {
   createWorldCheckpointController,
   type CreateWorldCheckpointControllerOptions,
   type WorldCheckpointController,
   type WorldRuntimeCheckpoint
-} from "@gamekit/world";
+} from "@gamekits/world";
 
 export type StandardMultiplayerWorldRollbackContributorOptions = {
   controller: WorldCheckpointController;

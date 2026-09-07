@@ -26,7 +26,7 @@ render anticipation 就无法给出正确结果；继续逐武器补视觉特判
   由服务端 lag compensation 回看历史，而不是预测远端玩家未来。
 
 Colyseus 提供 room、transport 和 state synchronization，但不提供完整 client prediction/rollback engine；它
-不能替代 GameKit 的 simulation history、predicted spawn matching 或 resimulation lifecycle。Rapier 可以在严格
+不能替代 GameKits 的 simulation history、predicted spawn matching 或 resimulation lifecycle。Rapier 可以在严格
 一致的初始状态、操作值和创建/删除顺序下提供跨平台确定性基础，但确定性 solver 本身也不等于完整 netcode。
 
 ## Decision
@@ -155,7 +155,7 @@ Positive consequences:
 - 简单弹丸只复制两次有界数据，不承担每弹一套 network entity/transform stream；复杂对象仍能显式选择完整
   rollback/resimulation。
 - 远端 interpolation、owner prediction、服务端 lag compensation 和 authority-only 不再混为一个概念。
-- GameKit 保持 backend-neutral，Colyseus 与 Rapier 分别提供成熟 transport/state sync 和 solver，不被误当成
+- GameKits 保持 backend-neutral，Colyseus 与 Rapier 分别提供成熟 transport/state sync 和 solver，不被误当成
   完整 netcode 产品。
 
 Costs and constraints:
@@ -192,7 +192,7 @@ Rejected because下一个武器、移动平台、敌人 projectile 和 bounce �
 ### 把 Colyseus 当作 prediction/rollback engine
 
 Rejected because Colyseus 的职责是 room、transport 与 state sync；其官方文档并不提供完整 client prediction。
-GameKit 仍需定义 prediction domain 和 simulation lifecycle。
+GameKits 仍需定义 prediction domain 和 simulation lifecycle。
 
 ## Documentation
 

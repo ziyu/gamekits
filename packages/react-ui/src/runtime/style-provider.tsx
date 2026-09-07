@@ -1,20 +1,20 @@
-import type { GameKitStyleProviderProps } from "./types";
+import type { GameKitsStyleProviderProps } from "./types";
 
-export function GameKitStyleProvider({
+export function GameKitsStyleProvider({
   children,
   className,
   density = "comfortable",
   motion = "system",
   style,
-  theme = "gamekit"
-}: GameKitStyleProviderProps) {
+  theme = "gamekits"
+}: GameKitsStyleProviderProps) {
   return (
     <div
-      className={className ?? "gamekit-ui-shell"}
-      data-gamekit-density={density}
-      data-gamekit-motion={motion}
-      data-gamekit-theme={theme}
-      data-gamekit-ui-shell=""
+      className={className ?? "gamekits-ui-shell"}
+      data-gamekits-density={density}
+      data-gamekits-motion={motion}
+      data-gamekits-theme={theme}
+      data-gamekits-ui-shell=""
       style={style}
     >
       {children}

@@ -1,4 +1,4 @@
-import { defineComponent } from "@gamekit/world";
+import { defineComponent } from "@gamekits/world";
 import type {
   AiLabObstacleKind,
   AiLabResourceKind,

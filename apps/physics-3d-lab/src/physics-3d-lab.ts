@@ -1,11 +1,11 @@
-import { createEventBus } from "@gamekit/event-bus";
-import { createGame, type GameRuntime } from "@gamekit/game-runtime";
+import { createEventBus } from "@gamekits/event-bus";
+import { createGame, type GameRuntime } from "@gamekits/game-runtime";
 import {
   createCharacterMotorState,
   type CharacterControlIntent,
   type CharacterMotorDiagnostics,
   type CharacterMotorState
-} from "@gamekit/character-controller";
+} from "@gamekits/character-controller";
 import {
   PhysicsBodyComponent,
   PhysicsColliderComponent,
@@ -29,8 +29,8 @@ import {
   type PhysicsTraceEntry,
   type PhysicsTraceStore,
   type PhysicsVector
-} from "@gamekit/physics-core";
-import type { Rapier3dPhysicsNative } from "@gamekit/physics-rapier3d";
+} from "@gamekits/physics-core";
+import type { Rapier3dPhysicsNative } from "@gamekits/physics-rapier3d";
 import { createMemoryWorld } from "./memory-world";
 import {
   createPhysics3dCharacterIntent,

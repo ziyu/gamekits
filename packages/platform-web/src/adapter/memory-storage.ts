@@ -1,4 +1,4 @@
-import type { PlatformStorage } from "@gamekit/platform-core";
+import type { PlatformStorage } from "@gamekits/platform-core";
 import type { StorageLike } from "./types";
 
 export function createMemoryStorage(initialValues: Record<string, string> = {}): PlatformStorage {

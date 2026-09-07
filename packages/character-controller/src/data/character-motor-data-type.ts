@@ -1,5 +1,5 @@
-import { GameError } from "@gamekit/core";
-import type { DataDiagnostic, DataDocument, DataTypeDefinition } from "@gamekit/data";
+import { GameError } from "@gamekits/core";
+import type { DataDiagnostic, DataDocument, DataTypeDefinition } from "@gamekits/data";
 import type { CharacterMotorDefinition, CompiledCharacterMotorDefinition } from "../contracts";
 
 export const CHARACTER_MOTOR_DATA_TYPE = "character.motor";

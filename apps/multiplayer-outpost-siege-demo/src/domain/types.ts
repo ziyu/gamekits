@@ -1,7 +1,7 @@
-import type { AssetRef } from "@gamekit/asset";
-import type { DataRef } from "@gamekit/data";
-import type { RenderObjectType } from "@gamekit/renderer-core";
-import type { EntityId } from "@gamekit/world";
+import type { AssetRef } from "@gamekits/asset";
+import type { DataRef } from "@gamekits/data";
+import type { RenderObjectType } from "@gamekits/renderer-core";
+import type { EntityId } from "@gamekits/world";
 
 export type OutpostCombatAbility = "rifle" | "dash" | "shock-field" | "deploy-turret";
 export type OutpostDiscreteCombatAbility = Exclude<OutpostCombatAbility, "rifle">;

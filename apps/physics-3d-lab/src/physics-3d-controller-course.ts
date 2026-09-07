@@ -2,14 +2,14 @@ import {
   createCharacterMotorState,
   type CharacterMotorDiagnostics,
   type CharacterMotorState
-} from "@gamekit/character-controller";
+} from "@gamekits/character-controller";
 import {
   type PhysicsBackendAdapter,
   type PhysicsBodyState,
   type PhysicsScene,
   type PhysicsVector
-} from "@gamekit/physics-core";
-import type { Rapier3dPhysicsNative } from "@gamekit/physics-rapier3d";
+} from "@gamekits/physics-core";
+import type { Rapier3dPhysicsNative } from "@gamekits/physics-rapier3d";
 
 import {
   PHYSICS_3D_CHARACTER_BODY_ID,

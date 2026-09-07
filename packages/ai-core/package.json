@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/ai-core",
+  "name": "@gamekits/ai-core",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -21,14 +21,14 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/core": "workspace:*",
-    "@gamekit/data": "workspace:*",
-    "@gamekit/event-bus": "workspace:*",
-    "@gamekit/game-runtime": "workspace:*",
-    "@gamekit/navigation-core": "workspace:*",
-    "@gamekit/physics-core": "workspace:*",
-    "@gamekit/save": "workspace:*",
-    "@gamekit/world": "workspace:*"
+    "@gamekits/core": "workspace:*",
+    "@gamekits/data": "workspace:*",
+    "@gamekits/event-bus": "workspace:*",
+    "@gamekits/game-runtime": "workspace:*",
+    "@gamekits/navigation-core": "workspace:*",
+    "@gamekits/physics-core": "workspace:*",
+    "@gamekits/save": "workspace:*",
+    "@gamekits/world": "workspace:*"
   },
   "files": [
     "dist"
@@ -37,7 +37,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "gamekitBuild": {
+  "gamekitsBuild": {
     "bundleDts": false,
     "entries": [
       "src/index.ts",

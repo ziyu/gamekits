@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { createMemorySaveStore, createSaveManager, type SaveEnvelope } from "@gamekit/save";
+import { createMemorySaveStore, createSaveManager, type SaveEnvelope } from "@gamekits/save";
 import { createSaveSessionController } from "../src";
 
 function fixture() {

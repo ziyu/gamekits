@@ -70,7 +70,7 @@ jobs:
           import { createDevToolsRuntime } from "@gamekits/devtools";
           import { createUiRuntime } from "@gamekits/ui-core";
           import { createHeadlessHost, createStandardAppProfile, defineGameApp } from "@gamekits/app-host";
-          import { GameKitUiShell, UiPanelHost } from "@gamekits/react-ui";
+          import { GameKitsUiShell, UiPanelHost } from "@gamekits/react-ui";
           import { createDevToolsUiBridge, DevToolsLauncher } from "@gamekits/devtools-ui";
 
           const clock = new Clock();
@@ -252,7 +252,7 @@ jobs:
 
           const shellHtml = renderToStaticMarkup(
             createElement(
-              GameKitUiShell,
+              GameKitsUiShell,
               { runtime: ui },
               createElement(UiPanelHost, {
                 renderPanel: (panel) => createElement("span", null, String(panel.props))
@@ -262,7 +262,7 @@ jobs:
           const launcherHtml = renderToStaticMarkup(
             createElement(DevToolsLauncher, { runtime: devtools, uiRuntime: ui, label: "Inspect" })
           );
-          if (!shellHtml.includes("Smoke") || !launcherHtml.includes("gamekit-devtools-launcher")) {
+          if (!shellHtml.includes("Smoke") || !launcherHtml.includes("gamekits-devtools-launcher")) {
             throw new Error("react/devtools-ui smoke failed");
           }
 

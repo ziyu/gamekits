@@ -1,6 +1,6 @@
-import { defineGameModule } from "@gamekit/core";
-import { createEventBus } from "@gamekit/event-bus";
-import { defineComponent, type GameWorld } from "@gamekit/world";
+import { defineGameModule } from "@gamekits/core";
+import { createEventBus } from "@gamekits/event-bus";
+import { defineComponent, type GameWorld } from "@gamekits/world";
 import { describe, expect, it } from "vitest";
 import { createGame, type GameInstallContext } from "../src/index";
 

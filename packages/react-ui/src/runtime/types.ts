@@ -1,28 +1,28 @@
 import type { CSSProperties, ReactNode } from "react";
-import type { UiOpenPanel, UiRuntime, UiRuntimeSnapshot } from "@gamekit/ui-core";
+import type { UiOpenPanel, UiRuntime, UiRuntimeSnapshot } from "@gamekits/ui-core";
 
 export type UiPanelRenderer = (panel: UiOpenPanel) => ReactNode;
 
-export type GameKitUiDensity = "compact" | "comfortable" | "spacious";
+export type GameKitsUiDensity = "compact" | "comfortable" | "spacious";
 
-export type GameKitUiMotionPreference = "system" | "reduced" | "full";
+export type GameKitsUiMotionPreference = "system" | "reduced" | "full";
 
-export type GameKitStyleProviderProps = {
+export type GameKitsStyleProviderProps = {
   children?: ReactNode;
   className?: string | undefined;
   style?: CSSProperties | undefined;
-  density?: GameKitUiDensity | undefined;
-  motion?: GameKitUiMotionPreference | undefined;
+  density?: GameKitsUiDensity | undefined;
+  motion?: GameKitsUiMotionPreference | undefined;
   theme?: string | undefined;
 };
 
-export type GameKitUiShellProps = {
+export type GameKitsUiShellProps = {
   runtime: UiRuntime;
   children?: ReactNode;
   className?: string | undefined;
   style?: CSSProperties | undefined;
-  density?: GameKitUiDensity | undefined;
-  motion?: GameKitUiMotionPreference | undefined;
+  density?: GameKitsUiDensity | undefined;
+  motion?: GameKitsUiMotionPreference | undefined;
   theme?: string | undefined;
 };
 
@@ -53,17 +53,17 @@ export type FocusBridgeProps = {
 
 export type UiRuntimeSelector<TValue> = (snapshot: UiRuntimeSnapshot) => TValue;
 
-export type GameKitUiAnimationOptions = {
+export type GameKitsUiAnimationOptions = {
   reducedMotion?: boolean | undefined;
   duration?: number | undefined;
 };
 
-export type GameKitUiExitAnimationOptions = GameKitUiAnimationOptions & {
+export type GameKitsUiExitAnimationOptions = GameKitsUiAnimationOptions & {
   onComplete?: (() => void) | undefined;
 };
 
-export type GameKitUiAnimator = {
-  enter(element: Element, options?: GameKitUiAnimationOptions): void;
-  exit(element: Element, options?: GameKitUiExitAnimationOptions): void;
-  emphasize(element: Element, options?: GameKitUiAnimationOptions): void;
+export type GameKitsUiAnimator = {
+  enter(element: Element, options?: GameKitsUiAnimationOptions): void;
+  exit(element: Element, options?: GameKitsUiExitAnimationOptions): void;
+  emphasize(element: Element, options?: GameKitsUiAnimationOptions): void;
 };

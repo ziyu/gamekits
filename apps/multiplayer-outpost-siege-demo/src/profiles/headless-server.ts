@@ -1,4 +1,4 @@
-import type { AppProfile } from "@gamekit/app-host";
+import type { AppProfile } from "@gamekits/app-host";
 import {
   createOutpostNonVisualProfile,
   type CreateOutpostNonVisualProfileOptions,

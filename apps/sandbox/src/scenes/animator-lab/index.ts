@@ -1,4 +1,4 @@
-import { createUiRuntime } from "@gamekit/ui-core";
+import { createUiRuntime } from "@gamekits/ui-core";
 import { createAnimatorLabAppSession } from "./app-session";
 import { renderAnimatorLabUi } from "./ui";
 import "./styles.css";

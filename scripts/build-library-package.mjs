@@ -4,9 +4,9 @@ import { dirname, join } from "node:path";
 
 const packageRoot = process.cwd();
 const manifest = JSON.parse(readFileSync(join(packageRoot, "package.json"), "utf8"));
-const shouldBundleDts = manifest.gamekitBuild?.bundleDts !== false;
-const copyEntries = manifest.gamekitBuild?.copy ?? [];
-const entryPoints = manifest.gamekitBuild?.entries ?? ["src/index.ts"];
+const shouldBundleDts = manifest.gamekitsBuild?.bundleDts !== false;
+const copyEntries = manifest.gamekitsBuild?.copy ?? [];
+const entryPoints = manifest.gamekitsBuild?.entries ?? ["src/index.ts"];
 
 function removeBuildInfo(path) {
   try {
@@ -31,7 +31,7 @@ function removeBuildInfo(path) {
 function copyConfiguredFiles() {
   for (const entry of copyEntries) {
     if (!entry?.from || !entry?.to) {
-      throw new Error("gamekitBuild.copy entries must include from and to.");
+      throw new Error("gamekitsBuild.copy entries must include from and to.");
     }
 
     const target = join(packageRoot, entry.to);

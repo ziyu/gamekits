@@ -2,7 +2,7 @@ import type {
   NavigationGraphDefinition,
   NavigationGraphEdgeDefinition,
   NavigationGraphNodeDefinition
-} from "@gamekit/navigation-graph";
+} from "@gamekits/navigation-graph";
 import {
   blackglassTerrainCellAt,
   blackglassTerrainCellsAlongSegment,

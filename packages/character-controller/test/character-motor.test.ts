@@ -1,5 +1,5 @@
-import type { DataDocument } from "@gamekit/data";
-import type { PhysicsBodyState } from "@gamekit/physics-core";
+import type { DataDocument } from "@gamekits/data";
+import type { PhysicsBodyState } from "@gamekits/physics-core";
 import { describe, expect, it } from "vitest";
 import {
   characterMotorCommandSignature,
@@ -14,7 +14,7 @@ import {
   type CharacterMotorDefinition,
   type CharacterMotorObservation,
   type CharacterMotorState
-} from "@gamekit/character-controller";
+} from "@gamekits/character-controller";
 
 const definition = compileCharacterMotorDefinition({
   id: "party.default",

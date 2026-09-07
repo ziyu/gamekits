@@ -1,12 +1,12 @@
-import { createMemoryAnimationPlaybackAdapter } from "@gamekit/animator-core/testing";
-import { createGameAudio } from "@gamekit/audio-core";
-import { createMemoryAudioBackend } from "@gamekit/audio-core/testing";
-import { createCameraController } from "@gamekit/camera-core";
-import { createMultiplayerRuntime, type MultiplayerRuntime } from "@gamekit/multiplayer-core";
-import { createMemoryMultiplayerBackend } from "@gamekit/multiplayer-memory";
-import { createMemoryPhysicsBackend } from "@gamekit/physics-core";
-import { createMemoryRenderer } from "@gamekit/test-utils";
-import { createKootaWorld } from "@gamekit/world-koota";
+import { createMemoryAnimationPlaybackAdapter } from "@gamekits/animator-core/testing";
+import { createGameAudio } from "@gamekits/audio-core";
+import { createMemoryAudioBackend } from "@gamekits/audio-core/testing";
+import { createCameraController } from "@gamekits/camera-core";
+import { createMultiplayerRuntime, type MultiplayerRuntime } from "@gamekits/multiplayer-core";
+import { createMemoryMultiplayerBackend } from "@gamekits/multiplayer-memory";
+import { createMemoryPhysicsBackend } from "@gamekits/physics-core";
+import { createMemoryRenderer } from "@gamekits/test-utils";
+import { createKootaWorld } from "@gamekits/world-koota";
 import { describe, expect, it } from "vitest";
 
 import { createOutpostDataRegistry } from "../content";

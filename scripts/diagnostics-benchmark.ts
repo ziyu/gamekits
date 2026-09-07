@@ -68,16 +68,16 @@ function main(): void {
       {
         benchmark: "gameplay-trace-bridge",
         packages: [
-          "@gamekit/app-host",
-          "@gamekit/devtools",
-          "@gamekit/tca",
-          "@gamekit/gas",
-          "@gamekit/physics-core",
-          "@gamekit/combat",
-          "@gamekit/navigation-core",
-          "@gamekit/ai-core",
-          "@gamekit/animator-core",
-          "@gamekit/audio-core"
+          "@gamekits/app-host",
+          "@gamekits/devtools",
+          "@gamekits/tca",
+          "@gamekits/gas",
+          "@gamekits/physics-core",
+          "@gamekits/combat",
+          "@gamekits/navigation-core",
+          "@gamekits/ai-core",
+          "@gamekits/animator-core",
+          "@gamekits/audio-core"
         ],
         profile: {
           traceLimit: TRACE_LIMIT,

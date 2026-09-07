@@ -4,7 +4,7 @@ Status: Closed.
 
 ## Goal
 
-在不向 Navigation Core 泄漏 NavMesh topology 的前提下，为 `@gamekit/navigation-recast` 实现真实共享 polygon route field，并让 Navigation Lab 的 Recast Rally Party 使用一个共享 route。
+在不向 Navigation Core 泄漏 NavMesh topology 的前提下，为 `@gamekits/navigation-recast` 实现真实共享 polygon route field，并让 Navigation Lab 的 Recast Rally Party 使用一个共享 route。
 
 长期事实来源：
 
@@ -16,15 +16,15 @@ Status: Closed.
 ## Scope
 
 - Recast-private directed polygon topology、reverse field、portal/off-mesh sampler。
-- GameKit area cost/filter、dependency invalidation 和 generation-safe retain/release。
+- GameKits area cost/filter、dependency invalidation 和 generation-safe retain/release。
 - 有界 field cache、snapshot diagnostics、Core conformance 和千请求共享回归。
 - Sandbox Recast Rally Party、Route Overlay 和 backend behavior matrix。
 
 ## Verification
 
-- `corepack pnpm --filter @gamekit/navigation-recast test`：通过，10 项测试覆盖 Core conformance、共享与 retain/release、单向 off-mesh、area cost、动态失效、field generation identity、有界 cache 和 1000 请求共享 1 个 field。
-- `corepack pnpm --filter @gamekit/navigation-recast build`：通过。
-- `corepack pnpm --filter @gamekit/navigation-recast lint`：通过，0 warning / 0 error。
+- `corepack pnpm --filter @gamekits/navigation-recast test`：通过，10 项测试覆盖 Core conformance、共享与 retain/release、单向 off-mesh、area cost、动态失效、field generation identity、有界 cache 和 1000 请求共享 1 个 field。
+- `corepack pnpm --filter @gamekits/navigation-recast build`：通过。
+- `corepack pnpm --filter @gamekits/navigation-recast lint`：通过，0 warning / 0 error。
 - `corepack pnpm --filter sandbox test`：通过，49 项测试；Navigation Lab 14 项通过。
 - `corepack pnpm --filter sandbox build`：通过，仅保留既有的 Three 动态/静态导入和 chunk size warning。
 - `corepack pnpm --filter sandbox lint`：通过，0 warning / 0 error。

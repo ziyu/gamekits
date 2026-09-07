@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { createEventBus } from "@gamekit/event-bus";
+import { createEventBus } from "@gamekits/event-bus";
 import { createAnimatorRuntime } from "../../src";
 import { createMemoryAnimationPlaybackAdapter } from "../../src/testing";
 import {

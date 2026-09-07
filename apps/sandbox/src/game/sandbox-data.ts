@@ -1,8 +1,8 @@
-import { createAssetDataType } from "@gamekit/asset";
-import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekit/data";
-import { createGasDataTypes } from "@gamekit/gas";
-import type { RenderObjectDefinition } from "@gamekit/renderer-core";
-import { createTcaRuleDataType } from "@gamekit/tca";
+import { createAssetDataType } from "@gamekits/asset";
+import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekits/data";
+import { createGasDataTypes } from "@gamekits/gas";
+import type { RenderObjectDefinition } from "@gamekits/renderer-core";
+import { createTcaRuleDataType } from "@gamekits/tca";
 import { sandboxCoreEntries } from "./content/core";
 import { sandboxObjectiveEntries } from "./content/objectives";
 import { sandboxWorkerEntries } from "./content/workers";

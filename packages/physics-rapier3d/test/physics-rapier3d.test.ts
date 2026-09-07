@@ -1,5 +1,5 @@
-import { createEventBus } from "@gamekit/event-bus";
-import { createGame } from "@gamekit/game-runtime";
+import { createEventBus } from "@gamekits/event-bus";
+import { createGame } from "@gamekits/game-runtime";
 import {
   PhysicsBodyComponent,
   PhysicsColliderComponent,
@@ -13,8 +13,8 @@ import {
   shapeCast,
   type PhysicsContactEvent,
   type PhysicsQuaternion
-} from "@gamekit/physics-core";
-import { type ComponentDef, type EntityId, type GameWorld } from "@gamekit/world";
+} from "@gamekits/physics-core";
+import { type ComponentDef, type EntityId, type GameWorld } from "@gamekits/world";
 import { beforeAll, describe, expect, it } from "vitest";
 import { initRapier3dPhysicsBackend, type Rapier3dPhysicsNative } from "../src";
 

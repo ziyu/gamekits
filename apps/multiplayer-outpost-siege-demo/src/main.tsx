@@ -1,9 +1,9 @@
-import "@gamekit/devtools-ui/styles.css";
+import "@gamekits/devtools-ui/styles.css";
 import "./styles.css";
-import { createConfiguredAppHost } from "@gamekit/app-host";
-import type { InputActionEvent } from "@gamekit/input-core";
-import { observeElementViewport } from "@gamekit/platform-web";
-import { createUiRuntime } from "@gamekit/ui-core";
+import { createConfiguredAppHost } from "@gamekits/app-host";
+import type { InputActionEvent } from "@gamekits/input-core";
+import { observeElementViewport } from "@gamekits/platform-web";
+import { createUiRuntime } from "@gamekits/ui-core";
 import { flushSync } from "react-dom";
 import { createRoot } from "react-dom/client";
 
@@ -110,7 +110,7 @@ async function boot(root: HTMLElement): Promise<void> {
       const identity = createOutpostBrowserIdentity(intent.displayName);
       const multiplayerClient = createOutpostBrowserMultiplayer(config, identity);
       const multiplayer = multiplayerClient.runtime;
-      const { initRapier2dPhysicsBackend } = await import("@gamekit/physics-rapier2d");
+      const { initRapier2dPhysicsBackend } = await import("@gamekits/physics-rapier2d");
       const physicsBackend = await initRapier2dPhysicsBackend({
         id: `outpost.browser.prediction.${identity.playerId}`
       });

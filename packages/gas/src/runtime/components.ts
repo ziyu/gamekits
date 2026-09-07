@@ -1,4 +1,4 @@
-import { defineComponent } from "@gamekit/world";
+import { defineComponent } from "@gamekits/world";
 import type {
   GasAbilitiesComponentState,
   GasAbilityExecutionsComponentState,
@@ -9,7 +9,7 @@ import type {
 } from "./types";
 
 export const GasActor = defineComponent<GasActorComponentState>({
-  id: "gamekit.gas.actor",
+  id: "gamekits.gas.actor",
   create: (data) => ({
     actorId: data?.actorId ?? "",
     definitionId: data?.definitionId ?? "",
@@ -18,7 +18,7 @@ export const GasActor = defineComponent<GasActorComponentState>({
 });
 
 export const GasAttributes = defineComponent<GasAttributesComponentState>({
-  id: "gamekit.gas.attributes",
+  id: "gamekits.gas.attributes",
   create: (data) => ({
     base: { ...data?.base },
     current: { ...data?.current }
@@ -26,7 +26,7 @@ export const GasAttributes = defineComponent<GasAttributesComponentState>({
 });
 
 export const GasTags = defineComponent<GasTagsComponentState>({
-  id: "gamekit.gas.tags",
+  id: "gamekits.gas.tags",
   create: (data) => ({
     values: [...(data?.values ?? [])],
     sources: Object.fromEntries(
@@ -36,7 +36,7 @@ export const GasTags = defineComponent<GasTagsComponentState>({
 });
 
 export const GasAbilities = defineComponent<GasAbilitiesComponentState>({
-  id: "gamekit.gas.abilities",
+  id: "gamekits.gas.abilities",
   create: (data) => ({
     ids: [...(data?.ids ?? [])],
     cooldowns: { ...data?.cooldowns },
@@ -45,7 +45,7 @@ export const GasAbilities = defineComponent<GasAbilitiesComponentState>({
 });
 
 export const GasAbilityExecutions = defineComponent<GasAbilityExecutionsComponentState>({
-  id: "gamekit.gas.ability-executions",
+  id: "gamekits.gas.ability-executions",
   create: (data) => ({
     active: (data?.active ?? []).map((execution) => ({
       ...execution,
@@ -56,7 +56,7 @@ export const GasAbilityExecutions = defineComponent<GasAbilityExecutionsComponen
 });
 
 export const GasEffects = defineComponent<GasEffectsComponentState>({
-  id: "gamekit.gas.effects",
+  id: "gamekits.gas.effects",
   create: (data) => ({
     active: [...(data?.active ?? [])]
   })

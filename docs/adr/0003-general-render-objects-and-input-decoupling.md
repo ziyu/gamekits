@@ -40,7 +40,7 @@ Input 从 renderer core 中解耦：
 
 - `RendererInputEvent` 和 `onInput` 不作为 renderer-core 长期公共 API。
 - Renderer 可以提供可选 view、coordinate conversion、picking/hit-test capability。
-- Raw input capture、action mapping、input context、focus ownership 和 input trace 归后续 `@gamekit/input` 设计。
+- Raw input capture、action mapping、input context、focus ownership 和 input trace 归后续 `@gamekits/input` 设计。
 - EventBus 只记录低频输入事实或 gameplay action，不广播高频 raw input。
 
 ## Consequences

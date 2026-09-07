@@ -1,9 +1,9 @@
-import type { DataRegistry } from "@gamekit/data";
-import { createEventBus, type GameEvent } from "@gamekit/event-bus";
-import { createInputRouter, type InputActionEvent, type InputRouter } from "@gamekit/input-core";
-import { createMemoryRenderer, type MemoryRendererAdapter } from "@gamekit/test-utils";
-import type { EntityId } from "@gamekit/world";
-import { createKootaWorld } from "@gamekit/world-koota";
+import type { DataRegistry } from "@gamekits/data";
+import { createEventBus, type GameEvent } from "@gamekits/event-bus";
+import { createInputRouter, type InputActionEvent, type InputRouter } from "@gamekits/input-core";
+import { createMemoryRenderer, type MemoryRendererAdapter } from "@gamekits/test-utils";
+import type { EntityId } from "@gamekits/world";
+import { createKootaWorld } from "@gamekits/world-koota";
 import {
   configureSandboxInputRouter,
   SANDBOX_SCENE_CLICK_ACTION_ID,

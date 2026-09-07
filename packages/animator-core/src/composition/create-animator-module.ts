@@ -1,5 +1,5 @@
-import { defineGameModule, type GameModule } from "@gamekit/core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import { defineGameModule, type GameModule } from "@gamekits/core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import type { AnimatorRuntime } from "../controller/animator-controller";
 import { bindAnimatorHandle, unbindAnimatorHandle } from "../controller/create-animator-handle";
 import { createAnimatorRuntime } from "./create-animator-runtime";

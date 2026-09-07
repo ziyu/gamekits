@@ -1,7 +1,7 @@
-import type { DevToolsRuntime } from "@gamekit/devtools";
-import { DevToolsOverlay } from "@gamekit/devtools-ui";
-import { GameKitUiShell, UiFocusBridge } from "@gamekit/react-ui";
-import type { UiRuntime } from "@gamekit/ui-core";
+import type { DevToolsRuntime } from "@gamekits/devtools";
+import { DevToolsOverlay } from "@gamekits/devtools-ui";
+import { GameKitsUiShell, UiFocusBridge } from "@gamekits/react-ui";
+import type { UiRuntime } from "@gamekits/ui-core";
 import { createRef, type ReactNode, type RefObject } from "react";
 import { flushSync } from "react-dom";
 import { createRoot, type Root as ReactRoot } from "react-dom/client";
@@ -98,7 +98,7 @@ function AnimatorLabView({
   const status = snapshot?.running ? "CHANNEL LIVE" : "BOOTING";
 
   return (
-    <GameKitUiShell
+    <GameKitsUiShell
       runtime={uiRuntime}
       className="animator-lab-ui"
       density="compact"
@@ -324,7 +324,7 @@ function AnimatorLabView({
           <div ref={devtoolsRef} />
         </section>
       </section>
-    </GameKitUiShell>
+    </GameKitsUiShell>
   );
 }
 

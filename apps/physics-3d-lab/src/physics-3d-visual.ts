@@ -1,5 +1,5 @@
-import type { ThreeRendererNative } from "@gamekit/driver-three";
-import type { PhysicsVector } from "@gamekit/physics-core";
+import type { ThreeRendererNative } from "@gamekits/driver-three";
+import type { PhysicsVector } from "@gamekits/physics-core";
 import * as THREE from "three";
 import type {
   Physics3dLabObject,

@@ -3,7 +3,7 @@ import type {
   DataDocument,
   DataReferenceTarget,
   DataTypeDefinition
-} from "@gamekit/data";
+} from "@gamekits/data";
 import type { AiUtilityCurve } from "../decision/utility";
 import type { AiAgentDefinition } from "./agent-definition";
 import type { AiGoalDefinition } from "./goal-definition";

@@ -10,10 +10,10 @@ import {
   type AiTaskExecutor,
   type AiTaskStep,
   type AiUtilityInputResolver
-} from "@gamekit/ai-core";
-import { createDataRegistry, type DataPack, type DataTypeDefinition } from "@gamekit/data";
-import type { NavigationQueries } from "@gamekit/navigation-core";
-import type { PhysicsQueries } from "@gamekit/physics-core";
+} from "@gamekits/ai-core";
+import { createDataRegistry, type DataPack, type DataTypeDefinition } from "@gamekits/data";
+import type { NavigationQueries } from "@gamekits/navigation-core";
+import type { PhysicsQueries } from "@gamekits/physics-core";
 
 import type { CompiledArenaContent } from "../content/registry";
 import type { ArenaBotArchetypeDefinition } from "../content/types";

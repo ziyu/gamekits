@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { createDevToolsCorrelationSource, createDevToolsRuntime } from "@gamekit/devtools";
+import { createDevToolsCorrelationSource, createDevToolsRuntime } from "@gamekits/devtools";
 
 describe("devtools runtime", () => {
   it("registers data sources, panels, commands and snapshots them", () => {

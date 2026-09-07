@@ -4,7 +4,7 @@ Status: Accepted on 2026-07-15; immediate edge sampling amendment accepted on 20
 
 ## Context
 
-`@gamekit/multiplayer-core` 已经提供 snapshot playback、declared presentation tracks 和 prediction buffer，但游戏仍需要自己在网络 callback 与 render loop 中调用 `present()`、`predict()` 和 `reconcile()`。这种“只提供零件”的 API 让每个游戏重复实现接收顺序、authority source gate、输入 sequence、固定频率采样、snapshot ack、binding reset 和 Renderer/Camera 同步；某个 app 忘记其中一步时，即使底层能力完整，低频权威快照仍会直接表现为阶梯移动。
+`@gamekits/multiplayer-core` 已经提供 snapshot playback、declared presentation tracks 和 prediction buffer，但游戏仍需要自己在网络 callback 与 render loop 中调用 `present()`、`predict()` 和 `reconcile()`。这种“只提供零件”的 API 让每个游戏重复实现接收顺序、authority source gate、输入 sequence、固定频率采样、snapshot ack、binding reset 和 Renderer/Camera 同步；某个 app 忘记其中一步时，即使底层能力完整，低频权威快照仍会直接表现为阶梯移动。
 
 这些调度语义跨游戏和 backend 稳定，属于 Multiplayer Core，而 snapshot shape、可插值字段、预测状态转移和最终表现写入仍然是游戏声明。
 
@@ -55,7 +55,7 @@ Rejected because it让正确体验依赖每个游戏重复拼装同一调度，�
 
 ### Put interpolation and prediction into each backend adapter
 
-Rejected because playback/prediction policy属于 GameKit multiplayer/presentation 语义，不属于 Colyseus、Nakama 或其他 provider；放入 adapter 会造成 backend 间行为漂移并泄漏游戏字段。
+Rejected because playback/prediction policy属于 GameKits multiplayer/presentation 语义，不属于 Colyseus、Nakama 或其他 provider；放入 adapter 会造成 backend 间行为漂移并泄漏游戏字段。
 
 ### Automatically reflect and interpolate the complete snapshot object
 

@@ -6,8 +6,8 @@ import type {
   DevToolsRuntime,
   DevToolsShellOptions,
   DevToolsUiOptions
-} from "@gamekit/devtools";
-import type { GameRuntimeProfiler } from "@gamekit/game-runtime";
+} from "@gamekits/devtools";
+import type { GameRuntimeProfiler } from "@gamekits/game-runtime";
 import type { AppHostContext } from "../runtime/types";
 import type {
   StandardDevToolsOptions,
@@ -16,8 +16,8 @@ import type {
   StandardServiceBuildContext
 } from "./types";
 
-export const STANDARD_DEVTOOLS_LAUNCHER_PANEL_ID = "gamekit.devtools.launcher";
-export const STANDARD_DEVTOOLS_SHELL_PANEL_ID = "gamekit.devtools.shell";
+export const STANDARD_DEVTOOLS_LAUNCHER_PANEL_ID = "gamekits.devtools.launcher";
+export const STANDARD_DEVTOOLS_SHELL_PANEL_ID = "gamekits.devtools.shell";
 
 export type NormalizedStandardDevToolsOptions<TContext> = StandardDevToolsOptions<TContext>;
 
@@ -423,7 +423,7 @@ export function registerStandardDevToolsUiPanels<TContext>(
       id: launcher.panelId,
       title: launcher.label,
       kind: "overlay",
-      tags: ["gamekit", "devtools", "launcher"],
+      tags: ["gamekits", "devtools", "launcher"],
       defaultProps: { launcher, pins }
     });
     cleanups.push(() => ui.unregisterPanel(launcher.panelId));
@@ -434,7 +434,7 @@ export function registerStandardDevToolsUiPanels<TContext>(
       id: shell.panelId,
       title: shell.title,
       kind: "devtools",
-      tags: ["gamekit", "devtools", "shell"],
+      tags: ["gamekits", "devtools", "shell"],
       defaultProps: { shell, pins }
     });
     cleanups.push(() => ui.unregisterPanel(shell.panelId));
@@ -506,7 +506,7 @@ function normalizeShellOptions(options: DevToolsUiOptions): RequiredDevToolsShel
     return {
       enabled: false,
       panelId: STANDARD_DEVTOOLS_SHELL_PANEL_ID,
-      title: "GameKit DevTools",
+      title: "GameKits DevTools",
       defaultOpen: false
     };
   }
@@ -515,7 +515,7 @@ function normalizeShellOptions(options: DevToolsUiOptions): RequiredDevToolsShel
   return {
     enabled: shellOptions.enabled !== false,
     panelId: shellOptions.panelId ?? STANDARD_DEVTOOLS_SHELL_PANEL_ID,
-    title: shellOptions.title ?? "GameKit DevTools",
+    title: shellOptions.title ?? "GameKits DevTools",
     defaultOpen: shellOptions.defaultOpen === true,
     ...(shellOptions.defaultPanelId === undefined
       ? {}

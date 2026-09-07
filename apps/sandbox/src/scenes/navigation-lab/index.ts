@@ -1,4 +1,4 @@
-import { createUiRuntime } from "@gamekit/ui-core";
+import { createUiRuntime } from "@gamekits/ui-core";
 import { createNavigationLabAppSession, type NavigationLabAppSession } from "./app-session";
 import type { NavigationLabBackendProvider } from "./backends";
 import {

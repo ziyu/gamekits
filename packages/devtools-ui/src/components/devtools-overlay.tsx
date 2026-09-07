@@ -1,6 +1,6 @@
 import { useMemo, useState, useSyncExternalStore } from "react";
-import type { DevToolsPinsOptions, DevToolsRuntime } from "@gamekit/devtools";
-import type { UiRuntime } from "@gamekit/ui-core";
+import type { DevToolsPinsOptions, DevToolsRuntime } from "@gamekits/devtools";
+import type { UiRuntime } from "@gamekits/ui-core";
 import { createDevToolsUiBridge } from "../runtime/bridge";
 import { DevToolsLauncher } from "./devtools-launcher";
 import { DevToolsPinDock } from "./devtools-pin-dock";
@@ -30,7 +30,7 @@ export function DevToolsOverlay({
     uiRuntime.snapshot
   );
   const shellPanel = useMemo(
-    () => uiSnapshot.openPanels.find((panel) => panel.id === "gamekit.devtools.shell"),
+    () => uiSnapshot.openPanels.find((panel) => panel.id === "gamekits.devtools.shell"),
     [uiSnapshot.openPanels]
   );
   const bridge = useMemo(
@@ -44,7 +44,7 @@ export function DevToolsOverlay({
   };
 
   return (
-    <div className="gamekit-devtools-overlay">
+    <div className="gamekits-devtools-overlay">
       <DevToolsLauncher runtime={runtime} uiRuntime={uiRuntime} />
       <DevToolsPinDock
         onOpenPanel={openPanel}
@@ -67,7 +67,7 @@ export function DevToolsOverlay({
 }
 
 function readDefaultPins(uiRuntime: UiRuntime): DevToolsPinsOptions | undefined {
-  const launcher = uiRuntime.panel("gamekit.devtools.launcher");
+  const launcher = uiRuntime.panel("gamekits.devtools.launcher");
   const props = launcher?.defaultProps;
   if (!props || typeof props !== "object" || !("pins" in props)) {
     return undefined;

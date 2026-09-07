@@ -1,9 +1,9 @@
-import { defineGameModule } from "@gamekit/core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import { defineGameModule } from "@gamekits/core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import {
   createMultiplayerSpeculativeEffectJournal,
   type MultiplayerSpeculativeEffectJournal
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 
 import type { OutpostReplicatedWeaponState } from "../../domain";
 

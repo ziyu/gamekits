@@ -1,4 +1,4 @@
-export const MULTIPLAYER_FIXED_STEP_INPUT_BUNDLE_PROTOCOL = "gamekit.fixed-step-input.v1";
+export const MULTIPLAYER_FIXED_STEP_INPUT_BUNDLE_PROTOCOL = "gamekits.fixed-step-input.v1";
 
 export type MultiplayerFixedStepInputGeneration = string | number;
 

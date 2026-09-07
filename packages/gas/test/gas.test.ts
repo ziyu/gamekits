@@ -1,6 +1,6 @@
-import { createDataRegistry, type DataPack } from "@gamekit/data";
-import { createEventBus, type GameEvent } from "@gamekit/event-bus";
-import { createGame } from "@gamekit/game-runtime";
+import { createDataRegistry, type DataPack } from "@gamekits/data";
+import { createEventBus, type GameEvent } from "@gamekits/event-bus";
+import { createGame } from "@gamekits/game-runtime";
 import { describe, expect, it } from "vitest";
 import {
   createGasDataTypes,
@@ -14,7 +14,7 @@ import {
   GasAttributes,
   type GasRuntime
 } from "../src";
-import type { ComponentDef, EntityId, GameWorld } from "@gamekit/world";
+import type { ComponentDef, EntityId, GameWorld } from "@gamekits/world";
 
 describe("GAS data types", () => {
   it("rejects non-positive periodic effect intervals", () => {

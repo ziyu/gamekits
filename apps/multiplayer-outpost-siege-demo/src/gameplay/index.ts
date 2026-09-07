@@ -1,4 +1,4 @@
-import type { DataRegistry } from "@gamekit/data";
+import type { DataRegistry } from "@gamekits/data";
 import type { OutpostIdentityRegistry } from "../domain";
 
 export type OutpostGameplayContext = {

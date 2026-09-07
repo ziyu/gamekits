@@ -5,7 +5,7 @@ import {
   GasEffects,
   GasTags,
   type GasActorRuntimeState
-} from "@gamekit/gas";
+} from "@gamekits/gas";
 import { PLAYER_ACTOR_ID } from "../constants";
 import {
   Actor,

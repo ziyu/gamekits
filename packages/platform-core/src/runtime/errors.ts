@@ -1,4 +1,4 @@
-import { GameError } from "@gamekit/core";
+import { GameError } from "@gamekits/core";
 import type { PlatformCapabilityId, PlatformRuntimeId, PlatformServiceId } from "./types";
 
 export function createPlatformUnsupportedError(

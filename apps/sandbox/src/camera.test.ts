@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { createCameraController } from "@gamekit/camera-core";
+import { createCameraController } from "@gamekits/camera-core";
 import { toRendererLocalInput, type SandboxInputContext } from "./app-input";
 import { applySandboxCameraAction, createSandboxCameraController } from "./camera";
 

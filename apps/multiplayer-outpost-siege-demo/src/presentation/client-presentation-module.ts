@@ -1,11 +1,11 @@
-import type { AnimatorHandle } from "@gamekit/animator-core";
-import type { GameAudio } from "@gamekit/audio-core";
-import type { CameraController } from "@gamekit/camera-core";
-import { defineGameModule } from "@gamekit/core";
-import type { DataRegistry } from "@gamekit/data";
-import type { GameInstallContext } from "@gamekit/game-runtime";
-import { PhysicsTransformComponent, type PhysicsBackendAdapter } from "@gamekit/physics-core";
-import type { RendererAdapter } from "@gamekit/renderer-core";
+import type { AnimatorHandle } from "@gamekits/animator-core";
+import type { GameAudio } from "@gamekits/audio-core";
+import type { CameraController } from "@gamekits/camera-core";
+import { defineGameModule } from "@gamekits/core";
+import type { DataRegistry } from "@gamekits/data";
+import type { GameInstallContext } from "@gamekits/game-runtime";
+import { PhysicsTransformComponent, type PhysicsBackendAdapter } from "@gamekits/physics-core";
+import type { RendererAdapter } from "@gamekits/renderer-core";
 
 import { outpostAnimatorBindingIdForRenderKey } from "../content";
 import { OutpostGameplayObject, OutpostPresentation } from "../gameplay/components";

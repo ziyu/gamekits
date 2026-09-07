@@ -1,4 +1,4 @@
-import type { CombatKinematicProjectileDefinition } from "@gamekit/combat";
+import type { CombatKinematicProjectileDefinition } from "@gamekits/combat";
 
 export type MultiplayerProjectileWeaponId =
   | "pulse-carbine"

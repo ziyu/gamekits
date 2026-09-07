@@ -156,7 +156,7 @@ export function createSaveManager(options: CreateSaveManagerOptions): SaveManage
         }
 
         const envelope: SaveEnvelope = {
-          format: "gamekit.save",
+          format: "gamekits.save",
           formatVersion: options.formatVersion,
           appId: options.appId,
           gameId: options.gameId,

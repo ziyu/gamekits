@@ -10,14 +10,14 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/app-host": "workspace:*",
-    "@gamekit/asset": "workspace:*",
-    "@gamekit/data": "workspace:*",
-    "@gamekit/driver-core": "workspace:*",
-    "@gamekit/driver-three": "workspace:*",
-    "@gamekit/platform-core": "workspace:*",
-    "@gamekit/platform-web": "workspace:*",
-    "@gamekit/renderer-core": "workspace:*",
+    "@gamekits/app-host": "workspace:*",
+    "@gamekits/asset": "workspace:*",
+    "@gamekits/data": "workspace:*",
+    "@gamekits/driver-core": "workspace:*",
+    "@gamekits/driver-three": "workspace:*",
+    "@gamekits/platform-core": "workspace:*",
+    "@gamekits/platform-web": "workspace:*",
+    "@gamekits/renderer-core": "workspace:*",
     "three": "^0.181.2"
   },
   "devDependencies": {

@@ -1,4 +1,4 @@
-import { createEventBus, type EventBus, type GameEvent } from "@gamekit/event-bus";
+import { createEventBus, type EventBus, type GameEvent } from "@gamekits/event-bus";
 import {
   createGasModule,
   createGasTcaDefinitions,
@@ -11,18 +11,18 @@ import {
   type GasActorRuntimeState,
   type GasRuntime,
   type GasTraceStore
-} from "@gamekit/gas";
-import { createGame, type GameInstallContext } from "@gamekit/game-runtime";
-import type { GameModule } from "@gamekit/core";
-import type { RendererAdapter } from "@gamekit/renderer-core";
+} from "@gamekits/gas";
+import { createGame, type GameInstallContext } from "@gamekits/game-runtime";
+import type { GameModule } from "@gamekits/core";
+import type { RendererAdapter } from "@gamekits/renderer-core";
 import {
   createTcaModule,
   createTcaTraceStore,
   mergeTcaDefinitionSets,
   type TcaTraceStore
-} from "@gamekit/tca";
-import type { ComponentDef, EntityId, GameWorld } from "@gamekit/world";
-import type { DataRegistry } from "@gamekit/data";
+} from "@gamekits/tca";
+import type { ComponentDef, EntityId, GameWorld } from "@gamekits/world";
+import type { DataRegistry } from "@gamekits/data";
 import {
   LinkState,
   ObjectiveState,

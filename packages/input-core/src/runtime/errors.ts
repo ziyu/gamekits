@@ -1,4 +1,4 @@
-import { GameError } from "@gamekit/core";
+import { GameError } from "@gamekits/core";
 
 export function createInputDuplicateActionError(actionId: string): GameError {
   return new GameError("input.duplicate_action", `Input action already registered: ${actionId}`, {

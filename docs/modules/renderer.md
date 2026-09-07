@@ -8,10 +8,10 @@ Renderer 是表现层 facade。可复用 gameplay、ECS、DataPack 和 core pack
 
 相关包：
 
-- `@gamekit/renderer-core`
-- `@gamekit/renderer-phaser`
-- `@gamekit/driver-phaser`
-- `@gamekit/driver-three`
+- `@gamekits/renderer-core`
+- `@gamekits/renderer-phaser`
+- `@gamekits/driver-phaser`
+- `@gamekits/driver-three`
 
 ## 核心原则
 
@@ -109,7 +109,7 @@ Renderer Core 也不定义 `RendererCapabilities` 这类后端能力目录，不
 
 ## Native Control Path
 
-GameKit 不包装完整 Phaser / Three.js API。具体 renderer adapter 或 driver 包负责导出带真实后端类型的 specialized adapter：
+GameKits 不包装完整 Phaser / Three.js API。具体 renderer adapter 或 driver 包负责导出带真实后端类型的 specialized adapter：
 
 ```ts
 export type PhaserRendererNative = {
@@ -150,7 +150,7 @@ Three.js adapter / driver 同理可以暴露 Three scene、renderer、camera、o
 边界：
 
 - 对象仍由 RendererAdapter / Driver 创建和销毁。
-- GameKit object id 和 node path 到 native object 的映射由 adapter 私有维护。
+- GameKits object id 和 node path 到 native object 的映射由 adapter 私有维护。
 - Native mutation 只用于 app presentation、renderer-specific tooling 或性能热点路径。
 - 可复用 gameplay module、DataType、TCA/GAS rule、Save payload 不保存 native handle。
 - 进入 native path 后，调用方负责避免和通用 render sync 争写同一底层状态。
@@ -185,7 +185,7 @@ Renderer adapter 不负责创建整套外部 runtime。对 Phaser 来说，`Phas
 Phaser Driver 暴露的 RendererAdapter：
 
 - 面向 Phaser Scene / DisplayList API，但不创建或拥有 Phaser runtime。
-- 不把 Phaser 类型导出到 renderer-core；可以在 `@gamekit/renderer-phaser` 或 `@gamekit/driver-phaser` 中导出 typed native bridge。
+- 不把 Phaser 类型导出到 renderer-core；可以在 `@gamekits/renderer-phaser` 或 `@gamekits/driver-phaser` 中导出 typed native bridge。
 - 内部维护 render type registry。
 - 映射 `debug.square`、`sprite`、`container` 等类型到 Phaser object。
 - 可以提供 debug texture。
@@ -197,7 +197,7 @@ Phaser Driver 暴露的 RendererAdapter：
 Three Driver 暴露的 RendererAdapter：
 
 - 依赖 Three.js。
-- 不把 Three 原生类型导出到 renderer-core；可以在 `@gamekit/driver-three` 中导出 typed native bridge。
+- 不把 Three 原生类型导出到 renderer-core；可以在 `@gamekits/driver-three` 中导出 typed native bridge。
 - 映射基础 `mesh`、asset-backed `model`、`group`、`light` 等 render type；复杂材质、粒子、后处理、shader、controls 和 AnimationMixer 控制通过 Three native control path 实现。
 - 与同一个 Three Driver 内部的 asset loader、raycaster 和 camera adapter 共享 scene / renderer / resource cache。
 
@@ -234,7 +234,7 @@ export type ActorPresentation = {
 
 ## 与 Cue/Animator/Animation Playback 的关系
 
-`@gamekit/animator-core` 负责 semantic Animator graph、controller、layer、transition、one-shot、marker 和 playback snapshot；Renderer 仍只负责 native object 与 clip/mixer 执行：
+`@gamekits/animator-core` 负责 semantic Animator graph、controller、layer、transition、one-shot、marker 和 playback snapshot；Renderer 仍只负责 native object 与 clip/mixer 执行：
 
 - RenderObjectDefinition / RenderNodeDefinition 声明可绑定动画的表现结构。
 - Renderer Adapter 或 Driver runtime slice 解析 clip asset 并执行 backend playback frame。
@@ -251,7 +251,7 @@ Gameplay 不直接等待 Renderer marker。Ability execution phase 决定玩法�
 - RendererAdapter 由 Driver runtime slice 创建或绑定；不要在 renderer adapter 内部创建 Phaser.Game、Three renderer、input plugin、asset loader 或 gameplay camera。
 - Renderer 测试应覆盖 object tree、native handle resolution、unknown object type、missing object、command dispatch、diagnostics callback 和 lifecycle cleanup。
 - App Host/profile 负责 renderer boot、surface/container 注入、diagnostics bridge 和 resize；GameRuntime 不拥有 renderer lifecycle。
-- 高密度 canvas 必须由持有 renderer、camera 和 input plugin 的 Driver 统一实现：CSS viewport 保持 logical size，backing store 可以按 profile pixel ratio 放大，camera/input adapter 再归一化回 GameKit 坐标。不要只缩放 canvas 或只修改 RendererAdapter。
+- 高密度 canvas 必须由持有 renderer、camera 和 input plugin 的 Driver 统一实现：CSS viewport 保持 logical size，backing store 可以按 profile pixel ratio 放大，camera/input adapter 再归一化回 GameKits 坐标。不要只缩放 canvas 或只修改 RendererAdapter。
 - Adapter / Driver 包可以导出具体 native bridge 类型；renderer-core 只能使用 generic `unknown` 边界。
 - 具体 renderer 的 native bridge 应使用真实后端类型；若 adapter 内部需要测试或跨真实/假 runtime 的结构化 helper，类型必须保持 internal、窄能力命名，并且不能演变成完整后端 API 的 `*Like` 镜像。
 - Adapter-specific state writer 应放在对应 adapter / driver 包中，并让对象创建和运行时表现状态复用同一套后端映射逻辑；app module 不应重复维护 Phaser / Three object duck type。
@@ -265,4 +265,4 @@ Gameplay 不直接等待 Renderer marker。Ability execution phase 决定玩法�
 - 可复用模块优先通过 object tree、少量通用状态和 command 表达。具体游戏表现层可以显式拿 native handle 调用 Phaser / Three API，或调用对应 adapter 包导出的 renderer-specific state writer。
 - 高频 render sync 只同步必要变更，不通过 EventBus 发每帧 patch。object create/destroy、unsupported type、adapter lifecycle 可以发低频 diagnostics。
 - Fixed-step dynamic object 的表现 transform 可以从 Physics interpolation store 采样，但 interpolation state 不进入 RenderObject definition、World authority 或 Renderer Core。
-- Escape hatch 只用于表现层热点路径、DevTools、Editor 后端专属面板或 adapter extension。使用 direct/native path 时必须保持 GameKit object lifecycle 可追踪。
+- Escape hatch 只用于表现层热点路径、DevTools、Editor 后端专属面板或 adapter extension。使用 direct/native path 时必须保持 GameKits object lifecycle 可追踪。

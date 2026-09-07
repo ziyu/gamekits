@@ -6,7 +6,7 @@ Accepted
 
 ## Context
 
-GameKit 已经把 World、Renderer、Input、Camera、TCA、GAS、Save 和 Driver 拆成稳定 facade 与可替换 adapter。实时游戏还会反复需要碰撞检测、刚体运动、触发器、空间查询、投射物命中、地形边界和调试绘制。
+GameKits 已经把 World、Renderer、Input、Camera、TCA、GAS、Save 和 Driver 拆成稳定 facade 与可替换 adapter。实时游戏还会反复需要碰撞检测、刚体运动、触发器、空间查询、投射物命中、地形边界和调试绘制。
 
 在现有应用设计中，Abyss Delve 先把 hit detection、projectile collision 和 room bounds 作为 app-local World component + 数学查询处理。这能保持短期边界清晰，但随着多个游戏、Editor 和 DevTools 都需要相同能力，继续把物理留在 app-local 层会产生重复实现：
 
@@ -21,7 +21,7 @@ GameKit 已经把 World、Renderer、Input、Camera、TCA、GAS、Save 和 Drive
 - Rapier、Matter.js、Box2D 等更像单一能力库，可以作为 Physics backend adapter。
 - Phaser Arcade / Matter Physics 绑定在 Phaser Scene runtime 中，生命周期应由 Phaser Driver 统一持有。
 
-因此需要一个统一 Physics package 规划，但不能把 GameKit 变成自研物理引擎或把某个 backend API 暴露成公共协议。
+因此需要一个统一 Physics package 规划，但不能把 GameKits 变成自研物理引擎或把某个 backend API 暴露成公共协议。
 
 参考：
 
@@ -35,11 +35,11 @@ GameKit 已经把 World、Renderer、Input、Camera、TCA、GAS、Save 和 Drive
 
 长期 package：
 
-- `@gamekit/physics-core`：定义 PhysicsBody、PhysicsCollider、PhysicsMaterial、PhysicsScene、PhysicsBackendAdapter、query、contact event、trace、DataType、Save contributor、GameModule helper 和 conformance helper。
-- `@gamekit/physics-rapier2d`：把 Rapier 2D 映射到 Physics backend adapter。
-- `@gamekit/physics-rapier3d`：把 Rapier 3D 映射到 Physics backend adapter。
-- `@gamekit/physics-matter`：把 Matter.js 映射到 2D Physics backend adapter。
-- `@gamekit/driver-phaser`：当使用 Phaser Arcade / Matter Physics 时，由 Phaser Driver 持有 Phaser runtime，并暴露绑定 Phaser Scene 的 Physics backend adapter。
+- `@gamekits/physics-core`：定义 PhysicsBody、PhysicsCollider、PhysicsMaterial、PhysicsScene、PhysicsBackendAdapter、query、contact event、trace、DataType、Save contributor、GameModule helper 和 conformance helper。
+- `@gamekits/physics-rapier2d`：把 Rapier 2D 映射到 Physics backend adapter。
+- `@gamekits/physics-rapier3d`：把 Rapier 3D 映射到 Physics backend adapter。
+- `@gamekits/physics-matter`：把 Matter.js 映射到 2D Physics backend adapter。
+- `@gamekits/driver-phaser`：当使用 Phaser Arcade / Matter Physics 时，由 Phaser Driver 持有 Phaser runtime，并暴露绑定 Phaser Scene 的 Physics backend adapter。
 
 Physics Core 的 `PhysicsRotation` 使用 backend-neutral envelope：2D 可使用 number 作为平面角度，3D 可使用 Euler vector 或 `{ x, y, z, w }` quaternion。Quaternion 是稳定数据结构，不是 Rapier 类型泄漏。
 
@@ -103,8 +103,8 @@ Physics Core 可以提供 `PhysicsHandle` / `PhysicsQueries` 作为依赖注入�
 
 ## Boundaries
 
-- `@gamekit/physics-core` 可以依赖 `@gamekit/world`、`@gamekit/game-runtime`、`@gamekit/event-bus` 和 `@gamekit/data`，但不能依赖 Rapier、Matter、Phaser、Three、Koota、React 或 Tauri。
-- `@gamekit/physics-rapier2d` / `@gamekit/physics-rapier3d` / `@gamekit/physics-matter` 可以依赖对应第三方库，并导出显式 native path 给 app-specific integration、Editor backend panel 或 DevTools plugin。
+- `@gamekits/physics-core` 可以依赖 `@gamekits/world`、`@gamekits/game-runtime`、`@gamekits/event-bus` 和 `@gamekits/data`，但不能依赖 Rapier、Matter、Phaser、Three、Koota、React 或 Tauri。
+- `@gamekits/physics-rapier2d` / `@gamekits/physics-rapier3d` / `@gamekits/physics-matter` 可以依赖对应第三方库，并导出显式 native path 给 app-specific integration、Editor backend panel 或 DevTools plugin。
 - 可复用 gameplay module、DataType、Save payload、TCA/GAS rule 和 renderer-core 不依赖 backend native type。
 - Contact enter/exit 可以是低频 EventBus fact；每帧 manifold、position patch 和 query result 不进入 EventBus。
 - Renderer 只表现 physics 结果或 debug draw，不决定 gameplay collision。

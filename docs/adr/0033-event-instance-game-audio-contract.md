@@ -6,7 +6,7 @@ ADR 0033 正确区分了逻辑播放实例和底层 native voice，也确立了 
 
 ## Context
 
-ADR 0031 确立了 `@gamekit/audio-core` 的可选表现 facade 边界，但最初实现把 cue、底层 sound voice 和游戏可控播放实例合并成同一个对象。`play(cueId)` 只返回一次性状态，Adapter 只提供 play/stop/bus/listener/source update。这种模型可以验证“发出过一个声音命令”，却不能覆盖实际游戏音频需要的稳定控制面：
+ADR 0031 确立了 `@gamekits/audio-core` 的可选表现 facade 边界，但最初实现把 cue、底层 sound voice 和游戏可控播放实例合并成同一个对象。`play(cueId)` 只返回一次性状态，Adapter 只提供 play/stop/bus/listener/source update。这种模型可以验证“发出过一个声音命令”，却不能覆盖实际游戏音频需要的稳定控制面：
 
 - 一次游戏音频事件可能由多个 layer 同时播放，每层还可能选择不同 variation；逻辑 event instance 与 native voice 不是一一对应关系。
 - 音乐、环境 loop、对白和长尾音效需要可寻址 instance handle，以及 pause/resume/seek/fade/parameter/transform 控制。
@@ -15,7 +15,7 @@ ADR 0031 确立了 `@gamekit/audio-core` 的可选表现 facade 边界，但最�
 - 空间音频需要独立 Listener/Emitter lifecycle 和批量 transform update；把 source snapshot 塞进每个 voice 会丢失稳定 emitter identity。
 - Phaser 可以直接播放 asset-backed clips，而 FMOD/Wwise 一类成熟中间件应保留其 authored event、parameter、routing 和 native voice 管理。Core 不能迫使这类 Adapter 为每个 event 伪造单个 AssetRef。
 
-Phaser 自身的声音实例已经提供 play/pause/resume/stop/seek、volume/rate/pan/loop 和 lifecycle event；FMOD Studio 也以 EventInstance、local/global parameter、3D attributes、Bus/VCA 和 Snapshot 为主要游戏控制边界。GameKit 的协议应映射这些稳定领域概念，而不是退化成一次性命令队列。
+Phaser 自身的声音实例已经提供 play/pause/resume/stop/seek、volume/rate/pan/loop 和 lifecycle event；FMOD Studio 也以 EventInstance、local/global parameter、3D attributes、Bus/VCA 和 Snapshot 为主要游戏控制边界。GameKits 的协议应映射这些稳定领域概念，而不是退化成一次性命令队列。
 
 ## Decision
 

@@ -1,4 +1,4 @@
-import type { NavigationPathRoute, NavigationPoint } from "@gamekit/navigation-core";
+import type { NavigationPathRoute, NavigationPoint } from "@gamekits/navigation-core";
 import type {
   NavigationLabBackendDebugView,
   NavigationLabDebugLayerId,

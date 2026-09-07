@@ -1,14 +1,14 @@
-import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekit/data";
+import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekits/data";
 import {
   createNavigationAgentProfileDataType,
   createNavigationLayoutDataType,
   type NavigationLayoutDefinition
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import {
   createGraphNavigationBackendFactory,
   createNavigationGraphDataType,
   type NavigationGraphDefinition
-} from "@gamekit/navigation-graph";
+} from "@gamekits/navigation-graph";
 import { NAVIGATION_LAB_PROFILES } from "../scenario";
 import type { NavigationLabBackendProvider } from "./contract";
 import type {

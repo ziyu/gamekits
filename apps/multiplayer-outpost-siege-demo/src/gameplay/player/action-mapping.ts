@@ -1,4 +1,4 @@
-import type { InputActionEvent } from "@gamekit/input-core";
+import type { InputActionEvent } from "@gamekits/input-core";
 
 import type { OutpostPlayerAction } from "../../domain";
 import { OUTPOST_ACTION } from "../input";

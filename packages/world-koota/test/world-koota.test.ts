@@ -1,7 +1,7 @@
 import {
   defineWorldCheckpointConformanceTests,
   defineWorldConformanceTests
-} from "@gamekit/test-utils";
+} from "@gamekits/test-utils";
 import { createKootaWorld } from "../src/index";
 
 defineWorldConformanceTests("Koota", createKootaWorld);

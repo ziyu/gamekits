@@ -1,4 +1,4 @@
-import type { PhysicsQuery, PhysicsQueryResult, PhysicsVector } from "@gamekit/physics-core";
+import type { PhysicsQuery, PhysicsQueryResult, PhysicsVector } from "@gamekits/physics-core";
 
 import type { CharacterControlIntent, CharacterMotorObservation } from "../contracts";
 import {

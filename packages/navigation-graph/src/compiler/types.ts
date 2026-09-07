@@ -2,7 +2,7 @@ import type {
   NavigationAgentProfileDefinition,
   NavigationObstacleTarget,
   NavigationPoint
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import type { NavigationGraphNodeDefinition } from "../contracts/graph-definition";
 import type { NavigationGraphSpatialIndex } from "./spatial-index";
 

@@ -1,8 +1,8 @@
 import {
   createMultiplayerAuthorityBindingStore,
   createMultiplayerRuntime
-} from "@gamekit/multiplayer-core";
-import { createMemoryMultiplayerBackend } from "@gamekit/multiplayer-memory";
+} from "@gamekits/multiplayer-core";
+import { createMemoryMultiplayerBackend } from "@gamekits/multiplayer-memory";
 import { describe, expect, it, vi } from "vitest";
 import { createRealtimeArenaState, captureRealtimeArenaSnapshot } from "./domain";
 import { createRealtimeArenaClientReplication } from "./client-replication";

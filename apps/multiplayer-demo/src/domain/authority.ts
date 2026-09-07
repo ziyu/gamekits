@@ -1,8 +1,8 @@
 import type {
   MultiplayerAuthorityDecision,
   MultiplayerAuthorityPolicy
-} from "@gamekit/multiplayer-core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+} from "@gamekits/multiplayer-core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import { decodeMultiplayerDemoCommand } from "./commands";
 import { hasDemoObject, recordDemoTimelineEntry, type MultiplayerDemoState } from "./state";
 

@@ -1,9 +1,9 @@
-import type { AppProfile } from "@gamekit/app-host";
+import type { AppProfile } from "@gamekits/app-host";
 import type {
   MultiplayerClientReplicationSnapshotSource,
   MultiplayerRuntime
-} from "@gamekit/multiplayer-core";
-import { createWebPlatform } from "@gamekit/platform-web";
+} from "@gamekits/multiplayer-core";
+import { createWebPlatform } from "@gamekits/platform-web";
 import {
   createOutpostVisualProfile,
   type OutpostVisualContext,

@@ -1,4 +1,4 @@
-import type { DataReferenceTarget, DataTypeDefinition } from "@gamekit/data";
+import type { DataReferenceTarget, DataTypeDefinition } from "@gamekits/data";
 import type { AnimatorBindingDefinition } from "./binding-definition";
 import {
   animatorDataDiagnostic,

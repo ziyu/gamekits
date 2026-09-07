@@ -1,4 +1,4 @@
-import type { DataRef } from "@gamekit/data";
+import type { DataRef } from "@gamekits/data";
 import type { NavigationPoint } from "./geometry";
 import type { NavigationAreaDefinition } from "./profile";
 

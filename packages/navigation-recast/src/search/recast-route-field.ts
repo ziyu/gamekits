@@ -6,8 +6,8 @@ import {
   type NavigationObstacleTarget,
   type NavigationPoint,
   type NavigationProjection
-} from "@gamekit/navigation-core";
-import type { NavigationBackendRouteSample } from "@gamekit/navigation-core/backend";
+} from "@gamekits/navigation-core";
+import type { NavigationBackendRouteSample } from "@gamekits/navigation-core/backend";
 import { createRecastFieldMinHeap } from "./min-heap";
 import type {
   RecastNavigationArc,

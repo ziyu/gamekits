@@ -1,5 +1,5 @@
 import * as RAPIER from "@dimforge/rapier2d-compat";
-import { GameError } from "@gamekit/core";
+import { GameError } from "@gamekits/core";
 import type {
   PhysicsBackendAdapter,
   PhysicsBackendCapabilities,
@@ -27,7 +27,7 @@ import type {
   PhysicsSceneConfig,
   PhysicsShapeDefinition,
   PhysicsVector
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 
 export type Rapier2dGroupMap = Record<string, number>;
 

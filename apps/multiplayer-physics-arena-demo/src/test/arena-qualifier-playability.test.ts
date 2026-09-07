@@ -1,6 +1,6 @@
-import { createMemoryMultiplayerBackend } from "@gamekit/multiplayer-memory";
-import { createMultiplayerRuntime } from "@gamekit/multiplayer-core";
-import { initRapier3dPhysicsBackend } from "@gamekit/physics-rapier3d";
+import { createMemoryMultiplayerBackend } from "@gamekits/multiplayer-memory";
+import { createMultiplayerRuntime } from "@gamekits/multiplayer-core";
+import { initRapier3dPhysicsBackend } from "@gamekits/physics-rapier3d";
 import { describe, expect, it } from "vitest";
 
 import { prepareArenaBotNavigationRuntime } from "../ai/navigation";

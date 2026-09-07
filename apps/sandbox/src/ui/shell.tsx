@@ -1,8 +1,14 @@
 import { createRef } from "react";
 import { createRoot } from "react-dom/client";
 import { flushSync } from "react-dom";
-import type { UiOpenPanel, UiRuntime } from "@gamekit/ui-core";
-import { GameKitUiShell, UiFocusBridge, UiModalHost, UiTip, useUiRuntime } from "@gamekit/react-ui";
+import type { UiOpenPanel, UiRuntime } from "@gamekits/ui-core";
+import {
+  GameKitsUiShell,
+  UiFocusBridge,
+  UiModalHost,
+  UiTip,
+  useUiRuntime
+} from "@gamekits/react-ui";
 import type { SandboxUiHandles, SandboxWorkbenchState } from "./types";
 
 type SandboxObjectiveBriefingModalProps = {
@@ -29,9 +35,9 @@ export function renderSandboxShell(
 
   flushSync(() => {
     root.render(
-      <GameKitUiShell
+      <GameKitsUiShell
         runtime={uiRuntime}
-        className="gamekit-sandbox-ui"
+        className="gamekits-sandbox-ui"
         density="compact"
         theme="tiny-camp"
       >
@@ -43,7 +49,7 @@ export function renderSandboxShell(
         <section className="workbench" ref={uiRootRef}>
           <header className="topbar">
             <div>
-              <p className="eyebrow">GameKit / Scene Workbench</p>
+              <p className="eyebrow">GameKits / Scene Workbench</p>
               <h1>Tiny Camp</h1>
             </div>
             <div className="status" data-ui="status">
@@ -198,7 +204,7 @@ export function renderSandboxShell(
           </section>
         </section>
         <div className="devtools-overlay-root" data-ui="devtools-overlay-root" />
-      </GameKitUiShell>
+      </GameKitsUiShell>
     );
   });
 

@@ -1,6 +1,6 @@
-import type { AssetManager } from "@gamekit/asset";
-import type { AppHost } from "@gamekit/app-host";
-import type { DataRegistry } from "@gamekit/data";
+import type { AssetManager } from "@gamekits/asset";
+import type { AppHost } from "@gamekits/app-host";
+import type { DataRegistry } from "@gamekits/data";
 import type { SandboxRuntime } from "../game";
 import { formatNumber, formatPercent } from "./format";
 import { renderInspector } from "./inspector";

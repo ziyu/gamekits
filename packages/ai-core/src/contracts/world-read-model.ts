@@ -1,4 +1,4 @@
-import type { ComponentDef, EntityId } from "@gamekit/world";
+import type { ComponentDef, EntityId } from "@gamekits/world";
 
 export type AiWorldReadModel = {
   has(entity: EntityId): boolean;

@@ -6,7 +6,7 @@ Accepted, updated by ADR 0012 and ADR 0013
 
 ## Context
 
-GameKit 的长期定位是可复用游戏框架。多人能力如果直接从某个项目需求出发，很容易把 WebSocket、Colyseus、Nakama、Steam、Epic Online Services、平台账号、lobby UI、房间状态和 gameplay state 混在一起。
+GameKits 的长期定位是可复用游戏框架。多人能力如果直接从某个项目需求出发，很容易把 WebSocket、Colyseus、Nakama、Steam、Epic Online Services、平台账号、lobby UI、房间状态和 gameplay state 混在一起。
 
 这种做法短期能跑，但会带来几个长期问题：
 
@@ -20,14 +20,14 @@ Multiplayer 会影响包边界、App Host 组合、GameRuntime 模块、Data/Sav
 
 ## Decision
 
-引入 `@gamekit/multiplayer-core` 作为多人能力的稳定 facade / toolkit，并通过 backend adapter package 接入具体后端。
+引入 `@gamekits/multiplayer-core` 作为多人能力的稳定 facade / toolkit，并通过 backend adapter package 接入具体后端。
 
 长期包形态：
 
-- `@gamekit/multiplayer-core` 定义 MultiplayerRuntime、BackendAdapter、Session、Peer、Message Envelope、Channel、Authority Policy、Replication Contributor、diagnostics 和标准 GameModule bridge helper。
-- `@gamekit/multiplayer-memory` 提供 in-process loopback backend，用于 conformance tests、本地多人验证和 headless server/client 夹具。
-- `@gamekit/multiplayer-websocket` 提供通用 WebSocket backend adapter。
-- 其他服务商或平台按 `@gamekit/multiplayer-<backend>` 增加独立 backend adapter。
+- `@gamekits/multiplayer-core` 定义 MultiplayerRuntime、BackendAdapter、Session、Peer、Message Envelope、Channel、Authority Policy、Replication Contributor、diagnostics 和标准 GameModule bridge helper。
+- `@gamekits/multiplayer-memory` 提供 in-process loopback backend，用于 conformance tests、本地多人验证和 headless server/client 夹具。
+- `@gamekits/multiplayer-websocket` 提供通用 WebSocket backend adapter。
+- 其他服务商或平台按 `@gamekits/multiplayer-<backend>` 增加独立 backend adapter。
 
 生命周期归属：
 
@@ -37,7 +37,7 @@ Multiplayer 会影响包边界、App Host 组合、GameRuntime 模块、Data/Sav
 
 依赖边界：
 
-- `@gamekit/multiplayer-core` 不依赖具体 backend SDK、DOM WebSocket、Node socket、Tauri、React、Phaser、Three 或 provider-specific 类型。
+- `@gamekits/multiplayer-core` 不依赖具体 backend SDK、DOM WebSocket、Node socket、Tauri、React、Phaser、Three 或 provider-specific 类型。
 - Backend adapter 可以依赖其拥有的第三方 SDK，并可以导出 typed native bridge；这些类型只能被显式选择该 backend 的 app、server orchestration 或 tooling 消费。
 - 可复用 gameplay module、DataType、Save payload 和 core facade 不得导入 backend-specific 类型。
 
@@ -45,13 +45,13 @@ Multiplayer 会影响包边界、App Host 组合、GameRuntime 模块、Data/Sav
 
 - Core 只定义 authority mode、decision、command envelope、channel 和 replication contributor 协议。
 - 具体游戏或 server host 负责命令校验、冲突处理、预测、回滚和 gameplay state 应用。
-- `@gamekit/multiplayer-core` 不强制单一同步模型；command relay、snapshot、patch、lockstep 和 rollback 通过可插拔策略表达。
+- `@gamekits/multiplayer-core` 不强制单一同步模型；command relay、snapshot、patch、lockstep 和 rollback 通过可插拔策略表达。
 
 ## Consequences
 
 收益：
 
-- 多人能力遵守 GameKit 既有薄内核、App Service、GameModule 和 adapter 边界。
+- 多人能力遵守 GameKits 既有薄内核、App Service、GameModule 和 adapter 边界。
 - 多 backend 可以共享同一 session/message/authority/diagnostic 协议。
 - Headless server、Web client、本地 loopback 和测试夹具可以复用同一套 runtime 和 GameModule helper。
 - DevTools 可以解释输入、命令、authority decision、状态复制和 backend diagnostics 的链路。

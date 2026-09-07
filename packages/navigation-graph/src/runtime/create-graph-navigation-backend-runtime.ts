@@ -2,7 +2,7 @@ import {
   cloneNavigationDependencies,
   navigationDependencyKey,
   type NavigationAgentProfileDefinition
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import {
   cloneBackendPathStatus,
   cloneBackendRouteSample,
@@ -10,7 +10,7 @@ import {
   type NavigationBackendPathRequest,
   type NavigationBackendPathResult,
   type NavigationBackendPathStatus
-} from "@gamekit/navigation-core/backend";
+} from "@gamekits/navigation-core/backend";
 import { compileNavigationGraph, type GraphRouteField } from "../compiler";
 import type { CreateGraphNavigationBackendOptions } from "../contracts/graph-definition";
 import {

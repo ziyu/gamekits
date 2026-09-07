@@ -1,18 +1,18 @@
-# @gamekit/ai-core
+# @gamekits/ai-core
 
 ## 0.1.0-alpha.8
 
 ### Patch Changes
 
 - Updated dependencies [0326356]
-  - @gamekit/save@0.1.0-alpha.8
-  - @gamekit/physics-core@0.1.0-alpha.8
-  - @gamekit/core@0.1.0-alpha.8
-  - @gamekit/event-bus@0.1.0-alpha.8
-  - @gamekit/world@0.1.0-alpha.8
-  - @gamekit/game-runtime@0.1.0-alpha.8
-  - @gamekit/data@0.1.0-alpha.8
-  - @gamekit/navigation-core@0.1.0-alpha.8
+  - @gamekits/save@0.1.0-alpha.8
+  - @gamekits/physics-core@0.1.0-alpha.8
+  - @gamekits/core@0.1.0-alpha.8
+  - @gamekits/event-bus@0.1.0-alpha.8
+  - @gamekits/world@0.1.0-alpha.8
+  - @gamekits/game-runtime@0.1.0-alpha.8
+  - @gamekits/data@0.1.0-alpha.8
+  - @gamekits/navigation-core@0.1.0-alpha.8
 
 ## 0.1.0-alpha.7
 
@@ -20,14 +20,14 @@
 
 - Updated dependencies [398165e]
 - Updated dependencies [ce209d8]
-  - @gamekit/game-runtime@0.1.0-alpha.7
-  - @gamekit/save@0.1.0-alpha.7
-  - @gamekit/physics-core@0.1.0-alpha.7
-  - @gamekit/navigation-core@0.1.0-alpha.7
-  - @gamekit/core@0.1.0-alpha.7
-  - @gamekit/event-bus@0.1.0-alpha.7
-  - @gamekit/world@0.1.0-alpha.7
-  - @gamekit/data@0.1.0-alpha.7
+  - @gamekits/game-runtime@0.1.0-alpha.7
+  - @gamekits/save@0.1.0-alpha.7
+  - @gamekits/physics-core@0.1.0-alpha.7
+  - @gamekits/navigation-core@0.1.0-alpha.7
+  - @gamekits/core@0.1.0-alpha.7
+  - @gamekits/event-bus@0.1.0-alpha.7
+  - @gamekits/world@0.1.0-alpha.7
+  - @gamekits/data@0.1.0-alpha.7
 
 ## 0.1.0-alpha.6
 
@@ -42,11 +42,11 @@
 
 - Updated dependencies [c6fdda9]
 - Updated dependencies [94c5113]
-  - @gamekit/navigation-core@0.1.0-alpha.6
-  - @gamekit/physics-core@0.1.0-alpha.6
-  - @gamekit/core@0.1.0-alpha.6
-  - @gamekit/event-bus@0.1.0-alpha.6
-  - @gamekit/world@0.1.0-alpha.6
-  - @gamekit/game-runtime@0.1.0-alpha.6
-  - @gamekit/data@0.1.0-alpha.6
-  - @gamekit/save@0.1.0-alpha.6
+  - @gamekits/navigation-core@0.1.0-alpha.6
+  - @gamekits/physics-core@0.1.0-alpha.6
+  - @gamekits/core@0.1.0-alpha.6
+  - @gamekits/event-bus@0.1.0-alpha.6
+  - @gamekits/world@0.1.0-alpha.6
+  - @gamekits/game-runtime@0.1.0-alpha.6
+  - @gamekits/data@0.1.0-alpha.6
+  - @gamekits/save@0.1.0-alpha.6

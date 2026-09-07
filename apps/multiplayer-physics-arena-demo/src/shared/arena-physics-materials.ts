@@ -1,4 +1,4 @@
-import type { PhysicsMaterialDefinition } from "@gamekit/physics-core";
+import type { PhysicsMaterialDefinition } from "@gamekits/physics-core";
 
 import { compileArenaPropMaterial } from "../content/course-compiler";
 import type { CompiledArenaContent } from "../content/registry";

@@ -1,4 +1,4 @@
-import type { InputActionEvent, InputRouter, NormalizedInputEvent } from "@gamekit/input-core";
+import type { InputActionEvent, InputRouter, NormalizedInputEvent } from "@gamekits/input-core";
 import type { AbyssInputState } from "./game";
 export { createAbyssInputState } from "./game/input-state";
 

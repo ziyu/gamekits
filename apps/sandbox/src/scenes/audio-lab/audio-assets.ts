@@ -1,4 +1,4 @@
-import type { AssetDefinition } from "@gamekit/asset";
+import type { AssetDefinition } from "@gamekits/asset";
 
 export const AUDIO_LAB_ASSET_GROUP = "sandbox.audio-lab";
 export const AUDIO_LAB_SAMPLE_RATE = 32_000;

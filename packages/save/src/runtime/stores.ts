@@ -1,6 +1,6 @@
 import { encodeBase64, decodeBase64 } from "./base64";
 import { serializeStoreMutation } from "./store-queue";
-import type { PlatformStorage } from "@gamekit/platform-core";
+import type { PlatformStorage } from "@gamekits/platform-core";
 import { createMissingSlotError } from "./errors";
 import type { SaveSlotId, SaveSlotSummary, SaveStore } from "./types";
 
@@ -57,7 +57,7 @@ export function createMemorySaveStore(
 export function createPlatformStorageSaveStore(
   options: PlatformStorageSaveStoreOptions
 ): SaveStore {
-  const prefix = options.prefix ?? "gamekit.save";
+  const prefix = options.prefix ?? "gamekits.save";
   const indexKey = `${prefix}.index`;
 
   return {

@@ -7,7 +7,7 @@ import {
   createSaveMigrationRegistry,
   type SaveContributor,
   type SaveEnvelope
-} from "@gamekit/save";
+} from "@gamekits/save";
 
 function runtime(ticks = 1) {
   return {
@@ -137,7 +137,7 @@ describe("save manager", () => {
       }
     ]);
     const oldEnvelope: SaveEnvelope = {
-      format: "gamekit.save",
+      format: "gamekits.save",
       formatVersion: "0.9.0",
       appId: "app",
       gameId: "game",
@@ -202,7 +202,7 @@ describe("save manager", () => {
     await store.write(
       "old",
       await codec.encode({
-        format: "gamekit.save",
+        format: "gamekits.save",
         formatVersion: "0.1.0",
         appId: "app",
         gameId: "game",

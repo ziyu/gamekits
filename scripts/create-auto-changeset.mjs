@@ -152,8 +152,8 @@ function hasAnyLabel(...candidates) {
 function resolveSummary() {
   const cleanTitle = title.replace(/^changeset:\s*/i, "").trim();
   if (cleanTitle) return cleanTitle;
-  if (prNumber) return `Update GameKit packages from PR #${prNumber}.`;
-  return "Update GameKit packages.";
+  if (prNumber) return `Update GameKits packages from PR #${prNumber}.`;
+  return "Update GameKits packages.";
 }
 
 function removeAutoChangeset() {
@@ -164,7 +164,7 @@ function removeAutoChangeset() {
 }
 
 function isVersionChange(value) {
-  return /^Version GameKit packages\b/.test(firstLine(value));
+  return /^Version GameKits packages\b/.test(firstLine(value));
 }
 
 function shortHash(value) {

@@ -12,9 +12,9 @@ Sandbox Navigation Lab 也需要在同一张地形、同一套控制器和同一
 
 ## Decision
 
-### 新增独立 `@gamekit/navigation-grid` Backend package
+### 新增独立 `@gamekits/navigation-grid` Backend package
 
-Grid package 依赖 `@gamekit/navigation-core/backend`，不进入 Core，也不让 grid cell 类型进入游戏侧 API。它公开：
+Grid package 依赖 `@gamekits/navigation-core/backend`，不进入 Core，也不让 grid cell 类型进入游戏侧 API。它公开：
 
 - `NavigationGridDefinition`、walkable cell 和 dynamic obstacle authoring contract。
 - `navigation.grid` DataType。

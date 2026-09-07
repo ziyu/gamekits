@@ -1,9 +1,9 @@
-import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekit/data";
-import { createEventBus } from "@gamekit/event-bus";
-import { createGame } from "@gamekit/game-runtime";
-import type { NavigationQueries } from "@gamekit/navigation-core";
-import type { PhysicsQueries } from "@gamekit/physics-core";
-import type { ComponentDef, EntityId, GameWorld } from "@gamekit/world";
+import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekits/data";
+import { createEventBus } from "@gamekits/event-bus";
+import { createGame } from "@gamekits/game-runtime";
+import type { NavigationQueries } from "@gamekits/navigation-core";
+import type { PhysicsQueries } from "@gamekits/physics-core";
+import type { ComponentDef, EntityId, GameWorld } from "@gamekits/world";
 import { describe, expect, it } from "vitest";
 import {
   bindAiHandle,

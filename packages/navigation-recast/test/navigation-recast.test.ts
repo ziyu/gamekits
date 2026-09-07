@@ -1,14 +1,14 @@
 import type {
   NavigationAgentProfileDefinition,
   NavigationLayoutDefinition
-} from "@gamekit/navigation-core";
-import { createNavigationRuntime } from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
+import { createNavigationRuntime } from "@gamekits/navigation-core";
 import type {
   NavigationBackendPathRequest,
   NavigationBackendPathStatus
-} from "@gamekit/navigation-core/backend";
-import { runNavigationRuntimeConformance } from "@gamekit/navigation-core/testing";
-import type { NavigationNavMeshSource } from "@gamekit/navigation-navmesh";
+} from "@gamekits/navigation-core/backend";
+import { runNavigationRuntimeConformance } from "@gamekits/navigation-core/testing";
+import type { NavigationNavMeshSource } from "@gamekits/navigation-navmesh";
 import { beforeAll, describe, expect, it } from "vitest";
 import {
   createRecastNavigationBackend,

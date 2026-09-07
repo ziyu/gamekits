@@ -1,4 +1,4 @@
-import type { MultiplayerPhysicsArenaFrame } from "@gamekit/app-host";
+import type { MultiplayerPhysicsArenaFrame } from "@gamekits/app-host";
 
 import type { ArenaItemActionType } from "../items/item-action";
 import type { ArenaItemAuthorityState } from "../items/item-authority-runtime";

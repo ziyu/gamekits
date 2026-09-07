@@ -1,4 +1,4 @@
-import type { NavigationQueries } from "@gamekit/navigation-core";
+import type { NavigationQueries } from "@gamekits/navigation-core";
 
 export function createAiNavigationQueries(queries: NavigationQueries): NavigationQueries {
   return Object.freeze({

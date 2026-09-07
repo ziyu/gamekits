@@ -2,7 +2,7 @@ import type {
   DevToolsDataSourceKind,
   DevToolsSnapshot,
   DevToolsSourceSnapshot
-} from "@gamekit/devtools";
+} from "@gamekits/devtools";
 import type { PanelModel } from "./panel-types";
 
 export function createPanelModel(

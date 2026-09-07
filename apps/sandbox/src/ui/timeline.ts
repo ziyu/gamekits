@@ -1,9 +1,9 @@
-import { createGameKitUiAnimator } from "@gamekit/react-ui";
+import { createGameKitsUiAnimator } from "@gamekits/react-ui";
 import type { SandboxRuntime } from "../game";
 import { upper } from "./format";
 import type { SandboxUiHandles, SandboxWorkbenchState } from "./types";
 
-const timelineAnimator = createGameKitUiAnimator({ duration: 0.24 });
+const timelineAnimator = createGameKitsUiAnimator({ duration: 0.24 });
 
 export function renderTimeline(
   handles: SandboxUiHandles,

@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/world-koota",
+  "name": "@gamekits/world-koota",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -17,12 +17,12 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/core": "workspace:*",
-    "@gamekit/world": "workspace:*",
+    "@gamekits/core": "workspace:*",
+    "@gamekits/world": "workspace:*",
     "koota": "^0.6.6"
   },
   "devDependencies": {
-    "@gamekit/test-utils": "workspace:*"
+    "@gamekits/test-utils": "workspace:*"
   },
   "files": [
     "dist"

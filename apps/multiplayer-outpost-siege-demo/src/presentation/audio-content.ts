@@ -1,4 +1,4 @@
-import type { CreateGameAudioOptions } from "@gamekit/audio-core";
+import type { CreateGameAudioOptions } from "@gamekits/audio-core";
 
 import { OUTPOST_AUDIO_ASSET_IDS } from "../content";
 

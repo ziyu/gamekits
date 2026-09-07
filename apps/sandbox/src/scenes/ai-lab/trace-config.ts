@@ -1,4 +1,4 @@
-import type { AiTraceProductionOptions, AiTraceRetentionOptions } from "@gamekit/ai-core";
+import type { AiTraceProductionOptions, AiTraceRetentionOptions } from "@gamekits/ai-core";
 
 export const AI_LAB_TRACE_PRODUCTION = {
   maxEntriesPerUpdate: 96,

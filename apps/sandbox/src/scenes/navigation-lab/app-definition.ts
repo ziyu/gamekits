@@ -1,4 +1,4 @@
-import { defineGameApp } from "@gamekit/app-host";
+import { defineGameApp } from "@gamekits/app-host";
 
 export const navigationLabAppDefinition = defineGameApp({
   id: "sandbox.navigation-lab",

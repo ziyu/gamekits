@@ -4,7 +4,7 @@ Status: Accepted on 2026-07-22.
 
 ## Context
 
-`@gamekit/animator-core` 同时包含 clip/graph/binding DataType、controller parameter 与 transition、one-shot queue、authority gameplay phase、marker 去重、playback frame、adapter port、snapshot/trace、Handle、GameModule 和测试替身。这些职责具有不同的状态所有权、依赖方向和测试策略。
+`@gamekits/animator-core` 同时包含 clip/graph/binding DataType、controller parameter 与 transition、one-shot queue、authority gameplay phase、marker 去重、playback frame、adapter port、snapshot/trace、Handle、GameModule 和测试替身。这些职责具有不同的状态所有权、依赖方向和测试策略。
 
 初版采用 `src/data + src/runtime + runtime/types.ts` 结构，把全部公共类型聚合到一个文件，并在一个千行 `createAnimatorRuntime()` 闭包内同时完成内容解析、索引编译、状态切换、动作排队、phase 恢复、marker 发布、playback projection、observer 和 adapter flush。Root 入口还同时导出 Driver port、Memory Adapter 与 conformance。
 
@@ -75,9 +75,9 @@ contracts / graph definitions / playback contracts
 
 包提供三个入口：
 
-- `@gamekit/animator-core`：游戏/app 使用的 graph、controller、GameModule、marker 与 observability API。
-- `@gamekit/animator-core/playback`：Driver/Adapter 使用的 playback frame、adapter、batch/reset 和 adapter snapshot 协议。
-- `@gamekit/animator-core/testing`：Memory Playback Adapter、runtime conformance 和测试类型。
+- `@gamekits/animator-core`：游戏/app 使用的 graph、controller、GameModule、marker 与 observability API。
+- `@gamekits/animator-core/playback`：Driver/Adapter 使用的 playback frame、adapter、batch/reset 和 adapter snapshot 协议。
+- `@gamekits/animator-core/testing`：Memory Playback Adapter、runtime conformance 和测试类型。
 
 Root 不导出 playback adapter port、Memory Adapter、conformance、compiled state、trace store、marker watermark 或 projection helper。现有游戏侧 controller API 和数据定义保持语义兼容；Driver、测试、benchmark 和 Sandbox probe 改用对应 subpath。
 

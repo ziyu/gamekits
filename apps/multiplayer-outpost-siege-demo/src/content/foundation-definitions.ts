@@ -1,21 +1,21 @@
-import type { AssetAnimationManifest, AssetDefinition } from "@gamekit/asset";
+import type { AssetAnimationManifest, AssetDefinition } from "@gamekits/asset";
 import type {
   AnimatorBindingDefinition,
   AnimatorGraphDefinition,
   AnimationClipDefinition
-} from "@gamekit/animator-core";
+} from "@gamekits/animator-core";
 import type {
   CombatAbilityDeliveryDefinition,
   CombatDeliveryDefinition,
   CombatProjectileDefinition,
   CombatRelationshipPolicyDefinition
-} from "@gamekit/combat";
-import type { DataPackEntry } from "@gamekit/data";
+} from "@gamekits/combat";
+import type { DataPackEntry } from "@gamekits/data";
 import type {
   NavigationAgentProfileDefinition,
   NavigationLayoutDefinition
-} from "@gamekit/navigation-core";
-import type { NavigationGraphDefinition } from "@gamekit/navigation-graph";
+} from "@gamekits/navigation-core";
+import type { NavigationGraphDefinition } from "@gamekits/navigation-graph";
 import { outpostArenaDefinition } from "./arena-scene";
 
 export const OUTPOST_NAVIGATION_BACKEND_ID = "outpost.graph";

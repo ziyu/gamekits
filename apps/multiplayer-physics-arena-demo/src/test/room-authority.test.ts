@@ -1,10 +1,10 @@
-import { createColyseusMultiplayerBackend } from "@gamekit/multiplayer-colyseus";
-import { createGameKitColyseusServer } from "@gamekit/multiplayer-colyseus/server";
+import { createColyseusMultiplayerBackend } from "@gamekits/multiplayer-colyseus";
+import { createGameKitsColyseusServer } from "@gamekits/multiplayer-colyseus/server";
 import {
   createMultiplayerFixedStepInputBundle,
   createMultiplayerRuntime,
   type MultiplayerMessageEnvelope
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import { describe, expect, it } from "vitest";
 
 import { ARENA_COMPILED_CONTENT } from "../content/default-content";
@@ -22,7 +22,7 @@ import { KnockoutArenaRoom } from "../server/arena-room";
 
 describe("Knockout Arena Room authority", () => {
   it("replicates one full physics island and acknowledges redundant input from two clients", async () => {
-    const server = await createGameKitColyseusServer({
+    const server = await createGameKitsColyseusServer({
       roomName: ARENA_ROOM_NAME,
       roomClass: KnockoutArenaRoom
     });
@@ -171,7 +171,7 @@ describe("Knockout Arena Room authority", () => {
   }, 15_000);
 
   it("installs the authority-selected opening scene, actors, and item manifest", async () => {
-    const server = await createGameKitColyseusServer({
+    const server = await createGameKitsColyseusServer({
       roomName: ARENA_ROOM_NAME,
       roomClass: KnockoutArenaRoom
     });

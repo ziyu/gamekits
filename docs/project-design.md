@@ -1,12 +1,12 @@
-# GameKit 整体设计
+# GameKits 整体设计
 
 ## 项目是什么
 
-GameKit 是一个面向独立游戏开发的 TypeScript 游戏框架实验项目。
+GameKits 是一个面向独立游戏开发的 TypeScript 游戏框架实验项目。
 
 它不是从零自研的完整游戏引擎，也不是某个单一游戏的业务代码仓库。它的定位是可复用的 Game Framework：把多个独立游戏都会需要的运行时协议、玩法模块边界、数据驱动能力、渲染适配、UI 运行时、调试能力和工程实践沉淀下来。
 
-GameKit 更接近“游戏应用框架”而不是“游戏引擎”。它关心的是多个游戏如何共享一套稳定的组合方式：模块如何安装，数据如何注册，规则如何触发，状态如何保存，渲染和 UI 如何接入，调试工具如何解释运行过程。
+GameKits 更接近“游戏应用框架”而不是“游戏引擎”。它关心的是多个游戏如何共享一套稳定的组合方式：模块如何安装，数据如何注册，规则如何触发，状态如何保存，渲染和 UI 如何接入，调试工具如何解释运行过程。
 
 ## 为什么做这个项目
 
@@ -20,11 +20,11 @@ GameKit 更接近“游戏应用框架”而不是“游戏引擎”。它关心
 - 示例 demo 和真实项目之间缺少可复用的中间层。
 - 高频逻辑、低频事件、表现动画、React UI 容易互相污染。
 
-GameKit 的存在意义是把这些易重复、易失控、又足够通用的部分沉淀为清晰协议、可替换 adapter 和可组合 driver。
+GameKits 的存在意义是把这些易重复、易失控、又足够通用的部分沉淀为清晰协议、可替换 adapter 和可组合 driver。
 
 ## 项目目标
 
-GameKit 的长期目标是支撑多个独立游戏快速开发，同时保持架构可解释、可测试、可替换。
+GameKits 的长期目标是支撑多个独立游戏快速开发，同时保持架构可解释、可测试、可替换。
 
 核心目标：
 
@@ -36,11 +36,11 @@ GameKit 的长期目标是支撑多个独立游戏快速开发，同时保持架
 - 降低应用启动成本：通过 App Host 统一组合平台、资源、输入、镜头、渲染、数据和运行时服务，让游戏上层主要关注玩法逻辑。
 - 支持多人会话与预测边界：通过 Multiplayer facade、成熟 backend adapter、local/remote authority binding、标准复制 helper、托管 prediction domain 和 GameModule bridge 组合离线单机、Colyseus、Nakama、平台联机 SDK 或测试替身；不同对象选择输入 replay、事件 record、prediction island 或 authority-only 等窄策略，但共享 generation、identity、回滚预算、权威接管、副作用和 diagnostics 协议，不让 gameplay 绑定具体网络 SDK，也不把“已连接 room”误当成“gameplay state 已同步”。
 - 保持性能分层：高频逻辑在 ECS system，低频规则在 TCA/GAS/EventBus，表现层在 Renderer/Cue/Camera，UI 在 React/Zustand。
-- 保持平台独立：文件、窗口、权限、输入、镜头、资源来源都通过 GameKit 协议或 adapter 接入。
+- 保持平台独立：文件、窗口、权限、输入、镜头、资源来源都通过 GameKits 协议或 adapter 接入。
 
 ## 非目标
 
-GameKit 不追求成为完整通用引擎。
+GameKits 不追求成为完整通用引擎。
 
 明确非目标：
 
@@ -55,9 +55,9 @@ GameKit 不追求成为完整通用引擎。
 
 ## 设计信条
 
-### 成熟库负责底层能力，GameKit 负责架构协议
+### 成熟库负责底层能力，GameKits 负责架构协议
 
-底层库提供能力，但不能决定 GameKit 的公共边界。公共协议必须表达游戏框架自己的领域模型。
+底层库提供能力，但不能决定 GameKits 的公共边界。公共协议必须表达游戏框架自己的领域模型。
 
 ### Driver / Adapter 是替换边界
 

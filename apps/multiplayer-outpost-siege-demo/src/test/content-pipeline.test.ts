@@ -1,10 +1,10 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { createAssetManager, type AssetDefinition } from "@gamekit/asset";
-import type { AnimatorBindingDefinition, AnimatorGraphDefinition } from "@gamekit/animator-core";
-import type { DataPack } from "@gamekit/data";
-import type { PhysicsLayoutData } from "@gamekit/physics-core";
+import { createAssetManager, type AssetDefinition } from "@gamekits/asset";
+import type { AnimatorBindingDefinition, AnimatorGraphDefinition } from "@gamekits/animator-core";
+import type { DataPack } from "@gamekits/data";
+import type { PhysicsLayoutData } from "@gamekits/physics-core";
 import { describe, expect, it } from "vitest";
 import { outpostAppDefinition } from "../app-definition";
 import {
@@ -37,7 +37,7 @@ import {
   createOutpostArenaRenderObjectDefinitions,
   createOutpostDynamicRenderObjectDefinition
 } from "../presentation";
-import { createDataRegistry } from "@gamekit/data";
+import { createDataRegistry } from "@gamekits/data";
 
 const APP_ROOT = fileURLToPath(new URL("../../", import.meta.url));
 

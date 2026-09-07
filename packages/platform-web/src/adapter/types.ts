@@ -1,4 +1,4 @@
-import type { PlatformFileSystem, PlatformStorage } from "@gamekit/platform-core";
+import type { PlatformFileSystem, PlatformStorage } from "@gamekits/platform-core";
 
 export type StorageLike = {
   getItem(key: string): string | null;

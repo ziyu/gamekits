@@ -6,13 +6,13 @@ Camera 是游戏会话能力和 GameModule toolkit，不是 App Host 标准服�
 
 相关包：
 
-- `@gamekit/camera-core`
-- `@gamekit/driver-phaser`
-- `@gamekit/driver-three`
+- `@gamekits/camera-core`
+- `@gamekits/driver-phaser`
+- `@gamekits/driver-three`
 
 包归属：
 
-- `@gamekit/camera-core`：Game Module toolkit，提供 `CameraController`、camera state、rig、system/action helper。
+- `@gamekits/camera-core`：Game Module toolkit，提供 `CameraController`、camera state、rig、system/action helper。
 - Phaser / Three 的 camera sync adapter 由对应 Driver 暴露，把 camera state 应用到底层 renderer camera。
 
 Camera 通常需要 tick、world/entity、input action、TCA action 和 renderer sync，因此应该随 GameRuntime 通过 `createCameraModule(...)` 之类的标准模块 helper 启动。App Host 可以提供 renderer、input、data 等依赖，但不应该长期直接拥有 gameplay camera controller。
@@ -169,7 +169,7 @@ export type RendererCameraAdapter = {
 
 Phaser Driver 的 camera adapter 映射到 `Scene.cameras.main`，Three Driver 的 camera adapter 映射到 `PerspectiveCamera` / `OrthographicCamera` 和 controls。
 
-Adapter 映射必须尊重底层渲染器自己的 camera 语义，但不能改变 GameKit 的公共坐标模型。以 Phaser 为例，GameKit 的 `CameraState2D.x/y` 表示 viewport 中心对应的 world point；Driver 应先应用 native zoom，再通过 Phaser 的 center operation 把同一个 world point 放到 native viewport 中心。不要把 Camera Core 推导的 world-view top-left 直接当作 Phaser raw `scrollX/scrollY`：Phaser 的 scroll property 还受 native camera viewport 和 zoom 语义影响，在 backing-store pixel ratio 不为 1 时会产生稳定偏移。Legacy runtime 没有 center operation 时才使用经过该 runtime 语义验证的 scroll fallback。
+Adapter 映射必须尊重底层渲染器自己的 camera 语义，但不能改变 GameKits 的公共坐标模型。以 Phaser 为例，GameKits 的 `CameraState2D.x/y` 表示 viewport 中心对应的 world point；Driver 应先应用 native zoom，再通过 Phaser 的 center operation 把同一个 world point 放到 native viewport 中心。不要把 Camera Core 推导的 world-view top-left 直接当作 Phaser raw `scrollX/scrollY`：Phaser 的 scroll property 还受 native camera viewport 和 zoom 语义影响，在 backing-store pixel ratio 不为 1 时会产生稳定偏移。Legacy runtime 没有 center operation 时才使用经过该 runtime 语义验证的 scroll fallback。
 
 Renderer camera adapter 本身是 bridge，不拥有 gameplay camera state。它可以由 camera module 调用，也可以由 editor/devtools module 调用。
 

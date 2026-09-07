@@ -1,4 +1,4 @@
-import type { MultiplayerMessageEnvelope } from "@gamekit/multiplayer-core";
+import type { MultiplayerMessageEnvelope } from "@gamekits/multiplayer-core";
 
 export type ArenaItemActionType = "interact" | "use" | "drop";
 

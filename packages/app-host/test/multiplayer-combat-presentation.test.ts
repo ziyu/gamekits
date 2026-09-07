@@ -2,7 +2,7 @@ import {
   reconcileCombatKinematicProjectileRecords,
   sampleCombatKinematicProjectileRecord,
   type CombatKinematicProjectileRecord
-} from "@gamekit/combat";
+} from "@gamekits/combat";
 import { describe, expect, it } from "vitest";
 import { createStandardCombatKinematicProjectilePresentationTransition } from "../src";
 

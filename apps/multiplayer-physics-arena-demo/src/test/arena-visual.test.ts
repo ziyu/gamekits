@@ -1,5 +1,5 @@
-import type { ThreeRendererNative } from "@gamekit/driver-three";
-import type { PhysicsPredictionIslandStateSnapshot } from "@gamekit/physics-core";
+import type { ThreeRendererNative } from "@gamekits/driver-three";
+import type { PhysicsPredictionIslandStateSnapshot } from "@gamekits/physics-core";
 import * as THREE from "three";
 import { describe, expect, it, vi } from "vitest";
 

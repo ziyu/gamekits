@@ -1,4 +1,4 @@
-import type { DataTypeDefinition } from "@gamekit/data";
+import type { DataTypeDefinition } from "@gamekits/data";
 import type { TcaRule } from "./types";
 
 export const TCA_RULE_TYPE = "tca.rule";

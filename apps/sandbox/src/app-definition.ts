@@ -1,4 +1,4 @@
-import { defineGameApp } from "@gamekit/app-host";
+import { defineGameApp } from "@gamekits/app-host";
 import { SANDBOX_ASSET_GROUP, SANDBOX_RENDER_SIZE } from "./game";
 
 export const sandboxAppDefinition = defineGameApp({

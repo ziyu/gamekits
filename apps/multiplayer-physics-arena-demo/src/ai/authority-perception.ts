@@ -1,5 +1,5 @@
-import type { AiAgentBinding } from "@gamekit/ai-core";
-import type { PhysicsPredictionIslandMemberState, PhysicsVector } from "@gamekit/physics-core";
+import type { AiAgentBinding } from "@gamekits/ai-core";
+import type { PhysicsPredictionIslandMemberState, PhysicsVector } from "@gamekits/physics-core";
 
 import type { CompiledArenaContent } from "../content/registry";
 import type {

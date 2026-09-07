@@ -1,4 +1,4 @@
-import type { MultiplayerMessageEnvelope } from "@gamekit/multiplayer-core";
+import type { MultiplayerMessageEnvelope } from "@gamekits/multiplayer-core";
 import { describe, expect, it } from "vitest";
 
 import {
@@ -104,8 +104,8 @@ describe("Colyseus Room runtime bridge", () => {
     bridge.join(leader, { id: "peer-leader", role: "party-leader" });
     bridge.join(client, { id: "peer-client", role: "client" });
     expect(room.broadcasts.map((entry) => entry.type)).toEqual([
-      "gamekit.presence",
-      "gamekit.presence"
+      "gamekits.presence",
+      "gamekits.presence"
     ]);
     expect(bridge.multiplayer.session()).toMatchObject({
       id: "game-session-1",

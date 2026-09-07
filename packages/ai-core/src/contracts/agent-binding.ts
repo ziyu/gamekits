@@ -1,4 +1,4 @@
-import type { EntityId } from "@gamekit/world";
+import type { EntityId } from "@gamekits/world";
 
 export type AiAgentId = string;
 

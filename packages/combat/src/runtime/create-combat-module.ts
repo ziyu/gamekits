@@ -1,5 +1,5 @@
-import { defineGameModule, type GameModule } from "@gamekit/core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import { defineGameModule, type GameModule } from "@gamekits/core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import { createCombatAbilityDeliveryBridge } from "./create-combat-ability-delivery-bridge";
 import { bindCombatHandle, unbindCombatHandle } from "./create-combat-handle";
 import { createCombatRuntime } from "./create-combat-runtime";

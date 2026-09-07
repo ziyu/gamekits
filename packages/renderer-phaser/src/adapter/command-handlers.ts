@@ -1,5 +1,5 @@
-import { GameError } from "@gamekit/core";
-import type { RenderCommand } from "@gamekit/renderer-core";
+import { GameError } from "@gamekits/core";
+import type { RenderCommand } from "@gamekits/renderer-core";
 import { resolveNodePath, type PhaserRenderRecord } from "./object-registry";
 
 export function applyRenderCommand(record: PhaserRenderRecord, command: RenderCommand): void {

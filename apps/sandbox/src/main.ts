@@ -1,5 +1,5 @@
-import "@gamekit/react-ui/styles.css";
-import "@gamekit/devtools-ui/styles.css";
+import "@gamekits/react-ui/styles.css";
+import "@gamekits/devtools-ui/styles.css";
 import "./ui/theme.css";
 import "./styles.css";
 import "./ui/scene-host.css";

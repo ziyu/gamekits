@@ -1,11 +1,11 @@
-import { createConfiguredAppHost, type AppHostSnapshot } from "@gamekit/app-host";
-import type { MultiplayerRuntime } from "@gamekit/multiplayer-core";
+import { createConfiguredAppHost, type AppHostSnapshot } from "@gamekits/app-host";
+import type { MultiplayerRuntime } from "@gamekits/multiplayer-core";
 import type {
   ColyseusRoomOwnedRuntime,
   ColyseusRoomRuntimeFrame
-} from "@gamekit/multiplayer-colyseus/server";
-import type { PhysicsBackendAdapter } from "@gamekit/physics-core";
-import { initRapier2dPhysicsBackend } from "@gamekit/physics-rapier2d";
+} from "@gamekits/multiplayer-colyseus/server";
+import type { PhysicsBackendAdapter } from "@gamekits/physics-core";
+import { initRapier2dPhysicsBackend } from "@gamekits/physics-rapier2d";
 
 import { outpostAppDefinition } from "../app-definition";
 import {

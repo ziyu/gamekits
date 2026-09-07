@@ -1,12 +1,12 @@
-import { defineGameModule } from "@gamekit/core";
-import type { DataRegistry } from "@gamekit/data";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import { defineGameModule } from "@gamekits/core";
+import type { DataRegistry } from "@gamekits/data";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import type {
   RenderNodePath,
   RenderObjectDefinition,
   RendererAdapter,
   RenderTransform
-} from "@gamekit/renderer-core";
+} from "@gamekits/renderer-core";
 import { Actor, Combat, FloatingText, Lifetime, Position, Presentation } from "../components";
 import { RENDER_OBJECT_TYPE } from "../content";
 import type { AbyssRuntimeState } from "../runtime-state";

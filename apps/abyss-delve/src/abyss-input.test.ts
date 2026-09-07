@@ -1,4 +1,4 @@
-import { createInputRouter, type NormalizedInputEvent } from "@gamekit/input-core";
+import { createInputRouter, type NormalizedInputEvent } from "@gamekits/input-core";
 import { describe, expect, it } from "vitest";
 import { applyAbyssInputAction, configureAbyssInputRouter } from "./app-input";
 import { createAbyssInputState } from "./game";

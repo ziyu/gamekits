@@ -1,61 +1,61 @@
-# @gamekit/game-runtime
+# @gamekits/game-runtime
 
 ## 0.1.0-alpha.8
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.8
-- @gamekit/event-bus@0.1.0-alpha.8
-- @gamekit/world@0.1.0-alpha.8
+- @gamekits/core@0.1.0-alpha.8
+- @gamekits/event-bus@0.1.0-alpha.8
+- @gamekits/world@0.1.0-alpha.8
 
 ## 0.1.0-alpha.7
 
 ### Patch Changes
 
 - 398165e: Fix runtime failure and persistence contracts
-  - @gamekit/core@0.1.0-alpha.7
-  - @gamekit/event-bus@0.1.0-alpha.7
-  - @gamekit/world@0.1.0-alpha.7
+  - @gamekits/core@0.1.0-alpha.7
+  - @gamekits/event-bus@0.1.0-alpha.7
+  - @gamekits/world@0.1.0-alpha.7
 
 ## 0.1.0-alpha.6
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.6
-- @gamekit/event-bus@0.1.0-alpha.6
-- @gamekit/world@0.1.0-alpha.6
+- @gamekits/core@0.1.0-alpha.6
+- @gamekits/event-bus@0.1.0-alpha.6
+- @gamekits/world@0.1.0-alpha.6
 
 ## 0.1.0-alpha.5
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.5
-- @gamekit/event-bus@0.1.0-alpha.5
-- @gamekit/world@0.1.0-alpha.5
+- @gamekits/core@0.1.0-alpha.5
+- @gamekits/event-bus@0.1.0-alpha.5
+- @gamekits/world@0.1.0-alpha.5
 
 ## 0.1.0-alpha.4
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.4
-- @gamekit/event-bus@0.1.0-alpha.4
-- @gamekit/world@0.1.0-alpha.4
+- @gamekits/core@0.1.0-alpha.4
+- @gamekits/event-bus@0.1.0-alpha.4
+- @gamekits/world@0.1.0-alpha.4
 
 ## 0.1.0-alpha.3
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.3
-- @gamekit/event-bus@0.1.0-alpha.3
-- @gamekit/world@0.1.0-alpha.3
+- @gamekits/core@0.1.0-alpha.3
+- @gamekits/event-bus@0.1.0-alpha.3
+- @gamekits/world@0.1.0-alpha.3
 
 ## 0.1.0-alpha.2
 
 ### Patch Changes
 
-- @gamekit/core@0.1.0-alpha.2
-- @gamekit/event-bus@0.1.0-alpha.2
-- @gamekit/world@0.1.0-alpha.2
+- @gamekits/core@0.1.0-alpha.2
+- @gamekits/event-bus@0.1.0-alpha.2
+- @gamekits/world@0.1.0-alpha.2
 
 ## 0.1.0-alpha.1
 
@@ -63,6 +63,6 @@
 
 - 5a5f227: Merge pull request #1 from ziyu/codex/alpha-package-release
 - Updated dependencies [5a5f227]
-  - @gamekit/core@0.1.0-alpha.1
-  - @gamekit/event-bus@0.1.0-alpha.1
-  - @gamekit/world@0.1.0-alpha.1
+  - @gamekits/core@0.1.0-alpha.1
+  - @gamekits/event-bus@0.1.0-alpha.1
+  - @gamekits/world@0.1.0-alpha.1

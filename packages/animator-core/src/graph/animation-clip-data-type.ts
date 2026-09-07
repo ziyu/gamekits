@@ -1,5 +1,5 @@
-import { DEFAULT_ASSET_DATA_TYPE } from "@gamekit/asset";
-import type { DataTypeDefinition } from "@gamekit/data";
+import { DEFAULT_ASSET_DATA_TYPE } from "@gamekits/asset";
+import type { DataTypeDefinition } from "@gamekits/data";
 import type { AnimationClipDefinition } from "./clip-definition";
 import {
   animatorDataDiagnostic,

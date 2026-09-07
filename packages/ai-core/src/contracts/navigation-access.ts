@@ -3,7 +3,7 @@ import type {
   NavigationQueries,
   NavigationRequestId,
   NavigationRequestResult
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import { createAiNavigationQueries } from "./navigation-queries";
 
 export type AiNavigationAccess = {

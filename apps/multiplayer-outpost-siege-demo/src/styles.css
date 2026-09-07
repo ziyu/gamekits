@@ -1081,13 +1081,13 @@ kbd {
   font-size: 32px !important;
 }
 
-.gamekit-devtools-launcher {
+.gamekits-devtools-launcher {
   opacity: 0.52;
   transition:
     opacity 140ms ease,
     transform 140ms ease;
 }
-.gamekit-devtools-launcher:hover {
+.gamekits-devtools-launcher:hover {
   opacity: 1;
   transform: translateY(-1px);
 }

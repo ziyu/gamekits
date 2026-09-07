@@ -1,19 +1,19 @@
-import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekit/data";
+import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekits/data";
 import {
   createNavigationAgentProfileDataType,
   createNavigationLayoutDataType,
   type NavigationLayoutDefinition
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import {
   createNavigationNavMeshDataType,
   NAVIGATION_NAVMESH_SOURCE_TYPE,
   type NavigationNavMeshSource
-} from "@gamekit/navigation-navmesh";
+} from "@gamekits/navigation-navmesh";
 import {
   createRecastNavigationBackendFactory,
   prepareRecastNavigationArtifact,
   type NavigationRecastBuildArtifact
-} from "@gamekit/navigation-recast";
+} from "@gamekits/navigation-recast";
 import { NAVIGATION_LAB_PROFILES } from "../scenario";
 import {
   BLACKGLASS_BLAST_DOOR_AREA_ID,

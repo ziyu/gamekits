@@ -1,8 +1,8 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { createElement } from "react";
 import { describe, expect, it } from "vitest";
-import { createUiRuntime } from "@gamekit/ui-core";
-import { createGameKitUiAnimator, GameKitUiShell, UiPanelHost, UiTip } from "../src";
+import { createUiRuntime } from "@gamekits/ui-core";
+import { createGameKitsUiAnimator, GameKitsUiShell, UiPanelHost, UiTip } from "../src";
 
 describe("react ui", () => {
   it("renders open panels from a UiRuntime", () => {
@@ -12,7 +12,7 @@ describe("react ui", () => {
 
     const html = renderToStaticMarkup(
       createElement(
-        GameKitUiShell,
+        GameKitsUiShell,
         { runtime },
         createElement(UiPanelHost, {
           renderPanel: (panel) => createElement("span", null, String(panel.props))
@@ -22,12 +22,12 @@ describe("react ui", () => {
 
     expect(html).toContain("Actor");
     expect(html).toContain('data-ui-panel="actor"');
-    expect(html).toContain('data-gamekit-ui-shell=""');
-    expect(html).toContain('data-gamekit-theme="gamekit"');
+    expect(html).toContain('data-gamekits-ui-shell=""');
+    expect(html).toContain('data-gamekits-theme="gamekits"');
   });
 
   it("exposes a GSAP-backed UI animator facade", () => {
-    const animator = createGameKitUiAnimator({ reducedMotion: true });
+    const animator = createGameKitsUiAnimator({ reducedMotion: true });
 
     expect(animator.enter).toBeTypeOf("function");
     expect(animator.exit).toBeTypeOf("function");
@@ -39,7 +39,7 @@ describe("react ui", () => {
       createElement(UiTip, { content: "Runtime focus scope" }, createElement("button", null, "?"))
     );
 
-    expect(html).toContain("gamekit-ui-tip");
+    expect(html).toContain("gamekits-ui-tip");
     expect(html).toContain('role="tooltip"');
     expect(html).toContain("Runtime focus scope");
   });

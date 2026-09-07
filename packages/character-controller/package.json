@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/character-controller",
+  "name": "@gamekits/character-controller",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -17,9 +17,9 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/core": "workspace:*",
-    "@gamekit/data": "workspace:*",
-    "@gamekit/physics-core": "workspace:*"
+    "@gamekits/core": "workspace:*",
+    "@gamekits/data": "workspace:*",
+    "@gamekits/physics-core": "workspace:*"
   },
   "files": [
     "dist"
@@ -28,7 +28,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "gamekitBuild": {
+  "gamekitsBuild": {
     "bundleDts": false,
     "entries": [
       "src/index.ts"

@@ -3,7 +3,7 @@ import type {
   PhysicsQuery,
   PhysicsQueryResult,
   PhysicsVector
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 import type { CharacterMotorObservation, CompiledCharacterMotorDefinition } from "../contracts";
 
 export type CharacterGroundProbeSimulation = {

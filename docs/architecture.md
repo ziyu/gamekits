@@ -2,24 +2,24 @@
 
 ## 核心方向
 
-GameKit 采用“薄内核 + 成熟库 + 自定义协议 + Driver / Adapter”的架构。
+GameKits 采用“薄内核 + 成熟库 + 自定义协议 + Driver / Adapter”的架构。
 
-成熟库负责底层能力，GameKit 负责稳定协议、组合边界、数据驱动和可解释性。
+成熟库负责底层能力，GameKits 负责稳定协议、组合边界、数据驱动和可解释性。
 
 当第三方库只实现单个协议时，用 Adapter 接入；当第三方库本身拥有跨 renderer、asset、input、camera 等多个能力的完整运行时，用 Driver 统一持有并派生多个 Adapter。
 
 ## Core-first 语义所有权
 
-每个领域的 `*-core`、facade 或基础协议包是该领域 GameKit 语义的唯一来源。它定义的领域对象、生命周期、状态、错误、snapshot、diagnostics 和 conformance 不能在 adapter、driver、backend 或 app 中再实现一套结构相似但独立推进的平行 runtime。具体包只能把第三方对象映射到 core 协议、持有第三方 native runtime，或组合 core 已提供的创建函数与 helper。
+每个领域的 `*-core`、facade 或基础协议包是该领域 GameKits 语义的唯一来源。它定义的领域对象、生命周期、状态、错误、snapshot、diagnostics 和 conformance 不能在 adapter、driver、backend 或 app 中再实现一套结构相似但独立推进的平行 runtime。具体包只能把第三方对象映射到 core 协议、持有第三方 native runtime，或组合 core 已提供的创建函数与 helper。
 
 接入第三方能力前必须先判断：
 
 - Core 已有概念和行为时，具体包必须复用 core 实现并只补映射；不能因为第三方也有同名概念，就绕过 core 重建 session、world、physics、renderer、input、camera、platform、save 等 facade。
 - Core 已有协议但缺少真实 backend 能力时，由 adapter/driver 调用第三方实现该协议；第三方对象不成为新的业务事实源。
-- 只有 core 没有、且能力确实是 provider/platform/native 专属时，才留在具体包的 typed native boundary。若它后来成为跨 backend 的稳定 GameKit 概念，应先通过 ADR 和真实使用证据上移到对应 core，再由各 adapter 实现。
+- 只有 core 没有、且能力确实是 provider/platform/native 专属时，才留在具体包的 typed native boundary。若它后来成为跨 backend 的稳定 GameKits 概念，应先通过 ADR 和真实使用证据上移到对应 core，再由各 adapter 实现。
 - App 可以拥有玩法、内容和 provider-specific projection，但不能复制框架 core 的通用状态机或 lifecycle。发现 core 缺口时应修正 core 或明确 native escape hatch，不能用 app-local 平行实现长期绕过。
 
-Core-first 不表示把第三方底层能力重写进 core。Room、matchmaker、物理求解器、renderer、文件系统或平台 SDK 仍由成熟库负责；core 只保持 GameKit 稳定语义和组合边界。
+Core-first 不表示把第三方底层能力重写进 core。Room、matchmaker、物理求解器、renderer、文件系统或平台 SDK 仍由成熟库负责；core 只保持 GameKits 稳定语义和组合边界。
 
 决策背景与跨包执行规则见 `docs/adr/0026-core-first-domain-semantic-ownership.md`。
 
@@ -106,11 +106,11 @@ packages/
 
 说明：
 
-- `@gamekit/fx` 不作为独立业务包规划；Effect 可作为 Asset/Data/Save/Platform/Editor 等基础设施包内部实现选择。
-- `@gamekit/animator-core` 只负责语义 Animator graph、controller、layer、transition、marker 和 playback snapshot；clip/mixer、粒子和 native object 仍由 Renderer Adapter / Driver 执行。它不把后端完整动画 API 包装进 Core。
+- `@gamekits/fx` 不作为独立业务包规划；Effect 可作为 Asset/Data/Save/Platform/Editor 等基础设施包内部实现选择。
+- `@gamekits/animator-core` 只负责语义 Animator graph、controller、layer、transition、marker 和 playback snapshot；clip/mixer、粒子和 native object 仍由 Renderer Adapter / Driver 执行。它不把后端完整动画 API 包装进 Core。
 - Combat、AI、Navigation、Animator 和 Audio 都是可选玩法/表现基础包，不进入薄 GameRuntime 内核。新增边界见 `docs/adr/0031-gameplay-foundation-packages-and-agent-ai.md`。
 - `driver-phaser` 是 Phaser 的长期默认集成边界；Phaser 的 asset/input/camera/physics 能力收敛为 driver 内部 adapter，不再以独立单协议 package 暴露。
-- Multiplayer 后端包按 `multiplayer-<backend>` 增加；`multiplayer-core` 定义 GameKit 侧稳定 facade、App Host service shape、GameModule bridge、语义 command、local/remote authority binding、标准复制 helper、prediction transition lifecycle 和 diagnostics。离线单机使用 local authority endpoint 复用同一 gameplay contract；成熟多人 backend 负责 room、matchmaking、reconnect、presence、provider state sync 和 transport；首个真实 backend adapter 是 Colyseus。Backend package 还可以提供 typed room-side server/runtime bridge，让 provider Room 持有 headless App Host 和 authority endpoint，但 bridge 不拥有 app gameplay 或 app Schema。物理预测仍由 `physics-core` 使用 `PhysicsBackendAdapter` 实现可复用 transition，`multiplayer-core` 不反向依赖 Physics。
+- Multiplayer 后端包按 `multiplayer-<backend>` 增加；`multiplayer-core` 定义 GameKits 侧稳定 facade、App Host service shape、GameModule bridge、语义 command、local/remote authority binding、标准复制 helper、prediction transition lifecycle 和 diagnostics。离线单机使用 local authority endpoint 复用同一 gameplay contract；成熟多人 backend 负责 room、matchmaking、reconnect、presence、provider state sync 和 transport；首个真实 backend adapter 是 Colyseus。Backend package 还可以提供 typed room-side server/runtime bridge，让 provider Room 持有 headless App Host 和 authority endpoint，但 bridge 不拥有 app gameplay 或 app Schema。物理预测仍由 `physics-core` 使用 `PhysicsBackendAdapter` 实现可复用 transition，`multiplayer-core` 不反向依赖 Physics。
 - 模块长期设计见 `docs/modules/`。
 
 ## 应用与验证面
@@ -167,22 +167,22 @@ save-indexeddb → save / core / native IndexedDB
 
 禁止方向：
 
-- `@gamekit/world` 依赖 Koota、bitecs 或任意具体 ECS。
-- `@gamekit/renderer-core` 依赖 Phaser、Three.js、DOM-heavy 实现或 ECS。
-- `@gamekit/input-core` 依赖 DOM、Phaser、Tauri。
-- `@gamekit/camera-core` 依赖 Phaser、Three.js。
-- `@gamekit/physics-core` 依赖 Rapier、Matter.js、Phaser、Three.js、Koota 或任意具体物理/ECS/renderer 后端。
-- `@gamekit/combat` 依赖具体游戏、renderer、AI backend 或 native physics 类型。
-- `@gamekit/ai-core` 依赖 XState、Yuka、具体 navigation backend、Physics backend、renderer 或具体游戏。
-- `@gamekit/navigation-core` 依赖 Yuka、Recast、具体 graph/grid/navmesh 库、Physics backend 或 renderer。
-- `@gamekit/navigation-navmesh` 依赖 Recast、navcat 或其他具体生成/查询 runtime；GameKit-owned source contract 不能由某个 adapter 决定。
-- `@gamekit/navigation-recast` 的 Recast/WASM/native poly 类型进入 Navigation Core、Data/Save payload 或 gameplay 公共 API。
-- `@gamekit/animator-core` 依赖 Phaser、Three.js、native clip/mixer 或具体游戏。
-- `@gamekit/audio-core` 依赖 Phaser、Web Audio、Howler 或平台音频 SDK。
-- `@gamekit/driver-core` 依赖 Phaser、Three.js、DOM-heavy implementation 或具体 renderer/input/camera/asset adapter 实现。
+- `@gamekits/world` 依赖 Koota、bitecs 或任意具体 ECS。
+- `@gamekits/renderer-core` 依赖 Phaser、Three.js、DOM-heavy 实现或 ECS。
+- `@gamekits/input-core` 依赖 DOM、Phaser、Tauri。
+- `@gamekits/camera-core` 依赖 Phaser、Three.js。
+- `@gamekits/physics-core` 依赖 Rapier、Matter.js、Phaser、Three.js、Koota 或任意具体物理/ECS/renderer 后端。
+- `@gamekits/combat` 依赖具体游戏、renderer、AI backend 或 native physics 类型。
+- `@gamekits/ai-core` 依赖 XState、Yuka、具体 navigation backend、Physics backend、renderer 或具体游戏。
+- `@gamekits/navigation-core` 依赖 Yuka、Recast、具体 graph/grid/navmesh 库、Physics backend 或 renderer。
+- `@gamekits/navigation-navmesh` 依赖 Recast、navcat 或其他具体生成/查询 runtime；GameKits-owned source contract 不能由某个 adapter 决定。
+- `@gamekits/navigation-recast` 的 Recast/WASM/native poly 类型进入 Navigation Core、Data/Save payload 或 gameplay 公共 API。
+- `@gamekits/animator-core` 依赖 Phaser、Three.js、native clip/mixer 或具体游戏。
+- `@gamekits/audio-core` 依赖 Phaser、Web Audio、Howler 或平台音频 SDK。
+- `@gamekits/driver-core` 依赖 Phaser、Three.js、DOM-heavy implementation 或具体 renderer/input/camera/asset adapter 实现。
 - Phaser/Three 等外部 runtime 由对应 driver package 创建和持有；renderer/input/camera/physics/asset adapter package 不得各自创建同一 runtime。
-- `@gamekit/platform-core` 依赖 Tauri 或浏览器私有 API。
-- `@gamekit/multiplayer-core` 依赖 WebSocket、Colyseus、Nakama、Steam、EOS、Tauri 或任意具体网络 SDK，也不自研通用 room server、matchmaker、reconnect engine、presence store 或 state sync engine。
+- `@gamekits/platform-core` 依赖 Tauri 或浏览器私有 API。
+- `@gamekits/multiplayer-core` 依赖 WebSocket、Colyseus、Nakama、Steam、EOS、Tauri 或任意具体网络 SDK，也不自研通用 room server、matchmaker、reconnect engine、presence store 或 state sync engine。
 - Multiplayer backend adapter 的第三方 SDK 类型不得进入 `multiplayer-core`、DataType、Save payload 或可复用 GameModule 公共 API。
 - 可复用 gameplay module、core facade、DataType、TCA/GAS rule、Save payload 不得直接导入 Koota、Phaser、Three.js、GSAP、Tauri、shadcn/ui 等第三方库。
 - 具体 app presentation、Editor 后端专属面板或 DevTools renderer plugin 可以显式依赖对应 adapter / driver 包，并通过 typed native path 使用 Phaser、Three.js 等后端 API；这些依赖不得进入可复用 gameplay 或 core public API。
@@ -191,7 +191,7 @@ save-indexeddb → save / core / native IndexedDB
 
 ## 应用服务与游戏模块
 
-GameKit 必须区分 App Service 和 Game Module，避免 App Host 变成玩法容器，也避免 GameRuntime 直接承担平台和 adapter 生命周期。
+GameKits 必须区分 App Service 和 Game Module，避免 App Host 变成玩法容器，也避免 GameRuntime 直接承担平台和 adapter 生命周期。
 
 判断一个能力更像 App Service：
 
@@ -228,49 +228,49 @@ App Host 可以提供“标准游戏模块”装配入口，但标准游戏模�
 
 长期 package 归属：
 
-| Package                                                                               | 归属                                          | 说明                                                                                                                                                                                       |
-| ------------------------------------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `@gamekit/app-host`                                                                   | App Service / composition                     | 应用组合、service lifecycle、config、diagnostics。                                                                                                                                         |
-| `@gamekit/platform-core`                                                              | App Service facade                            | 平台能力协议。                                                                                                                                                                             |
-| `@gamekit/platform-web` / `@gamekit/platform-tauri`                                   | App Service adapter                           | Web/Tauri 平台能力实现。                                                                                                                                                                   |
-| `@gamekit/driver-core`                                                                | App Service facade                            | 外部 runtime 统一集成协议、adapter map、native boundary、snapshot。                                                                                                                        |
-| `@gamekit/driver-phaser` / `@gamekit/driver-three`                                    | App Service driver                            | 统一持有 Phaser / Three runtime，并暴露 renderer、asset、input、camera、可选 physics adapter。                                                                                             |
-| `@gamekit/data`                                                                       | App Service                                   | 全局内容数据注册、校验、来源追踪。                                                                                                                                                         |
-| `@gamekit/asset`                                                                      | App Service                                   | 资源声明读取、加载状态、adapter 委托。                                                                                                                                                     |
-| `@gamekit/renderer-core`                                                              | App Service facade                            | 渲染对象协议。                                                                                                                                                                             |
-| `@gamekit/renderer-phaser`                                                            | App Service adapter                           | Phaser render object 映射；由 Phaser Driver 绑定共享 runtime，不独立创建 Phaser。                                                                                                          |
-| `@gamekit/input-core`                                                                 | App Service facade + gameplay bridge toolkit  | raw input 归一化、action/context/scope；具体玩法绑定由 GameModule 使用。                                                                                                                   |
-| `@gamekit/input-dom` / `@gamekit/input-tauri`                                         | App Service adapter                           | DOM/Web Gamepad/Tauri 输入来源接入；Phaser runtime input 来源由 Phaser Driver 暴露。                                                                                                       |
-| `@gamekit/camera-core`                                                                | Game Module toolkit                           | CameraController、CameraRig、camera system/action helper；不作为 App Host 标准服务。                                                                                                       |
-| `@gamekit/physics-core`                                                               | Game Module toolkit                           | 统一 Physics facade、body/collider/query/contact 协议、标准 physics module helper。                                                                                                        |
-| `@gamekit/character-controller`                                                       | Game Module toolkit                           | 玩家/AI 共用的 backend-neutral locomotion intent、pure motor、Data 与 diagnostics；通过 Physics 协议输出 patch/command，不拥有输入、AI、表现或多人生命周期。                               |
-| `@gamekit/physics-rapier2d` / `@gamekit/physics-rapier3d` / `@gamekit/physics-matter` | Game Module backend adapter                   | 独立物理库 adapter；Rapier 按 2D / 3D 分包，第三方类型不进入 physics-core 或 gameplay 公共 API。                                                                                           |
-| `@gamekit/combat`                                                                     | Game Module toolkit                           | 通用 effect delivery、target relationship、hit resolution、projectile/hitscan/area executor，以及 kinematic projectile record/reconciliation/presentation transition；不定义具体游戏数值。 |
-| `@gamekit/ai-core`                                                                    | Game Module toolkit                           | 感知记忆、Utility goal、Task lifecycle、预算调度和 trace；不拥有 World、Physics、Navigation backend 或游戏行为。                                                                           |
-| `@gamekit/ai-core/testing`                                                            | Test support                                  | AI runtime conformance 与 framework-neutral memory fixture；不进入业务默认入口。                                                                                                           |
-| `@gamekit/navigation-core`                                                            | Game Module toolkit / facade                  | Path/shared route-field query、layout factory、agent profile、dynamic blocker/cost、异步 request budget 和稳定 Handle。                                                                    |
-| `@gamekit/navigation-core/backend`                                                    | Backend port                                  | submit/poll/cancel/release、revision、route-field sample 和 layout factory；只供 adapter/driver 实现者使用。                                                                               |
-| `@gamekit/navigation-core/testing`                                                    | Test support                                  | Memory/Deferred Backend、conformance 和 framework-neutral fixture；不进入业务默认入口。                                                                                                    |
-| `@gamekit/navigation-graph` / `@gamekit/navigation-grid`                              | Game Module backend adapter                   | 稀疏 authored route 与规则 raster；native node/cell/request token 不进入 Core root API。                                                                                                   |
-| `@gamekit/navigation-navmesh`                                                         | Backend authoring contract                    | GameKit-owned triangle source、build profile、area metadata 和 DataType；不实现具体 baker/query runtime。                                                                                  |
-| `@gamekit/navigation-recast`                                                          | Game Module backend adapter                   | 通过 `recast-navigation` 生成/查询 NavMesh，持有 WASM/native lifecycle；第三方类型不进入 Core 或 gameplay。                                                                                |
-| `@gamekit/animator-core`                                                              | Game Module toolkit                           | 语义 Animator graph、controller、layer、transition、marker 和 playback snapshot；具体 clip/mixer 由 Renderer/Driver adapter 执行。                                                         |
-| `@gamekit/animator-core/playback`                                                     | Playback adapter port                         | Driver/Adapter 实现者使用的 backend-neutral playback frame、batch、reset 和 snapshot 协议；不进入 gameplay 默认入口。                                                                      |
-| `@gamekit/animator-core/testing`                                                      | Test support                                  | Memory Playback Adapter、runtime conformance 和测试类型；不进入业务默认入口。                                                                                                              |
-| `@gamekit/audio-core`                                                                 | App Service facade + presentation bridge      | GameAudio 领域 facade；分别提供 Music、SFX、可选 Dialogue、Mix、Spatial 和共享 Playback 语义，具体 native channel/DSP/runtime 由 Adapter/Driver 持有。                                     |
-| `@gamekit/tca`                                                                        | Game Module                                   | 数据驱动规则 runtime，通过标准 GameModule 无痛安装。                                                                                                                                       |
-| `@gamekit/gas`                                                                        | Game Module                                   | 通用 Actor/Ability/Effect runtime；热状态落在 World component，复用 TCA。                                                                                                                  |
-| `@gamekit/multiplayer-core`                                                           | 混合：App Service facade + Game Module bridge | GameKit 侧连接 facade、语义 command、local/remote authority binding、标准复制 helper、diagnostics 和 bridge；不拥有 provider room/matchmaker/reconnect/state-sync engine 或具体玩法逻辑。  |
-| `@gamekit/multiplayer-memory`                                                         | Test backend adapter                          | 本地 loopback 和 deterministic conformance fixture；不代表生产多人 backend。                                                                                                               |
-| `@gamekit/multiplayer-colyseus`                                                       | App Service backend adapter                   | 首个成熟多人 backend adapter；Colyseus 拥有 Room、matchmaking、state sync、reconnect 和 transport，并可提供不包含 app 玩法/Schema 的 typed room-side server/runtime bridge。               |
-| `@gamekit/ui-core`                                                                    | App/UI toolkit                                | UI 状态、window、focus 协议；gameplay 不直接依赖 React。                                                                                                                                   |
-| `@gamekit/react-ui`                                                                   | App/UI adapter                                | React UI 实现。                                                                                                                                                                            |
-| `@gamekit/save`                                                                       | 混合：App Service + Game Module bridge        | 存储 adapter 和 profile 是应用服务；snapshot capture/restore 是游戏模块桥接。                                                                                                              |
-| `@gamekit/devtools`                                                                   | App Service / tooling                         | 观察 Host、Data、Physics、TCA、GAS、Multiplayer、profiler，不进入 gameplay loop。                                                                                                          |
-| `@gamekit/devtools-ui`                                                                | App/tooling UI package                        | DevTools launcher、shell、标准面板；依赖 DevTools runtime，不进入 gameplay loop。                                                                                                          |
-| `@gamekit/world`                                                                      | Runtime facade                                | ECS facade；基础 `GameWorld` 保持最小 CRUD/query，可选 `CheckpointGameWorld` 提供稳定 identity restore。                                                                                   |
-| `@gamekit/world-koota`                                                                | Runtime adapter                               | Koota adapter；实现基础 facade 与可选稳定 identity checkpoint capability。                                                                                                                 |
-| `@gamekit/core` / `@gamekit/event-bus` / `@gamekit/game-runtime`                      | Core Runtime                                  | 薄内核、事件、GameModule lifecycle。                                                                                                                                                       |
+| Package                                                                                  | 归属                                          | 说明                                                                                                                                                                                       |
+| ---------------------------------------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `@gamekits/app-host`                                                                     | App Service / composition                     | 应用组合、service lifecycle、config、diagnostics。                                                                                                                                         |
+| `@gamekits/platform-core`                                                                | App Service facade                            | 平台能力协议。                                                                                                                                                                             |
+| `@gamekits/platform-web` / `@gamekits/platform-tauri`                                    | App Service adapter                           | Web/Tauri 平台能力实现。                                                                                                                                                                   |
+| `@gamekits/driver-core`                                                                  | App Service facade                            | 外部 runtime 统一集成协议、adapter map、native boundary、snapshot。                                                                                                                        |
+| `@gamekits/driver-phaser` / `@gamekits/driver-three`                                     | App Service driver                            | 统一持有 Phaser / Three runtime，并暴露 renderer、asset、input、camera、可选 physics adapter。                                                                                             |
+| `@gamekits/data`                                                                         | App Service                                   | 全局内容数据注册、校验、来源追踪。                                                                                                                                                         |
+| `@gamekits/asset`                                                                        | App Service                                   | 资源声明读取、加载状态、adapter 委托。                                                                                                                                                     |
+| `@gamekits/renderer-core`                                                                | App Service facade                            | 渲染对象协议。                                                                                                                                                                             |
+| `@gamekits/renderer-phaser`                                                              | App Service adapter                           | Phaser render object 映射；由 Phaser Driver 绑定共享 runtime，不独立创建 Phaser。                                                                                                          |
+| `@gamekits/input-core`                                                                   | App Service facade + gameplay bridge toolkit  | raw input 归一化、action/context/scope；具体玩法绑定由 GameModule 使用。                                                                                                                   |
+| `@gamekits/input-dom` / `@gamekits/input-tauri`                                          | App Service adapter                           | DOM/Web Gamepad/Tauri 输入来源接入；Phaser runtime input 来源由 Phaser Driver 暴露。                                                                                                       |
+| `@gamekits/camera-core`                                                                  | Game Module toolkit                           | CameraController、CameraRig、camera system/action helper；不作为 App Host 标准服务。                                                                                                       |
+| `@gamekits/physics-core`                                                                 | Game Module toolkit                           | 统一 Physics facade、body/collider/query/contact 协议、标准 physics module helper。                                                                                                        |
+| `@gamekits/character-controller`                                                         | Game Module toolkit                           | 玩家/AI 共用的 backend-neutral locomotion intent、pure motor、Data 与 diagnostics；通过 Physics 协议输出 patch/command，不拥有输入、AI、表现或多人生命周期。                               |
+| `@gamekits/physics-rapier2d` / `@gamekits/physics-rapier3d` / `@gamekits/physics-matter` | Game Module backend adapter                   | 独立物理库 adapter；Rapier 按 2D / 3D 分包，第三方类型不进入 physics-core 或 gameplay 公共 API。                                                                                           |
+| `@gamekits/combat`                                                                       | Game Module toolkit                           | 通用 effect delivery、target relationship、hit resolution、projectile/hitscan/area executor，以及 kinematic projectile record/reconciliation/presentation transition；不定义具体游戏数值。 |
+| `@gamekits/ai-core`                                                                      | Game Module toolkit                           | 感知记忆、Utility goal、Task lifecycle、预算调度和 trace；不拥有 World、Physics、Navigation backend 或游戏行为。                                                                           |
+| `@gamekits/ai-core/testing`                                                              | Test support                                  | AI runtime conformance 与 framework-neutral memory fixture；不进入业务默认入口。                                                                                                           |
+| `@gamekits/navigation-core`                                                              | Game Module toolkit / facade                  | Path/shared route-field query、layout factory、agent profile、dynamic blocker/cost、异步 request budget 和稳定 Handle。                                                                    |
+| `@gamekits/navigation-core/backend`                                                      | Backend port                                  | submit/poll/cancel/release、revision、route-field sample 和 layout factory；只供 adapter/driver 实现者使用。                                                                               |
+| `@gamekits/navigation-core/testing`                                                      | Test support                                  | Memory/Deferred Backend、conformance 和 framework-neutral fixture；不进入业务默认入口。                                                                                                    |
+| `@gamekits/navigation-graph` / `@gamekits/navigation-grid`                               | Game Module backend adapter                   | 稀疏 authored route 与规则 raster；native node/cell/request token 不进入 Core root API。                                                                                                   |
+| `@gamekits/navigation-navmesh`                                                           | Backend authoring contract                    | GameKits-owned triangle source、build profile、area metadata 和 DataType；不实现具体 baker/query runtime。                                                                                 |
+| `@gamekits/navigation-recast`                                                            | Game Module backend adapter                   | 通过 `recast-navigation` 生成/查询 NavMesh，持有 WASM/native lifecycle；第三方类型不进入 Core 或 gameplay。                                                                                |
+| `@gamekits/animator-core`                                                                | Game Module toolkit                           | 语义 Animator graph、controller、layer、transition、marker 和 playback snapshot；具体 clip/mixer 由 Renderer/Driver adapter 执行。                                                         |
+| `@gamekits/animator-core/playback`                                                       | Playback adapter port                         | Driver/Adapter 实现者使用的 backend-neutral playback frame、batch、reset 和 snapshot 协议；不进入 gameplay 默认入口。                                                                      |
+| `@gamekits/animator-core/testing`                                                        | Test support                                  | Memory Playback Adapter、runtime conformance 和测试类型；不进入业务默认入口。                                                                                                              |
+| `@gamekits/audio-core`                                                                   | App Service facade + presentation bridge      | GameAudio 领域 facade；分别提供 Music、SFX、可选 Dialogue、Mix、Spatial 和共享 Playback 语义，具体 native channel/DSP/runtime 由 Adapter/Driver 持有。                                     |
+| `@gamekits/tca`                                                                          | Game Module                                   | 数据驱动规则 runtime，通过标准 GameModule 无痛安装。                                                                                                                                       |
+| `@gamekits/gas`                                                                          | Game Module                                   | 通用 Actor/Ability/Effect runtime；热状态落在 World component，复用 TCA。                                                                                                                  |
+| `@gamekits/multiplayer-core`                                                             | 混合：App Service facade + Game Module bridge | GameKits 侧连接 facade、语义 command、local/remote authority binding、标准复制 helper、diagnostics 和 bridge；不拥有 provider room/matchmaker/reconnect/state-sync engine 或具体玩法逻辑。 |
+| `@gamekits/multiplayer-memory`                                                           | Test backend adapter                          | 本地 loopback 和 deterministic conformance fixture；不代表生产多人 backend。                                                                                                               |
+| `@gamekits/multiplayer-colyseus`                                                         | App Service backend adapter                   | 首个成熟多人 backend adapter；Colyseus 拥有 Room、matchmaking、state sync、reconnect 和 transport，并可提供不包含 app 玩法/Schema 的 typed room-side server/runtime bridge。               |
+| `@gamekits/ui-core`                                                                      | App/UI toolkit                                | UI 状态、window、focus 协议；gameplay 不直接依赖 React。                                                                                                                                   |
+| `@gamekits/react-ui`                                                                     | App/UI adapter                                | React UI 实现。                                                                                                                                                                            |
+| `@gamekits/save`                                                                         | 混合：App Service + Game Module bridge        | 存储 adapter 和 profile 是应用服务；snapshot capture/restore 是游戏模块桥接。                                                                                                              |
+| `@gamekits/devtools`                                                                     | App Service / tooling                         | 观察 Host、Data、Physics、TCA、GAS、Multiplayer、profiler，不进入 gameplay loop。                                                                                                          |
+| `@gamekits/devtools-ui`                                                                  | App/tooling UI package                        | DevTools launcher、shell、标准面板；依赖 DevTools runtime，不进入 gameplay loop。                                                                                                          |
+| `@gamekits/world`                                                                        | Runtime facade                                | ECS facade；基础 `GameWorld` 保持最小 CRUD/query，可选 `CheckpointGameWorld` 提供稳定 identity restore。                                                                                   |
+| `@gamekits/world-koota`                                                                  | Runtime adapter                               | Koota adapter；实现基础 facade 与可选稳定 identity checkpoint capability。                                                                                                                 |
+| `@gamekits/core` / `@gamekits/event-bus` / `@gamekits/game-runtime`                      | Core Runtime                                  | 薄内核、事件、GameModule lifecycle。                                                                                                                                                       |
 
 ## 模块设计索引
 
@@ -334,7 +334,7 @@ Input 是独立系统，负责 raw input、action mapping、context、focus 和 
 
 Input 使用 scope 表达输入事件当前所属交互域，例如 `game`、`ui`、`editor`、`text-input` 或 `devtools`。Action 和 Context 都可以声明允许的 scope，避免 gameplay/camera 快捷键在非游戏窗口误触发。
 
-Input source 同时支持事件型与 polling 型 adapter。Polling source 通过可选 `poll(frame)` 接受 App Host 的统一 frame/clock；标准 Input service 每帧先按注册顺序 poll source，再由 Input Router 产生 held Action。Source 不创建私有 RAF/timer，stop/disconnect/scope 变化必须取消 active control。Web Gamepad API 由 `@gamekit/input-dom` adapter 持有，不归 Phaser Driver；Phaser Web app 在组合层同时安装 Phaser pointer、DOM keyboard 和 Web Gamepad source。
+Input source 同时支持事件型与 polling 型 adapter。Polling source 通过可选 `poll(frame)` 接受 App Host 的统一 frame/clock；标准 Input service 每帧先按注册顺序 poll source，再由 Input Router 产生 held Action。Source 不创建私有 RAF/timer，stop/disconnect/scope 变化必须取消 active control。Web Gamepad API 由 `@gamekits/input-dom` adapter 持有，不归 Phaser Driver；Phaser Web app 在组合层同时安装 Phaser pointer、DOM keyboard 和 Web Gamepad source。
 
 详细设计见 `docs/modules/input.md`，Web Gamepad 所有权决策见 `docs/adr/0045-web-gamepad-input-source-and-polling.md`。
 
@@ -353,7 +353,7 @@ Kinematic transform 必须区分普通 simulation target 与已完成 tick 的 a
 Multiplayer/App 不能在 Renderer 中另建 authority transform 旁路。具体语义见
 `docs/adr/0055-kinematic-target-and-authority-correction.md`。
 
-独立物理库使用 `@gamekit/physics-*` adapter。Phaser Arcade / Matter Physics 这类绑定在 Phaser Scene runtime 内的能力由 `@gamekit/driver-phaser` 持有外部 runtime，再暴露 physics backend adapter；adapter 不单独创建 Phaser.Game 或 Scene。Gameplay 通过 World component、Physics query 和低频 contact event 消费物理事实，不保存 backend native handle、broadphase cache 或 contact manifold。
+独立物理库使用 `@gamekits/physics-*` adapter。Phaser Arcade / Matter Physics 这类绑定在 Phaser Scene runtime 内的能力由 `@gamekits/driver-phaser` 持有外部 runtime，再暴露 physics backend adapter；adapter 不单独创建 Phaser.Game 或 Scene。Gameplay 通过 World component、Physics query 和低频 contact event 消费物理事实，不保存 backend native handle、broadphase cache 或 contact manifold。
 
 Fixed-step Physics module 可以提供 opt-in transient interpolation store 给 Renderer sync 和 Camera follow target 共用。该 store 不改变 World authority、Save 或 multiplayer snapshot，也不成为 Renderer/Camera 对 Physics 的包级依赖；组合层负责显式注入，并通过可选 policy 提供游戏尺度相关的不连续判定或表现曲线，Physics Core 不写死玩法阈值。
 
@@ -391,7 +391,7 @@ Audio Core 的首层 API 按游戏音频领域拆分：MusicPlayer 管理音乐�
 
 Platform 隔离 Web/Tauri/未来平台差异。文件、窗口、权限、路径、存储和系统能力都通过 platform-core。
 
-`@gamekit/platform-web` 的 memory profile helper 只为 headless、SSR 和 deterministic composition 提供显式隔离的 memory fs/storage；它不读取 browser storage，也不替代未来生产 Node/server platform adapter。调用方可以覆盖 runtime id，并通过同一个 PlatformRuntime 协议注入 AppProfile。
+`@gamekits/platform-web` 的 memory profile helper 只为 headless、SSR 和 deterministic composition 提供显式隔离的 memory fs/storage；它不读取 browser storage，也不替代未来生产 Node/server platform adapter。调用方可以覆盖 runtime id，并通过同一个 PlatformRuntime 协议注入 AppProfile。
 
 详细设计见 `docs/modules/platform.md`。存档文件替换、加载预检和生命周期失败边界遵循 `docs/adr/0056-runtime-failure-and-save-commit-contracts.md`。
 
@@ -405,25 +405,25 @@ UI focus 必须能和 Input Scope / Context 协作，确保文本输入、Inspec
 
 UI style/theme 属于 React UI / app 层，不进入 `ui-core`。游戏应能定义自己的主题、CSS variables、组件库和视觉语言；`react-ui` 提供默认工具型样式和组织方式，但不把某个具体游戏皮肤上推成框架协议。
 
-`@gamekit/react-ui` 的默认实现以 Tailwind CSS 作为样式基础、GSAP 作为低频 UI 动效基础，并推荐 shadcn/ui 作为组件 recipe 最佳实践。这些依赖不能泄漏到 `ui-core`、GameRuntime、gameplay module、DataType、TCA/GAS 协议或 renderer adapter。
+`@gamekits/react-ui` 的默认实现以 Tailwind CSS 作为样式基础、GSAP 作为低频 UI 动效基础，并推荐 shadcn/ui 作为组件 recipe 最佳实践。这些依赖不能泄漏到 `ui-core`、GameRuntime、gameplay module、DataType、TCA/GAS 协议或 renderer adapter。
 
 详细设计见 `docs/modules/ui.md`。
 
 ### DevTools UI
 
-DevTools 的运行时协议和可视化实现必须拆开。`@gamekit/devtools` 只负责 data source、trace、diagnostic、profiler、panel metadata 和 command；`@gamekit/devtools-ui` 负责 DevTools launcher、shell、标准面板、DevTools focus bridge 和 React 渲染实现。
+DevTools 的运行时协议和可视化实现必须拆开。`@gamekits/devtools` 只负责 data source、trace、diagnostic、profiler、panel metadata 和 command；`@gamekits/devtools-ui` 负责 DevTools launcher、shell、标准面板、DevTools focus bridge 和 React 渲染实现。
 
-`@gamekit/react-ui` 不承载 DevTools 专用面板。它只提供通用 panel/window/modal/style/focus 基础设施，供 `@gamekit/devtools-ui` 和普通游戏 UI 复用。App Host 可以在 `devtools: true` 时注册 DevTools runtime、标准 sources 和 UI panel metadata，但不直接 import 或渲染 `@gamekit/devtools-ui`。
+`@gamekits/react-ui` 不承载 DevTools 专用面板。它只提供通用 panel/window/modal/style/focus 基础设施，供 `@gamekits/devtools-ui` 和普通游戏 UI 复用。App Host 可以在 `devtools: true` 时注册 DevTools runtime、标准 sources 和 UI panel metadata，但不直接 import 或渲染 `@gamekits/devtools-ui`。
 
-普通 Web 游戏模板应默认安装并挂载 `@gamekit/devtools-ui`。因此在标准 Web bootstrap 中配置 `devtools: true` 后，应自动出现 DevTools 入口；headless app 或未安装 DevTools UI 的自定义 shell 只获得 DevToolsRuntime 和 sources。
+普通 Web 游戏模板应默认安装并挂载 `@gamekits/devtools-ui`。因此在标准 Web bootstrap 中配置 `devtools: true` 后，应自动出现 DevTools 入口；headless app 或未安装 DevTools UI 的自定义 shell 只获得 DevToolsRuntime 和 sources。
 
 详细设计见 `docs/modules/devtools.md`。
 
 ### Data
 
-Data 是全局内容数据层。DataPack 是数据交付单元，不是完整 Content Package，也不是内容分类模型；每条数据通过 `type + id` 声明自己的 DataType，DataRegistry 负责按类型注册、校验、索引和追踪引用。DataType 可以由 GameKit 内置，也可以由游戏项目、插件、mod 或编辑器自定义。
+Data 是全局内容数据层。DataPack 是数据交付单元，不是完整 Content Package，也不是内容分类模型；每条数据通过 `type + id` 声明自己的 DataType，DataRegistry 负责按类型注册、校验、索引和追踪引用。DataType 可以由 GameKits 内置，也可以由游戏项目、插件、mod 或编辑器自定义。
 
-GameKit 只要求进入 DataRegistry 的数据有 `type + id` 这类弱约束，不强制开发者采用框架预设的 hero、monster、building、quest 模板。游戏可以自由定义 `game.hero`、`game.monster`、`game.building` 等类型，并选择性引用 GAS、TCA、Renderer、Asset 等内置类型。
+GameKits 只要求进入 DataRegistry 的数据有 `type + id` 这类弱约束，不强制开发者采用框架预设的 hero、monster、building、quest 模板。游戏可以自由定义 `game.hero`、`game.monster`、`game.building` 等类型，并选择性引用 GAS、TCA、Renderer、Asset 等内置类型。
 
 详细设计见 `docs/modules/data.md`。
 
@@ -437,7 +437,7 @@ Assets 是资源加载运行时。AssetDefinition 作为 `asset.definition` Data
 
 Save 负责长期运行状态的 capture、store、load、restore 和 migration。Save 是混合能力：slot 管理、store、codec、migration registry 属于 App Service；World、Physics、TCA、GAS、Camera 和游戏自定义状态通过 GameModule / contributor bridge 提供 capture 与 restore。
 
-`@gamekit/save` 只定义协议、manager、store、codec、migration 和 contributor registry，不直接依赖 GAS、TCA、Camera、Renderer、React、Koota、Phaser 或具体 app。GAS/TCA 等包可以各自提供 save contributor helper，App Host 通过 `services.save` 统一管理生命周期和 diagnostics。
+`@gamekits/save` 只定义协议、manager、store、codec、migration 和 contributor registry，不直接依赖 GAS、TCA、Camera、Renderer、React、Koota、Phaser 或具体 app。GAS/TCA 等包可以各自提供 save contributor helper，App Host 通过 `services.save` 统一管理生命周期和 diagnostics。
 
 Save 不复制 DataPack、Content Package 或 Asset binary。存档记录 runtime/gameplay 长期状态和 Data/Asset/Content 的 id/version/compatibility metadata；加载时由 App Host 先准备 Data、Asset 和未来 Content package 环境，再恢复 runtime 状态。
 
@@ -447,7 +447,7 @@ Save 不复制 DataPack、Content Package 或 Asset binary。存档记录 runtim
 
 Multiplayer 负责多人会话、连接、消息、玩家身份映射、authority、命令同步、状态复制和网络诊断。连接、room、presence、reconnect 和 backend handle 属于 App Host 管理的应用服务；命令入站、authority gate、authority binding、EventBus 低频事实和 replication contributor 属于 GameRuntime lifecycle 下的 GameModule bridge。离线单机通过 local authority binding 使用同一套 action/input、tick、snapshot/apply 和 diagnostics contract，不绕出另一套 gameplay runtime。
 
-`@gamekit/multiplayer-core` 定义 GameKit 侧稳定 facade、App Host service shape、GameModule bridge、语义 command、authority decision、authority binding、标准复制 helper、diagnostics 和 adapter conformance helper，不依赖具体网络 SDK，也不自研通用 room server、matchmaker、reconnect、presence 或 provider state sync。Colyseus、Nakama、PartyKit、平台联机 SDK 或其他成熟后端通过 `@gamekit/multiplayer-<backend>` adapter 接入。线上 remote payload 默认是不可信输入，权威 host/server 必须重新验证 command/input 后再改写 gameplay 状态；client 只有绑定到明确 authority endpoint 后才能应用 authoritative snapshot/patch。单机/offline 绑定 local authority endpoint，省略网络 IO，但不省略 authority validation、tick boundary 或 snapshot presentation。
+`@gamekits/multiplayer-core` 定义 GameKits 侧稳定 facade、App Host service shape、GameModule bridge、语义 command、authority decision、authority binding、标准复制 helper、diagnostics 和 adapter conformance helper，不依赖具体网络 SDK，也不自研通用 room server、matchmaker、reconnect、presence 或 provider state sync。Colyseus、Nakama、PartyKit、平台联机 SDK 或其他成熟后端通过 `@gamekits/multiplayer-<backend>` adapter 接入。线上 remote payload 默认是不可信输入，权威 host/server 必须重新验证 command/input 后再改写 gameplay 状态；client 只有绑定到明确 authority endpoint 后才能应用 authoritative snapshot/patch。单机/offline 绑定 local authority endpoint，省略网络 IO，但不省略 authority validation、tick boundary 或 snapshot presentation。
 
 标准 Multiplayer GameModule 可以通过 `clientReplication` 配置启用 Core 托管的客户端复制 lifecycle。Core 自动订阅并验证 authority snapshot、推进 remote playback/declared track projection、按配置频率采样和发送 local input、用有界 prediction-lead window 施加 backpressure、维护 prediction buffer，并根据 snapshot ack 执行 reconciliation/replay/correction smoothing；app 只声明 snapshot decoder、timeline、remote track、deterministic prediction transition、local predicted-state field 和统一的 frame writer，不在网络 callback、外部 render loop 或字段回调中手写调度与标准插值数学。两个真实应用出现相同 decoder/tick/local identity/ack/presentation mapping 后，普通路径可用 `defineMultiplayerReplicationSchema(...)` 和 `defineMultiplayerReplicationEntityPresentation(...)` 把这些声明编译为一个 client binding；managed replication 直接消费 binding，统一拒绝 schema version mismatch、非法 tick 和 decoder failure，并生成 generation-aware presentation key/track。它是可选 typed schema compiler，不递归反射业务对象、不替代 provider serializer，也不要求 NetworkObject 基类；特殊 netcode 仍可传低层 callback。Provider-native state sync 可以通过 provider-neutral `snapshotSource` 替换默认 envelope subscription；该 source 是互斥 authority 输入，可选 `current()` 让 Core 在 binding 就绪后补取 initial full state，provider update sequence 负责同 gameplay tick 内排序，binding/session reset 同时清空其排序水位。Transition 可以提供只读 diagnostics；Physics transition 还可内部复用 sequence checkpoint，避免一致的 solver state 被每份 snapshot 无意义 rewind。权威 World/Physics/Save 与 transient presented/predicted state 始终分离。具体决策见 `docs/adr/0028-managed-client-replication-runtime.md`、`docs/adr/0029-declarative-prediction-state-presentation.md`、`docs/adr/0030-backend-driven-physics-prediction-transition.md` 和 `docs/adr/0048-managed-prediction-domains-and-rollback-contracts.md`。
 
@@ -468,7 +468,7 @@ command 的少量状态必须作为 island auxiliary contributor 一起 capture/
 另跑一套历史。具体决策见 `docs/adr/0049-standard-multiplayer-physics-arena-prediction.md` 和
 `docs/adr/0053-arena-auxiliary-replay-contributors.md`。
 
-`@gamekit/multiplayer-core` 还提供可包裹任意 backend 的确定性 network-condition simulator，使用手动虚拟时钟、固定
+`@gamekits/multiplayer-core` 还提供可包裹任意 backend 的确定性 network-condition simulator，使用手动虚拟时钟、固定
 seed、选择性 message predicate 和有界 delivery queue 注入 latency、jitter、loss 与 duplicate。它只改变消息 delivery，
 不拥有第二套 session、authority 或 prediction clock；真实 provider 行为仍由 adapter integration/e2e 验证。具体决策见
 `docs/adr/0050-deterministic-multiplayer-network-condition-simulator.md`。

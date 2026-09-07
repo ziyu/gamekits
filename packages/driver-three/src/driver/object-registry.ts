@@ -1,5 +1,5 @@
-import { GameError } from "@gamekit/core";
-import type { RenderNodePath } from "@gamekit/renderer-core";
+import { GameError } from "@gamekits/core";
+import type { RenderNodePath } from "@gamekits/renderer-core";
 import type { Object3D } from "three";
 
 export type ThreeRenderRecord = {

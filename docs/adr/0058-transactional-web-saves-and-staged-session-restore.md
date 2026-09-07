@@ -10,7 +10,7 @@ PlatformStorage 的多 key 写入不具备跨窗口事务，进程内队列也�
 
 ## 决策
 
-- 新增具体 adapter 包 @gamekit/save-indexeddb，依赖 Save/Core，使用原生 IndexedDB。浏览器 factory、连接和 transaction 不进入 Save core 或 Platform core。
+- 新增具体 adapter 包 @gamekits/save-indexeddb，依赖 Save/Core，使用原生 IndexedDB。浏览器 factory、连接和 transaction 不进入 Save core 或 Platform core。
 - 每个 slot 使用一个记录保存当前数据、metadata、上一份有效备份和随机 revision。同一个原生 readwrite transaction 校验 revision 并替换记录；事务完成才报告成功，失败保留整个旧记录。
 - 每个连接记住实际读到或成功写入的 revision。已有槽位在覆盖或删除前必须读取；list/exists 不代表接受当前进度。未读或过期写入返回 save.write_conflict，不静默采用 last-writer-wins。
 - 数据和 metadata 一起计算 SHA-256 完整性摘要。主记录损坏时 read/list 选择有效备份并发出诊断；读取恢复不修改数据库。后续写入只把有效版本保留为备份。摘要用于损坏检测，不提供加密或对恶意客户端的认证。

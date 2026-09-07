@@ -1,5 +1,5 @@
-import type { GasAbilityActivation } from "@gamekit/gas";
-import type { EntityId, GameWorld } from "@gamekit/world";
+import type { GasAbilityActivation } from "@gamekits/gas";
+import type { EntityId, GameWorld } from "@gamekits/world";
 import { Actor, Combat, FloatingText, Lifetime, Position, Presentation } from "../components";
 import { distance } from "../math";
 import type { AbyssRuntimeState } from "../runtime-state";

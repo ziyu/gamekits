@@ -1,4 +1,4 @@
-import { GameError } from "@gamekit/core";
+import { GameError } from "@gamekits/core";
 import {
   clonePeer,
   cloneSession,
@@ -16,7 +16,7 @@ import {
   type MultiplayerPhase,
   type MultiplayerSession,
   type MultiplayerSessionKind
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 
 import {
   cloneEnvelope,
@@ -449,7 +449,7 @@ export function createRoomMultiplayerBackend<
       const peerId = peerIdsByConnectionId.get(client.sessionId);
       const record = peerId ? peersById.get(peerId) : undefined;
       if (!record || !isMultiplayerMessageEnvelope(message)) {
-        return rejectMessage("invalid-envelope", "Message is not a valid GameKit envelope.");
+        return rejectMessage("invalid-envelope", "Message is not a valid GameKits envelope.");
       }
       if (message.sessionId !== attachment.sessionId || message.sourcePeerId !== record.peer.id) {
         return rejectMessage(

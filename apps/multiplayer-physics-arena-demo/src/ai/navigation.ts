@@ -3,11 +3,11 @@ import {
   type NavigationQueries,
   type NavigationRequestResult,
   type NavigationRuntime
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import {
   createRecastNavigationBackend,
   prepareRecastNavigationArtifact
-} from "@gamekit/navigation-recast";
+} from "@gamekits/navigation-recast";
 
 import type { CompiledArenaContent } from "../content/registry";
 

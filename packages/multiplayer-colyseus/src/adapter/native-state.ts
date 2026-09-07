@@ -2,16 +2,16 @@ import type {
   MultiplayerAuthorityBinding,
   MultiplayerAuthorityBindingStore,
   MultiplayerAuthorityDecision
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 
-export const GAMEKIT_COLYSEUS_NATIVE_STATE_MESSAGE = "gamekit.native-state";
+export const GAMEKITS_COLYSEUS_NATIVE_STATE_MESSAGE = "gamekits.native-state";
 
-export type ColyseusAuthorityPath = "gamekit-envelope" | "colyseus-schema" | "provider-native";
+export type ColyseusAuthorityPath = "gamekits-envelope" | "colyseus-schema" | "provider-native";
 
 export type ColyseusNativeStateSyncCapability = {
   available: boolean;
   active: boolean;
-  lane: Exclude<ColyseusAuthorityPath, "gamekit-envelope">;
+  lane: Exclude<ColyseusAuthorityPath, "gamekits-envelope">;
   schemaVersion?: string;
 };
 
@@ -39,7 +39,7 @@ export type ColyseusNativeCapabilityInput = {
   authoritativePath?: ColyseusAuthorityPath;
   stateSync?: {
     available?: boolean;
-    lane?: Exclude<ColyseusAuthorityPath, "gamekit-envelope">;
+    lane?: Exclude<ColyseusAuthorityPath, "gamekits-envelope">;
     schemaVersion?: string;
   };
   reconnect?: boolean | ColyseusNativeReconnectCapability;
@@ -122,7 +122,7 @@ export type ColyseusNativeStateBridge = {
 export function createColyseusNativeCapabilitySummary(
   input: ColyseusNativeCapabilityInput = {}
 ): ColyseusNativeCapabilitySummary {
-  const authoritativePath = input.authoritativePath ?? "gamekit-envelope";
+  const authoritativePath = input.authoritativePath ?? "gamekits-envelope";
   const stateSyncLane = input.stateSync?.lane ?? "colyseus-schema";
   const lanes = normalizeLanes(input.lanes, authoritativePath, stateSyncLane);
   const stateSyncAvailable =
@@ -393,9 +393,9 @@ function measureStateBytes<TState>(
 function normalizeLanes(
   lanes: ColyseusAuthorityPath[] | undefined,
   authoritativePath: ColyseusAuthorityPath,
-  stateSyncLane: Exclude<ColyseusAuthorityPath, "gamekit-envelope">
+  stateSyncLane: Exclude<ColyseusAuthorityPath, "gamekits-envelope">
 ): ColyseusAuthorityPath[] {
-  const normalized = new Set<ColyseusAuthorityPath>(lanes ?? ["gamekit-envelope", stateSyncLane]);
+  const normalized = new Set<ColyseusAuthorityPath>(lanes ?? ["gamekits-envelope", stateSyncLane]);
   normalized.add(authoritativePath);
   return [...normalized];
 }

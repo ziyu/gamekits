@@ -1,4 +1,4 @@
-import { GameError } from "@gamekit/core";
+import { GameError } from "@gamekits/core";
 import type { DriverId, DriverRegistry, GameDriver } from "./types";
 
 export function createDriverRegistry(drivers: GameDriver[] = []): DriverRegistry {

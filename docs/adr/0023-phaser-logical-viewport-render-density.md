@@ -6,13 +6,13 @@ Status: Accepted on 2026-07-13.
 
 Canvas 的 CSS viewport、backing-store pixels 和 Phaser camera viewport 可能具有不同尺寸。只按 CSS 尺寸创建 backing store 会在高密度屏幕上降低纹理清晰度；直接放大 Phaser runtime 而不归一化 input 和 camera，又会导致 picking、follow center、zoom 和 overlay 错位。
 
-Phaser 的 `Camera.scrollX/scrollY` 不是 GameKit 的 camera center，也不能在 backing-store viewport 被放大后继续使用只基于逻辑 viewport 推导的 raw scroll。Phaser 提供的 center operation 才能在 native viewport、zoom 和 render density 下保持同一个 world center。
+Phaser 的 `Camera.scrollX/scrollY` 不是 GameKits 的 camera center，也不能在 backing-store viewport 被放大后继续使用只基于逻辑 viewport 推导的 raw scroll。Phaser 提供的 center operation 才能在 native viewport、zoom 和 render density 下保持同一个 world center。
 
 ## Decision
 
-`@gamekit/driver-phaser` 的 Driver-owned render configuration 增加 opt-in `render` options：pixel ratio、antialias、WebGL antialias、round pixels 和 mipmap filter。
+`@gamekits/driver-phaser` 的 Driver-owned render configuration 增加 opt-in `render` options：pixel ratio、antialias、WebGL antialias、round pixels 和 mipmap filter。
 
-- GameKit 的 viewport、CameraState、pointer/action 和 world coordinates 始终使用 logical CSS pixels / world units。
+- GameKits 的 viewport、CameraState、pointer/action 和 world coordinates 始终使用 logical CSS pixels / world units。
 - Driver 可以按 `logicalSize * pixelRatio` 创建 canvas backing store，同时把 canvas CSS size 保持为 logical viewport。
 - Driver input source 在进入 Input Core 前把 Phaser pointer coordinate 归一化回 logical viewport；pointer-lock movement 保留相对 movement 语义。
 - Phaser native zoom 乘以 render pixel ratio，camera adapter 优先调用 runtime `centerOn(centerX, centerY)`；legacy runtime 才回退到 raw scroll mapping。
@@ -24,7 +24,7 @@ Phaser 的 `Camera.scrollX/scrollY` 不是 GameKit 的 camera center，也不能
 
 Positive consequences：
 
-- 高密度 backing store 不改变 GameKit camera、input、picking 和 overlay 的逻辑坐标。
+- 高密度 backing store 不改变 GameKits camera、input、picking 和 overlay 的逻辑坐标。
 - App profile 可以按设备能力限制 pixel ratio，在清晰度和 fill-rate 之间显式取舍。
 - round-pixel 和 texture filtering policy 在 Phaser Driver 统一配置，游戏不直接操作 Phaser runtime。
 

@@ -4,22 +4,22 @@ import {
   createCombatRuntime,
   type CombatDeliveryRequestResult,
   type CombatHitResult
-} from "@gamekit/combat";
-import { createDataRegistry, type DataPack, type DataPackEntry } from "@gamekit/data";
-import { createEventBus } from "@gamekit/event-bus";
+} from "@gamekits/combat";
+import { createDataRegistry, type DataPack, type DataPackEntry } from "@gamekits/data";
+import { createEventBus } from "@gamekits/event-bus";
 import {
   createGasDataTypes,
   createGasRuntime,
   type GasAbilityDefinition,
   type GasActorDefinition,
   type GasEffectDefinition
-} from "@gamekit/gas";
+} from "@gamekits/gas";
 import type {
   PhysicsPredictionIslandCommand,
   PhysicsQueries,
   PhysicsVector
-} from "@gamekit/physics-core";
-import { createKootaWorld } from "@gamekit/world-koota";
+} from "@gamekits/physics-core";
+import { createKootaWorld } from "@gamekits/world-koota";
 
 import type { ArenaCompiledItemDefinition } from "../items/item-definition";
 import type { ArenaImpactLedger } from "../match/impact-ledger";

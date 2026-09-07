@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/multiplayer-colyseus",
+  "name": "@gamekits/multiplayer-colyseus",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -25,8 +25,8 @@
     "@colyseus/schema": "^4.0.27",
     "@colyseus/sdk": "^0.17.43",
     "@colyseus/ws-transport": "^0.17.13",
-    "@gamekit/core": "workspace:*",
-    "@gamekit/multiplayer-core": "workspace:*",
+    "@gamekits/core": "workspace:*",
+    "@gamekits/multiplayer-core": "workspace:*",
     "express": "^5.2.1"
   },
   "files": [
@@ -36,7 +36,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "gamekitBuild": {
+  "gamekitsBuild": {
     "bundleDts": false,
     "entries": [
       "src/index.ts",

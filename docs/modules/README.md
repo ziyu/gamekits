@@ -68,7 +68,7 @@
 - `assets.md`：AssetRef、AssetDefinition、AssetManager、资源来源和加载状态。
 - `tca.md`：Trigger / Condition / Action 规则系统。
 - `gas.md`：Actor、Ability、Effect、Cue、Clue。
-- `multiplayer.md`：成熟多人 backend adapter、GameKit facade、authority、命令同步与状态摘要。
+- `multiplayer.md`：成熟多人 backend adapter、GameKits facade、authority、命令同步与状态摘要。
 - `ui.md`：UI Core、React UI、游戏样式、组件库、窗口与交互层。
 - `save.md`：Save / Load / Migration、slot、store、codec、contributor。
 - `devtools.md`：Trace、Inspector、Profiler。

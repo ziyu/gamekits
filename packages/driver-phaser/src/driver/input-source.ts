@@ -1,4 +1,4 @@
-import type { InputSourceAdapter, NormalizedInputEvent } from "@gamekit/input-core";
+import type { InputSourceAdapter, NormalizedInputEvent } from "@gamekits/input-core";
 import {
   normalizePhaserKeyboardEvent,
   normalizePhaserPointerEvent,

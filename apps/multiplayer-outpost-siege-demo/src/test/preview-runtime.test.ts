@@ -1,5 +1,5 @@
-import { initRapier2dPhysicsBackend } from "@gamekit/physics-rapier2d";
-import { createKootaWorld } from "@gamekit/world-koota";
+import { initRapier2dPhysicsBackend } from "@gamekits/physics-rapier2d";
+import { createKootaWorld } from "@gamekits/world-koota";
 import { beforeAll, describe, expect, it } from "vitest";
 import { createOutpostDataRegistry } from "../content";
 import {
@@ -9,7 +9,7 @@ import {
   OUTPOST_PREVIEW_PLAYER_ID,
   type OutpostInputState
 } from "../gameplay";
-import type { PhysicsBackendAdapter } from "@gamekit/physics-core";
+import type { PhysicsBackendAdapter } from "@gamekits/physics-core";
 import { resolveOutpostKeyboardScope } from "../profiles";
 
 describe("Outpost physical preview runtime", () => {

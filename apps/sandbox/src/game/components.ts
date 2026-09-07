@@ -1,5 +1,5 @@
-import type { RenderNodePath, RenderObjectDefinition } from "@gamekit/renderer-core";
-import { defineComponent } from "@gamekit/world";
+import type { RenderNodePath, RenderObjectDefinition } from "@gamekits/renderer-core";
+import { defineComponent } from "@gamekits/world";
 
 export type SandboxSceneRole =
   | "campfire"

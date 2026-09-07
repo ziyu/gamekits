@@ -1,4 +1,4 @@
-import { createDataRegistry, type DataPack } from "@gamekit/data";
+import { createDataRegistry, type DataPack } from "@gamekits/data";
 import { describe, expect, it } from "vitest";
 import {
   createNavigationNavMeshDataType,

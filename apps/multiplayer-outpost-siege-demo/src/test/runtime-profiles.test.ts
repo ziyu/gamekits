@@ -1,8 +1,8 @@
-import { createConfiguredAppHost } from "@gamekit/app-host";
-import type { AssetDefinition, AssetLoaderAdapter } from "@gamekit/asset";
-import { createMemoryPhysicsBackend } from "@gamekit/physics-core";
-import { createMemoryPlatform } from "@gamekit/platform-web";
-import { createUiRuntime } from "@gamekit/ui-core";
+import { createConfiguredAppHost } from "@gamekits/app-host";
+import type { AssetDefinition, AssetLoaderAdapter } from "@gamekits/asset";
+import { createMemoryPhysicsBackend } from "@gamekits/physics-core";
+import { createMemoryPlatform } from "@gamekits/platform-web";
+import { createUiRuntime } from "@gamekits/ui-core";
 import { describe, expect, it } from "vitest";
 import { outpostAppDefinition } from "../app-definition";
 import {

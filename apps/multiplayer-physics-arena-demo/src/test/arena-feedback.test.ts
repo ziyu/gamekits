@@ -1,5 +1,5 @@
-import { createMemoryAudioBackend } from "@gamekit/audio-core/testing";
-import type { PhysicsPredictionIslandStateSnapshot } from "@gamekit/physics-core";
+import { createMemoryAudioBackend } from "@gamekits/audio-core/testing";
+import type { PhysicsPredictionIslandStateSnapshot } from "@gamekits/physics-core";
 import { describe, expect, it } from "vitest";
 
 import { createArenaGameAudio, ARENA_AUDIO_IDS } from "../client/arena-audio-content";

@@ -1,4 +1,4 @@
-import { defineGameApp } from "@gamekit/app-host";
+import { defineGameApp } from "@gamekits/app-host";
 
 export const ANIMATOR_LAB_RENDER_SIZE = Object.freeze({ width: 720, height: 400 });
 

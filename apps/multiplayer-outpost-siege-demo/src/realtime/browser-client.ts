@@ -2,13 +2,13 @@ import {
   createColyseusMultiplayerBackend,
   type ColyseusMultiplayerNative,
   type ColyseusNativeStateUpdate
-} from "@gamekit/multiplayer-colyseus";
+} from "@gamekits/multiplayer-colyseus";
 import {
   createMultiplayerRuntime,
   type MultiplayerClientReplicationSnapshotSource,
   type MultiplayerMessageEnvelope,
   type MultiplayerRuntime
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 
 import { OUTPOST_BROWSER_CONFIG_PATH } from "./browser-protocol";
 import { OUTPOST_COLYSEUS_SCHEMA_VERSION, readOutpostColyseusStateUpdate } from "./colyseus-state";

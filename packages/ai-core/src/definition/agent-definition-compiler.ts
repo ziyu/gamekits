@@ -1,4 +1,4 @@
-import type { DataRegistry } from "@gamekit/data";
+import type { DataRegistry } from "@gamekits/data";
 import { createAiError } from "../contracts/errors";
 import { AI_AGENT_TYPE, AI_GOAL_TYPE, AI_SENSOR_TYPE, AI_TASK_TYPE } from "./ai-data-types";
 import type { AiAgentDefinition } from "./agent-definition";

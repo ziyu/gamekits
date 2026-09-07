@@ -1,10 +1,10 @@
-import type { AssetDiagnosticEvent, AssetLoaderAdapter, AssetManager } from "@gamekit/asset";
-import type { CreateGameAudioOptions, GameAudio } from "@gamekit/audio-core";
-import type { AudioBackend } from "@gamekit/audio-core/backend";
-import type { CameraController, CameraState2D, PointLike } from "@gamekit/camera-core";
-import type { CreateCombatModuleConfig, CombatHandle } from "@gamekit/combat";
-import type { GameModule } from "@gamekit/core";
-import type { DataPack, DataRegistry, DataTypeDefinition } from "@gamekit/data";
+import type { AssetDiagnosticEvent, AssetLoaderAdapter, AssetManager } from "@gamekits/asset";
+import type { CreateGameAudioOptions, GameAudio } from "@gamekits/audio-core";
+import type { AudioBackend } from "@gamekits/audio-core/backend";
+import type { CameraController, CameraState2D, PointLike } from "@gamekits/camera-core";
+import type { CreateCombatModuleConfig, CombatHandle } from "@gamekits/combat";
+import type { GameModule } from "@gamekits/core";
+import type { DataPack, DataRegistry, DataTypeDefinition } from "@gamekits/data";
 import type {
   DevToolsCommandDefinition,
   DevToolsDataSource,
@@ -12,19 +12,19 @@ import type {
   DevToolsRuntime,
   DevToolsRuntimeOptions,
   DevToolsUiOptions
-} from "@gamekit/devtools";
-import type { DriverBootContext, DriverRegistry, GameDriver } from "@gamekit/driver-core";
-import type { GasHandle, GasRuntime, GasTraceStore } from "@gamekit/gas";
-import type { GameInstallContext, GameRuntime } from "@gamekit/game-runtime";
-import type { InputDevice, InputRouter, InputSourceAdapter } from "@gamekit/input-core";
-import type { CreateAiModuleOptions, AiHandle } from "@gamekit/ai-core";
-import type { CreateAnimatorModuleOptions, AnimatorHandle } from "@gamekit/animator-core";
+} from "@gamekits/devtools";
+import type { DriverBootContext, DriverRegistry, GameDriver } from "@gamekits/driver-core";
+import type { GasHandle, GasRuntime, GasTraceStore } from "@gamekits/gas";
+import type { GameInstallContext, GameRuntime } from "@gamekits/game-runtime";
+import type { InputDevice, InputRouter, InputSourceAdapter } from "@gamekits/input-core";
+import type { CreateAiModuleOptions, AiHandle } from "@gamekits/ai-core";
+import type { CreateAnimatorModuleOptions, AnimatorHandle } from "@gamekits/animator-core";
 import type {
   MultiplayerClientReplicationOptions,
   MultiplayerModuleOptions,
   MultiplayerPresentationBridgeOptions,
   MultiplayerRuntime
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import type {
   PhysicsBackendAdapter,
   PhysicsEventPolicy,
@@ -33,10 +33,10 @@ import type {
   PhysicsSceneConfig,
   PhysicsTraceStore,
   PhysicsWorldBindings
-} from "@gamekit/physics-core";
-import type { PlatformRuntime } from "@gamekit/platform-core";
-import type { CreateNavigationModuleOptions, NavigationHandle } from "@gamekit/navigation-core";
-import type { RendererAdapter, RendererBootContext } from "@gamekit/renderer-core";
+} from "@gamekits/physics-core";
+import type { PlatformRuntime } from "@gamekits/platform-core";
+import type { CreateNavigationModuleOptions, NavigationHandle } from "@gamekits/navigation-core";
+import type { RendererAdapter, RendererBootContext } from "@gamekits/renderer-core";
 import type {
   SaveCodec,
   SaveCompatibilityMetadata,
@@ -46,9 +46,9 @@ import type {
   SaveMigrationRegistry,
   SaveStore,
   SaveVersion
-} from "@gamekit/save";
-import type { TcaDefinitionSet, TcaHandle, TcaTraceStore, TcaRuntime } from "@gamekit/tca";
-import type { UiRuntime } from "@gamekit/ui-core";
+} from "@gamekits/save";
+import type { TcaDefinitionSet, TcaHandle, TcaTraceStore, TcaRuntime } from "@gamekits/tca";
+import type { UiRuntime } from "@gamekits/ui-core";
 import type {
   AppAdapterRegistry,
   AppServiceFactory,

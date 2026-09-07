@@ -2,10 +2,10 @@ import {
   createCombatDataTypes,
   type CombatDeliveryDefinition,
   type CombatProjectileDefinition
-} from "@gamekit/combat";
-import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekit/data";
-import { createGasDataTypes } from "@gamekit/gas";
-import { createPhysicsDataTypes } from "@gamekit/physics-core";
+} from "@gamekits/combat";
+import { createDataRegistry, type DataPack, type DataRegistry } from "@gamekits/data";
+import { createGasDataTypes } from "@gamekits/gas";
+import { createPhysicsDataTypes } from "@gamekits/physics-core";
 
 export const COMBAT_RANGE_IDS = {
   operatorActor: "range.actor.operator",

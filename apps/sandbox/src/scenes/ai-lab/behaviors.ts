@@ -5,8 +5,8 @@ import type {
   AiTaskContext,
   AiTaskExecutor,
   AiUtilityInputResolver
-} from "@gamekit/ai-core";
-import type { NavigationPoint } from "@gamekit/navigation-core";
+} from "@gamekits/ai-core";
+import type { NavigationPoint } from "@gamekits/navigation-core";
 import { AI_LAB_NAVIGATION_PROFILE } from "./capabilities";
 import { AI_LAB_AGENT_PREFIX } from "./content";
 import { AiLabCreature, AiLabPosition, AiLabResource } from "./ecosystem";

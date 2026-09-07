@@ -1,5 +1,5 @@
-import { defineGameModule } from "@gamekit/core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import { defineGameModule } from "@gamekits/core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import { Actor, Combat, Loot, Position } from "../components";
 import type { AbyssRuntimeState } from "../runtime-state";
 import { addRecentLoot } from "../runtime-state";

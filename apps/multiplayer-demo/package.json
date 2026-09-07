@@ -10,11 +10,11 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/event-bus": "workspace:*",
-    "@gamekit/game-runtime": "workspace:*",
-    "@gamekit/multiplayer-colyseus": "workspace:*",
-    "@gamekit/multiplayer-core": "workspace:*",
-    "@gamekit/world-koota": "workspace:*"
+    "@gamekits/event-bus": "workspace:*",
+    "@gamekits/game-runtime": "workspace:*",
+    "@gamekits/multiplayer-colyseus": "workspace:*",
+    "@gamekits/multiplayer-core": "workspace:*",
+    "@gamekits/world-koota": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.15.17",

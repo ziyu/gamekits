@@ -1,17 +1,17 @@
-import type { AssetDefinition } from "@gamekit/asset";
-import type { DataPack, DataPackEntry, DataRef } from "@gamekit/data";
+import type { AssetDefinition } from "@gamekits/asset";
+import type { DataPack, DataPackEntry, DataRef } from "@gamekits/data";
 import type {
   GasAbilityDefinition,
   GasActorDefinition,
   GasAttributeDefinition,
   GasEffectDefinition
-} from "@gamekit/gas";
+} from "@gamekits/gas";
 import type {
   PhysicsBodyData,
   PhysicsColliderData,
   PhysicsMaterialDefinition
-} from "@gamekit/physics-core";
-import type { TcaRule } from "@gamekit/tca";
+} from "@gamekits/physics-core";
+import type { TcaRule } from "@gamekits/tca";
 import { outpostRuntimeImageAssets, type OutpostRuntimeImageAsset } from "./runtime-image-assets";
 import {
   OUTPOST_FEEDBACK_ASSET_IDS,

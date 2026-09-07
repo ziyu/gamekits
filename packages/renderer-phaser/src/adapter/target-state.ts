@@ -5,7 +5,7 @@ import type {
   RenderObjectId,
   RendererAdapter,
   RenderTransform
-} from "@gamekit/renderer-core";
+} from "@gamekits/renderer-core";
 
 const PHASER_TINT_MODES = {
   multiply: 0,
@@ -146,8 +146,8 @@ function applyNativeProps(target: MutablePhaserRenderTarget, props: PhaserRender
   if (width !== undefined || height !== undefined) {
     const nextWidth = width ?? target.displayWidth ?? 0;
     const nextHeight = height ?? target.displayHeight ?? 0;
-    target.setData?.("gamekit.baseDisplayWidth", nextWidth);
-    target.setData?.("gamekit.baseDisplayHeight", nextHeight);
+    target.setData?.("gamekits.baseDisplayWidth", nextWidth);
+    target.setData?.("gamekits.baseDisplayHeight", nextHeight);
     target.setDisplaySize?.(nextWidth, nextHeight);
   }
 
@@ -186,8 +186,8 @@ function applyNativeTransform(target: MutablePhaserRenderTarget, transform: Rend
   if (transform.scale) {
     const scaleX = transform.scale.x ?? 1;
     const scaleY = transform.scale.y ?? scaleX;
-    const baseWidth = target.getData?.("gamekit.baseDisplayWidth");
-    const baseHeight = target.getData?.("gamekit.baseDisplayHeight");
+    const baseWidth = target.getData?.("gamekits.baseDisplayWidth");
+    const baseHeight = target.getData?.("gamekits.baseDisplayHeight");
     if (typeof baseWidth === "number" && typeof baseHeight === "number") {
       target.setDisplaySize?.(baseWidth * scaleX, baseHeight * scaleY);
     } else {

@@ -10,7 +10,7 @@ DOM 尺寸观察属于 Web 平台集成问题，而 renderer resize、camera sta
 
 ## Decision
 
-`@gamekit/platform-web` 提供通用 element viewport 测量与监听 helper：
+`@gamekits/platform-web` 提供通用 element viewport 测量与监听 helper：
 
 - 尺寸使用 logical CSS pixels，并归一化为正整数。
 - hidden/unmounted element 可以使用调用方提供的 fallback；没有 fallback 时保持最小有效尺寸。

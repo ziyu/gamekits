@@ -2,7 +2,7 @@ import {
   createMultiplayerNetworkConditionSimulator,
   createMultiplayerRuntime,
   type MultiplayerMessageEnvelope
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import { describe, expect, it } from "vitest";
 import { createMemoryMultiplayerBackend } from "../src";
 

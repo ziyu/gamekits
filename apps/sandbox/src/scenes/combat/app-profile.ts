@@ -1,18 +1,18 @@
-import { createCombatHandle, createCombatModule, createCombatTraceStore } from "@gamekit/combat";
-import { createStandardAppProfile, type AppProfile } from "@gamekit/app-host";
-import type { DevToolsRuntime } from "@gamekit/devtools";
-import { createEventBus } from "@gamekit/event-bus";
-import { createGame } from "@gamekit/game-runtime";
-import { createGasHandle, createGasTraceStore } from "@gamekit/gas";
+import { createCombatHandle, createCombatModule, createCombatTraceStore } from "@gamekits/combat";
+import { createStandardAppProfile, type AppProfile } from "@gamekits/app-host";
+import type { DevToolsRuntime } from "@gamekits/devtools";
+import { createEventBus } from "@gamekits/event-bus";
+import { createGame } from "@gamekits/game-runtime";
+import { createGasHandle, createGasTraceStore } from "@gamekits/gas";
 import {
   createPhysicsHandle,
   createPhysicsTraceStore,
   type PhysicsBackendAdapter
-} from "@gamekit/physics-core";
-import type { PlatformRuntime } from "@gamekit/platform-core";
-import { createWebPlatform } from "@gamekit/platform-web";
-import type { UiRuntime } from "@gamekit/ui-core";
-import { createKootaWorld } from "@gamekit/world-koota";
+} from "@gamekits/physics-core";
+import type { PlatformRuntime } from "@gamekits/platform-core";
+import { createWebPlatform } from "@gamekits/platform-web";
+import type { UiRuntime } from "@gamekits/ui-core";
+import { createKootaWorld } from "@gamekits/world-koota";
 import { createCombatRangeDataRegistry } from "./data";
 import {
   combatRangeRelationshipResolver,
@@ -34,7 +34,7 @@ export function createCombatRangeWebProfile(options: {
   backend: PhysicsBackendAdapter;
   uiRuntime: UiRuntime;
 }): AppProfile<CombatRangeAppContext> {
-  const platform = createWebPlatform({ appName: "GameKit Combat Range" });
+  const platform = createWebPlatform({ appName: "GameKits Combat Range" });
   const dataRegistry = createCombatRangeDataRegistry();
   const world = createKootaWorld();
   const eventBus = createEventBus({ clock: () => Math.round(performance.now()) });

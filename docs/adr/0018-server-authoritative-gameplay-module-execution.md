@@ -4,7 +4,7 @@ Status: Accepted on 2026-07-12.
 
 ## Context
 
-Outpost Siege 的目标从复杂 Multiplayer 验证扩展为 GameKit 全框架综合验证。它需要同时使用 World、Physics、TCA、GAS、Save、Renderer、UI 和 Multiplayer，并在四人合作战斗中保持明确的权威边界。
+Outpost Siege 的目标从复杂 Multiplayer 验证扩展为 GameKits 全框架综合验证。它需要同时使用 World、Physics、TCA、GAS、Save、Renderer、UI 和 Multiplayer，并在四人合作战斗中保持明确的权威边界。
 
 如果 server 与 browser 各自运行完整 combat、TCA 和 GAS 规则，再尝试通过网络合并结果，会出现多份事实源、Physics 分歧、Effect 重复应用、TCA rule 重复触发和 Save/replication 状态不一致。反过来，如果把 gameplay state 全部做成 Colyseus Schema 或 adapter 私有状态，又会绕过 GameRuntime、World、TCA/GAS、Physics 和 Save 的既有边界。
 

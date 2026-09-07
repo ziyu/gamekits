@@ -2,7 +2,7 @@
 
 ## 定位
 
-Physics 3D Lab 是 `@gamekit/physics-core` 与 `@gamekit/physics-rapier3d` 的独立能力实验台。它使用 Three Driver 只做 3D 可视化和相机承载，重点验证 3D 物理 scene、body/collider、shape、quaternion rotation、query、contact event、debug snapshot 和 native path 能通过 GameKit Physics facade 被稳定消费。
+Physics 3D Lab 是 `@gamekits/physics-core` 与 `@gamekits/physics-rapier3d` 的独立能力实验台。它使用 Three Driver 只做 3D 可视化和相机承载，重点验证 3D 物理 scene、body/collider、shape、quaternion rotation、query、contact event、debug snapshot 和 native path 能通过 GameKits Physics facade 被稳定消费。
 
 Physics 3D Lab 不是 Three Demo 的子模式，也不是长期玩法仓库。Three Demo 继续验证 Three Driver / Renderer / Asset / Camera 组合；Physics 3D Lab 验证 Physics package 与 3D renderer 的协作。
 
@@ -48,7 +48,7 @@ Physics 3D Lab 的 app shell 负责组合：
 - Three Driver / RendererAdapter / camera adapter。
 - DataRegistry 注册 physics scene、body、collider 和 material definitions。
 - GameRuntime 安装 `createPhysicsModule(...)`。
-- `@gamekit/physics-rapier3d` 提供 backend factory。
+- `@gamekits/physics-rapier3d` 提供 backend factory。
 - UI 只消费 snapshot、diagnostics、query result 和低频 command。
 
 World component 只保存稳定 physics id、transform、velocity、scene role、presentation state 和 query probe state。Rapier native body/collider、query pipeline、broadphase cache 和 solver state 留在 adapter 内。
@@ -79,7 +79,7 @@ Physics 3D Lab 应优先建立 headless 测试，再补浏览器 smoke：
 
 ## 设计约束
 
-- Physics 3D Lab 可以显式依赖 `@gamekit/driver-three`、`three` 和 `@gamekit/physics-rapier3d`，但这些依赖不得进入可复用 gameplay package 或 `physics-core`。
+- Physics 3D Lab 可以显式依赖 `@gamekits/driver-three`、`three` 和 `@gamekits/physics-rapier3d`，但这些依赖不得进入可复用 gameplay package 或 `physics-core`。
 - Three Driver 继续是唯一创建和持有 renderer / scene / camera 的边界。
 - Physics scene 跟随 GameRuntime lifecycle，不成为 App Host standard service。
-- Data 和 snapshot 使用 GameKit 稳定类型；native path 只出现在 app-specific diagnostics 和 debug rendering 中。
+- Data 和 snapshot 使用 GameKits 稳定类型；native path 只出现在 app-specific diagnostics 和 debug rendering 中。

@@ -103,7 +103,7 @@ console.log(
   JSON.stringify(
     {
       benchmark: "multiplayer",
-      package: "@gamekit/multiplayer-core",
+      package: "@gamekits/multiplayer-core",
       suites,
       ...(budgetCheckEnabled
         ? {

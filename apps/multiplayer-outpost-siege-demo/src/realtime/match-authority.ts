@@ -9,7 +9,7 @@ import {
   type MultiplayerPeer,
   type MultiplayerPeerPlayerBinding,
   type MultiplayerRuntime
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 
 import { OUTPOST_ARENA } from "../content";
 import type { OutpostPlayerAction, OutpostReplicatedCombatState } from "../domain";

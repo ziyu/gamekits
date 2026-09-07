@@ -4,7 +4,7 @@ import type {
   DevToolsSnapshot,
   DevToolsSourceSnapshot,
   DevToolsTraceEntry
-} from "@gamekit/devtools";
+} from "@gamekits/devtools";
 import type { ReactNode } from "react";
 
 export type DevToolsPanelRendererProps = {

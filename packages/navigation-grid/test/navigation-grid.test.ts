@@ -1,16 +1,16 @@
-import { createDataRegistry } from "@gamekit/data";
+import { createDataRegistry } from "@gamekits/data";
 import {
   createNavigationDataTypes,
   createNavigationRuntime,
   type NavigationAgentProfileDefinition,
   type NavigationLayoutDefinition
-} from "@gamekit/navigation-core";
+} from "@gamekits/navigation-core";
 import type {
   NavigationBackendAdapter,
   NavigationBackendPathRequest,
   NavigationBackendPathResult
-} from "@gamekit/navigation-core/backend";
-import { runNavigationRuntimeConformance } from "@gamekit/navigation-core/testing";
+} from "@gamekits/navigation-core/backend";
+import { runNavigationRuntimeConformance } from "@gamekits/navigation-core/testing";
 import { describe, expect, it } from "vitest";
 import {
   createGridNavigationBackend,

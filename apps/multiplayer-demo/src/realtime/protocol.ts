@@ -3,7 +3,7 @@ import {
   MULTIPLAYER_AUTHORITY_CHANNEL,
   MULTIPLAYER_INPUT_KIND,
   MULTIPLAYER_SNAPSHOT_KIND
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import type { RealtimeArenaSnapshot, RealtimeInputFrame } from "./domain";
 
 export const REALTIME_ARENA_CHANNEL = MULTIPLAYER_AUTHORITY_CHANNEL;

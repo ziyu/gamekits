@@ -1,4 +1,4 @@
-import type { NavigationBackendAdapter } from "@gamekit/navigation-core/backend";
+import type { NavigationBackendAdapter } from "@gamekits/navigation-core/backend";
 import type { CreateGridNavigationBackendOptions } from "../contracts/grid-definition";
 import { createGridNavigationBackendRuntime } from "../runtime";
 

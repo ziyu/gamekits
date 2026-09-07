@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/navigation-core",
+  "name": "@gamekits/navigation-core",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -25,9 +25,9 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/core": "workspace:*",
-    "@gamekit/data": "workspace:*",
-    "@gamekit/game-runtime": "workspace:*"
+    "@gamekits/core": "workspace:*",
+    "@gamekits/data": "workspace:*",
+    "@gamekits/game-runtime": "workspace:*"
   },
   "files": [
     "dist"
@@ -36,7 +36,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "gamekitBuild": {
+  "gamekitsBuild": {
     "bundleDts": false,
     "entries": [
       "src/index.ts",

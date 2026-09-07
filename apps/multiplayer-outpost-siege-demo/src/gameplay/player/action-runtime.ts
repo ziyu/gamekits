@@ -1,6 +1,6 @@
-import { defineGameModule } from "@gamekit/core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
-import type { GasHandle } from "@gamekit/gas";
+import { defineGameModule } from "@gamekits/core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
+import type { GasHandle } from "@gamekits/gas";
 
 import type {
   OutpostAuthorityCombatCommand,

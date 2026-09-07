@@ -1,4 +1,4 @@
-import { runPhysicsBodyCommandConformance } from "@gamekit/physics-core/testing";
+import { runPhysicsBodyCommandConformance } from "@gamekits/physics-core/testing";
 import { describe, expect, it } from "vitest";
 import { initRapier2dPhysicsBackend } from "../src";
 

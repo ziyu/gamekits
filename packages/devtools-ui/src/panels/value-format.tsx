@@ -49,7 +49,7 @@ export function formatScalar(value: unknown): string {
 
 export function RawSnapshotDisclosure({ value }: { value: unknown }) {
   return (
-    <details className="gamekit-devtools-raw">
+    <details className="gamekits-devtools-raw">
       <summary>Raw snapshot</summary>
       <pre>{stringifyPreview(value)}</pre>
     </details>
@@ -66,11 +66,11 @@ export function MiniTable({
   rows: ReactNode[][];
 }) {
   if (rows.length === 0) {
-    return <p className="gamekit-devtools-empty">{empty}</p>;
+    return <p className="gamekits-devtools-empty">{empty}</p>;
   }
 
   return (
-    <table className="gamekit-devtools-table">
+    <table className="gamekits-devtools-table">
       <thead>
         <tr>
           {columns.map((column) => (

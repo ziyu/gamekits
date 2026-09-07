@@ -1,9 +1,9 @@
-import { GameError } from "@gamekit/core";
+import { GameError } from "@gamekits/core";
 import {
   createMultiplayerRuntime,
   type MultiplayerPeer,
   type MultiplayerPeerInput
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 
 import {
   createRoomMultiplayerBackend,
@@ -70,8 +70,8 @@ export function createColyseusRoomRuntimeBridge<
 
   const roomMultiplayer: RoomMultiplayerBackend<TRoom, TClient> = createRoomMultiplayerBackend({
     id,
-    messageType: options.messageType ?? "gamekit.message",
-    presenceType: options.presenceType ?? "gamekit.presence",
+    messageType: options.messageType ?? "gamekits.message",
+    presenceType: options.presenceType ?? "gamekits.presence",
     maxPayloadBytes,
     clock,
     invalidPeer(message, details) {

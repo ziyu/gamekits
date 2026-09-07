@@ -2,7 +2,7 @@
 
 ## 定位
 
-`@gamekit/character-controller` 是可选 gameplay toolkit，把玩家或 AI 的 world-space 语义意图转换为 backend-neutral Physics
+`@gamekits/character-controller` 是可选 gameplay toolkit，把玩家或 AI 的 world-space 语义意图转换为 backend-neutral Physics
 patch/command，并维护可 checkpoint 的角色 motor state。它不读取输入设备、Camera、Renderer、AI blackboard 或 Multiplayer，
 也不决定攻击、伤害、淘汰和胜负。
 

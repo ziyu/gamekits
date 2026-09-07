@@ -1,4 +1,4 @@
-import type { MultiplayerMessageEnvelope } from "@gamekit/multiplayer-core";
+import type { MultiplayerMessageEnvelope } from "@gamekits/multiplayer-core";
 import { createMultiplayerDemoClient, type MultiplayerDemoClient } from "../client";
 import {
   createLocalMultiplayerDemoServer,
@@ -17,7 +17,7 @@ export type MultiplayerDemoTestHarness = {
 
 export async function createMultiplayerDemoTestHarness(): Promise<MultiplayerDemoTestHarness> {
   const server = await createLocalMultiplayerDemoServer({
-    roomName: `gamekit_multiplayer_demo_test_${Date.now()}_${Math.floor(Math.random() * 10000)}`
+    roomName: `gamekits_multiplayer_demo_test_${Date.now()}_${Math.floor(Math.random() * 10000)}`
   });
   const client = createMultiplayerDemoClient({
     endpoint: server.endpoint,

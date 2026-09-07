@@ -9,7 +9,7 @@ export function GenericSourceView({ value }: { value: unknown }) {
         .map(([key, entry]) => [key, formatScalar(entry)] as [string, string])
     : [["Value", formatScalar(value)] as [string, string]];
   return (
-    <div className="gamekit-devtools-view">
+    <div className="gamekits-devtools-view">
       <KeyValueGrid entries={entries} />
       <RawSnapshotDisclosure value={value} />
     </div>

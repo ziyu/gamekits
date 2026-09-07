@@ -1,5 +1,5 @@
-import type { DataRef, DataRegistry } from "@gamekit/data";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import type { DataRef, DataRegistry } from "@gamekits/data";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import type { NavigationBackendAdapter, NavigationBackendFactory } from "../backend/port";
 import type { NavigationHandle, NavigationRuntime } from "../contracts/facade";
 import type { NavigationLayoutDefinition } from "../contracts/layout";

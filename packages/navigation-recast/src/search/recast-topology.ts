@@ -1,4 +1,4 @@
-import type { NavigationLayoutDefinition, NavigationPoint } from "@gamekit/navigation-core";
+import type { NavigationLayoutDefinition, NavigationPoint } from "@gamekits/navigation-core";
 import { Detour, statusFailed, type NavMesh } from "recast-navigation";
 import type { NavigationRecastBuildArtifact } from "../contracts";
 

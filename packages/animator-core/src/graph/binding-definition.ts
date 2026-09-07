@@ -1,5 +1,5 @@
-import type { DataRef } from "@gamekit/data";
-import type { RenderNodePath } from "@gamekit/renderer-core";
+import type { DataRef } from "@gamekits/data";
+import type { RenderNodePath } from "@gamekits/renderer-core";
 
 export type AnimatorPhaseMapping = {
   phase: string;

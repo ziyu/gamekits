@@ -1,11 +1,11 @@
-import { createAssetDataType } from "@gamekit/asset";
-import { createAnimatorDataTypes } from "@gamekit/animator-core";
+import { createAssetDataType } from "@gamekits/asset";
+import { createAnimatorDataTypes } from "@gamekits/animator-core";
 import {
   createDataRegistry,
   type DataPack,
   type DataRegistry,
   type DataTypeDefinition
-} from "@gamekit/data";
+} from "@gamekits/data";
 
 export const ANIMATOR_LAB_ASSET_GROUP = "sandbox.animator-lab";
 export const ANIMATOR_LAB_TEXTURE_ID = "sandbox.animator-lab.signal-runner";

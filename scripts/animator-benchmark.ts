@@ -25,7 +25,7 @@ function main(): void {
     JSON.stringify(
       {
         benchmark: "animator",
-        package: "@gamekit/animator-core",
+        package: "@gamekits/animator-core",
         methodology: {
           warmupTicks: 10,
           measuredTicks: 120,

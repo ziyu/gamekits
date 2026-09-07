@@ -6,9 +6,9 @@
 
 已经验证的边界：
 
-- Koota 被限制在 `@gamekit/world-koota`。
-- 业务代码通过 `@gamekit/world` 访问 ECS。
-- Sandbox 只依赖 GameKit 的公共接口。
+- Koota 被限制在 `@gamekits/world-koota`。
+- 业务代码通过 `@gamekits/world` 访问 ECS。
+- Sandbox 只依赖 GameKits 的公共接口。
 
 ## Core 语义唯一来源
 
@@ -54,9 +54,9 @@ Code review 至少检查：
 
 当前规则：
 
-- `@gamekit/world` 的实现必须通过 world conformance tests。
-- `@gamekit/event-bus` 必须测试顺序、取消订阅、timestamp/source。
-- `@gamekit/game-runtime` 必须测试生命周期和系统调度顺序。
+- `@gamekits/world` 的实现必须通过 world conformance tests。
+- `@gamekits/event-bus` 必须测试顺序、取消订阅、timestamp/source。
+- `@gamekits/game-runtime` 必须测试生命周期和系统调度顺序。
 - 新增 facade 必须补 conformance helper；新增 adapter 必须通过 facade 契约测试。
 
 ## 代码质量

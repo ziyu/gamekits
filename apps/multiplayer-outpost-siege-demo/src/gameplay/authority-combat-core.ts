@@ -5,8 +5,8 @@ import {
   type CombatHitResult,
   type CombatProjectileDespawnFact,
   type CombatProjectileSpawnFact
-} from "@gamekit/combat";
-import { PhysicsTransformComponent, type PhysicsVector } from "@gamekit/physics-core";
+} from "@gamekits/combat";
+import { PhysicsTransformComponent, type PhysicsVector } from "@gamekits/physics-core";
 
 import { OUTPOST_ARENA } from "../content";
 import { combatObjectIdForActor, type CombatState } from "./authority-combat-state";

@@ -1,6 +1,6 @@
-import { createConfiguredAppHost } from "@gamekit/app-host";
-import type { DevToolsRuntime } from "@gamekit/devtools";
-import type { UiRuntime } from "@gamekit/ui-core";
+import { createConfiguredAppHost } from "@gamekits/app-host";
+import type { DevToolsRuntime } from "@gamekits/devtools";
+import type { UiRuntime } from "@gamekits/ui-core";
 import { navigationLabAppDefinition } from "./app-definition";
 import { createNavigationLabWebProfile, type NavigationLabAppContext } from "./app-profile";
 import type { NavigationLabBackendProvider } from "./backends";

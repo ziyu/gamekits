@@ -1,4 +1,4 @@
-import type { ComponentDef, EntityId, GameWorld } from "@gamekit/world";
+import type { ComponentDef, EntityId, GameWorld } from "@gamekits/world";
 import type {
   PhysicsBodyComponentState,
   PhysicsColliderComponentState,
@@ -17,7 +17,7 @@ import type {
   PhysicsRuntimeCheckpoint,
   PhysicsScene
 } from "./types";
-import { GameError } from "@gamekit/core";
+import { GameError } from "@gamekits/core";
 
 export type PhysicsCheckpointBindings = {
   body: ComponentDef<PhysicsBodyComponentState>;

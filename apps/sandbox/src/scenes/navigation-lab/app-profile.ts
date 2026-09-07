@@ -1,12 +1,12 @@
-import { createStandardAppProfile, type AppProfile } from "@gamekit/app-host";
-import type { DevToolsRuntime } from "@gamekit/devtools";
-import { createEventBus } from "@gamekit/event-bus";
-import { createGame } from "@gamekit/game-runtime";
-import { createNavigationHandle } from "@gamekit/navigation-core";
-import type { PlatformRuntime } from "@gamekit/platform-core";
-import { createWebPlatform } from "@gamekit/platform-web";
-import type { UiRuntime } from "@gamekit/ui-core";
-import { createKootaWorld } from "@gamekit/world-koota";
+import { createStandardAppProfile, type AppProfile } from "@gamekits/app-host";
+import type { DevToolsRuntime } from "@gamekits/devtools";
+import { createEventBus } from "@gamekits/event-bus";
+import { createGame } from "@gamekits/game-runtime";
+import { createNavigationHandle } from "@gamekits/navigation-core";
+import type { PlatformRuntime } from "@gamekits/platform-core";
+import { createWebPlatform } from "@gamekits/platform-web";
+import type { UiRuntime } from "@gamekits/ui-core";
+import { createKootaWorld } from "@gamekits/world-koota";
 import type { NavigationLabBackendProvider } from "./backends";
 import {
   createNavigationLabController,
@@ -36,7 +36,7 @@ export function createNavigationLabWebProfile(options: {
 }): AppProfile<NavigationLabAppContext> {
   const { backend } = options;
   const scenario = options.scenario ?? NAVIGATION_LAB_SCENARIO;
-  const platform = createWebPlatform({ appName: "GameKit Navigation Lab" });
+  const platform = createWebPlatform({ appName: "GameKits Navigation Lab" });
   const dataRegistry = backend.createDataRegistry();
   const world = createKootaWorld();
   const eventBus = createEventBus({ clock: () => Math.round(performance.now()) });

@@ -5,13 +5,13 @@ import type {
   AudioParameterValue,
   PlaybackInstanceState,
   ResolvedAudioTrack
-} from "@gamekit/audio-core";
+} from "@gamekits/audio-core";
 import type {
   AudioBackend,
   AudioBackendCapabilities,
   AudioBackendEvent,
   BackendPlaybackRequest
-} from "@gamekit/audio-core/backend";
+} from "@gamekits/audio-core/backend";
 
 export type PhaserDriverAudioTrack = Pick<
   ResolvedAudioTrack,

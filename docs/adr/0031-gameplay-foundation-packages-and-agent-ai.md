@@ -18,19 +18,19 @@ Outpost Siege 已经证明 World、Physics、GAS、TCA、Multiplayer 和 Rendere
 
 现有架构曾把底层 Animation playback 与高层 Animator control 视为同一项不单独成包的能力。完整角色表现需要语义 Animator graph、分层 one-shot、marker、远端相位恢复和批量 controller，已经超出单个 Renderer command 的职责，因此需要明确拆分：Animator 成为可选 toolkit，Animation clip/mixer 继续归资源与后端播放边界。
 
-Outpost 普通敌人数量高、行为目标有限且需要清晰预兆。逐 agent GOAP 会为每次决策构造世界状态和动作计划，带来不必要的运行时与调试复杂度；纯行为树又容易把目标优先级、攻击执行和导航混成大型树。XState 提供完整 statechart/actor runtime，Yuka 提供 entity、goal-driven agent、steering 与 navigation，但直接采用它们作为 authority AI owner 都会与 GameKit 的 World、Physics 和批量 system lifecycle 重叠。
+Outpost 普通敌人数量高、行为目标有限且需要清晰预兆。逐 agent GOAP 会为每次决策构造世界状态和动作计划，带来不必要的运行时与调试复杂度；纯行为树又容易把目标优先级、攻击执行和导航混成大型树。XState 提供完整 statechart/actor runtime，Yuka 提供 entity、goal-driven agent、steering 与 navigation，但直接采用它们作为 authority AI owner 都会与 GameKits 的 World、Physics 和批量 system lifecycle 重叠。
 
 ## Decision
 
 ### 新增可选玩法基础包
 
-GameKit 的长期包结构增加以下可选 package：
+GameKits 的长期包结构增加以下可选 package：
 
-- `@gamekit/combat`：在 World + Physics + GAS 之上统一 effect delivery、target relationship、hit resolution、projectile/hitscan/area/melee executor、命中去重和 combat trace。它不定义具体武器、敌人、生命字段或数值公式。
-- `@gamekit/animator-core`：定义语义 Animator parameter、graph、layer、transition、one-shot、marker、playback snapshot 和 controller lifecycle。具体 animation clip/mixer 仍由 Renderer Adapter 或 Driver runtime slice 执行。
-- `@gamekit/ai-core`：定义 perception memory、blackboard、utility consideration、goal selection、task lifecycle、interrupt policy、预算调度和 AI trace。它不拥有 entity、physics body、pathfinding backend 或具体敌人行为。
-- `@gamekit/navigation-core`：定义 navigation world、path/route query、agent profile、动态 obstacle/cost revision、请求预算、route cache 和 trace。具体 graph/grid/navmesh/search library 通过 adapter 接入。
-- `@gamekit/audio-core`：定义 audio bus、listener、voice/source、playback command、并发/优先级、snapshot 和 diagnostics。Phaser 等完整 runtime 通过 Driver 暴露 AudioAdapter。
+- `@gamekits/combat`：在 World + Physics + GAS 之上统一 effect delivery、target relationship、hit resolution、projectile/hitscan/area/melee executor、命中去重和 combat trace。它不定义具体武器、敌人、生命字段或数值公式。
+- `@gamekits/animator-core`：定义语义 Animator parameter、graph、layer、transition、one-shot、marker、playback snapshot 和 controller lifecycle。具体 animation clip/mixer 仍由 Renderer Adapter 或 Driver runtime slice 执行。
+- `@gamekits/ai-core`：定义 perception memory、blackboard、utility consideration、goal selection、task lifecycle、interrupt policy、预算调度和 AI trace。它不拥有 entity、physics body、pathfinding backend 或具体敌人行为。
+- `@gamekits/navigation-core`：定义 navigation world、path/route query、agent profile、动态 obstacle/cost revision、请求预算、route cache 和 trace。具体 graph/grid/navmesh/search library 通过 adapter 接入。
+- `@gamekits/audio-core`：定义 audio bus、listener、voice/source、playback command、并发/优先级、snapshot 和 diagnostics。Phaser 等完整 runtime 通过 Driver 暴露 AudioAdapter。
 
 这些 package 都是可选组合能力，不进入 GameRuntime 内核，也不让无战斗、无 AI 或无音频的 app 安装额外 runtime。
 
@@ -59,14 +59,14 @@ perception + shared spatial facts
 - Navigation 只返回路径/方向事实；Physics 只执行移动和碰撞；Combat/GAS 只执行已经提交的合法能力。
 - 感知、决策和路径请求按预算错峰，移动/避障保持高频 system；boss phase 和 encounter 仍由 app-local director + TCA 处理。
 
-GOAP 不作为 Outpost 普通 agent 的默认规划器。`@gamekit/ai-core` 保留可选 `AiPlanner` 扩展点；只有第二个游戏证明需要动态组合多个前置条件动作时，才允许新增 GOAP/HTN adapter。
+GOAP 不作为 Outpost 普通 agent 的默认规划器。`@gamekits/ai-core` 保留可选 `AiPlanner` 扩展点；只有第二个游戏证明需要动态组合多个前置条件动作时，才允许新增 GOAP/HTN adapter。
 
 ### 第三方 AI 库边界
 
 第三方库只能处于 adapter 或受控算法实现边界：
 
 - XState 可以用于低数量、非热点的 workflow 或 tooling，但不作为大量 ECS agent 的默认 runtime。
-- Yuka 的 graph/search、steering 或 navmesh 算法可以作为 navigation/steering adapter 候选；Yuka `GameEntity`、`Vehicle`、goal runtime 和 world update 不能替代 GameKit World、Physics 或 AI Core。
+- Yuka 的 graph/search、steering 或 navmesh 算法可以作为 navigation/steering adapter 候选；Yuka `GameEntity`、`Vehicle`、goal runtime 和 world update 不能替代 GameKits World、Physics 或 AI Core。
 - 任何候选 adapter 都必须先通过相同 conformance、确定性 fixture 和 250/1,000 agent benchmark，再进入正式组合。
 
 ### Package 提升门槛
@@ -116,7 +116,7 @@ Rejected because headless server 不运行 renderer，远端客户端也可能�
 
 ### Adopt Yuka or XState as the complete AI owner
 
-Rejected because完整第三方 entity/actor update lifecycle 会与 GameKit World、Physics、GameRuntime 和批量 ECS system 重叠。算法级 adapter 仍被允许。
+Rejected because完整第三方 entity/actor update lifecycle 会与 GameKits World、Physics、GameRuntime 和批量 ECS system 重叠。算法级 adapter 仍被允许。
 
 ## References
 

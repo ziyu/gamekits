@@ -42,12 +42,12 @@ function main(): void {
       {
         benchmark: "gameplay-checkpoint",
         packages: [
-          "@gamekit/tca",
-          "@gamekit/gas",
-          "@gamekit/physics-core",
-          "@gamekit/multiplayer-core",
-          "@gamekit/app-host",
-          "@gamekit/world"
+          "@gamekits/tca",
+          "@gamekits/gas",
+          "@gamekits/physics-core",
+          "@gamekits/multiplayer-core",
+          "@gamekits/app-host",
+          "@gamekits/world"
         ],
         suites,
         ...(checkEnabled

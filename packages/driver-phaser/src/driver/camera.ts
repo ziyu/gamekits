@@ -3,8 +3,8 @@ import {
   worldToScreen as fallbackWorldToScreen,
   type CameraState2D,
   type PointLike
-} from "@gamekit/camera-core";
-import { GameError } from "@gamekit/core";
+} from "@gamekits/camera-core";
+import { GameError } from "@gamekits/core";
 
 export type PhaserDriverCameraRuntime = {
   setScroll(x: number, y: number): void;

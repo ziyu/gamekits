@@ -2,17 +2,17 @@ import { Server } from "@colyseus/core";
 import { WebSocketTransport } from "@colyseus/ws-transport";
 import type { AddressInfo } from "node:net";
 
-import { GameKitColyseusRoom } from "./gamekit-colyseus-room";
+import { GameKitsColyseusRoom } from "./gamekits-colyseus-room";
 import type {
   ColyseusRoomClass,
-  CreateGameKitColyseusServerOptions,
-  GameKitColyseusRoomDefinition,
-  GameKitColyseusServerHandle
+  CreateGameKitsColyseusServerOptions,
+  GameKitsColyseusRoomDefinition,
+  GameKitsColyseusServerHandle
 } from "./types";
 
-export async function createGameKitColyseusServer(
-  options: CreateGameKitColyseusServerOptions = {}
-): Promise<GameKitColyseusServerHandle> {
+export async function createGameKitsColyseusServer(
+  options: CreateGameKitsColyseusServerOptions = {}
+): Promise<GameKitsColyseusServerHandle> {
   const host = options.host ?? "127.0.0.1";
   const requestedPort = options.port ?? 0;
   const transport = new WebSocketTransport(options.transportOptions);
@@ -59,11 +59,11 @@ export async function createGameKitColyseusServer(
 }
 
 function normalizeRoomDefinitions(
-  options: CreateGameKitColyseusServerOptions
+  options: CreateGameKitsColyseusServerOptions
 ): Map<string, { room: ColyseusRoomClass; options?: unknown }> {
   const definitions = new Map<string, { room: ColyseusRoomClass; options?: unknown }>();
-  definitions.set(options.roomName ?? "gamekit", {
-    room: options.roomClass ?? GameKitColyseusRoom,
+  definitions.set(options.roomName ?? "gamekits", {
+    room: options.roomClass ?? GameKitsColyseusRoom,
     options: options.roomOptions
   });
 
@@ -74,7 +74,7 @@ function normalizeRoomDefinitions(
   return definitions;
 }
 
-function normalizeRoomDefinition(definition: GameKitColyseusRoomDefinition): {
+function normalizeRoomDefinition(definition: GameKitsColyseusRoomDefinition): {
   room: ColyseusRoomClass;
   options?: unknown;
 } {

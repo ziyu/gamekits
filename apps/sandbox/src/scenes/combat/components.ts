@@ -1,4 +1,4 @@
-import { defineComponent } from "@gamekit/world";
+import { defineComponent } from "@gamekits/world";
 
 export type CombatRangeRole = "operator" | "ally" | "target" | "cover";
 

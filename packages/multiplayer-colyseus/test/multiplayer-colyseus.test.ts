@@ -3,20 +3,20 @@ import {
   runMultiplayerAuthorityConformance,
   runMultiplayerBackendConformance,
   type MultiplayerMessageEnvelope
-} from "@gamekit/multiplayer-core";
+} from "@gamekits/multiplayer-core";
 import { describe, expect, it } from "vitest";
 
 import { createColyseusMultiplayerBackend, createColyseusNativeStateBridge } from "../src";
 import {
-  createGameKitColyseusServer,
-  GameKitColyseusRoom,
-  type GameKitColyseusRoomOptions
+  createGameKitsColyseusServer,
+  GameKitsColyseusRoom,
+  type GameKitsColyseusRoomOptions
 } from "../src/server";
 
-describe("@gamekit/multiplayer-colyseus", () => {
+describe("@gamekits/multiplayer-colyseus", () => {
   it("passes the multiplayer backend conformance against a local Colyseus room", async () => {
     const roomName = uniqueRoomName("conformance");
-    const server = await createGameKitColyseusServer({ roomName });
+    const server = await createGameKitsColyseusServer({ roomName });
 
     try {
       const report = await runMultiplayerBackendConformance({
@@ -38,7 +38,7 @@ describe("@gamekit/multiplayer-colyseus", () => {
 
   it("passes the multiplayer authority conformance against local Colyseus rooms", async () => {
     const roomName = uniqueRoomName("authority");
-    const server = await createGameKitColyseusServer({ roomName });
+    const server = await createGameKitsColyseusServer({ roomName });
 
     try {
       const report = await runMultiplayerAuthorityConformance({
@@ -94,7 +94,7 @@ describe("@gamekit/multiplayer-colyseus", () => {
 
   it("rejects oversized outgoing envelopes before they reach the room", async () => {
     const roomName = uniqueRoomName("payload");
-    const server = await createGameKitColyseusServer({
+    const server = await createGameKitsColyseusServer({
       roomName,
       roomOptions: { maxPayloadBytes: 64 }
     });
@@ -132,9 +132,9 @@ describe("@gamekit/multiplayer-colyseus", () => {
     }
   });
 
-  it("joins the requested GameKit session across independent backend instances", async () => {
+  it("joins the requested GameKits session across independent backend instances", async () => {
     const roomName = uniqueRoomName("session-map");
-    const server = await createGameKitColyseusServer({ roomName });
+    const server = await createGameKitsColyseusServer({ roomName });
     const hostA = await createColyseusMultiplayerBackend({
       endpoint: server.endpoint,
       roomName,
@@ -218,7 +218,7 @@ describe("@gamekit/multiplayer-colyseus", () => {
   it("closes a host-authoritative room when the host peer leaves", async () => {
     const roomName = uniqueRoomName("host-close");
     const sessionId = "host-close-session";
-    const server = await createGameKitColyseusServer({ roomName });
+    const server = await createGameKitsColyseusServer({ roomName });
     const host = await createColyseusMultiplayerBackend({
       endpoint: server.endpoint,
       roomName,
@@ -288,14 +288,14 @@ describe("@gamekit/multiplayer-colyseus", () => {
 
   it("publishes host-owned state through a real Colyseus Schema room", async () => {
     const roomName = uniqueRoomName("schema-state");
-    const roomInstances: GameKitColyseusRoom[] = [];
-    class SchemaTestRoom extends GameKitColyseusRoom {
-      override onCreate(options: GameKitColyseusRoomOptions = {}): void {
+    const roomInstances: GameKitsColyseusRoom[] = [];
+    class SchemaTestRoom extends GameKitsColyseusRoom {
+      override onCreate(options: GameKitsColyseusRoomOptions = {}): void {
         super.onCreate(options);
         roomInstances.push(this);
       }
     }
-    const server = await createGameKitColyseusServer({
+    const server = await createGameKitsColyseusServer({
       roomName,
       roomClass: SchemaTestRoom,
       roomOptions: {
@@ -452,7 +452,7 @@ describe("@gamekit/multiplayer-colyseus", () => {
     expect(backend.snapshot().metadata).toMatchObject({
       nativeCapabilities: {
         authoritativePath: "colyseus-schema",
-        lanes: ["gamekit-envelope", "colyseus-schema"],
+        lanes: ["gamekits-envelope", "colyseus-schema"],
         stateSync: {
           available: true,
           active: true,
@@ -598,7 +598,7 @@ describe("@gamekit/multiplayer-colyseus", () => {
 });
 
 function uniqueRoomName(scope: string): string {
-  return `gamekit_${scope}_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+  return `gamekits_${scope}_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
 }
 
 async function waitFor(predicate: () => boolean): Promise<void> {

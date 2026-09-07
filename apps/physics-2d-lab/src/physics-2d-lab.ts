@@ -1,5 +1,5 @@
-import { createEventBus } from "@gamekit/event-bus";
-import { createGame, type GameRuntime } from "@gamekit/game-runtime";
+import { createEventBus } from "@gamekits/event-bus";
+import { createGame, type GameRuntime } from "@gamekits/game-runtime";
 import {
   PhysicsBodyComponent,
   PhysicsColliderComponent,
@@ -22,8 +22,8 @@ import {
   type PhysicsTraceEntry,
   type PhysicsTraceStore,
   type PhysicsVector
-} from "@gamekit/physics-core";
-import type { Rapier2dPhysicsNative } from "@gamekit/physics-rapier2d";
+} from "@gamekits/physics-core";
+import type { Rapier2dPhysicsNative } from "@gamekits/physics-rapier2d";
 import { createMemoryWorld } from "./memory-world";
 
 export const PHYSICS_2D_GROUPS = {

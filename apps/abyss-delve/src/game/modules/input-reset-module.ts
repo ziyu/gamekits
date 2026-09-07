@@ -1,5 +1,5 @@
-import { defineGameModule } from "@gamekit/core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import { defineGameModule } from "@gamekits/core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import { consumeMomentaryInput, type AbyssRuntimeState } from "../runtime-state";
 
 export function createAbyssInputResetModule(state: AbyssRuntimeState) {

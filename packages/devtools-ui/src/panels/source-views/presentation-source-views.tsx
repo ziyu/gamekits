@@ -5,7 +5,7 @@ export function RendererSourceView({ value }: { value: unknown }) {
   const record = asRecord(value) ?? {};
   const capabilities = asRecord(record.capabilities) ?? {};
   return (
-    <div className="gamekit-devtools-view">
+    <div className="gamekits-devtools-view">
       <KeyValueGrid
         entries={[
           ["Renderer", readString(record.id)],
@@ -23,7 +23,7 @@ export function RendererSourceView({ value }: { value: unknown }) {
 export function InputSourceView({ value }: { value: unknown }) {
   const contexts = readArray(asRecord(value)?.activeContexts).map(String);
   return (
-    <div className="gamekit-devtools-view">
+    <div className="gamekits-devtools-view">
       <Metric label="Active Contexts" value={contexts.length} />
       <ChipList items={contexts} />
     </div>

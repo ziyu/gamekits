@@ -6,7 +6,7 @@
 
 ## 阶段目标
 
-实现一个常见俯视角肉鸽暗黑-like 小型游戏应用，用真实游戏项目方式验证 GameKit 全链路组合能力。
+实现一个常见俯视角肉鸽暗黑-like 小型游戏应用，用真实游戏项目方式验证 GameKits 全链路组合能力。
 
 本阶段必须验证：
 
@@ -104,7 +104,7 @@ Phase 15 不按“先完整战斗、再补数据、最后补工具”的方式�
 | collision / projectile 边界是否清晰        | Passed | 已补充 app-local World component + math/spatial query 边界 |
 | Abyss 专属 DevTools inspector 归属是否清晰 | Passed | 已补充 app-specific source / panel 说明                    |
 | 子 Agent 是否参与                          | Passed | Locke 已完成只读审查                                       |
-| 测试是否覆盖本任务影响                     | Passed | `corepack pnpm --filter @gamekit/core test` 通过           |
+| 测试是否覆盖本任务影响                     | Passed | `corepack pnpm --filter @gamekits/core test` 通过          |
 | 格式是否通过                               | Passed | `corepack pnpm format` 通过                                |
 
 ### 提交记录
@@ -371,7 +371,7 @@ Leibniz 只读审查指出：
 任务拆分：
 
 1. DevTools app bridge
-   - `@gamekit/devtools-ui` 的 overlay 支持 app 传入自定义完整面板 renderer。
+   - `@gamekits/devtools-ui` 的 overlay 支持 app 传入自定义完整面板 renderer。
    - Abyss profile 注册 `abyss.chain` 面板和 `abyss` custom source。
    - Abyss app 层把 `AbyssSnapshot.timeline` 同步成 DevTools traces；game module 不 import DevTools UI。
 

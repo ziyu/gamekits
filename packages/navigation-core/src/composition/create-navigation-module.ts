@@ -1,5 +1,5 @@
-import { defineGameModule, type GameModule } from "@gamekit/core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import { defineGameModule, type GameModule } from "@gamekits/core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import { bindNavigationHandle, unbindNavigationHandle } from "./create-navigation-handle";
 import { createNavigationRuntime } from "./create-navigation-runtime";
 import type { NavigationRuntime } from "../contracts/facade";

@@ -1,5 +1,5 @@
-import type { AssetDefinition, AssetLoaderAdapter } from "@gamekit/asset";
-import { GameError } from "@gamekit/core";
+import type { AssetDefinition, AssetLoaderAdapter } from "@gamekits/asset";
+import { GameError } from "@gamekits/core";
 import type { ThreeDriverRuntime } from "./runtime";
 
 export function createThreeDriverAssetLoader(options: {

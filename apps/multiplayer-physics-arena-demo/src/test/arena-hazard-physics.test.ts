@@ -1,5 +1,5 @@
-import { createPhysicsPredictionIsland } from "@gamekit/physics-core";
-import { initRapier3dPhysicsBackend, type Rapier3dPhysicsNative } from "@gamekit/physics-rapier3d";
+import { createPhysicsPredictionIsland } from "@gamekits/physics-core";
+import { initRapier3dPhysicsBackend, type Rapier3dPhysicsNative } from "@gamekits/physics-rapier3d";
 import { describe, expect, it } from "vitest";
 
 import { ARENA_COMPILED_CONTENT } from "../content/default-content";

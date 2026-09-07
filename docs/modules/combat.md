@@ -6,7 +6,7 @@ Combat 是可选的 Game Module toolkit，负责把一次语义化攻击交付�
 
 相关包：
 
-- `@gamekit/combat`
+- `@gamekits/combat`
 
 Combat 不定义具体武器、职业、敌人、生命属性名、暴击公式或阵营枚举。游戏通过 DataType 和 policy 注入这些语义。
 

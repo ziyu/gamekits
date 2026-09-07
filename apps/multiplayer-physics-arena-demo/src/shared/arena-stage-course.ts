@@ -5,7 +5,7 @@ import type {
   PhysicsPredictionIslandCommand,
   PhysicsPredictionIslandMemberDefinition,
   PhysicsVector
-} from "@gamekit/physics-core";
+} from "@gamekits/physics-core";
 
 import { ARENA_COMPILED_CONTENT } from "../content/default-content";
 import type { CompiledArenaHazardSchedule } from "../content/course-compiler";

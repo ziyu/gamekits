@@ -3,9 +3,9 @@ import type {
   PhysicsQueryOptions,
   PhysicsQueryResult,
   PhysicsVector
-} from "@gamekit/physics-core";
-import { PhysicsBodyComponent, PhysicsColliderComponent } from "@gamekit/physics-core";
-import type { EntityId, GameWorld } from "@gamekit/world";
+} from "@gamekits/physics-core";
+import { PhysicsBodyComponent, PhysicsColliderComponent } from "@gamekits/physics-core";
+import type { EntityId, GameWorld } from "@gamekits/world";
 import type {
   CombatBlockResult,
   CombatCandidateDecision,

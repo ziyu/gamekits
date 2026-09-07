@@ -1,7 +1,7 @@
-import { createDataRegistry, type DataPack } from "@gamekit/data";
-import { createEventBus, type GameEvent } from "@gamekit/event-bus";
-import type { TcaHandlerContext } from "@gamekit/tca";
-import type { ComponentDef, EntityId, GameWorld } from "@gamekit/world";
+import { createDataRegistry, type DataPack } from "@gamekits/data";
+import { createEventBus, type GameEvent } from "@gamekits/event-bus";
+import type { TcaHandlerContext } from "@gamekits/tca";
+import type { ComponentDef, EntityId, GameWorld } from "@gamekits/world";
 import { describe, expect, it } from "vitest";
 import {
   createGasDataTypes,
@@ -16,7 +16,7 @@ import {
   type GasAbilityExecutionState,
   type GasRuntime
 } from "../src";
-import { createGame } from "@gamekit/game-runtime";
+import { createGame } from "@gamekits/game-runtime";
 
 describe("GAS ability execution data", () => {
   it("validates execution durations, concurrency, commit and phase policies", () => {

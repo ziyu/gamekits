@@ -1,4 +1,4 @@
-import type { DataTypeDefinition } from "@gamekit/data";
+import type { DataTypeDefinition } from "@gamekits/data";
 import {
   animatorDataDiagnostic,
   isAnimatorNonEmptyString,

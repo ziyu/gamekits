@@ -1,8 +1,8 @@
-import { GameError } from "@gamekit/core";
-import { createDataRegistry } from "@gamekit/data";
-import { createEventBus } from "@gamekit/event-bus";
-import { createGame } from "@gamekit/game-runtime";
-import { type ComponentDef, type EntityId, type GameWorld } from "@gamekit/world";
+import { GameError } from "@gamekits/core";
+import { createDataRegistry } from "@gamekits/data";
+import { createEventBus } from "@gamekits/event-bus";
+import { createGame } from "@gamekits/game-runtime";
+import { type ComponentDef, type EntityId, type GameWorld } from "@gamekits/world";
 import { describe, expect, it } from "vitest";
 import {
   PhysicsBodyComponent,

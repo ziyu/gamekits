@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { defineRendererConformanceTests } from "@gamekit/test-utils";
+import { defineRendererConformanceTests } from "@gamekits/test-utils";
 import { createPhaserRenderer, type PhaserRendererRuntime } from "../src";
 
 type FakeNativeObject = {

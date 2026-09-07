@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { createAssetManager, type AssetDefinition } from "@gamekit/asset";
-import type { ThreeRendererNative, ThreeRenderTargetState } from "@gamekit/driver-three";
+import { createAssetManager, type AssetDefinition } from "@gamekits/asset";
+import type { ThreeRendererNative, ThreeRenderTargetState } from "@gamekits/driver-three";
 import type {
   RenderNodePath,
   RenderObjectDefinition,
@@ -8,7 +8,7 @@ import type {
   RenderObjectId,
   RendererAdapter,
   RendererBootContext
-} from "@gamekit/renderer-core";
+} from "@gamekits/renderer-core";
 import * as THREE from "three";
 import { createThreeDemoScene } from "./demo-scene";
 import {

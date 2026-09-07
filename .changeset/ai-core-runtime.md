@@ -1,5 +1,5 @@
 ---
-"@gamekit/ai-core": minor
+"@gamekits/ai-core": minor
 ---
 
 Add the data-driven AI runtime with bounded perception and decision scheduling, utility goals,

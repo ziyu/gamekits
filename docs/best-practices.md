@@ -43,7 +43,7 @@
 
 - 先判断能力归属：管理外部 runtime、平台能力、资源句柄、输入来源、UI shell、存储和诊断的能力通常是 App Service；需要 world、tick、actor、rule、ability、camera rig、physics scene 或 gameplay context 的能力通常是 GameModule。
 - 第三方库进入 Driver、Adapter、app/profile 或 app-specific presentation/tooling 层，不进入核心 facade、DataType、可复用 GameModule 公共 API 或 gameplay 包。
-- Driver 持有跨多个协议的外部 runtime，例如 Phaser Game 或 Three renderer/scene；Adapter 只把单个 GameKit 协议映射到 Driver 暴露的 runtime slice。
+- Driver 持有跨多个协议的外部 runtime，例如 Phaser Game 或 Three renderer/scene；Adapter 只把单个 GameKits 协议映射到 Driver 暴露的 runtime slice。
 - Multiplayer backend adapter 应优先接入成熟多人方案，例如 Colyseus、Nakama、PartyKit 或平台联机 SDK，并持有网络 SDK、room、matchmaker、state sync 或平台联机 runtime；App Host 管理连接 lifecycle，GameModule bridge 只消费归一化 session/message/authority 事实。
 - Adapter/Driver 集成已有 core 领域时，测试入口和生产组合都应经过 core facade/factory；不要用结构类型兼容的手写对象替代 core runtime。Provider 侧可以维护 native handle、连接索引和映射状态，但 core phase/session/snapshot/error 必须由对应 core 实现产出。
 - 具体 app presentation、Editor 后端专属面板和 DevTools renderer plugin 可以通过 typed native handle 使用底层 renderer API；这些依赖不能进入 Data、Save、core facade 或可复用 gameplay module。
@@ -122,7 +122,7 @@
 - Adapter 集成测试应同时断言 core facade snapshot 与 provider 行为；只验证第三方对象或 adapter 私有 snapshot 会漏掉平行状态机、生命周期漂移和消息通道不一致。
 - 数据驱动模块必须覆盖 duplicate、unknown type、missing reference、schema/path error、trace/diagnostic。
 - GameRuntime、Camera、Input、Physics、TCA、GAS、Save 等有顺序语义的模块必须覆盖顺序、幂等、stop/dispose 和 cleanup。
-- Multiplayer backend adapter 必须覆盖 provider facade 的 connect、create-or-join/leave、message routing、peer summary、disconnect、reconnect 降级、payload validation、dispose cleanup 和 diagnostics；provider 自己拥有的 room/matchmaker/state sync 逻辑不要在 GameKit core 中重写。
+- Multiplayer backend adapter 必须覆盖 provider facade 的 connect、create-or-join/leave、message routing、peer summary、disconnect、reconnect 降级、payload validation、dispose cleanup 和 diagnostics；provider 自己拥有的 room/matchmaker/state sync 逻辑不要在 GameKits core 中重写。
 - Multiplayer app/demo 集成测试不能只断言 peer count 或 presence；必须至少断言一条 lifecycle、input、snapshot、patch 或 command result 来自同一个 authority state，并验证非 authority snapshot/patch 不会被 client 应用。
 - Multiplayer 输入先区分 continuous state、fixed-step predicted control 和 discrete command：不逐 input rollback 的移动、瞄准、驾驶采用 latest-per-source coalescing、持有状态和明确 timeout；一个 sequence 对应一个 simulation step 的 predicted control 使用 per-source bounded FIFO、每 tick 消费一个、逐 step ack 和 client lead backpressure；交互、购买、一次性技能采用独立 bounded action FIFO。直接决定玩家手感的 press/release/cancel不能因为也影响 held state就只塞进 fixed-step FIFO：用有界 reliable action lane立即交付边沿，以单调 control sequence让 authority合并稍后到达的 continuous frame并忽略旧状态，同时在本地下一可绘制 frame做可撤销 anticipation。
 - 即时表现不能冒充完整预测。只继承显示位置、保持原速度或 correction lerp 的 render-only handoff只解决 presentation continuity；如果对象会因 collision、bounce、hit、expire 或 spawn/despawn 改变轨迹，必须选择 lag-compensated hitscan、kinematic fire/finish record、predicted entity + prediction island 或 authority-only 中语义完整的一种。Client predicted spatial result可撤销，但 damage/cost/kill仍由authority提交。测试必须覆盖已知 blocker前不穿透、confirm/reject/correct、generation reset、history overflow、动态交互成员一致 rollback和dispose retained state；app不能在单个武器中另建无界队列、solver cache或半套collision预测。
@@ -153,7 +153,7 @@
 
 发布实践：
 
-- GameKit 采用多包发布。下游项目按需安装 facade、adapter、driver、App Host、UI 和 DevTools 包，不通过一个巨型包默认引入所有能力。
+- GameKits 采用多包发布。下游项目按需安装 facade、adapter、driver、App Host、UI 和 DevTools 包，不通过一个巨型包默认引入所有能力。
 - `apps/*` 是验证应用和示例源码，不作为 npm package 发布。
 - 可发布包必须只通过公共入口导出稳定 API；`src/index.ts` 继续只做 re-export，不承载主要实现。
 - 发布产物必须来自 library build 输出的 `dist`，不能把 `src`、`test`、`.turbo`、`tsconfig.tsbuildinfo`、缓存、日志或 app 构建产物打入 tarball。
@@ -163,7 +163,7 @@
 - 纯 TypeScript 包、React TSX 包、adapter/driver 包都必须通过外部安装 smoke test，验证它们离开 workspace alias 后仍能被消费。
 - 初期版本采用 lockstep 发布，先走 alpha tag 验证 tarball、Node ESM、Vite、peer dependency 和真实 app dogfood，再进入 latest。
 - lockstep 期间，所有非私有 `packages/*` 必须位于同一个 Changesets fixed group，且 workspace manifest version 必须完全一致。新增 public package 的同一个 PR 必须同时补 fixed group，不能依赖后续人工记忆。
-- workspace manifest 是发布版本事实来源；release staging 可以重写 scope 和 workspace dependency range，但不能把版本漂移的 package 静默改写为 core 版本。registry check、tarball verify、publish 和 GitHub Release 创建前都应执行同一套 lockstep 校验。
+- workspace manifest 是发布版本事实来源；release staging 可以把 workspace dependency range 改写为 lockstep 版本号，但不能把版本漂移的 package 静默改写为 core 版本。registry check、tarball verify、publish 和 GitHub Release 创建前都应执行同一套 lockstep 校验。
 - prerelease 只更新 `alpha`、`beta` 或 `rc`，不得同步或覆盖 `latest`。稳定版进入默认安装入口时，直接用不带 prerelease 后缀的版本和 `dist-tag=latest` 发布。
 - Release workflow 应以通用 `release` 命名，`alpha`、`beta`、`rc`、`latest` 只是 dist-tag 参数；不要把当前阶段固化为 workflow 身份。
 - Changesets 自动化应先创建 version PR，再由合并后的 main 发布。alpha 阶段使用 Changesets pre mode，正式发布前显式 `pre exit`。
@@ -175,7 +175,7 @@
 
 依赖实践：
 
-- `@gamekit/*` 包之间在 workspace 内使用 workspace dependency，发布产物必须落成明确版本号。
+- `@gamekits/*` 包之间在 workspace 内使用 workspace dependency，发布产物必须落成明确版本号。
 - Driver 或 adapter 明确拥有的底层 runtime 可以作为该包 dependency，例如 Phaser driver 依赖 Phaser、Koota adapter 依赖 Koota。
 - 宿主应用必须共享的 runtime 使用 peer dependency，例如 React 和 ReactDOM。
 - 测试工具包如果导出 Vitest conformance helper，应把 Vitest 作为 peer dependency，并在 Vitest 进程中做 smoke test；普通 Node ESM smoke 不应直接 import 这类测试入口。
@@ -187,11 +187,11 @@
 - TypeScript project references 继续声明包依赖图；Turbo 负责按图构建 library package。App build 使用 `tsc -p tsconfig.json --noEmit` 只检查当前 app，不能递归 emit 引用包；需要输出自身产物的 private package 使用 `tsc -p tsconfig.json`。
 - 发布用 library bundler 输出可被 Node ESM 和主流 bundler 消费的 JS、类型声明和 CSS 产物。
 - Rolldown 系工具链优先通过 `tsdown` 试点和接入；若不能满足 package dry-run、d.ts、external、CSS 和 smoke test 门禁，再回退到直接 Rolldown 配置或其他成熟 library bundler。
-- 所有内部 `@gamekit/*` 依赖和大型第三方 runtime 在 library build 中保持 external，不把相邻包或 Phaser、React、Tauri 等 runtime 打进 facade 包。
+- 所有内部 `@gamekits/*` 依赖和大型第三方 runtime 在 library build 中保持 external，不把相邻包或 Phaser、React、Tauri 等 runtime 打进 facade 包。
 - package build helper 复制 CSS 或其他静态发布入口时，应在 bundler clean 和 JS/d.ts 输出完成后执行，避免 `dist` 被后续 clean 步骤清空。
 - 单包发布构建和 app typecheck 都不能递归 emit project references，否则并发任务可能覆盖前序包已经 bundler 处理过的 `dist`，并让其他任务读到半写入的 declaration tree。包内 build helper 只检查或生成当前包产物，app 只读 Turbo 已完成的依赖产物。
 - declaration bundler 遇到复杂类型递归时，可以为该包显式保留 tsc declaration tree，同时用 bundler 只输出入口 JS；这种例外要通过包级 build metadata 标记，并继续经过 tarball 和外部安装 smoke。
-- composite project reference 指向多入口 package 时，不能让 declaration bundler 用内部 chunk 覆盖 `tsc` 期望的 declaration tree；这类 package 应设置 `gamekitBuild.bundleDts: false`，保留与源码入口结构一致的 `.d.ts`，并用依赖 app 的只读 typecheck 和外部安装 smoke 验证跨包类型推断。
+- composite project reference 指向多入口 package 时，不能让 declaration bundler 用内部 chunk 覆盖 `tsc` 期望的 declaration tree；这类 package 应设置 `gamekitsBuild.bundleDts: false`，保留与源码入口结构一致的 `.d.ts`，并用依赖 app 的只读 typecheck 和外部安装 smoke 验证跨包类型推断。
 - 发布 staging 目录每轮必须先清理目标包目录，再复制当前 `dist`，并在 staging 侧再次清理 `.tsbuildinfo`，避免固定 release 目录带入旧文件。
 - 发布验证中的 npm cache/logs 应隔离到 release 目录，避免用户级 `~/.npm` 权限或缓存状态影响 `npm pack`。
 - scoped package 通过 token fallback 发布时必须显式传递 `--access public`；仅保留 manifest `publishConfig.access` 可能会被 registry 当作 private scoped package。
@@ -249,7 +249,7 @@
 - 新增 adapter、renderer sync、TCA runner、asset loader 时应补最小 benchmark 或 profile 入口。
 - Microbenchmark 的计时区间只包含被命名的目标路径；大规模 fixture创建、随机数据生成、磁盘读取和一次性装配放在 warmup或采样区间之外。需要变化输入时优先原地推进已构造 fixture，并为对象上限、drop和 dispose retained state单独设确定性预算，避免把测试夹具分配与 GC 抖动误判成目标模块回归。
 - benchmark 的细微变化只作为趋势参考，不写死成易碎测试；已经稳定的热点模块可以在定时或手动 performance workflow 使用留有足够机器波动余量的粗粒度预算，观察数量级退化、无界队列和 retained heap 持续增长。常规 PR CI 只保留确定性的正确性门禁；性能检查不能代替 profiler，也不能因为共享 runner 噪声阻塞合并。
-- DevTools Performance 面板只展示 GameKit 级 frame/system/service/adapter 归因，不替代浏览器 profiler；需要 CPU flamegraph、layout、paint、GPU 信息时仍使用浏览器或引擎原生工具。
+- DevTools Performance 面板只展示 GameKits 级 frame/system/service/adapter 归因，不替代浏览器 profiler；需要 CPU flamegraph、layout、paint、GPU 信息时仍使用浏览器或引擎原生工具。
 - 默认只开启低成本 summary；深度 span、单帧详情、完整 payload 展开必须由用户显式开启或在测试夹具中启用。
 - Trace ring、domain trace store、correlation summary 和每条 correlation 的 detail/root collection 必须分别有界，并用 benchmark 同时验证吞吐、snapshot 和 retained size。
 - Trace observer、跨模块 mapper、redactor 和 diagnostic reporter 属于旁路诊断，任何一层失败都不能改变 gameplay 结果；默认 trace payload 使用白名单摘要，完整业务 payload 和敏感字段只有在显式 opt-in、脱敏且单独预算后才能进入工具链。
@@ -274,7 +274,7 @@ Sandbox 是架构验证场，不是最终 demo。
 不允许：
 
 - 在 sandbox 里沉淀长期玩法规则。
-- 直接绕过 GameKit 公共接口访问 adapter 内部。
+- 直接绕过 GameKits 公共接口访问 adapter 内部。
 
 ## UI / DOM
 
@@ -285,9 +285,9 @@ Sandbox 是架构验证场，不是最终 demo。
 
 ## React UI
 
-- `@gamekit/react-ui` 使用 Tailwind CSS 作为默认样式基础，样式应通过组件、recipe、CSS variables 和语义 props 组织，而不是把 class 字符串散落在业务页面中。
+- `@gamekits/react-ui` 使用 Tailwind CSS 作为默认样式基础，样式应通过组件、recipe、CSS variables 和语义 props 组织，而不是把 class 字符串散落在业务页面中。
 - GSAP 只用于低频 UI 动效，例如 window/modal/toast/timeline/inspector 的进入、退出、强调和布局过渡；不要把 GSAP 用作 gameplay timing、renderer object patch 或 world tick 驱动。
-- shadcn/ui 是推荐的组件 recipe 最佳实践。采用时应复制并封装到 `@gamekit/react-ui` 或具体游戏 UI 包，保持代码可拥有、可改造、可测试。
+- shadcn/ui 是推荐的组件 recipe 最佳实践。采用时应复制并封装到 `@gamekits/react-ui` 或具体游戏 UI 包，保持代码可拥有、可改造、可测试。
 - 不要让业务 gameplay package、GameRuntime、World、Physics、TCA、GAS、DataType 或 renderer adapter 直接依赖 Tailwind、GSAP、shadcn/ui、Radix 或 Base UI。
 - 游戏应优先沉淀自己的 UI 组件库，例如 `AbilityButton`、`ResourceMeter`、`ActorPortrait`、`BuildSlot`，再由这些组件消费 Tailwind、CSS variables 或 shadcn recipe。
 - 所有 UI 动效必须尊重 reduced motion；动画失败不能阻塞 UI command 或 gameplay tick。

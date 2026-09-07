@@ -6,7 +6,7 @@ export function records(value: unknown): Array<Record<string, unknown>> {
 
 export function StatusPill({ value }: { value: string }) {
   return (
-    <span className={`gamekit-devtools-status gamekit-devtools-status--${value}`}>{value}</span>
+    <span className={`gamekits-devtools-status gamekits-devtools-status--${value}`}>{value}</span>
   );
 }
 

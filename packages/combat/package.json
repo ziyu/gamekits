@@ -1,5 +1,5 @@
 {
-  "name": "@gamekit/combat",
+  "name": "@gamekits/combat",
   "version": "0.1.0-alpha.8",
   "private": false,
   "type": "module",
@@ -17,18 +17,18 @@
     "lint": "oxlint ."
   },
   "dependencies": {
-    "@gamekit/core": "workspace:*",
-    "@gamekit/data": "workspace:*",
-    "@gamekit/event-bus": "workspace:*",
-    "@gamekit/game-runtime": "workspace:*",
-    "@gamekit/gas": "workspace:*",
-    "@gamekit/physics-core": "workspace:*",
-    "@gamekit/save": "workspace:*",
-    "@gamekit/world": "workspace:*"
+    "@gamekits/core": "workspace:*",
+    "@gamekits/data": "workspace:*",
+    "@gamekits/event-bus": "workspace:*",
+    "@gamekits/game-runtime": "workspace:*",
+    "@gamekits/gas": "workspace:*",
+    "@gamekits/physics-core": "workspace:*",
+    "@gamekits/save": "workspace:*",
+    "@gamekits/world": "workspace:*"
   },
   "devDependencies": {
-    "@gamekit/physics-rapier2d": "workspace:*",
-    "@gamekit/world-koota": "workspace:*"
+    "@gamekits/physics-rapier2d": "workspace:*",
+    "@gamekits/world-koota": "workspace:*"
   },
   "files": [
     "dist"

@@ -1,5 +1,5 @@
-import type { DataRef } from "@gamekit/data";
-import type { EntityId } from "@gamekit/world";
+import type { DataRef } from "@gamekits/data";
+import type { EntityId } from "@gamekits/world";
 
 export type PhysicsSceneId = string;
 export type PhysicsBodyId = string;

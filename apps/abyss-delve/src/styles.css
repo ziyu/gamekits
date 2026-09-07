@@ -362,14 +362,14 @@ kbd {
   font-size: 20px;
 }
 
-.gamekit-devtools-overlay {
+.gamekits-devtools-overlay {
   position: fixed;
   z-index: 30;
   inset: 0;
   pointer-events: none;
 }
 
-.gamekit-devtools-overlay > * {
+.gamekits-devtools-overlay > * {
   pointer-events: auto;
 }
 

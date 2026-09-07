@@ -1,5 +1,5 @@
-import type { DriverBootContext } from "@gamekit/driver-core";
-import type { PhaserRendererRuntime } from "@gamekit/renderer-phaser";
+import type { DriverBootContext } from "@gamekits/driver-core";
+import type { PhaserRendererRuntime } from "@gamekits/renderer-phaser";
 import type { PhaserDriverAssetRuntime } from "./assets";
 import type { PhaserDriverAudioRuntime } from "./audio";
 import type { PhaserDriverCameraRuntime } from "./camera";
@@ -55,9 +55,9 @@ export async function createPhaserDriverRuntime(
       resolve();
     };
 
-    class GameKitScene extends Phaser.Scene {
+    class GameKitsScene extends Phaser.Scene {
       constructor() {
-        super("gamekit-driver");
+        super("gamekits-driver");
       }
 
       create() {
@@ -70,7 +70,7 @@ export async function createPhaserDriverRuntime(
       width: internalSize(ctx.width, render.pixelRatio),
       height: internalSize(ctx.height, render.pixelRatio),
       backgroundColor: options.backgroundColor,
-      scene: GameKitScene,
+      scene: GameKitsScene,
       render: {
         antialias: render.antialias,
         antialiasGL: render.antialiasGL,

@@ -1,7 +1,7 @@
-import type { DevToolsRuntime } from "@gamekit/devtools";
-import { DevToolsOverlay } from "@gamekit/devtools-ui";
-import { GameKitUiShell, UiFocusBridge } from "@gamekit/react-ui";
-import type { UiRuntime } from "@gamekit/ui-core";
+import type { DevToolsRuntime } from "@gamekits/devtools";
+import { DevToolsOverlay } from "@gamekits/devtools-ui";
+import { GameKitsUiShell, UiFocusBridge } from "@gamekits/react-ui";
+import type { UiRuntime } from "@gamekits/ui-core";
 import { createRef } from "react";
 import { flushSync } from "react-dom";
 import { createRoot, type Root as ReactRoot } from "react-dom/client";
@@ -111,7 +111,7 @@ export function renderNavigationLabUi(
 
   flushSync(() => {
     root.render(
-      <GameKitUiShell
+      <GameKitsUiShell
         runtime={uiRuntime}
         className="navigation-lab-ui"
         density="compact"
@@ -434,7 +434,7 @@ export function renderNavigationLabUi(
           </footer>
         </section>
         <div className="navigation-lab__devtools" data-ui="navigation-devtools" />
-      </GameKitUiShell>
+      </GameKitsUiShell>
     );
   });
 

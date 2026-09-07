@@ -1,4 +1,4 @@
-import type { RenderNodeDefinition, RenderObjectDefinition } from "@gamekit/renderer-core";
+import type { RenderNodeDefinition, RenderObjectDefinition } from "@gamekits/renderer-core";
 import type { Object3D } from "three";
 import type { ThreeRenderRecord } from "./object-registry";
 import type { ThreeDriverRuntime } from "./runtime";

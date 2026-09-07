@@ -1,28 +1,28 @@
-# @gamekit/animator-core
+# @gamekits/animator-core
 
 ## 0.1.0-alpha.8
 
 ### Patch Changes
 
 - Updated dependencies [0326356]
-  - @gamekit/asset@0.1.0-alpha.8
-  - @gamekit/core@0.1.0-alpha.8
-  - @gamekit/event-bus@0.1.0-alpha.8
-  - @gamekit/renderer-core@0.1.0-alpha.8
-  - @gamekit/game-runtime@0.1.0-alpha.8
-  - @gamekit/data@0.1.0-alpha.8
+  - @gamekits/asset@0.1.0-alpha.8
+  - @gamekits/core@0.1.0-alpha.8
+  - @gamekits/event-bus@0.1.0-alpha.8
+  - @gamekits/renderer-core@0.1.0-alpha.8
+  - @gamekits/game-runtime@0.1.0-alpha.8
+  - @gamekits/data@0.1.0-alpha.8
 
 ## 0.1.0-alpha.7
 
 ### Patch Changes
 
 - Updated dependencies [398165e]
-  - @gamekit/asset@0.1.0-alpha.7
-  - @gamekit/game-runtime@0.1.0-alpha.7
-  - @gamekit/core@0.1.0-alpha.7
-  - @gamekit/event-bus@0.1.0-alpha.7
-  - @gamekit/renderer-core@0.1.0-alpha.7
-  - @gamekit/data@0.1.0-alpha.7
+  - @gamekits/asset@0.1.0-alpha.7
+  - @gamekits/game-runtime@0.1.0-alpha.7
+  - @gamekits/core@0.1.0-alpha.7
+  - @gamekits/event-bus@0.1.0-alpha.7
+  - @gamekits/renderer-core@0.1.0-alpha.7
+  - @gamekits/data@0.1.0-alpha.7
 
 ## 0.1.0-alpha.6
 
@@ -36,9 +36,9 @@
 ### Patch Changes
 
 - Updated dependencies [c6fdda9]
-  - @gamekit/asset@0.1.0-alpha.6
-  - @gamekit/core@0.1.0-alpha.6
-  - @gamekit/event-bus@0.1.0-alpha.6
-  - @gamekit/renderer-core@0.1.0-alpha.6
-  - @gamekit/game-runtime@0.1.0-alpha.6
-  - @gamekit/data@0.1.0-alpha.6
+  - @gamekits/asset@0.1.0-alpha.6
+  - @gamekits/core@0.1.0-alpha.6
+  - @gamekits/event-bus@0.1.0-alpha.6
+  - @gamekits/renderer-core@0.1.0-alpha.6
+  - @gamekits/game-runtime@0.1.0-alpha.6
+  - @gamekits/data@0.1.0-alpha.6

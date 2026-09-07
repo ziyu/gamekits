@@ -1,5 +1,5 @@
-import { createMultiplayerModule, type MultiplayerModuleOptions } from "@gamekit/multiplayer-core";
-import type { GameInstallContext } from "@gamekit/game-runtime";
+import { createMultiplayerModule, type MultiplayerModuleOptions } from "@gamekits/multiplayer-core";
+import type { GameInstallContext } from "@gamekits/game-runtime";
 import { resolveStandardValue } from "../resolve";
 import type { StandardMultiplayerGameModuleOptions, StandardServiceBuildContext } from "../types";
 
