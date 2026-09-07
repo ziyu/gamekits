@@ -1,5 +1,11 @@
 # @gamekits/core
 
+## 0.1.0-alpha.9
+
+### Patch Changes
+
+- e181325: Rename the public GameKits namespace and package scope to `@gamekits/*`.
+
 ## 0.1.0-alpha.8
 
 ## 0.1.0-alpha.7

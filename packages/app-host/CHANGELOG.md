@@ -1,5 +1,33 @@
 # @gamekits/app-host
 
+## 0.1.0-alpha.9
+
+### Patch Changes
+
+- Updated dependencies [e181325]
+  - @gamekits/core@0.1.0-alpha.9
+  - @gamekits/ai-core@0.1.0-alpha.9
+  - @gamekits/animator-core@0.1.0-alpha.9
+  - @gamekits/asset@0.1.0-alpha.9
+  - @gamekits/audio-core@0.1.0-alpha.9
+  - @gamekits/camera-core@0.1.0-alpha.9
+  - @gamekits/combat@0.1.0-alpha.9
+  - @gamekits/data@0.1.0-alpha.9
+  - @gamekits/devtools@0.1.0-alpha.9
+  - @gamekits/driver-core@0.1.0-alpha.9
+  - @gamekits/game-runtime@0.1.0-alpha.9
+  - @gamekits/gas@0.1.0-alpha.9
+  - @gamekits/input-core@0.1.0-alpha.9
+  - @gamekits/multiplayer-core@0.1.0-alpha.9
+  - @gamekits/navigation-core@0.1.0-alpha.9
+  - @gamekits/physics-core@0.1.0-alpha.9
+  - @gamekits/platform-core@0.1.0-alpha.9
+  - @gamekits/save@0.1.0-alpha.9
+  - @gamekits/tca@0.1.0-alpha.9
+  - @gamekits/ui-core@0.1.0-alpha.9
+  - @gamekits/world@0.1.0-alpha.9
+  - @gamekits/renderer-core@0.1.0-alpha.9
+
 ## 0.1.0-alpha.8
 
 ### Patch Changes
